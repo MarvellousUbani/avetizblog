@@ -1,0 +1,12 @@
+<form method="post" class=".js-advert-update-form" action="{% url 'advert:update_advert' advert.id %}" enctype="multipart/form-data">
+{%csrf_token %}
+	<div class="modal-header text-center">
+		<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">Update Advert</h4>
+	</div>
+	<div class="modal-body">
+		{% include 'advert/includes/partial_post_form.html' %}
+	<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<button class="btn modalsubmit btn-primary" type="submit">Save</button>
+</form>

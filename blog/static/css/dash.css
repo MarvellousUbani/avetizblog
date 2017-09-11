@@ -1,0 +1,237 @@
+ul.unstyled li a {
+    color: #7d7d7d;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+ul.unstyled li a:hover {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul.unstyled {
+    margin: 0px;
+    padding: 0px;
+}
+
+.dash h1 {
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.dash {
+    box-shadow: 0px 0px 53px -25px rgba(0,0,0,0.75);
+    padding: 20px;
+    border-bottom: solid 4px #017583;
+    border-radius: 4px;
+}
+#maincontent {
+    padding: 80px 0px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+.manage ul.unstyled li {
+    border-bottom: solid 1px #e1e1e1;
+    padding: 6px 0px;
+}
+
+ul.unstyled li {
+    list-style: none;
+}
+
+ul.unstyled li.active a {
+    color: #017583;
+    font-weight: 500;
+}
+
+.manage .panel-body {
+    padding-bottom: 5px;
+}
+
+.panel-body {
+    border: solid 1px #e1e1e1;
+    border-radius: 2px;
+    padding: 22px;
+    position: relative;
+}
+
+.job_title {
+    color: #333;
+    font-size: 20px;
+    line-height: 33px;
+    font-weight: 500;
+    display:inline;
+}
+
+
+.table {
+    margin-bottom: 0px;
+}
+
+tr {
+    border-bottom: solid 1px #e1e1e1;
+}
+
+.manage .table>thead>tr>th {
+    padding-left: 0px;
+}
+
+.table>thead>tr>th {
+    font-size: 13px;
+    color: #333;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+    font-size: 12px;
+    vertical-align: middle;
+    color: #7d7d7d;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.table>tbody>tr>td h1 {
+    font-size: 12px;
+    color: #333;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.table>tbody>tr>td span {
+    color: #7d7d7d;
+    font-size: 13px;
+    display: block;
+}
+
+.status {
+    color: #fff !important;
+    font-size: 13px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-top: 15px;
+    padding: 2px 5px !important;
+}
+
+
+.Draft{
+background-color:#ff8800;
+}
+.Published{
+	background-color: #5cc069;
+}
+.Submitted{
+    background-color: #ff7043;
+}
+.Credit{
+    background-color: #5cc069;
+}
+.Debit{
+    background-color:  #ff7043
+}
+
+.Pending{
+    background-color:#ff8800;
+}
+.Completetd{
+    background-color: #5cc069;
+}
+.createbtn{
+	border-radius:0px;
+	background:transparent;
+	border-style: solid;
+	border-color: #ff8800;
+	border-width: 1px;
+	color:#000;
+}
+
+.createbtn:hover{
+	background:transparent;
+	border-color:#ff8800;
+	color:#000;
+}
+
+.createbtn:active{
+	background:transparent;
+	border-color:#ff8800;
+	color:#000;
+}
+.createbtn:active:hover{
+	background:transparent;
+	border-color:#ff8800;
+	color:#000;
+}
+
+.createbtn:focus{
+	background:transparent;
+	border-color:#ff8800;
+	color:#000;
+}
+
+.modal-header{
+	background-color: #880e4f;
+	color:#fff;
+}
+.modalsubmit{
+	background-color: transparent;
+	border-radius:0px;
+	border-color:#880e4f;
+	color: #000;
+	border-width: 2px;
+}
+
+.modalsubmit:hover{
+	background:transparent;
+	border-color:#880e4f;
+	color:#000;
+}
+
+.modalsubmit:active{
+	background:transparent;
+	border-color:#880e4f;
+	color:#000;
+}
+.modalsubmit:active:hover{
+	background:transparent;
+	border-color:#880e4f;
+	color:#000;
+}
+
+.modalsubmit:focus{
+	background:transparent;
+	border-color:#880e4f;
+	color:#000;
+}
+.buttonicon{
+	background-color: transparent;
+	border-style: none;
+}
+.signup-box{
+    min-height: 590px !important;
+    min-width: 400px !important;
+}
+
+#maincontent{
+    background-color: #fff;
+}
+.Published{
+    background-color:green;
+
+}
+.draft{
+    colo
+}
+
+
+
+
+

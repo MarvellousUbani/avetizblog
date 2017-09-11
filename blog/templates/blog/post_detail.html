@@ -12,6 +12,9 @@
 
         {% else %}
             <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+            {% if publish_error%}
+            <span><font color="red">Please upload a thumbnail or create content for your post</font></span>
+            {%endif%}
         {% endif %}
 
       <p class='postcontent' >{{ post.text|safe|linebreaksbr }}</p>

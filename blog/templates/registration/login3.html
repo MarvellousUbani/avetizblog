@@ -1,0 +1,151 @@
+{% load static %}
+<html>
+	<head>
+		  <title>Login</title>
+		  <meta charset="utf-8">
+		  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+		  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+		  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		  <!--link rel="stylesheet" type="text/css" href="css/login.css"-->
+		  <!--link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" /-->
+		  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
+		  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+          <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	</head>
+	<body>
+	<div id="fb-root"></div>
+</script>
+		<div class="container-fluid  nav-container">
+        <!--div class="row"-->
+            <div class="col-md-8  col-md-push-2">
+                <nav class="navbar navbar-inverse">
+                  <div class=" nav-wrapper">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                      </button>
+                      <a class="navbar-brand" href="#">AvetiZ</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                          <li ><a href="#">Home</a></li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                           <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">Page 4</a></li>
+                          <li><a href="#">Page 5</a></li>
+                          <li><a href="#">Page 6</a></li>
+                          
+                          <li><a data-toggle="tooltip" href="https://www.facebook.com/AvetiZ/" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                          <!--li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                          <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->
+                          <!--li><a class="" href="#"><i class="fa fa-user"></i></a></li-->
+                          <li><a class="" href="#"><i class="fa fa-search"></i></a></li>
+                        </ul>   
+                    </div>
+                  </div>
+                </nav>
+            </div>
+        <!--/div-->
+        </div>
+		<div class="container-fluid top-breadcrumb">
+			<div class="row">
+				<div class="col-md-12 ">
+					<h2> AvetiZ Blog</h2>
+				</div>	
+			</div>
+		</div>
+		<div class="container-main">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-push-3">
+						<div class="row">
+							<div class="col-xs-12 loginformbox">
+								<h1 class="formtitle">Login</h1>
+								<hr>
+								<form method="post" action="{% url 'account:login' %}">
+									{% csrf_token %}
+									<div class="form-group ">
+									<p><font color="red">{{message}}</font></p>
+									<span class="ice-text">Uername</span>
+										<input class="form-control inputlog" name="username" id="id_username" type="text" required>
+									</div>
+									<div class="form-group">
+
+										<span class="ice-text">Password</span>
+										<input class="form-control inputlog" id="id_password" name="password" type="password" required >
+									</div>
+									
+			                        <div class="divider-10"></div>
+			                        <div class="col-xs-6">
+			                        	<a href="{% url 'password_reset' %}">Forgot Password ?</a>
+			                        	 <p>Don't have an account ? <a href="{% url 'account:signup' %}">Sign Up</a></p>
+			                        </div>
+                                    <input type="hidden" name="next" value="{{ next }}" />
+	                                <div class=" col-xs-6">
+	                                	
+										<div class="form-group">
+												<button type="submit" value="submit" name="submit" class="btn btn-primary submitbut">Login</button>
+										</div>
+									</div>
+								</form>
+
+							</div>
+							<!--div class="col-xs-12 loginformbox">
+								<div class="col-xs-12">
+								<h4>Join us with any of the social link</h4>
+								<br>
+								</div>
+								<div class="social_button col-xs-4 text-center">
+									<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink" class="facebook btn-block">
+									<i class="fa fa-facebook-square"></i> Facebook</a>
+								</div>
+								<div class="social_button col-xs-4 text-center">
+									<a href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=http%3A%2F%2Fjoin.sagecapitals.com%2Fsignup.php&client_id=800853496150-s9df9o67li9c3kr92gk314s9jjlurdjp.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=force"   class="facebook google btn-block">
+									<i class="fa fa-google-plus-square"></i>Google</a>
+								</div>
+								<div class="social_button col-xs-4 text-center">
+									<a href="?oauth_init=1" class="facebook linked btn-block"><i class="fa fa-linkedin-square"></i>  Linked In</a>	
+								</div>
+							</div-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+	</body>
+</html>

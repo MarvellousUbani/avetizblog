@@ -1,0 +1,55 @@
+{% extends 'advert/base.html' %}
+{% block content %}
+<div class="row">
+	<div class="col-md-4">
+	    <div class="widget-small info"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+	      <div class="info">
+	        <h4>Total Transaction</h4>
+	        <p><b>25</b></p>
+	      </div>
+	    </div>
+	</div>
+	<div class="col-md-4">
+	    <div class="widget-small info"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+	      <div class="info">
+	        <h4>Balance</h4>
+	        <p><b>₦ {{wallet.amount}}</b></p>
+	      </div>
+	    </div>
+	</div>	
+</div>
+<main id="maincontent">
+  <section class="manage">
+    <div class="container">
+      <div class="row">
+      	<div class="col-md-10 js-post-list ">
+      	<div class="panel-body">
+		  <div class="job_title">Manage Your Wallet</div>
+		  <button class="createbtn btn btn-primary  js-add-transaction  pull-right" data-url="{% url 'advert:create_transaction' %}">Credit My Account <i class="fa fa-plus" style="color:#017583;"></i></button>
+		    <table class="table" id="product-table">
+		      <thead >
+		      	<tr>
+			          <th><strong>Amount</strong></th>
+			          <th><strong>Created On</strong></th>
+			          <th><strong>Type/Status</strong></th>
+			          <!--th><strong>Status</strong></th-->
+			    </tr>
+		      </thead>
+		      <tbody>
+          			{% include 'advert/includes/partial_wallet_list.html' %}
+			   </tbody>
+			</table>
+			</div>
+         </div>
+      </div>
+    </div>
+ 
+  </section>
+    <div class="modal " id="modal-product">
+
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+</main>
+{% endblock %}

@@ -16,12 +16,20 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # During development only
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'myschoolrents@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'myschoolrents@gmail.com'
+EMAIL_HOST_PASSWORD = 'test123321'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'hzetdi)f#0okx$zu5y=7aae$9e6q25#+wmlu%)#=1s9h-m5s&_'
+GOOGLE_RECAPTCHA_SECRET_KEY ='6LfuKi4UAAAAAAEaHqWCAWNAWu0yYnoS4TlYzMsO'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,9 +37,19 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+HAYSTACK_CONNECTIONS = {
+  'default': {
+  'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+  'URL': 'http://127.0.0.1:9200/',
+  'INDEX_NAME': 'haystack',
+  },
+}
+
 # Application definition
 
 INSTALLED_APPS = [
+    'advert.apps.AdvertConfig',
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'blog',
+    'haystack'
 ]
 
 MIDDLEWARE = [
@@ -123,6 +142,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 DEBUG = True

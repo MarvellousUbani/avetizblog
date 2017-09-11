@@ -1,0 +1,124 @@
+{% load static %}
+<head>
+		  <title>{{request.user.first_name}}|AvetiZ-Blog</title>
+		  <meta charset="utf-8">
+		  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+		  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+		  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		  <link rel="stylesheet" type="text/css" href="{%static 'css/login.css' %}">
+		   <link rel="stylesheet" type="text/css" href="{%static 'css/blog.css' %}">
+       <link rel="stylesheet" type="text/css" href="{%static 'css/dash.css' %}">
+		  <!--link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" /-->
+		  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
+		  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+      <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x04lrjv0qgowh7z38l1q7sqkvvgft65c39410l4gd3hvfcsy'></script>
+		  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	</head>
+	<body>
+
+	
+		<div class="container-fluid  nav-container">
+        <!--div class="row"-->
+            <div class="col-md-8  col-md-push-2">
+                <nav class="navbar navbar-inverse">
+                  <div class=" nav-wrapper">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                      </button>
+                      <a class="navbar-brand" href="#">AvetiZ</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                          <li ><a href="#">Home</a></li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                           <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">Page 4</a></li>
+                          <li><a href="#">Page 5</a></li>
+                          <li><a href="#">Page 6</a></li>
+                          
+                          <li><a data-toggle="tooltip" href="https://www.facebook.com/AvetiZ/" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a class="" href="#"><i class="fa fa-search"></i></a></li>
+                        </ul>   
+                    </div>
+                  </div>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid top-breadcrumb">
+    			<div class="row">
+    				<div class="col-md-12 ">
+    					<h2> Dashboard</h2>
+    				</div>	
+    			</div>
+		    </div>
+
+        <main id="maincontent">
+          <section class="manage">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="dash">
+                    <h1>My Dashboard</h1>
+                    <ul class="unstyled">
+                      <li><a href="#"><i class="fa fa-caret-right"></i><strong>Manage Post</strong></a></li>
+                      <li><a href="#"><i class="fa fa-caret-right"></i><strong>Manage Advert</strong></a></li>
+                      <li class="active"><a href="#"><i class="fa fa-caret-right"></i><strong>Manage Profile</strong></a></li>
+                      <li><a href="#"><i class="fa fa-caret-right"></i><strong>Change Password</strong></a></li>
+                      <li><a href="{%url 'account:logout'%}"><i class="fa fa-caret-right"></i><strong>Sign Out</strong></a></li>
+                    </ul>
+                  </div>  
+                </div>
+                <div class="col-md-9">
+                  {% include 'advert/includes/partial_post_list.html' %}
+                </div>
+              </div>
+            </div>
+          </section>
+            <div class="modal " id="modal-product">
+
+              <div class="modal-dialog">
+                <div class="modal-content"></div>
+              </div>
+            </div>
+        </main>
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="{%static 'js/blog.js' %}"></script>
+
+        </body>
+  
+</html>
