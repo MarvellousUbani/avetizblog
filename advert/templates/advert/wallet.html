@@ -5,7 +5,15 @@
 	    <div class="widget-small info"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
 	      <div class="info">
 	        <h4>Total Transaction</h4>
-	        <p><b>25</b></p>
+	        <p><b>{{wallet.transaction_set.all.count}}</b></p>
+	      </div>
+	    </div>
+	</div>
+	<div class="col-md-4">
+	    <div class="widget-small warning"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+	      <div class="info">
+	        <h4>Pending Transaction</h4>
+	        <p><b>{{pt_count}}</b></p>
 	      </div>
 	    </div>
 	</div>
@@ -32,6 +40,7 @@
 			          <th><strong>Amount</strong></th>
 			          <th><strong>Created On</strong></th>
 			          <th><strong>Type/Status</strong></th>
+			          
 			          <!--th><strong>Status</strong></th-->
 			    </tr>
 		      </thead>

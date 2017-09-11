@@ -13,7 +13,8 @@ from blog.models import Post, Comment
 from .forms import  PostForm, TransactionForm
 from account.models import Profile
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.template.loader import render_to_string
 import pdb
 
@@ -118,7 +119,8 @@ class createAdvert(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 		context={'adverts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		#return JsonResponse(dic)
+		return reverse('advert:advert_list')
 
 
 class postUpdate(LoginRequiredMixin, UpdateView):
@@ -146,7 +148,8 @@ class postUpdate(LoginRequiredMixin, UpdateView):
 		context={'posts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		#return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):
@@ -171,8 +174,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 		self.object.delete()
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
-
+		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
 
@@ -203,7 +205,7 @@ class PostSubmitView(LoginRequiredMixin, UpdateView):
 			dic['form_is_valid']=False
 			dic['error_message']='No field can be empty. Make sure your upload a thumbnail for you post.'
 
-		return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
 class TransactionListView(LoginRequiredMixin,ListView):
@@ -218,6 +220,7 @@ class TransactionListView(LoginRequiredMixin,ListView):
 	def get_context_data(self, **kwargs):
 		context=super(TransactionListView, self).get_context_data(**kwargs)
 		context['wallet']=get_object_or_404(Wallet,Owner_id=self.request.user.id)
+		context['pt_count']=Transaction.objects.filter(wallet=self.request.user.wallet).filter(status__icontains='pend').count()
 		return context
 
 class TransactionCreateView(LoginRequiredMixin,  CreateView):
@@ -246,7 +249,7 @@ class TransactionCreateView(LoginRequiredMixin,  CreateView):
 		data['id']=transaction.id
 		data['amount']=transaction.amount
 		data['email']=self.request.user.email
-		return JsonResponse(data)
+		return HttpResponseRedirect(reverse('advert:transaction_list'))
 
 	def form_invalid(self,form):
 		dic=dict()
@@ -268,8 +271,7 @@ class AdvertUpdateView(LoginRequiredMixin, UpdateView):
 		data={'form':form, 'advert':self.object}
 		dic['html_form']=render_to_string(self.partial_file, data, request=self.request)
 		return JsonResponse(dic)
-
-
+		
 	def post(self,request, *args, **kwargs):
 		dic=dict()
 		self.object=self.get_object()
@@ -279,11 +281,8 @@ class AdvertUpdateView(LoginRequiredMixin, UpdateView):
 		context={'adverts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
-
-
-
-
+		#return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:advert_list'))
 
 class AdvertDeleteView(LoginRequiredMixin,DeleteView):
 	model=Advert
@@ -308,7 +307,7 @@ class AdvertDeleteView(LoginRequiredMixin,DeleteView):
 		self.object.delete()
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:advert_list'))
 
 
 class ProfileUpdateView(LoginRequiredMixin, View):
@@ -333,6 +332,15 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 		latestpost=Post.objects.filter(author=self.request.user)[:4]
 		context={'user':request.user, 'userform':userform, 'profileform':profileform, 'posts':latestpost, 'xyzw':True}
 		return render(self.request, 'advert/profile.html',context)
+
+class ApprovePaytView(LoginRequiredMixin, View):
+
+	def get(self, request, *args, **kwargs):
+		pdb.set_trace()
+		ref=self.request.GET.get('reference')
+		transaction=Transaction.objects.get(id=ref)
+		transaction.approve()
+		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
 def monthCount(user, n=[]):

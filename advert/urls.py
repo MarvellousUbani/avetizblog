@@ -16,5 +16,6 @@ urlpatterns = [
      url(r'^advert/(?P<pk>\d+)/remove/$', views.AdvertDeleteView.as_view(), name='delete_advert'),
      url(r'^advert/(?P<pk>\d+)/update/$', views.AdvertUpdateView.as_view(), name='update_advert'),
      url(r'^profile/$', views.ProfileUpdateView.as_view(), name='profile'),
+     url(r'^approve_payt/$', views.ApprovePaytView.as_view(), name='approve_payt'),
      
 ]

@@ -1,0 +1,14 @@
+asn1crypto==0.22.0
+cffi==1.10.0
+conda==4.3.21
+cryptography==1.8.1
+idna==2.5
+menuinst==1.4.7
+packaging==16.8
+pycosat==0.6.2
+pycparser==2.17
+pyOpenSSL==17.0.0
+pyparsing==2.1.4
+pywin32==220
+requests==2.14.2
+six==1.10.0

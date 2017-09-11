@@ -54,6 +54,23 @@ class Transaction(models.Model):
 	wallet=models.ForeignKey(Wallet)
 	status=models.CharField(max_length=20, choices=(('Pending','Pending'),("Completed",'Completed')))
 
+	def approve(self):
+		self.status='Completed'
+		self.wallet.amount+=self.amount
+		self.save()
+		self.wallet.save()
+
+
+class Bank(models.Model):
+	name=models.CharField(max_length=50)
+	account_number=models.CharField(max_length=50)
+	owner=models.ForeignKey(User)
+
+	def __str__(self):
+		return self.name
+
+
+
 
 
 

@@ -107,5 +107,50 @@
     <script src="{% static 'js/plugins/pace.min.js'%}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{%static 'js/blog.js' %}"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+      
+      function payWithPaystack(el){
+       email= $(el).attr('email');
+       id=$(el).attr('id');
+       amount=$(el).attr('amount');
+    var handler = PaystackPop.setup({
+      // This assumes you already created a constant named
+      // PAYSTACK_PUBLIC_KEY with your public key from the
+      // Paystack dashboard. You can as well just paste it
+      // instead of creating the constant
+      key: 'pk_test_d7ed8771f755bc62d8d023a93e531101a3ac4eb8',
+      email: email,
+      amount: amount*100,
+      ref:id,
+      metadata: {
+        cartid:id,
+        orderid:id,
+        custom_fields: [
+          {
+            display_name: "Paid on",
+            variable_name: "paid_on",
+            value: 'AvetiZBlog'
+          },
+          {
+            display_name: "Paid via",
+            variable_name: "paid_via",
+            value: 'Inline Popup'
+          }
+        ]
+      },
+      callback: function(response){
+        // post to server to verify transaction before giving value
+        var verifying = $.get( "{% url  'advert:approve_payt' %}", {reference:response.reference} );
+        verifying.done(function( data ) { /* give value saved in data */ });
+      },
+      onClose: function(){
+        alert('Click "Pay now" to retry payment.');
+      }
+    });
+    handler.openIframe();
+    return false;
+  }
+    </script>
   </body>
 </html>
