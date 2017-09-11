@@ -30,7 +30,7 @@ class Dashboard(LoginRequiredMixin, View):
 		published_count=Post.objects.filter(status__icontains='publish').count()
 		submitted_count=Post.objects.filter(status__icontains='submit').count()
 		monthdis=monthCount(self.request.user)
-		pdb.set_trace()
+		# pdb.set_trace()
 		context={
 		'comment_count':comment_count,
 		'draft_count':draft_count,

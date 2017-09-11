@@ -636,6 +636,10 @@ footer .input-group{
 
 }
 
+.searchbox{
+   margin-bottom: 20px;
+}
+
 .searchbox input{
   border-radius: 0;
   font-size: 1.3em;
