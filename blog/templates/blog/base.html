@@ -1,83 +1,231 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-    <head>
-        <title>Blog Project</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <head>
+    <title>AvetiZ Blog</title>
+      <meta charset = "utf-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Faustina|Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
+  <body>
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-        {# MEDIUM STYLE EDITOR#}
-        <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
-
-
-        {# Custom CSS#}
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-        {# Fonts#}
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
-
-
-
-
-
-<body class='loader'>
-
-
-  <nav class="navbar navbar-default techfont custom-navbar">
-    <div class="container">
-
-
-      <ul class="nav navbar-nav">
-        <li><a class='navbar-brand bigbrand' href="{% url 'post_list' %}">My Tech blog</a></li>
-        <li><a href="{% url 'about'%}">About</a></li>
-        <li><a href="https://www.github.com">Github</a></li>
-        <li><a href="https://www.linkedin.com">LinkedIn</a></li>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'post_new' %}" >New Post</a>
-        </li>
-
-        <li>
-          <a href="{% url 'post_draft_list' %}">Drafts</a>
-        </li>
-        <li>
-          <a href="{% url 'logout' %}" >Log out</a>
-        </li>
-
-        <li>
-          <a >Welcome: {{ user.username }}</a>
-        </li>
-          {% else %}
-          <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
-        {% endif %}
-
-      </ul>
-  </div>
-</nav>
-
-  {# The actual blog posts#}
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                  <div class="blog_posts">
-                    {% block content %}
-                    {% endblock %}
-
-                  </div>
-
-                </div>
-            </div>
+     <div id="headernav">
+     <div class="container-fluid top-bar ">
+                  
+            <div class="row backgroundcolor">
+        <div class="col-md-2 col-xs-3 col-sm-2 imglogo ">
+          <ul class="list-inline">
+            <li><a class="" href="#"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
+          </ul>
         </div>
+        <div class="col-md-8">
+          <div class=" text-center graceSection">
+            <a href="#"><img class="img-responsive" src="https://image.ibb.co/nF1SFQ/970x90nws.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container-fluid navcontain">
+        <div class="row">
+          <div class="heightclass  col-xs-11">
+          <nav class="navbar navbar-inverse">
+            <div class=" nav-wrapper">
+              <div class="navbar-header">
+               
+                <li class="dropdown mega-dropdown">
+
+                <button id="navbar-hamburger" type="button" class="navbar-toggle" data-toggle="dropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                  </button>
+                  <div id="navbar-close" class="hidden">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </div>
+                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections</a>
+           
+                    <ul class="dropdown-menu mega-dropdown-menu row">
+                      <li class="row">
+                        <li class="col-sm-12">    
+                        <form class="searchbox">
+                        <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <div class="input-group-btn">
+                          <button class="btn btn-default faBtn" type="submit">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    </li>
+                      </li>
+
+                      <li class="row">
+                       <li class="col-xl-2 col-sm-2 col-md-3">
+                         <ul>
+                         <li class="dropdown-header"><a href="">News</a></li>
+                             
+                           <li class="dropdown-header"><a href="">Business</a></li> 
+                            </ul>
+                          </li>
+
+                          <li class="col-xl-2 col-sm-3">
+                            <ul>
+                              <li class="dropdown-header"><a href="">Trend</a></li>
+                              
+                              
+                              <li class="dropdown-header"><a href="">Entertainment</a></li>
+                              
+                            </ul>
+                          </li>
+
+                          <li class="col-sm-3">
+                            <ul>
+                              <li class="dropdown-header"><a href="">My Story</a></li>
+                              <li class="dropdown-header"><a href="">Around the Web</a></li>
+                            </ul>
+                          </li>
+
+                          <li class="col-sm-3">
+                            <ul>
+                              <li class="dropdown-header"><a href="">Weird Houses</a></li>
+                              <li class="dropdown-header"><a href="">Advertise with Us</a></li>
+
+                            </ul>
+                          </li>
+                         </li>
+
+                         <li class="row">
+                            <li class="col-sm-6 col-lg-8">
+                              
+                            </li>
+                            <li class="text-right col-xs-12 col-sm-6 col-lg-4 iconsList">
+                              
+                          <ul class=" list-inline">
+                              <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>      
+                        </ul>
+                      
+                            </li>
+                         </li>
+                       </ul>
+
+                  </li>
+                  <li class="search-icon"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a></li>
+  
+              </div>
+            
+              <div class="social-icon">
+                <ul class=" list-inline">
+                    <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>      
+              </ul>
+            </div>
+            </div>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+
+      </div>
+
+              {% block content %}
+
+
+              {% endblock %}
+
+<footer class="blogFooter">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12">
+      
+     </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-2 col-md-1">
+      <img id= "footerLogoImg" src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive">
+       </div>
+       <div class="col-sm-9 col-md-7">
+       <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli">News</div>
+          <div class="col-sm-3 bNavli">My Story</div>
+          <div class="col-sm-3 bNavli">Weird Houses</div>
+          <div class="col-sm-3 bNavli">Contact Us</div>
+          
+      </div>
+
+      <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli">Trend</div>
+          <div class="col-sm-3 bNavli">Entertainment</div>
+          <div class="col-sm-3 bNavli">Advertise with Us</div>
+          <div class="col-sm-3 bNavli">Work with AvetiZ</div>
+      </div>
+
+      <div class="row bottomBlogfooterRow">
+          <div class="col-sm-3 bNavli">Business</div>
+          <div class="col-sm-3 bNavli">Around the Web</div>
+      </div>
+
+
+       </div>
+
+       <div class="col-md-3 col-sm-9 col-xs-12">
+         <div class="input-group">
+               <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
+              <span class="input-group-btn ">
+               <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
+                </span>
+            </div>
+       </div>
+     </div>
+
+     <div class="row">
+     <div class="col-xs-1"></div>
+      <div class="col-md-7 copyRightCol">
+        <div class="row">
+         <ul class="socialCluster list-inline">
+              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+              <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
+              
+            </ul>
+            </div>
+      </div>
+     </div>
+    </div>
+</footer>
+
 
 {# SCRIPTS#}
+
+  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 

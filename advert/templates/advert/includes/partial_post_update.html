@@ -1,0 +1,44 @@
+<script>
+                tinymce.init({
+                 selector: 'textarea',
+            relative_urls: false,
+            remove_script_host: false,
+            document_base_url: "https://mysite.co.za/",
+            height: "360",
+            branding:false,
+            fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+            font_formats: "Andale Mono=andale mono,times;" +
+                    "Arial=arial,helvetica,sans-serif;" +
+                    "Arial Black=arial black,avant garde;" +
+                    "Book Antiqua=book antiqua,palatino;" +
+                    "Comic Sans MS=comic sans ms,sans-serif;" +
+                    "Courier New=courier new,courier;" +
+                    "Georgia=georgia,palatino;" +
+                    "Helvetica=helvetica;" +
+                    "Impact=impact,chicago;" +
+                    "Symbol=symbol;" +
+                    "Tahoma=tahoma,arial,helvetica,sans-serif;" +
+                    "Terminal=terminal,monaco;" +
+                    "Times New Roman=times new roman,times;" +
+                    "Trebuchet MS=trebuchet ms,geneva;" +
+                    "Verdana=verdana,geneva;" +
+                    "Webdings=webdings;" +
+                    "Wingdings=wingdings,zapf dingbats",
+            plugins: "image,advlist, table, autolink, charmap, code, colorpicker, contextmenu,link, lists, paste, preview, searchreplace,  spellchecker, textcolor, wordcount,emoticons",
+            toolbar: "fontselect | fontsizeselect | forecolor | backcolor | bold | italic | underline | alignleft | aligncenter | alignright | alignjustify | bullist | numlist | outdent | indent | link | image | print | media | code",
+            tools: "inserttable",
+            contextmenu: "link image inserttable | cell row column deletetable"
+                });
+</script>
+<form method="post" class=".js-post-update-form" action="{% url 'advert:update_post' post.id %}" enctype="multipart/form-data">
+{%csrf_token %}
+	<div class="modal-header text-center">
+		<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">Update Post</h4>
+	</div>
+	<div class="modal-body">
+		{% include 'advert/includes/partial_post_form.html' %}
+	<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<button class="btn modalsubmit btn-primary" type="submit">Save</button>
+</form>

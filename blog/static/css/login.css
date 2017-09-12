@@ -1,0 +1,170 @@
+ .btn-container{
+ 	text-align:right;
+ 	margin-top: 15px;
+ }
+ .top-btn{
+ 	border-radius: 0px;
+ 	width:80px;
+ 	background-color:#AAAA39;
+ 	border-style:none;
+ 	padding: 12px 20px;
+    color: #fff;
+    text-transform : capitalize;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 2px;
+    box-shadow: inset 0 -7px 1px -5px rgba(0,0,0,0.4);
+ }
+
+ .top-btn:active{
+ 	background-color:#AAAA39;
+ }
+ .jumbotron{
+ 	width:100%;
+ }
+
+ .top-breadcrumb{
+ 	text-align: center;
+ 	min-height:150px;
+ 	background: url(http://join.sagecapitals.com/assets/images/login/banner_bg.jpg) no-repeat left top/cover;
+ 	color:#fff;
+ }
+
+ .top-breadcrumb h2{
+ 	padding-top:40px;
+ }
+
+ .form-white{
+ 	min-height:800px;
+ 	background-color: #ccc;
+ 	margin-top: 50px;
+ }
+
+ .form-text{
+ 	margin: 0;
+    line-height: 1.5em;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    font-family: "Source Sans Pro Light";
+    font-size: 20px;
+    font-size:2.5rem;
+ }
+ .form-header{
+ 	margin-top: 50px ;
+ 	margin-left: 48px;
+ }
+
+ .container-main{
+    background:url(https://www.realtymogul.com/sites/all/themes/iceman/images/bkgrndUserReg.png) no-repeat scroll center bottom;
+    width:100%;
+    height:auto;
+ }
+ .loginformbox{
+    background: rgba(255, 255, 255, 0.94);
+    margin-top:30px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    padding: 18px 32px 32px;
+   color: #808285;
+ }
+ 
+ 
+ .borderprob{
+    border-radius:0px;
+    height:50px;
+ }
+
+ @media screen and (max-width: 768px){
+.formtitle {
+    font-size: 36px ;
+    /*font-size: 2.25rem;*/
+}
+}
+.formtitle{
+    margin: 0;
+    line-height: 1.5em;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    font-family: "Source Sans Pro ";
+   /* font-family: "Open Sans Condensed', sans-serif";*/
+}
+.loginformbox p{
+    margin-bottom: 0px;
+}
+.inputlog{
+    height:48px;
+    border-radius:0px;
+}
+.ice-text{
+    z-index:10px;
+    position:relative;
+    top:10;
+    left:10;
+    background-color:white; 
+}
+.submitbut{
+    padding: 1em 2em;
+    min-width: 220px;
+    box-sizing: border-box;
+    display: inline-block;
+    color: #FFFFFF;
+    background: #CC4032;
+    font-family: "Source Sans Pro";
+    line-height: 1em;
+    text-align: center;
+    text-transform: capitalize;
+    white-space: nowrap;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: .2s background-color ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    font-size: 16px !important;
+    font-size: 1rem;
+    border-style: none;
+    height:45px;
+}
+.divider-10{ 
+width:100%; 
+min-height:1px; 
+margin-top:10px; 
+margin-bottom:10px;  
+display:inline-block; 
+position:relative;
+}
+
+.facebook i {
+    font-size: 24px;
+    padding-right: 4px;
+}
+
+.facebook {
+    background-color: #3b5998;
+    color: #fff;
+    padding: 10px 0px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.google {
+    background-color: #dd4b39;
+}
+.linked {
+    background-color: #2876b4;
+}
+@media (max-width: 1199px){
+.facebook {
+    font-size: 14px;
+}
+}
+
+

@@ -1,0 +1,13 @@
+{% for transaction in transactions %}
+<tr>
+  <td><h1><strong>{{transaction.amount}}</strong></h1></td>
+  <td>{{transaction.date|date:"SHORT_DATE_FORMAT"}}</td>
+  <td class="status {{transaction.trans_type}}">{{transaction.trans_type}}</td>
+  <td class="status {{transaction.status}}">{{transaction.status}}</td>
+  {% if transaction.status == 'Pending' %}
+  <td class="status pay"><a amount="{{transaction.amount}}" email="{{request.user.email}}" id={{transaction.id}}  onclick="payWithPaystack(this)" href="#">Pay Now</a></td>
+  {% endif %}
+</tr>
+<!-- paybill.ng -->
+{% endfor %}
+        
