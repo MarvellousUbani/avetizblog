@@ -7,7 +7,7 @@
         <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
@@ -72,19 +72,19 @@
                       </li>
 
                       <li class="row">
-                       <li class="col-xl-2 col-sm-2 col-md-3">
+                       <li class="col-xl-2 col-sm-3 col-md-3">
                          <ul>
-                         <li class="dropdown-header"><a href="">News</a></li>
-                             
-                           <li class="dropdown-header"><a href="">Business</a></li> 
+                         <li class="dropdown-header"><a href="">Real Estate</a></li>  
+                           <li class="dropdown-header"><a href="">Trend</a></li> 
+                           <li class="dropdown-header"><a href="">Politics</a></li> 
+                           <li class="dropdown-header"><a href="">Around the Web</a></li> 
                             </ul>
                           </li>
 
                           <li class="col-xl-2 col-sm-3">
                             <ul>
-                              <li class="dropdown-header"><a href="">Trend</a></li>
-                              
-                              
+                              <li class="dropdown-header"><a href="">Business</a></li>
+                              <li class="dropdown-header"><a href="">Technology</a></li> 
                               <li class="dropdown-header"><a href="">Entertainment</a></li>
                               
                             </ul>
@@ -93,13 +93,15 @@
                           <li class="col-sm-3">
                             <ul>
                               <li class="dropdown-header"><a href="">My Story</a></li>
-                              <li class="dropdown-header"><a href="">Around the Web</a></li>
+                              <li class="dropdown-header"><a href="">Sport</a></li>
+                              <li class="dropdown-header"><a href="">Fashion</a></li> 
                             </ul>
                           </li>
 
                           <li class="col-sm-3">
                             <ul>
                               <li class="dropdown-header"><a href="">Weird Houses</a></li>
+                              <li class="dropdown-header"><a href="">Education</a></li> 
                               <li class="dropdown-header"><a href="">Advertise with Us</a></li>
 
                             </ul>

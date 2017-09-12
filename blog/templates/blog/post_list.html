@@ -76,10 +76,10 @@
 							{% for post in post_list|slice:":5"%}
 							<a href="{% url 'post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
-								<div class="col-xs-4  ">
+								<div class="col-xl-6 col-xs-5 sidebarrowCol">
 									<img class="img-responsive" src="{{post.post_pic.url}}"/>
 								</div>
-								<div class="col-xs-8 no-pad zone-content ">
+								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{post.title}}</h4>
 								</div>
 								<br>
@@ -123,10 +123,10 @@
 							{% for post in trending_posts|slice:":5" %}
 							<a href="{% url 'post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
-								<div class="col-xs-4  ">
+								<div class="col-xl-6 col-xs-5 sidebarrowCol">
 									<img class="img-responsive" src="{{post.post_pic.url}}"/>
 								</div>
-								<div class="col-xs-8 no-pad zone-content ">
+								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{ post.title }}</h4>
 								</div>
 								<br>
