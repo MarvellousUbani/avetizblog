@@ -19,7 +19,7 @@
       <div class="container margin-tops">
         <div class="row">
           <div class="col-md-8 col-sm-8">
-            <img src="{{post.post_pic.url}}" class="img-responsive img-post-detail">
+            <img src="{{post.post_pic.url}}" style="width:100%" class="img-responsive img-post-detail">
             <h3 class="post-title-detail">{{post.title}}</h3>
             {% if post.published_date %}
             <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D M Y"}} By</span> 
