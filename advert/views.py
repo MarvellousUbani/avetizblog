@@ -76,7 +76,9 @@ class AjaxableResponseMixin(object):
 		context={'posts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:post_list'))
+		#return JsonResponse(dic)
+
     def render_to_json_response(self, data):
 		return JsonResponse(data)
 

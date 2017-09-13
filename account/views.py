@@ -4,6 +4,7 @@ from django.contrib.auth import (authenticate,login as auth_login, logout as aut
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.urls import reverse
+from advert.models import Wallet
 from .forms import LoginForm,UserCreateForm
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.models import User

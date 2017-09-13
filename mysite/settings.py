@@ -36,9 +36,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '45.55.42.128',
+<<<<<<< HEAD
     '127.0.0.1', 
     'avetizblog.com',
     'www.avetizblog.com',
+=======
+    '127.0.0.1',
+    'localhost',
+>>>>>>> 46f497b7baec2e6168fbd38023a4d760a18d6b1b
 ]
 
 

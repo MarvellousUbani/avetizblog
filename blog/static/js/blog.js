@@ -96,11 +96,9 @@ $(document).on('click',function(){
       url: form.attr("action"),
       data: formdata,//form.serialize(), //formData,
       type: form.attr("method"),
-      processData: false,
+      //processData: false,
       contentType: false,
       success: function (data) {
-       //alert('im here');
-        console.log(data)
         if (data.form_is_valid) {
           $("#product-table tbody").html(data.html_list);
           $("#modal-product").modal("hide");
