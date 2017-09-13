@@ -53,7 +53,7 @@
 
                   </div>
                   <div class="row">
-                  {% for item in post_list%}
+                  <!-- {% for item in post_list%}
                       {% if item.category == post.category and item != post %}
                         <div class="col-sm-4 pad-right">
                         <a href="{% url 'post_detail' pk=post.pk %}">
@@ -61,7 +61,13 @@
                           <h4>{{item.title}}</h4></a>
                         </div>
                       {% endif %}
-                    {% endfor %}
+                    {% endfor %} -->
+                {% for post in post_list|slice:"4:7" %}
+                <div class="col-sm-4 pad-right"><a href="{% url 'post_detail' pk=post.pk %}">
+                  <img src="{{post.post_pic.url}}" class="img-responsive">
+                  <h4>{{post.title}}</h4></a>
+                </div>
+                {% endfor %}
                 </div>
                </section>
 
@@ -135,7 +141,7 @@
         
     </section>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-4"><h4>Recommended</h4></div>
         </div>
         <div class="row">
@@ -152,7 +158,7 @@
             </ul>
           </div>
         </div>
-        <hr>
+        <hr> -->
 
         <section class="similarStories">
         
