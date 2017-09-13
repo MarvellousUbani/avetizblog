@@ -11,6 +11,7 @@ from django.contrib.auth.hashers import make_password
 from django.conf import settings
 from django.contrib import messages
 from .models import Profile
+from advert.models import Wallet
 import urllib
 import urllib2
 import json
@@ -81,6 +82,7 @@ class SignUp(CreateView):
 				user=User(first_name=firstname, email=email,username=username, is_staff=False,password=password, is_active=True)
 				user.save()
 				profile=Profile(user=user).save()
+				wallet=Wallet(Owner=user).save()
 				return HttpResponseRedirect(reverse('account:login', current_app='account'))
 			except:
 				return render(self.request, 'registration/register.html', {'form':form, 'username':'Username already exist'})
