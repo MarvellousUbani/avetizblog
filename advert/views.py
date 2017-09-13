@@ -47,7 +47,7 @@ class postList(LoginRequiredMixin, ListView):
 	login_url='account/login'
 	context_object_name='posts'
 	def get_queryset(self):
-		return Post.objects.filter(author=self.request.user).filter(post_type__icontains='post').order_by('-published_date')
+		return Post.objects.filter(author=self.request.user).order_by('-published_date')
 
 class AdvertListView(LoginRequiredMixin,ListView):
 	model=Advert
@@ -77,7 +77,9 @@ class AjaxableResponseMixin(object):
 		context={'posts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:post_list'))
+		#return JsonResponse(dic)
+
     def render_to_json_response(self, data):
 		return JsonResponse(data)
 
