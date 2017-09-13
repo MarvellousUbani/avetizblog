@@ -25,7 +25,7 @@
 					<div class="col-md-4 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
-							  {% for post in featured_posts|slice:"2:5" %}
+							  {% for post in featured_posts|slice:"1:4" %}
 							  	  <a href="{% url 'post_detail' pk=post.pk %}">
 									<div class="col-md-8 col-sm-7 second-sec-post js-third" >
 										<h3>{{post.title}}</h3>
@@ -39,7 +39,7 @@
 						</div>
 						
 						<div class="sec-post-wrapper2 ">
-							  {% for post in featured_posts|slice:"5:6" %}
+							  {% for post in featured_posts|slice:"4:5" %}
 							  <a href="{% url 'post_detail' pk=post.pk %}">
 								<div class="col-md-8 col-sm-7 second-sec-post last js-third" >
 									<h3>{{post.title}}</h3>
