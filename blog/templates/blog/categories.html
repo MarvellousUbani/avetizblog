@@ -1,0 +1,559 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Faustina|Slabo+27px" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail2.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+{% endblock %}
+
+{% block content %}
+
+	<!-- Header Section with Advert -->
+	<header class="cAdSection">
+		<img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/1557534103495319173">
+	</header>
+
+	<!-- Category Title Section -->
+	<section class="cHeadlineSection">
+		<div class="container-fluid">
+		<h2>Culture</h2>
+		</div>
+	</section>
+
+	<main class="mainCategory container-fluid">
+		<div class="row">
+
+
+		<!-- Whats New Section -->
+			<div class="col-sm-6 col-md-4 col-lg-3 whatsNewCol">
+				<h3 class="cTitle">What's New</h3>
+
+				<!-- Whats New Articles -->
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/QsVJYfjh5jHX41az2PTIL4i3_FE=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55771%2Fe6160f18-62fa-47d3-83dc-ab09187fe8c5.png">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Perfect photobomb turns lady into beautiful butterfly</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>146</strong> SHARES / 46 minutes ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/o0mju-4T3U1pVEDtq-HpMjvlNOI=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55766%2Ff8f0be4d-b50a-4776-a4e8-7c25b6dca540.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Olympian shares a photo of his hands after Arctic row</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>231</strong> SHARES / 1 hour ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/kCPZMNsjpDuH8zfhRWl4rd2Obds=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55768%2Fbda4e392-8131-40cc-9a17-4b6715f53638.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">This twitter story could change everything!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>455</strong> SHARES / 2 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row adRow">
+					<div class="col-xs-12">
+					<img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/14899169878083854005">
+					
+				    </div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/1KSn5FpegVOxf1hAfMSvqA-8e2M=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55764%2F37fdf64e-7062-4778-980d-b64eebc8e6cc.png">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Two really smart gentlemen!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>526</strong> SHARES / 2 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/s2F48nHQPVnG-W8AG-cnlXAvlxA=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55755%2Fdd0298cb-3d43-4566-b470-e3efd768d78a.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Women write detailed review of bikini wax strips!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>56</strong> SHARES / 3 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/DCn1o6U5tiFGvWBUfpMLjnNTBYg=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55613%2F6d1d7d78-f144-4ec1-a077-6b9457d96783.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">The Ugly Truth about Giraffes!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>74</strong> SHARES / 8 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/kNKzpX-PzOlzTCZowmP6aaYsXw0=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55360%2Fb53cf69e-2954-4fa7-a2f2-3c5017dab767.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">There's a shoplifting reddit!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>26</strong> SHARES / 4 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/xgJeiWXeoXlxHl-n8LcG_x3gPxE=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55552%2Fbff9d2f3-e04c-4bc6-8b61-722a3f8e197d.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Your dog is smarter than you realize!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>13</strong> SHARES / 4 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/u19UWu_fiErdxdjbfN6dWjwF2MA=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55539%2F41f9c95a-90ff-4aef-81d2-deaf5ca23175.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">How you can personalize your belongings.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>7</strong> SHARES / 5 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/e30I2H2T6G8hsFp8qjeqrdN45GU=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55261%2F72fa143e-df0a-40f7-b200-a3c2fead0536.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Woman creates board game about arranged marriages.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>15</strong> SHARES / 5 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/zA6sRmdLdX0nON6nnC5bYjYOdts=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55456%2F694f5798-7403-44c1-b1e2-e08f7e6e404f.png">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Freshman students rescue stranded Koala.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>5</strong> SHARES / 5 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/iyhihfWBfs02_fbniPNPujQei5I=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55692%2F03d02f4a-3e18-44f4-8e4e-04a99fbae817.png">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Mother casually covered in bees during photoshoot</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>38</strong> SHARES / 5 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/Tdxt2uuFs_o9KIlOCQsn3PVJa1w=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55637%2Fee928e47-d7b0-4778-8637-e0bde9e051c4.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Harry Porter here we go again. It's time for Wembley!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>8</strong> SHARES / 5 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row adRow">
+					<div class="col-xs-12">
+					<img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/14899169878083854005">
+					
+				    </div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/va-VIU8oQpvxoiWR0wR0v9Jbamo=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55394%2Fc3c35f1c-7986-4adb-91f7-0058971fee28.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Froggy's latest album drops in 3 months. Fans!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>228</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/_O04-BhihHylhy3CSiicp8pvFeo=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55471%2F0d116912-3301-4cb3-96c9-14a202d147c8.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Real tweets about living in new york city.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>15</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/HeU3xBuB8e0RQhsBBNI57Gs5Uik=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55619%2F600eb1d6-54b6-4328-aa9b-84f8555dfa22.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Grandma still waxs strong after 90th birthday.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>5</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/_wjm28uOZjUQ8T1Q6WRyIwekKfM=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55685%2Fe4410813-caaf-4731-878b-3e372c90fe60.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Home free's cover is much more better than Taylor's original.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>8</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/ofpufPy0KonadpukDwEllB7dtAs=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55636%2Ff4bcd45c-6c70-4a4a-a90b-ec36e619da4c.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Creepy thieves pull out a massive wine heist!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>8</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/va-VIU8oQpvxoiWR0wR0v9Jbamo=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55394%2Fc3c35f1c-7986-4adb-91f7-0058971fee28.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Froggy's latest album drops in 3 months. Fans!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>228</strong> SHARES / 6 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/D35iL5amyWBlNug0TeudG0ll8sQ=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55296%2F95654bf9-8bf5-4314-8cda-e7eac50925e6.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Five important things we have learnt from the aftermath of AGT.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>15</strong> SHARES / 7 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/kEwPx41vIumg9SWcBadykCwJeRM=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55370%2Fedb7b6c3-e4b4-48fe-a1e3-c0d72d23f5b8.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Police officer bursts into extraordinary dance after getting a most wanted criminal.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>5</strong> SHARES / 7 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/LxucxvMgVd6H9ZxZIUeaFSWl8ME=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55333%2F7699220f-eab5-48b2-ad7e-f67dca929c67.png">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">16 times when people where brilliantly trolled.</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>8</strong> SHARES / 7 hours ago</small></span>
+					</div>
+				</div>
+
+				<div class="row whatsNewArticle">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="https://i.amz.mshcdn.com/JijuP-7VPvGjgIRSbEzvV44zF-I=/175x175/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55356%2F112d9e16-67ff-4db2-8e95-4eb29debf3c2.jpg">
+					</div>
+					<div class="col-xs-8 noleftpad">
+						<p class="whatsNewATitle"><a href="">Be cautious when going to the bathroom...Snakes could slither!</a></p>
+						<span><i class="fa fa-share-square" aria-hidden="true"></i> 
+						<small><strong>8</strong> SHARES / 7 hours ago</small></span>
+					</div>
+				</div>
+
+				
+
+
+				
+
+			</div>
+
+
+			<!-- Whats Rising Section -->
+			<div class="col-sm-6 col-md-4 col-lg-4 whatsRisingCol">
+				<h3 class="cTitle">What's Rising</h3>
+
+				<div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/8M4w_4XVEBGA3eWdAKvGQcpKr90=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55720%2Fd5bcb919-e9a2-47eb-b1eb-96c19685f04d.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">Journalist brilliantly trolls email scammer with Jason Bourne's passport</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>300</strong> SHARES</span>
+	                </div>
+	            </div>
+
+				<div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/BDykHJKfZrponQEarAJxKlsAgSI=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55652%2F5e7af9b7-bc91-44ce-bc32-8f9e87471e0f.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">TED X: Imagine a world of every sort of possibily. You choose</a></h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>120</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/lUSKUYQxU7ougBtfCwgWt0yOrkg=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55627%2Fa52aebb2-f8a4-4cb8-980f-45131a0ce81d.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">People are sharing vivid memories where they were when Queen Diana died!</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>320</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/ja1V8aIFJjW1F2OmsuesAwF7POc=/950x534/filters:quality(90)/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F508583%2F16d494c8-e8ca-4c23-8e4e-3e55df6a0543.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">How you can start off a career in coding!</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>810</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/-q3H_9_YG60X9iTP80J_x96ssnA=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55661%2F11024c34-bd37-48b3-a2ed-a6b2088630a7.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">Journalist brilliantly trolls email scammer with Jason Bourne's passport</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>300</strong> SHARES</span>
+	                </div>
+	            </div>
+
+				<div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/TBAY87_uefzw4awTabFJoLlEPqg=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55691%2Fe7f79244-cadf-4abc-b046-881437015ffc.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">TED X: Imagine a world of every sort of possibily. You choose</a></h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>120</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/pwbqGAO70IP1hmAXBP7xTGzFLoE=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55730%2Fd867a100-e958-4547-99df-36162794b723.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">People are sharing vivid memories where they were when Queen Diana died!</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>320</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/c9vugzvOxXNR9t_2q9LkTN0iQDk=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55712%2Fba91ece5-1684-48e1-a5ee-07d8615f8bb7.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsRisingATitle"><a href="">How you can start off a career in coding!</a>
+	                    </h3>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>810</strong> SHARES</span>
+	                </div>
+	            </div>
+
+
+	            
+
+	            
+
+			</div>
+
+			<!-- Whats Hot Section -->
+			<div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
+				<h3 class="cTitle">What's Hot</h3>
+
+				<div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/GiYqy2_puW0m3kNm-bvJjLuVHpM=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55750%2F7c971c20-fbb2-49dc-8bb2-f62b7f9b4e36.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Take cover Australia. It's time to prepare for ungodly magpie swooping season.</a>
+	                    </h3>
+	                    <p>It's spring and you're fucked.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>562</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/c03Kmhjt9r1JoTzqArGFNAtPxAA=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55756%2F117bb99c-c730-4140-8167-ccce334f4008.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Cyclist dabs for Google maps camera, instantly becomes internet hero.</a>
+	                    </h3>
+	                    <p>What a ledge.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/0rCTZ2WFP3w0rjs6lbyYLQ22gLU=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55745%2F52080d8d-014b-46b6-9497-2704904e23e4.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Eric Trump doubts CNN will cover his dad's donation after CNN repeatedly covered it.</a>
+	                    </h3>
+	                    <p>CNN's got receipt.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/hn6g24kkznd3Xj6nVpVixCm9Mr8=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55687%2F0de0ae42-e53f-4b80-bd3e-cc2aee14f1c1.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Take cover Australia. It's time to prepare for ungodly magpie swooping season.</a>
+	                    </h3>
+	                    <p>It's spring and you're fucked.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>562</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/_nb65VtqBgyKfIJBL1PRniFUFE4=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55719%2Fcc907a04-c07e-4382-9735-62ee9e10f3fa.jpg">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Cyclist dabs for Google maps camera, instantly becomes internet hero.</a>
+	                    </h3>
+	                    <p>What a ledge.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
+	                </div>
+	            </div>
+
+	            <div class="card">
+	                <div class="card-image">
+	                    <img class="img-responsive" src="https://i.amz.mshcdn.com/73Jb6NB2pjYSYHV-vsSeZGFRXaw=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55771%2Fe6160f18-62fa-47d3-83dc-ab09187fe8c5.png">
+	                </div>
+	                
+	                <div class="card-content">
+	                    <h3 class="whatsHotATitle"><a href="">Eric Trump doubts CNN will cover his dad's donation after CNN repeatedly covered it.</a>
+	                    </h3>
+	                    <p>CNN's got receipt.</p>
+	                </div>
+	                
+	                <div class="card-action">
+	                	<span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
+	                </div>
+	            </div>
+	           
+				
+			</div>
+		</div>
+	</main>
+{% endblock %}
