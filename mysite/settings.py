@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1', 
     'avetizblog.com',
+    '45.55.42.128',
     'www.avetizblog.com',
 ]
 
