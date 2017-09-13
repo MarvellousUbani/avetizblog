@@ -18,7 +18,6 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 import pdb
 
-
 # Create your views here
 class Dashboard(LoginRequiredMixin, View):
 	login_url='account/login'
@@ -47,7 +46,7 @@ class postList(LoginRequiredMixin, ListView):
 	login_url='account/login'
 	context_object_name='posts'
 	def get_queryset(self):
-		return Post.objects.filter(author=self.request.user).filter(post_type__icontains='post').order_by('-published_date')
+		return Post.objects.filter(author=self.request.user).order_by('-published_date')
 
 class AdvertListView(LoginRequiredMixin,ListView):
 	model=Advert
@@ -336,7 +335,7 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 class ApprovePaytView(LoginRequiredMixin, View):
 
 	def get(self, request, *args, **kwargs):
-		pdb.set_trace()
+		#pdb.set_trace()
 		ref=self.request.GET.get('reference')
 		transaction=Transaction.objects.get(id=ref)
 		transaction.approve()
