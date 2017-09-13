@@ -36,7 +36,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '45.55.42.128',
-    '127.0.0.1',
+    '127.0.0.1', 
+    'avetizblog.com',
+    'www.avetizblog.com',
 ]
 
 
