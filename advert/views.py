@@ -18,7 +18,6 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 import pdb
 
-
 # Create your views here
 class Dashboard(LoginRequiredMixin, View):
 	login_url='account/login'
@@ -338,7 +337,7 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 class ApprovePaytView(LoginRequiredMixin, View):
 
 	def get(self, request, *args, **kwargs):
-		pdb.set_trace()
+		#pdb.set_trace()
 		ref=self.request.GET.get('reference')
 		transaction=Transaction.objects.get(id=ref)
 		transaction.approve()

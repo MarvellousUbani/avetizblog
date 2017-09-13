@@ -16,6 +16,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class AboutView(TemplateView):
     template_name = 'about.html'
 
+class CategoryView(TemplateView):
+    template_name='categories.html'
+
+class GrassToGraceView(TemplateView):
+    template_name ='grass-to-grace.html'
+
 class PostListView(ListView):
     model = Post
     paginate_by = 5
@@ -55,6 +61,7 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['Comments'] = Comment.objects.all()
+        context['post_list'] = Post.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm

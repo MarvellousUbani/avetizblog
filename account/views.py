@@ -12,6 +12,7 @@ from django.contrib.auth.hashers import make_password
 from django.conf import settings
 from django.contrib import messages
 from .models import Profile
+from advert.models import Wallet
 import urllib
 import urllib2
 import json

@@ -1,0 +1,387 @@
+{% load staticfiles %}
+<!Doctype html>
+<html>
+	<head>
+		<title>Grass To Grace | AvetiZ</title>
+			<meta charset = "utf-8">
+    		<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+  			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+  			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  			<link rel="stylesheet" type="text/css" href="{% static 'css/gtg.css' %}">
+  			<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+  			<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+  			<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	</head>
+	<body>
+
+	<!-- Navigation Bar -->
+
+	<nav class="navbar navbar-default navbar-static-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="blog.html"><img src="http://test.sagecapitals.com/img/avetiz.jpg" class="img-responsive"></a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      
+	    </ul>
+	  </div>
+	</nav>
+
+
+	<!-- Video Jumbotron -->
+		<div class="jumbotron">
+		   
+		    <video id="bg-video" autoplay="true" loop="loop" preload="metadata" muted="muted">
+		        <source src="https://www.realtor.com/welcome/realpeople/images/bg-vids/four.mp4" type="video/mp4"><source src="https://www.realtor.com/welcome/realpeople/images/bg-vids/four.webm" type="video/webm">
+		    </video>
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-md-1"></div>
+		    	   <div class="col-lg-3 col-md-5 col-sm-8">
+		    	   	<h1 class="headlineTxt">We want to hear your <span class="paciTxt"><em>story!</em></span></h1>
+			        <p class="pTxt">Several people around the world would be inspired by your <span class="paciTxt">determination</span> and <span class="paciTxt">success</span>, which is why we want you to share your story.</p>
+
+			        <button class="btn btn-lg btn-default shareStoryBtn" data-toggle="modal" data-target="#shareStoryModal">Share Your Story <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+		    	   </div>
+		    	   <div class="col-lg-8 col-md-7"></div>
+		    	</div>
+		        
+		    </div>
+		   
+		</div>
+
+		<main>
+	  	<div class="container">
+
+			<ul class="list-unstyled video-list-thumbs row">
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="The Osunlola's Family ">
+						<img src="http://aisleperfect.com/wp-content/uploads/2014/06/Traditional-Introduction-Ceremony-Demi-O-Photography-53.jpg" alt="Barca" class="img-responsive" />
+						<h2 class="text-center">The Osunlola's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://www.onlinenigeria.com/site/wp-content/uploads/yoruba-traditional-wedding-list-e29885-20-items-every-man-should-have.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Ekighe's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://d3hp8xnxb3lun4.cloudfront.net/wp-content/uploads/2016/02/07_RakeMagazine_188_Comp_39L.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Dimkoko's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://www.nairaland.com/attachments/1278044_625535_506034929455284_1552838402_n_jpg5860e03913cfc8761c1692c7b0d3a890" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Zimga's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+			    <li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://inallherglory.files.wordpress.com/2015/03/alari-forburial.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okun's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://thevoicesa.com/resources/Igbo_family_in_traditional_attire.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okoro's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://answersafrica.com/wp-content/uploads/2015/06/George-Okoro-1024x683.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Abdul's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://lh3.googleusercontent.com/-Axt7jp5qEJw/V7qmbhSj7QI/AAAAAAAABAo/NI7Fm7zcZZI/s2560/%25255BUNSET%25255D.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okon's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+			</ul>
+
+			<section class="gtgCalltoAction">
+			  	<p class="text-center"><button class="btn btn-lg btn-default shareStorybtn" data-toggle="modal" data-target="#shareStoryModal">Share Your Story <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button></p>
+
+					<!-- Modal -->
+					  <div class="modal fade" id="shareStoryModal" role="dialog">
+					    <div class="modal-dialog modal-lg">
+					    
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="mdContent">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h2 class="modal-title headlineTxt">Share your <span class="paciTxt">Success</span> story</h2>
+					          <p>Upload a video about how you moved from failure to success. Detail your experience by writing us a note!</p>
+					        </div>
+					        <div class="modal-body">
+					          <form>
+					          	<div class="row">
+					          	  <div class="col-sm-6">
+									  <div class="form-group">
+									    <label for="firstName"></label>
+									    <input type="text" class="form-control isInput" id="firstName" placeholder="First Name">
+									  </div>
+									 </div>
+								  <div class="col-sm-6">
+									  <div class="form-group">
+									    <label for="lastName"></label>
+									    <input type="text" class="form-control isInput" id="lastName" placeholder="Last Name">
+									  </div>
+									 </div>
+									</div>
+
+								<div class="row">
+					          	  <div class="col-sm-6">
+									  <div class="form-group">
+									    <label for="email"></label>
+									    <input type="email" class="form-control isInput" id="email" placeholder="Email Address">
+									  </div>
+									 </div>
+								  <div class="col-sm-6">
+									  <div class="form-group">
+									    <label for="phone"></label>
+									    <input type="tel" class="form-control isInput" id="phoneNum" placeholder="Phone Number">
+									  </div>
+									 </div>
+									</div>
+
+								<div class="row">
+					          	  <div class="col-sm-6">
+									  <div class="form-group">
+									    <label for="city"></label>
+									    <input type="text" class="form-control isInput" id="city" placeholder="City">
+									  </div>
+									 </div>
+								  <div class="col-sm-6">
+									  <div class="form-group">
+									    <button class="btn btn-default btn-lg uploadBtn">Upload video/picture 
+									    <i class="fa fa-upload" aria-hidden="true"></i><input type="file" class="shareStoryFile"></button>
+
+									  </div>
+									 </div>
+									</div>
+
+								  <p>Don’t have a video? No worries, we still want to hear from you. Detail your experience by writing us a note:</p>
+								  <div class="form-group">
+									  <label for="comment"></label>
+									  <textarea class="form-control" rows="5" id="comment"></textarea>
+									</div>
+								  <div class="checkbox">
+								    <label><input type="checkbox" required>I have read and understand my <a href="">story authorization & release</a> policy and I agree to its terms and conditions.</label>
+								  </div>
+								  <button type="submit" class="btn btn-default btn-lg shareSubmitBtn">Submit <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+								</form>
+					        </div>
+					        </div>
+					        <div class="modal-footer">
+					          
+					        </div>
+					        
+					      </div>
+					      
+					    </div>
+					  </div>
+			  </section>
+
+			<div class="row" style="margin:20px auto">
+				<div class="col-sm-12" style="background-color: #8dc73f;">
+					<img style="margin:0 auto" src="https://www.techcityng.com/wp-content/uploads/2016/06/Konga-Ad-728x90.jpg" class="img-responsive">
+				</div>
+				
+			</div>
+
+
+
+			<ul class="list-unstyled video-list-thumbs row">
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="The Osunlola's Family ">
+						<img src="http://aisleperfect.com/wp-content/uploads/2014/06/Traditional-Introduction-Ceremony-Demi-O-Photography-53.jpg" alt="Barca" class="img-responsive" />
+						<h2 class="text-center">The Osunlola's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://www.onlinenigeria.com/site/wp-content/uploads/yoruba-traditional-wedding-list-e29885-20-items-every-man-should-have.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Ekighe's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://d3hp8xnxb3lun4.cloudfront.net/wp-content/uploads/2016/02/07_RakeMagazine_188_Comp_39L.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Dimkoko's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://www.nairaland.com/attachments/1278044_625535_506034929455284_1552838402_n_jpg5860e03913cfc8761c1692c7b0d3a890" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Zimga's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+			    <li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://inallherglory.files.wordpress.com/2015/03/alari-forburial.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okun's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="http://thevoicesa.com/resources/Igbo_family_in_traditional_attire.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okoro's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://answersafrica.com/wp-content/uploads/2015/06/George-Okoro-1024x683.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Abdul's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+
+				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+						<img src="https://lh3.googleusercontent.com/-Axt7jp5qEJw/V7qmbhSj7QI/AAAAAAAABAo/NI7Fm7zcZZI/s2560/%25255BUNSET%25255D.jpg" alt="Barca" class="img-responsive"/>
+						<h2 class="text-center">The Okon's</h2>
+						<span class="glyphicon glyphicon-play-circle"></span>
+						<span class="duration">Click Here</span>
+					</a>
+				</li>
+			</ul>
+
+				<div class="row" style="margin:20px auto">
+					<div class="col-sm-12" style="background-color: #8dc73f;">
+						<img style="margin:0 auto" src="https://www.techcityng.com/wp-content/uploads/2016/06/Konga-Ad-728x90.jpg" class="img-responsive">
+					</div>
+				
+				</div>
+
+	  </div>
+</main>
+
+	  
+	<section class="gtgCalltoAction">
+	  	<p class="text-center"><button class="btn btn-lg btn-default shareStorybtn" data-toggle="modal" data-target="#shareStoryModal">Share Your Story <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button></p>
+	  </section>
+
+	<footer class="blogFooter">
+			<div class="container">
+
+			  <div class="row">
+
+			  	<div class="col-sm-12 col-md-12">
+					
+			   </div>
+
+			  </div>
+
+
+			  <div class="row">
+			    <div class="col-sm-2 col-md-1">
+			    <img id= "footerLogoImg" src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive">
+			     </div>
+			     <div class="col-sm-9 col-md-7">
+			     <div class="row topBlogfooterRow">
+
+			  			<div class="col-sm-3 bNavli">News</div>
+			  			<div class="col-sm-3 bNavli">My Story</div>
+			  			<div class="col-sm-3 bNavli">Weird Houses</div>
+			  			<div class="col-sm-3 bNavli">Contact Us</div>
+			  			
+					</div>
+
+					<div class="row topBlogfooterRow">
+
+			  			<div class="col-sm-3 bNavli">Trend</div>
+			  			<div class="col-sm-3 bNavli">Entertainment</div>
+			  			<div class="col-sm-3 bNavli">Advertise with Us</div>
+			  			<div class="col-sm-3 bNavli">Work with AvetiZ</div>
+					</div>
+
+					<div class="row bottomBlogfooterRow">
+			  			<div class="col-sm-3 bNavli">Business</div>
+			  			<div class="col-sm-3 bNavli">Around the Web</div>
+					</div>
+
+
+			     </div>
+
+			     <div class="col-md-3 col-sm-9 col-xs-12">
+				     <div class="input-group">
+				           <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
+				          <span class="input-group-btn ">
+				           <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
+				            </span>
+				        </div>
+			     </div>
+			   </div>
+
+			   <div class="row">
+			   <div class="col-xs-1"></div>
+			   	<div class="col-md-7 copyRightCol">
+			   		<div class="row">
+			       <ul class="socialCluster list-inline">
+				          <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
+				          <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
+				          <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+											  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
+				          <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+				          <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
+				          
+				        </ul>
+				        </div>
+			   	</div>
+			   </div>
+			  </div>
+		</footer>
+
+	<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/blog.js"></script>
+	</body>
+</html>
+

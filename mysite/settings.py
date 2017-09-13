@@ -35,9 +35,10 @@ GOOGLE_RECAPTCHA_SECRET_KEY ='6LfuKi4UAAAAAAEaHqWCAWNAWu0yYnoS4TlYzMsO'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '45.55.42.128',
-    '127.0.0.1',
     'localhost',
+    '127.0.0.1', 
+    'avetizblog.com',
+    'www.avetizblog.com',
 ]
 
 

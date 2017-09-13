@@ -1,0 +1,174 @@
+body{
+	font-family: 'Roboto Slab';
+	background-color:#E6E7E8;
+}
+
+a{
+	color: #464646;
+}
+
+strong{
+	color: #464646;
+}
+
+.cAdSection{
+	background-color: #F6F5F2;
+	height: auto;
+	padding: 10px 0;
+	width: 100%;
+}
+
+.cAdSection img{
+	margin:0 auto;
+
+}
+
+.cHeadlineSection{
+	height: 50px;
+	background-color: #fff;
+}
+
+.cHeadlineSection h2{
+	font-size: 1.2em;
+	color: #8A8C8E;
+	font-weight: bold;
+}
+
+.whatsNewCol{
+	background-color: #fff;
+	height: auto;
+	padding-bottom: 15px;
+}
+
+.whatsNewCol .row{
+	margin-bottom: 25px;
+}
+
+
+.cTitle{
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.whatsNewATitle{
+	font-size: 1em;
+}
+
+
+.whatsNewArticle img{
+	width: 100%;
+}
+
+.whatsNewArticle .fa{
+	font-size: 1.4em;
+	color: #D0D0D0;
+	position: relative;
+	top: 2px;
+}
+
+.whatsNewArticle small{
+	font-size: 0.8em;
+	color: #c1c1c1;
+	font-family: sans-serif;
+}
+
+.whatsNewArticle small{
+}
+
+.noleftpad{
+	padding-left: 0;
+}
+
+.whatsRisingCol{
+	background-color: #EFF0F1;
+	height: auto;
+	padding: 0 30px 15px 30px;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  margin: 10px 0 30px 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.card .card-image {
+  position: relative;
+  overflow: hidden;
+}
+.card .card-image img {
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.card .card-content {
+  padding: 2px 16px;
+  border-radius: 0 0 2px 2px;
+  box-sizing: border-box;
+}
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+}
+
+.card .card-action {
+  padding: 10px 0 0 0;
+  font-family: sans-serif;
+  font-size: 0.85em;
+}
+
+.card .card-action span{
+	color: #c1c1c1;
+}
+
+.card .card-content p{
+	padding: 15px 0px;
+	font-family:sans-serif;
+	color: #777676;
+}
+
+
+.card .card-action .fa{
+	font-size: 1.2em;
+	color: #fff;
+	background:#D0D0D0;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+
+.whatsRisingATitle {
+	font-size: 1.5em;
+}
+
+.whatsHotATitle{
+	font-size: 1.5em;
+}
+
+
+.whatsHotCol{
+	background-color: #E6E7E8;
+	height: auto;
+	padding-bottom: 15px;
+}
+
+
+.adRow img{
+	margin:0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+	.whatsNewATitle {
+   		font-size: 1.5em;
+    }
+
+    .cTitle{
+    	padding-top:20px;
+    }
+ }
