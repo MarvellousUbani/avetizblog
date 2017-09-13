@@ -55,6 +55,7 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['Comments'] = Comment.objects.all()
+        context['post_list'] = Post.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm

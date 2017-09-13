@@ -1,55 +1,217 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+{% load bootstrap3 %}
 
+<section id="ad">
+      <div class="container ad">
+        <div class="col-md-8 margin-tops col-md-push-2">
+          <a href="#"><img src="https://tpc.googlesyndication.com/simgad/15838796070819256304" class="img-responsive"/></a>
+        </div>
+        <div class="col-md-12">
+          <hr>
+        </div>
 
-        <h1 class='posttitle loader'>{{ post.title }}</h1>
+      </div>
+    </section>
 
-        {% if post.published_date %}
-            <div class="date postdate">
-                {{ post.published_date }}
+    <section id="post-body">
+      <div class="container margin-tops">
+        <div class="row">
+          <div class="col-md-8 col-sm-8">
+            <img src="{{post.post_pic.url}}" class="img-responsive img-post-detail">
+            <h3 class="post-title-detail">{{post.title}}</h3>
+            {% if post.published_date %}
+            <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D M Y"}} By</span> 
+            <span class="post-author">{{post.author.get_full_name|capfirst}} {{approved_comments.count}} COMMENTS</span></span>
+
+            {% endif %}
+
+            <div class="margin-tops post-text">{{post.text|safe}}</div>
+
+            <hr>
+            <div class="row">
+              <div class="detail-share col-xs-2 text-center" >
+                <span class="share-count"><strong>29</strong></span>
+                <br>
+                <span class="share-text"><strong>SHARE</strong></span>
+              </div>
+              <div class="icons col-xs-10">
+                <i class="fa fa-facebook-official fa-3x" style="color:#3b5998"></i>
+                <i class="fa fa-twitter-square fa-3x" style="color:#1dcaff"></i>
+                <i class="fa fa-whatsapp fa-3x" style="color:#25d366"></i>
+                <i class="fa fa-linkedin-square fa-3x" style="color:#007bb6"></i>
+                <i class="fa fa-google-plus-square fa-3x" style="color:#d34836"></i>
+              </div>
             </div>
+            <hr>
+            <br>
 
-        {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-            {% if publish_error%}
-            <span><font color="red">Please upload a thumbnail or create content for your post</font></span>
-            {%endif%}
-        {% endif %}
+             <section class="similarStories">
+                <div class="row">
+                    <h3 style="">Similar Stories</h3>
 
-      <p class='postcontent' >{{ post.text|safe|linebreaksbr }}</p>
+                  </div>
+                  <div class="row">
+                  {% for item in post_list%}
+                      {% if item.category == post.category and item != post %}
+                        <div class="col-sm-4 pad-right">
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                          <img src="{{item.post_pic.url}}" class="img-responsive">
+                          <h4>{{item.title}}</h4></a>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                </div>
+               </section>
 
-
-      {% if user.is_authenticated %}
-          <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-          <a class="btn btn-primary" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-      {% endif %}
-
-
-
-  <hr>
-  <a class="btn btn-primary btn-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
-  
-  <div class="container">
-
-
-  {% for comment in post.comments.all %}
-  <br>
-      {% if user.is_authenticated or comment.approved_comment %}
-
-              {{ comment.created_date }}
-              {% if not comment.approved_comment %}
-                  <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+               <section>
+      <div class="container-fluid">
+        <div class="row margin-tops">
+        <h2>There are {{approved_comments.count}} Comments</h2>
+        <br>
+          {% for comment in approved_comments %}
+            <div class="col-md-12 commmnet-wrapper">
+              {% if user.is_authenticated or comment.approved_comment %}
+                   {% if not comment.approved_comment %}
+                  <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
+                  <span class="glyphicon glyphicon-remove"></span></a>
                   <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                   {% endif %}
+
+              <h4 class="commenter-name">{{comment.author}}</h4>
+              <p class="comment">{{comment.text|safe|linebreaks}}</p>
+            </div>
               {% endif %}
+          
+          {% empty %}
+          <p>No comments posted.</p>
+        {% endfor %}
+          
+          <div class="col-md-12 commentbox  margin-tops">
+                  <div class="panel-group" id="accordion">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                              <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-file">
+                                  </span>Comment</a>
+                              </h4>
+                          </div>
+                          <div id="collapseOne" class="panel-collapse collapse ">
+                              <div class="panel-body">
+                                <form method="post" action="{% url 'add_comment_to_post' pk=post.pk %}">
+                                   {% csrf_token %}
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                        {% for field in form %}
+                                        <div class="form-group">
+                                        <p><font color="red">{{ field.errors }}</font></p>
+                                        <label>{{ field.label }}</label> 
+                                        <div>{{ field }}</div>
+                                    
+                                          </div>
+                                          {% endfor %}
+                                          
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-push-9 col-md-3">
+                                      <button type="submit" class="save btn btn-primary commentBtn">Post Comment</button>
 
-          <p>{{ comment.text|safe|linebreaks }}</p>
-          <p>Posted by: <strong>{{ comment.author }}</strong></p>
+                                    </div>
+                                  </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
 
-      {% endif %}
-  {% empty %}
-      <p>No comments posted.</p>
-  {% endfor %}
-</div>
+                  </div>
+              </div>
+        </div>
+
+              
+      </div>
+      <!--copied some -->
+        
+    </section>
+
+        <div class="row">
+          <div class="col-md-4"><h4>Recommended</h4></div>
+        </div>
+        <div class="row">
+          <div class="recommended col-md-12">
+            <ul>
+
+              {% for item in post_list %}
+              {% if item.category == post.category and item != post %}
+              <li><a href="{% url 'post_detail' pk=post.pk %}"><h4>{{item.title}}</h4></a></li>
+
+              {% endif %}
+    
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <hr>
+
+        <section class="similarStories">
+        
+              <div class="col-sm-12">
+            <div class="row">
+              <h3 style="">Recommended Stories</h3>
+
+            </div>
+            <div class="row">
+            {% for post in featured_posts|slice:":3" %}
+              <div class="col-sm-4 pad-right"><a href="{% url 'post_detail' pk=post.pk %}">
+                <img src="{{post.post_pic.url}}" class="img-responsive">
+                <h4>{{post.title}}</h4></a>
+              </div>
+              {% endfor %}
+           </div>
+
+           <div class="row">
+            <div class="col-sm-12">
+              <img style="margin:20px auto" src="https://www.techcityng.com/wp-content/uploads/2016/06/Konga-Ad-728x90.jpg" class="img-responsive">
+            </div>
+            
+          </div>
+
+          </div>
+         </section> 
+
+
+          </div>
+
+          <div class="col-md-4 col-sm-4 sideWidgetCol">
+            <div class=" text-center">
+              <h2 class="sidebar-h">Latest Posts</h2>
+              <div class="sidebar-class">
+                {% for post in recent_posts|slice:":3" %}
+                <a href="{% url 'post_detail' pk=post.pk %}">
+                 <div class="sidebar-img-detail margin-tops">
+                    <img class="img-responsive" src="{{post.post_pic.url}}"/>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+                 </div>
+                </a>
+                {% endfor %}
+
+                <div class="sidebar-img-detail margin-tops">
+                  <img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/3498238943114035450"/>
+                </div>
+
+                <div class="sidebar-img-detail margin-tops">
+                  <img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
+                </div>
+                
+
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </section>
+
 
 {% endblock %}

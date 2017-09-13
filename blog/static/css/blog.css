@@ -671,9 +671,48 @@ footer .input-group{
 
 /* End of Search Section */
 
+/* Header Fonts */
 
+.sTrend{
+  font-style: italic;
+  font-weight: bold;
+}
 
+.sPolitics a{
+  font-family: 'Slabo 27px' !important;
+}
 
+.sEntertainment a{
+  font-family: 'Merriweather' !important;
+}
+
+.sTechnology a{
+  font-family: 'Lora' !important;
+}
+
+.sArw a{
+  font-family: 'Quicksand' !important;
+}
+
+.sWeird a{
+  font-family: 'Bree Serif' !important;
+}
+
+.sFashion a{
+  font-family: 'Bitter' !important;
+}
+
+.sMyStory a{
+  font-family: 'Lobster' !important;
+}
+
+.sEducation a{
+  font-family: 'Archivo Narrow' !important;
+}
+
+.sAdvertise a{
+  font-family: 'Alegreya' !important;
+}
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {
