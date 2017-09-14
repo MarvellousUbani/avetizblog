@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!Doctype html>
 <html>
 	<head>
@@ -7,11 +7,10 @@
     		<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
   			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
-			<link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
   			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   			<link rel="stylesheet" type="text/css" href="{% static 'css/gtg.css' %}">
-  			<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+  			<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css'%}">
   			<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   			<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -59,6 +58,12 @@
 		<main>
 	  	<div class="container">
 
+	  	<div class="row">
+	  	<div class="col-sm-12">
+	      <h3 class="inspiredTxt">GET INSPIRED</h3>
+	      </div>
+	      </div>
+			   
 			<ul class="list-unstyled video-list-thumbs row">
 				<li class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
 					<a href="#" title="The Osunlola's Family ">
@@ -381,7 +386,7 @@
 
 	<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/blog.js"></script>
+		<script src="{% static 'js/blog.js' %}"></script>
 	</body>
 </html>
 

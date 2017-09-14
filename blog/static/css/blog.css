@@ -369,7 +369,7 @@ nav a:hover{
 }
 
 .blogFooter .bNavli{
-  font-size: 1.2vw;
+  font-size: 1.5rem;
 }
 
 .blogFooter small{
@@ -663,7 +663,7 @@ footer .input-group{
 
 .searchbox .fa{
   padding: 2px 0 !important;
-    font-size: 1.3em;
+    font-size: 1.25em;
     font-weight: bold;
     color: #fff;
 }
@@ -691,7 +691,7 @@ footer .input-group{
 }
 
 .sArw a{
-  font-family: 'Quicksand' !important;
+  font-family: 'Lobster' !important;
 }
 
 .sWeird a{
@@ -712,6 +712,7 @@ footer .input-group{
 
 .sAdvertise a{
   font-family: 'Alegreya' !important;
+  font-style: italic;
 }
 /* Media Queries */
 
@@ -743,7 +744,7 @@ footer .input-group{
 
   .mega-dropdown-menu {
     width:72%;
-    height: 250px;  
+    height: auto;  
   }
 
 
@@ -758,7 +759,7 @@ footer .input-group{
 @media only screen and (min-width: 1300px) {
 
     .fPostColumn img {
-      height: auto;
+      height: 220px;
   }
 
   .bPPost {
@@ -822,7 +823,7 @@ footer .input-group{
   }
 
   .blogFooter .bNavli{
-  font-size:2.4vh;
+  font-size:1.4rem;
   }
 }
 

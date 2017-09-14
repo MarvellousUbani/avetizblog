@@ -1,0 +1,4 @@
+{{object.title}}
+{{object.description|default:""}}
+{{object.author}}
+{{object.published_date}}

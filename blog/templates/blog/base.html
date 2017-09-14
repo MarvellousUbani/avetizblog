@@ -27,6 +27,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/search-result.css' %}">
         {% endblock %}
   </head>
   <body>
@@ -71,10 +72,12 @@
            
                     <ul class="dropdown-menu mega-dropdown-menu row">
                       <li class="row">
-                        <li class="col-sm-12">    
-                        <form class="searchbox">
+                        <li class="col-sm-12"> 
+
+                        <form class="searchbox" action="/find/" method="get">
                         <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search..." name="q" id="q" autocomplete="off">
+                        <div id="selction-ajax"></div>
                         <div class="input-group-btn">
                           <button class="btn btn-default faBtn" type="submit">
                             <i class="fa fa-search"></i>
@@ -88,18 +91,18 @@
                       <li class="row">
                        <li class="col-xl-2 col-sm-3 col-md-3">
                          <ul>
-                         <li class="dropdown-header sRealEstate"><a href="">Real Estate</a></li>  
-                           <li class="dropdown-header sTrend"><a href="">Trend</a></li> 
-                           <li class="dropdown-header sPolitics"><a href="">Politics</a></li> 
-                           <li class="dropdown-header sArw"><a href="">Around the Web</a></li> 
+                         <li class="dropdown-header sRealEstate"><a href="/category/real-estate">Real Estate</a></li>  
+                           <li class="dropdown-header sTrend"><a href="/category/trend">Trend</a></li> 
+                           <li class="dropdown-header sPolitics"><a href="/category/politics">Politics</a></li> 
+                           <li class="dropdown-header sArw"><a href="/category/around-the-web">Around the Web</a></li> 
                             </ul>
                           </li>
 
-                          <li class="col-xl-2 col-sm-3">
+                          <li class="col-xl-3 col-sm-3">
                             <ul>
-                              <li class="dropdown-header sBusiness"><a href="">Business</a></li>
-                              <li class="dropdown-header sTechnology"><a href="">Technology</a></li> 
-                              <li class="dropdown-header sEntertainment"><a href="">Entertainment</a></li>
+                              <li class="dropdown-header sBusiness"><a href="/category/business">Business</a></li>
+                              <li class="dropdown-header sTechnology"><a href="/category/technology">Technology</a></li> 
+                              <li class="dropdown-header sEntertainment"><a href="/category/entertainment">Entertainment</a></li>
                               
                             </ul>
                           </li>
@@ -107,15 +110,15 @@
                           <li class="col-sm-3">
                             <ul>
                               <li class="dropdown-header sMyStory"><a href="">My Story</a></li>
-                              <li class="dropdown-header sSport"><a href="">Sport</a></li>
-                              <li class="dropdown-header sFashion"><a href="">Fashion</a></li> 
+                              <li class="dropdown-header sSport"><a href="/category/sport">Sport</a></li>
+                              <li class="dropdown-header sFashion"><a href="/category/fashion">Fashion</a></li> 
                             </ul>
                           </li>
 
                           <li class="col-sm-3">
                             <ul>
-                              <li class="dropdown-header sWeird"><a href="">Weird Houses</a></li>
-                              <li class="dropdown-header sEducation"><a href="">Education</a></li> 
+                              <li class="dropdown-header sWeird"><a href="/category/weird-houses">Weird Houses</a></li>
+                              <li class="dropdown-header sEducation"><a href="/category/education">Education</a></li> 
                               <li class="dropdown-header sAdvertise"><a href="">Advertise with Us</a></li>
 
                             </ul>
@@ -244,6 +247,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.autocomplete.js' %}"></script>
+<script src="{% static 'js/our_search_code.js' %}"></script>
 
 </body>
 </html>

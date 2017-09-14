@@ -1,0 +1,105 @@
+{% extends "blog/base.html" %}
+
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+<!-- {% if  page_obj.object_list %}
+<div class="col-md-3">
+	<h3>Filters</h3>
+        <dl>
+        {% if facets.fields.text %}
+        <dt>Filter by Category</dt>
+        {% for text in facets.fields.text %}
+        {% if text.1 != 0 %}
+        <dd>
+        <input class="facet" id="{{text.0|cut:" "}}" type="checkbox" name="text" value="{{ text.0 }}" 
+        data-toggle="toggle" /> {{ text.0 }} ({{ text.1 }})
+        </dd>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        </dl>
+        <div>
+        <input class="btn btn-info btn-sm pull-right" type="submit" value="apply filter" onclick="return onFacetChangeApplied();" />
+        </div>
+        <dl>
+
+        {% if facets.fields.brand %}
+        <dt>Filter by Brand</dt>
+        {% for brand in facets.fields.brand %}
+        {% if brand.1 != 0 %}
+        <dd>
+        <input class="facet" id="{{brand.0|cut:" "}}" type="checkbox" name="brand" value="{{ brand.0 }}" /> {{ brand.0 }} ({{ brand.1 }})
+        </dd>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        </dl>
+        <div>
+        <input class="btn btn-info btn-sm pull-right" type="submit" value="apply filter" onclick="return onFacetChangeApplied();" />
+	
+        </div>
+    </div>
+{% endif %} -->
+
+    <div class="col-md-1"></div>
+	<div class="col-md-10 bigSearchColumn">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                     <h3 class="searchTxt text-center"> Search results for: <label> {{query}} </label></h3>
+               </div>
+               <div class="col-md-12 col-xs-12 text-center">
+               
+                   Showing {{ page_obj.start_index }} - {{ page_obj.end_index }} of total 
+                    {{ page_obj.paginator.count }}
+                    results on page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+               </div>
+            </div>    
+            <div>
+	    {% if  page_obj.object_list %}
+           <div class="row top20">
+                    {% for result in page_obj.object_list %}
+            <div class="showcase col-sm-6 col-md-4">
+		   <a href="{{ result.object.get_absolute_url }}">
+           <img src="{{ result.object.post_pic.url }}" class="img-responsive">
+		      <h3>{{result.object.title}}</h3>
+              <small>{{result.object.category}}</small>
+              <div class="resultTxt">{{result.object.text|truncatechars:100|safe|capfirst}}</div>
+		   </a>
+		    
+		    </div>
+                    {% endfor %}
+                </div>
+            </div>
+		    {% if is_paginated %}
+		      <ul class="pagination pull-right">
+		        {% if page_obj.has_previous %}
+		          <li><a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">«</a></li>
+		        {% else %}
+		          <li class="disabled"><span>«</span></li>
+		        {% endif %}
+		        {% for i in paginator.page_range %}
+		          {% if page_obj.number == i %}
+		            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+		          {% else %}
+		            <li><a href="?q={{ query }}&page={{ i }}">{{ i }}</a></li>
+		          {% endif %}
+		        {% endfor %}
+		        {% if page_obj.has_next %}
+		          <li><a href="?q={{ query }}&page={{ page_obj.next_page_number }}">»</a></li>
+		        {% else %}
+		          <li class="disabled"><span>»</span></li>
+		        {% endif %}
+		      </ul>
+		    {% endif %}
+        {% else %}
+	    <p> Sorry, no result found for the search term  <strong>{{query}} </strong></p>
+	{% endif %}
+	</div>
+    <div class="col-md-1"></div>
+
+</div>
+</div>
+{% endblock %}
