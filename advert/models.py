@@ -53,6 +53,7 @@ class Transaction(models.Model):
 	trans_type=models.CharField(max_length=50, choices=(('Credit','Credit'),('Debit', 'Debit')))
 	wallet=models.ForeignKey(Wallet)
 	status=models.CharField(max_length=20, choices=(('Pending','Pending'),("Completed",'Completed')))
+	ref=models.CharField(max_length=20, null=True)
 
 	def approve(self):
 		self.status='Completed'

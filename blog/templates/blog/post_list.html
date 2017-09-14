@@ -11,7 +11,7 @@
 					<div class="col-md-8 col-sm-6 post-box">
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
-							<a href="{% url 'post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
+							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
 							<div class="main-post-text-wrapper">
 								<h2>{{post.title}}</h2>
 								<div class="post">{{post.text|truncatechars:230|safe|capfirst}}</div>
@@ -26,7 +26,7 @@
 						
 						<div class="sec-post-wrapper2 ">
 							  {% for post in featured_posts|slice:"1:4" %}
-							  	  <a href="{% url 'post_detail' pk=post.pk %}">
+							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 									<div class="col-md-7 col-sm-7 second-sec-post js-third" >
 										<h3>{{post.title}}</h3>
 									</div>
@@ -40,7 +40,7 @@
 						
 						<div class="sec-post-wrapper2 ">
 							  {% for post in featured_posts|slice:"4:5" %}
-							  <a href="{% url 'post_detail' pk=post.pk %}">
+							  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 								<div class="col-md-7 col-sm-7 second-sec-post last js-third" >
 									<h3>{{post.title}}</h3>
 								</div>
@@ -66,7 +66,7 @@
 							</div>
 							<div class="main-top-story">
 								{% for post in featured_posts|slice:"3:4"%}
-								<a href="{% url 'post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
+								<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
 								<hr>
 								{% endfor %}
@@ -74,7 +74,7 @@
 							</div>
 
 							{% for post in post_list|slice:":5"%}
-							<a href="{% url 'post_detail' pk=post.pk %}">
+							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
 									<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -120,7 +120,7 @@
 									<h1 class="zone-title-text">TRENDING</h1>
 							</div>
 							{% for post in trending_posts|slice:":5" %}
-							<a href="{% url 'post_detail' pk=post.pk %}">
+							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
 									<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -145,7 +145,7 @@
 					<div class="col-md-9 col-sm-6">
 					 <div class="row">
 						{% for post in post_list|slice:"11:13"  %}
-						 	<a href="{% url 'post_detail' pk=post.pk %}">
+						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
 								<h3>{{post.title}}</h3>
@@ -185,9 +185,9 @@
 	  <div class="col-sm-12 fPostColumn">
 	   <div class="row">
 	    <div class="col-sm-8">
-	      <h3 class="fPostTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+	      <h3 class="fPostTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h3>
 	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
-	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{% url 'post_detail' pk=post.pk %}">Read More</a></span></div>
+	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a></span></div>
 
 
 	      </div>
@@ -230,18 +230,18 @@
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in business_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 			{% for post in business_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 		{% for post in business_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 		{% endfor %}
 		</div>
 
@@ -262,18 +262,18 @@
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in entertainment_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 			{% for post in entertainment_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 		{% for post in entertainment_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 		{% endfor %}
 		</div>
 
@@ -295,18 +295,18 @@
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in news_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 			{% for post in news_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 		{% for post in news_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 		{% endfor %}
 		</div>
 
@@ -328,18 +328,18 @@
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in arw_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 			{% for post in arw_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 		{% for post in arw_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 		{% endfor %}
 		</div>
 
@@ -438,7 +438,7 @@
 				  	{% for post in latest_posts|slice:"0:3" %}
 					  	<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 
@@ -448,7 +448,7 @@
 		        		{% for post in latest_posts|slice:"3:5" %}
 		        		<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 

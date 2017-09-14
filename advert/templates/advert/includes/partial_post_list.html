@@ -1,11 +1,11 @@
         {% for post in posts %}
         <tr>
           <td><h1><strong>{{post.title}}</strong></h1></td>
-          <td>{{post.created_date|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="mobile_no">{{post.created_date|date:"SHORT_DATE_FORMAT"}}</td>
           {% if post.published_date %}
-          <td>{{post.published_date|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="mobile_no">{{post.published_date|date:"SHORT_DATE_FORMAT"}}</td>
           {% else %}
-          <td>Not yet Published</td>
+          <td class="mobile_no">Not yet Published</td>
           {% endif %}
           <td class="status {{post.status}}">{{post.status}}</td>
           <td> <button data-toggle="tooltip"  title="Edit Post" data-url="{% url 'advert:update_post' post.id %}"  class="js-update-product buttonicon"><span><i  class="fa fa-pencil" ></i></span></button>

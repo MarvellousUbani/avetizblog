@@ -1,14 +1,14 @@
   {% for advert in adverts %}
         <tr>
-          <td><h1><strong>{{advert.company}}</strong></h1></td>
-          <td>{{advert.created_on|date:"SHORT_DATE_FORMAT"}}</td>
-          <td>{{advert.plan.name}}</td>
+          <td class="mobile_no"><h1><strong>{{advert.company}}</strong></h1></td>
+          <td class="mobile_no">{{advert.created_on|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="">{{advert.plan.name}}</td>
           <td>{{advert.duration}}</td>
           <td>{{advert.status}}</td>
           <td>{{advert.advert_cost}}</td>
-          <td> <button data-toggle="tooltip"  title="Edit Post" data-url="{% url 'advert:update_advert' advert.id %}"  class="js-update-product buttonicon"><span><i  class="fa fa-pencil" ></i></span></button>
+          <td> <button data-toggle="tooltip"  title="Edit Advert" data-url="{% url 'advert:update_advert' advert.id %}"  class="js-update-product buttonicon"><span><i  class="fa fa-pencil" ></i></span></button>
           <br>
-          <button data-toggle="tooltip"  title="Delete Post" data-url="{% url 'advert:delete_advert' advert.id %}"  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
+          <button data-toggle="tooltip"  title="Delete Advert" data-url="{% url 'advert:delete_advert' advert.id %}"  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
           <br>
           <!--button data-url=""  data-toggle="tooltip"  title="Save post for Review" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button-->
           </td>

@@ -5,7 +5,7 @@
   <td class="status {{transaction.trans_type}}">{{transaction.trans_type}}</td>
   <td class="status {{transaction.status}}">{{transaction.status}}</td>
   {% if transaction.status == 'Pending' %}
-  <td class="status pay"><a amount="{{transaction.amount}}" email="{{request.user.email}}" id={{transaction.id}}  onclick="payWithPaystack(this)" href="#">Pay Now</a></td>
+  <td class="status pay"><a amount="{{transaction.amount}}" email="{{request.user.email}}" id={{transaction.ref}}  onclick="payWithPaystack(this)" href="#">Pay Now</a></td>
   {% endif %}
 </tr>
 <!-- paybill.ng -->
