@@ -30,7 +30,7 @@
           <div class="navbar-custom-menu">
             <ul class="top-nav">
               <!--Notification Menu-->
-              <li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
+              <!--li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
                 <ul class="dropdown-menu">
                   <li class="not-head">You have 4 new notifications.</li>
                   <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
@@ -41,12 +41,12 @@
                       <div class="media-body"><span class="block">Transaction xyz complete</span><span class="text-muted block">2min ago</span></div></a></li>
                   <li class="not-footer"><a href="#">See all notifications.</a></li>
                 </ul>
-              </li>
+              </li-->
               <!-- User Menu-->
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu">
-                  <li><a href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                  <li><a href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                  <!--li><a href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li-->
+                  <li><a href="{% url 'advert:profile'%}"><i class="fa fa-user fa-lg"></i> Profile</a></li>
                   <li><a href="{% url 'account:logout' %}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
                 </ul>
               </li>
@@ -90,13 +90,13 @@
 
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-dashboard"></i> Blank Page</h1>
-            <p>Start a beautiful journey here</p>
+            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+            <p>Start a beautiful journey here with us at AvetiZ</p>
           </div>
           <div>
             <ul class="breadcrumb">
               <li><i class="fa fa-home fa-lg"></i></li>
-              <li><a href="#">Blank Page</a></li>
+              <li><a href="{% url 'advert:dashboard'%}">Dashboard</a></li>
             </ul>
           </div>
         </div>

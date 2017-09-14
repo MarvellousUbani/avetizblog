@@ -14,7 +14,7 @@
 							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
 							<div class="main-post-text-wrapper">
 								<h2>{{post.title}}</h2>
-								<div class="post">{{post.text|truncatechars:230|safe|capfirst}}</div>
+								<div class="post">{{post.text|truncatechars:100|safe|capfirst}}</div>
 								<span class="author">AvetiZ</span>
 								
 							</div>
@@ -27,10 +27,10 @@
 						<div class="sec-post-wrapper2 ">
 							  {% for post in featured_posts|slice:"1:4" %}
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
-									<div class="col-md-7 col-sm-7 second-sec-post js-third" >
+									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
 										<h3>{{post.title}}</h3>
 									</div>
-									<div class="col-md-5 col-sm-5 secondcol js-third">
+									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
@@ -41,10 +41,10 @@
 						<div class="sec-post-wrapper2 ">
 							  {% for post in featured_posts|slice:"4:5" %}
 							  <a href="{% url 'blog:post_detail' pk=post.pk %}">
-								<div class="col-md-7 col-sm-7 second-sec-post last js-third" >
+								<div class="col-md-7 col-sm-7 col-xs-8 second-sec-post last js-third" >
 									<h3>{{post.title}}</h3>
 								</div>
-								<div class="col-md-5 col-sm-5 secondcol last-sec js-third">
+								<div class="col-md-5 col-sm-5 secondcol col-xs-4 last-sec js-third">
 								<img class="sec-img js-third last-img" src="{{ post.post_pic.url}}" height="100%" class="img-responsive"/>
 								</div>
 								</a>

@@ -30,7 +30,7 @@ $(document).on('click',function(){
       $('.js-third').height(sideheight);
       }
       if (width < 768){
-          $('img.js-third').parent().css('display', 'none')
+          //$('img.js-third').parent().css('display', 'none')
         }
       if (width >= 992){
           
@@ -53,7 +53,7 @@ $(document).on('click',function(){
         }
 
         if (width < 768){
-          $('img.js-third').parent().css('display', 'none')
+         // $('img.js-third').parent().css('display', 'none')
         }
         if (width >= 992){
           
@@ -206,4 +206,3 @@ var makePayt = function () {
   $("#modal-product").on("submit", ".js-advert-submit-form", saveForm);
  
 });
-
