@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from models import Profile
 
 
 class LoginForm(forms.Form):
@@ -23,6 +24,15 @@ class UserCreateForm(UserCreationForm):
         'username' : forms.TextInput(attrs={'class':'form-control'}),
         'email' :forms.EmailInput(attrs={'class':'form-control'}),
         'password': forms.PasswordInput(attrs={'class':'form-control'}),
+        }
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        fields=('role',)
+        model=Profile
+
+        widgets={
+        'role':forms.Select(attrs={'class':'form-control'}),
         }
 
     

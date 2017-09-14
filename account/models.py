@@ -12,6 +12,10 @@ class Profile(models.Model):
 	short_description=models.TextField(blank=True, null=True)
 	phone=models.CharField(max_length=50, null=True, blank=True)
 	avatar=models.ImageField(null=True, upload_to='media', blank=True)
+	role=models.CharField(null=True, max_length=50, default='Content Writer' , choices=(('Advert Sales Executives', 'Advert Sales Executives'), 
+																			('Content Writer', 'Content Writer'), 
+																			('Social Media Executives', 'Social Media Executives'))
+	                     )
 
 	def __str__(self):
 		return self.user.first_name
