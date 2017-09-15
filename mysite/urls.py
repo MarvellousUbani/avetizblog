@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
 from django.contrib import auth
-
 app_name='blog'
 
 urlpatterns = [
