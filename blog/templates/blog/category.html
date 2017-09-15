@@ -49,15 +49,16 @@
         <h3 class="cTitle">What's New</h3>
 
         <!-- Whats New Articles -->
+
         {% for i in post_set %}
         <div class="row whatsNewArticle">
           <div class="col-xs-4">
             <img class="img-responsive" src="{{i.post_pic.url|resize:'175x175,C'}}">
           </div>
           <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="">{{i.title}}</a></p>
+            <p class="whatsNewATitle"><a href="{% url 'post_detail' pk=i.pk %}">{{i.title|title}}</a></p>
             <span><i class="fa fa-share-square" aria-hidden="true"></i> 
-            <small><strong>146</strong> SHARES / 46 minutes ago</small></span>
+            <small><strong>146</strong> SHARES / {{i.published_date|timesince}}</small></span>
           </div>
         </div>
         {% endfor %}
