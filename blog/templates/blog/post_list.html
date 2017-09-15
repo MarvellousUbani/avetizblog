@@ -10,14 +10,12 @@
 					<div class="col-md-8 col-sm-6 post-box">
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
-<<<<<<< HEAD
+
 							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
-=======
-							<a href="{% url 'post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 							<div class="main-post-text-wrapper">
 								<h2>{{post.title}}</h2>
-								<div class="post">{{post.text|truncatechars:100|safe|capfirst}}</div>
+								<div class="post">{{post.text|truncatechars:200|safe|capfirst}}</div>
 								<span class="author">AvetiZ</span>
 								
 							</div>
@@ -95,7 +93,7 @@
 					<div class="col-md-6 col-sm-6">
 						{% for post in post_list|slice:"5:7" %}
 						<div class="index-post">
-						<a href="{% url 'post_detail' pk=post.pk %}">
+						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
 								<p>{{post.title}}</p>
@@ -239,24 +237,18 @@
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
-<<<<<<< HEAD
+
 			{% for post in business_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-			{% for post in post_list|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
-<<<<<<< HEAD
+
 		{% for post in business_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-		{% for post in post_list|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 		{% endfor %}
 		</div>
 
@@ -281,24 +273,18 @@
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
-<<<<<<< HEAD
+
 			{% for post in entertainment_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-			{% for post in post_list|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
-<<<<<<< HEAD
+
 		{% for post in entertainment_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-		{% for post in post_list|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 		{% endfor %}
 		</div>
 
@@ -324,24 +310,18 @@
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
-<<<<<<< HEAD
+
 			{% for post in news_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-			{% for post in post_list|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
-<<<<<<< HEAD
+
 		{% for post in news_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-		{% for post in post_list|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 		{% endfor %}
 		</div>
 
@@ -367,24 +347,18 @@
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
-<<<<<<< HEAD
+
 			{% for post in arw_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-			{% for post in post_list|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
-<<<<<<< HEAD
+
 		{% for post in arw_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
-=======
-		{% for post in post_list|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h4>
->>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
+
 		{% endfor %}
 		</div>
 

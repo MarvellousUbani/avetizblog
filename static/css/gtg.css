@@ -18,6 +18,21 @@
   overflow: hidden;
 }
 
+/*Inspired Textbox*/
+
+.inspiredTxt{
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+  	font-size: 3rem;
+  	color:#fff;
+  	background: #464646;
+  	width: 30%;
+  	margin:10px auto;
+  	padding:10px;
+  	border:2px solid #f9f9f9;
+}
+
+
 
 .headlineTxt{
 	font-family: 'Lato';
@@ -66,7 +81,7 @@ main {
   background: url(../img/gtg.jpg);
   background-size: cover;
   background-attachment: fixed;
-  padding: 15vh 0;
+  padding: 20px 0;
   width: 100% !important;
 }
 
@@ -264,7 +279,7 @@ main {
 
 @media only screen and (min-width: 1900px){
 	.video-list-thumbs img {
-	    height: 400px;
+	    height: 270px;
 	    width: 100%;
 	}
 }
