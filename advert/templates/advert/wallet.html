@@ -21,7 +21,7 @@
 	    <div class="widget-small info"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
 	      <div class="info">
 	        <h4>Balance</h4>
-	        <p><b>₦ {{wallet.amount}}</b></p>
+	        <p><b>₦{{wallet.amount}}</b></p>
 	      </div>
 	    </div>
 	</div>	
@@ -33,7 +33,7 @@
       	<div class="col-md-10 js-post-list ">
       	<div class="panel-body">
 		  <div class="job_title">Manage Your Wallet</div>
-		  <button class="createbtn btn btn-primary  js-add-transaction  " data-url="{% url 'advert:create_transaction' %}">Credit My Account <i class="fa fa-plus" style="color:#017583;"></i></button>
+		  <button class="createbtn btn btn-primary  js-add-transaction " data-url="{% url 'advert:create_transaction' %}">{% if request.session.role == 'Content Writer' %}Withdraw{% else %}Credit My Account {% endif %}<i class="fa fa-plus" style="color:#017583;"></i></button>
 		    <table class="table" id="product-table">
 		      <thead >
 		      	<tr>
