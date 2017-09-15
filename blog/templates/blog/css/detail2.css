@@ -29,7 +29,10 @@
  }
  .post-text{
  	font-size: 19px;
- 	line-height: 1.625;
+ 	line-height: 1.3;
+ }
+ .fPostTitle{
+ 	margin-bottom: 1px;
  }
 .search{
 	background-color: #fff;

@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1', 
     'avetizblog.com',
+    '45.55.42.128',
     'www.avetizblog.com',
 ]
 
@@ -63,7 +64,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'blog',
-    'haystack'
+    'haystack',
+    'imagefit',
 ]
 
 MIDDLEWARE = [
@@ -150,7 +152,7 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+IMAGEFIT_ROOT = ""
 
 
 DEBUG = True

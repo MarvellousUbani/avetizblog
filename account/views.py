@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.urls import reverse
 from advert.models import Wallet
-from .forms import LoginForm,UserCreateForm
+from .forms import LoginForm,UserCreateForm, ProfileForm
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
@@ -32,6 +32,8 @@ def login(request):
 			if user is not None:
 				if user.is_active:
 					auth_login(request, user)
+					profile=Profile.objects.get(user=user)
+					request.session['role'] = profile.role
 					if request.GET.get('next'):
 						return redirect(request.GET.get('next'))
 					else:
@@ -54,11 +56,19 @@ def logout(request):
 		return HttpResponseRedirect(reverse('account:login', current_app='account'))
 
 class SignUp(CreateView):
-	form_class = UserCreateForm
-	template_name = "registration/register.html"
+	#form_class = UserCreateForm
+	#template_name = "registration/register.html"
+
+	def get(self, request):
+		user_form=UserCreateForm()
+		profile_form=ProfileForm()
+		context={'user_form':user_form, 'profile_form':profile_form}
+		return render(self.request, 'registration/register.html',context)
+
 
 	def post(self,request, *args, **kwargs):
 		form=UserCreateForm(request.POST)
+		profile_form=ProfileForm(request.POST)
 		
 		''' Begin reCAPTCHA validation '''
 		
@@ -79,10 +89,11 @@ class SignUp(CreateView):
 			password=self.request.POST['password']
 			password=make_password(password)
 			firstname=self.request.POST['first_name']
+			role=self.request.POST['role']
 			try:
 				user=User(first_name=firstname, email=email,username=username, is_staff=False,password=password, is_active=True)
 				user.save()
-				profile=Profile(user=user).save()
+				profile=Profile(user=user,role=role).save()
 				wallet=Wallet(Owner=user).save()
 				return HttpResponseRedirect(reverse('account:login', current_app='account'))
 			except:
