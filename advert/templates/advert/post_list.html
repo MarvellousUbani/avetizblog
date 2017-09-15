@@ -7,14 +7,16 @@
       <div class="row">
       	<div class="col-md-10 js-post-list ">
       	<div class="panel-body">
-		  <div class="job_title">Manage Posts</div>
-		  <button class="createbtn btn btn-primary js-add-product  pull-right" data-url="{% url 'advert:create_post' %}">Create Post <i class="fa fa-plus" style="color:#017583;"></i></button>
-		    <table class="table" id="product-table">
+      	  <div class="tablehead">	
+			  <div class="job_title">Manage Posts</div>
+			  <button class="createbtn btn btn-primary js-add-product  " data-url="{% url 'advert:create_post' %}">Create Post <i class="fa fa-plus" style="color:#017583;"></i></button>
+		  </div>
+		    <table class="table overflow-table" id="product-table">
 		      <thead >
 		      	<tr>
 			          <th><strong>Post Title</strong></th>
-			          <th><strong>Created On</strong></th>
-			          <th><strong>Published Date</strong></th>
+			          <th class ="mobile_no"><strong>Created On</strong></th>
+			          <th class="mobile_no"><strong >Published Date</strong></th>
 			          <th><strong>Status</strong></th>
 			          <th><strong>Action</strong></th>
 			    </tr>
@@ -35,4 +37,5 @@
       </div>
     </div>
 </main>
+
 {% endblock %}

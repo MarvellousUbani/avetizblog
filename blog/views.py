@@ -49,7 +49,7 @@ class PostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.all()
-        context['featured_posts'] = Post.objects.filter(featured_post=True)
+        context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-created_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         listed_post = Post.objects.all()
@@ -114,7 +114,7 @@ class DraftListView(LoginRequiredMixin,ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+        return Post.objects.filter(published_date__isnull=True).order_by('-created_date')
 
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):

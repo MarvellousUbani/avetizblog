@@ -19,7 +19,6 @@ from django.views.static import serve
 from django.conf import settings
 from django.contrib import auth
 from blog.views import autocomplete
-
 app_name='blog'
 
 urlpatterns = [

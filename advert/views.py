@@ -16,6 +16,7 @@ from django.db.models import Q
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
+import random, string
 import pdb
 
 # Create your views here
@@ -26,8 +27,8 @@ class Dashboard(LoginRequiredMixin, View):
 		comment_count=Comment.objects.filter(post__author=self.request.user).count()
 		draft_count=Post.objects.filter(Q(status__icontains='draft'), author=self.request.user).count()
 		amount=Wallet.objects.get(Owner=self.request.user).amount
-		published_count=Post.objects.filter(status__icontains='publish').count()
-		submitted_count=Post.objects.filter(status__icontains='submit').count()
+		published_count=Post.objects.filter(status__icontains='publish').filter(author=self.request.user).count()
+		submitted_count=Post.objects.filter(status__icontains='submit').filter(author=self.request.user).count()
 		monthdis=monthCount(self.request.user)
 		# pdb.set_trace()
 		context={
@@ -76,7 +77,9 @@ class AjaxableResponseMixin(object):
 		context={'posts':data}
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
-		return JsonResponse(dic)
+		return HttpResponseRedirect(reverse('advert:post_list'))
+		#return JsonResponse(dic)
+
     def render_to_json_response(self, data):
 		return JsonResponse(data)
 
@@ -116,10 +119,10 @@ class createAdvert(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 		dic=dict()
 		data=Advert.objects.filter(publisher=self.request.user)
 		context={'adverts':data}
-		dic['form_is_valid']=True
-		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
+		#dic['form_is_valid']=True
+		#dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
 		#return JsonResponse(dic)
-		return reverse('advert:advert_list')
+		return HttpResponseRedirect(reverse('advert:advert_list'))
 
 
 class postUpdate(LoginRequiredMixin, UpdateView):
@@ -141,7 +144,7 @@ class postUpdate(LoginRequiredMixin, UpdateView):
 	def post(self,request, *args, **kwargs):
 		dic=dict()
 		self.object=self.get_object()
-		form=PostForm(instance=self.object, data=request.POST)
+		form=PostForm(instance=self.object, data=request.POST, files=request.FILES)
 		form.save()
 		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
 		context={'posts':data}
@@ -241,6 +244,8 @@ class TransactionCreateView(LoginRequiredMixin,  CreateView):
 		transaction.wallet=self.request.user.wallet
 		transaction.status='Pending'
 		transaction.trans_type='Credit'
+		ref=id_generator()
+		transaction.ref=ref
 		transaction.save()
 		data=dict()
 		data['html_list']=render_to_string(self.partial_success_file, data, request=self.request)
@@ -337,7 +342,7 @@ class ApprovePaytView(LoginRequiredMixin, View):
 	def get(self, request, *args, **kwargs):
 		#pdb.set_trace()
 		ref=self.request.GET.get('reference')
-		transaction=Transaction.objects.get(id=ref)
+		transaction=Transaction.objects.get(ref=ref)
 		transaction.approve()
 		return HttpResponseRedirect(reverse('advert:post_list'))
 
@@ -350,7 +355,8 @@ def monthCount(user, n=[]):
 	else:
 		return n
 
-
+def id_generator(size=12, chars=string.ascii_uppercase + string.digits):
+	return ''.join(random.choice(chars) for _ in range(size))
 
 
 
