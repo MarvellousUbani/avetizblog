@@ -30,6 +30,7 @@
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
 										<h3>{{post.title}}</h3>
+										<p>{{post.text|truncatechars:60|safe}} </p>
 									</div>
 									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
@@ -44,6 +45,7 @@
 							  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 								<div class="col-md-7 col-sm-7 col-xs-8 second-sec-post last js-third" >
 									<h3>{{post.title}}</h3>
+									<p>{{post.text|truncatechars:60|safe}} </p>
 								</div>
 								<div class="col-md-5 col-sm-5 secondcol col-xs-4 last-sec js-third">
 								<img class="sec-img js-third last-img" src="{{ post.post_pic.url}}" height="100%" class="img-responsive"/>
@@ -69,6 +71,7 @@
 								{% for post in featured_posts|slice:"3:4"%}
 								<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
+
 								<hr>
 								{% endfor %}
 								
@@ -78,10 +81,11 @@
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" style="height:95px" src="{{post.post_pic.url}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{post.title}}</h4>
+									<p>{{post.text|truncatechars:60|safe}} </p>
 								</div>
 								<br>
 							</div>
@@ -97,9 +101,11 @@
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
 								<p>{{post.title}}</p>
-								<span> <font color="#F83371">By {{post.author.get_full_name}}</font></span>
+								</a>
+								<!--font size="3">{{post.text|truncatechars:120|safe}} </font-->
+								<span> <font size="3" color="#F83371">By {{post.author.get_full_name}}</font></span>
 							</div>
-							</a>
+							
 						</div>
 						{% endfor %}
 						
@@ -122,14 +128,15 @@
 							<div class="zone-title text-center">
 									<h1 class="zone-title-text">TRENDING</h1>
 							</div>
-							{% for post in trending_posts|slice:":5" %}
+							{% for post in trending_posts|slice:":4" %}
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" style="height:95px"  src="{{post.post_pic.url}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{ post.title }}</h4>
+									<p>{{post.text|truncatechars:60|safe}} </p>
 								</div>
 								<br>
 							</div>
