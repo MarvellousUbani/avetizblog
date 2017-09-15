@@ -243,10 +243,7 @@ class TransactionCreateView(LoginRequiredMixin,  CreateView):
 		transaction=form.save(commit=False)
 		transaction.wallet=self.request.user.wallet
 		transaction.status='Pending'
-		if self.request.session['role']=="Content Writer":
-			transaction.trans_type='Debit'
-		else:
-			transaction.trans_type='Credit'
+		transaction.trans_type='Credit'
 		ref=id_generator()
 		transaction.ref=ref
 		transaction.save()
@@ -330,8 +327,7 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 	def post(self, request, *args, **kwargs):
 		userform=UserForm(data=self.request.POST, instance=self.request.user)
 		profile=Profile.objects.get(user=self.request.user)
-		profileform=ProfileForm(data=self.request.POST, instance=profile, files=self.request.FILES)
-		a=self.request.FILES
+		profileform=ProfileForm(data=self.request.POST, instance=profile, files=request.FILES)
 		userform.save()
 		profileform.save()
 		userform=UserForm(instance=self.request.user)

@@ -26,7 +26,7 @@ $(document).on('click',function(){
       if (width < 992 && width >= 768){
       
       $('img.js-third').parent().css('display', 'block')
-      sideheight=$('.post-box').height()/4;
+      sideheight=$('.post-box').height()/3;
       $('.js-third').height(sideheight);
       }
       if (width < 768){
@@ -144,6 +144,10 @@ var makePayt = function () {
 
   function payWithPaystack(data){
     var handler = PaystackPop.setup({
+      // This assumes you already created a constant named
+      // PAYSTACK_PUBLIC_KEY with your public key from the
+      // Paystack dashboard. You can as well just paste it
+      // instead of creating the constant
       key: 'pk_test_d7ed8771f755bc62d8d023a93e531101a3ac4eb8',
       email: data.email,
       amount: data.amount,
@@ -174,6 +178,10 @@ var makePayt = function () {
     });
     handler.openIframe();
   }
+
+  /* Binding */
+
+  // Create Product
   $(".js-add-product").click(loadForm);
   $("#modal-product").on("submit", ".js-product-create-form", saveForm);
 

@@ -4,10 +4,8 @@
   <td>{{transaction.date|date:"SHORT_DATE_FORMAT"}}</td>
   <td class="status {{transaction.trans_type}}">{{transaction.trans_type}}</td>
   <td class="status {{transaction.status}}">{{transaction.status}}</td>
-  {% if request.session.role == 'Advertiser' %}
-    {% if transaction.status == 'Pending' %}
-    <td class="status pay"><a amount="{{transaction.amount}}" email="{{request.user.email}}" id={{transaction.ref}}  onclick="payWithPaystack(this)" href="#">Pay Now</a></td>
-    {% endif %}
+  {% if transaction.status == 'Pending' %}
+  <td class="status pay"><a amount="{{transaction.amount}}" email="{{request.user.email}}" id={{transaction.ref}}  onclick="payWithPaystack(this)" href="#">Pay Now</a></td>
   {% endif %}
 </tr>
 <!-- paybill.ng -->
