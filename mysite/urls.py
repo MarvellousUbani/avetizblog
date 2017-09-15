@@ -18,11 +18,7 @@ from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
 from django.contrib import auth
-<<<<<<< HEAD
-=======
 from blog.views import autocomplete
-
->>>>>>> branch2
 app_name='blog'
 
 urlpatterns = [
