@@ -16,7 +16,7 @@ class Post(models.Model):
     featured_post = models.BooleanField(default=False)
     trending_post = models.BooleanField(default=False)
     status = models.CharField(max_length=100, default="Draft", choices=(('Draft','Draft'),('Published','Published'),('Submitted','Submitted')))
-    category = models.CharField(max_length=100, default="News", choices=(('News', 'News'),('Trend','Trend'),('Weird Houses', 'Weird Houses'),('My Story', 'My Story'),('Business','Business'),('Entertainment','Entertainment'),('Around the Web','Around the Web'),('Advertise with Us','Advertise with Us')))
+    category = models.ForeignKey('Category', null=True, blank=True)
 
     def publish(self):
         if self.post_pic and self.text:
@@ -43,9 +43,39 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post_detail",kwargs={'pk':self.pk})
 
+    def get_cat_list(self):
+        k = self.category
+        breadcrumb = ["dummy"]
+        while k is not None:
+            breadcrumb.append(k.slug)
+            k = k.parent
+
+        for i in range(len(breadcrumb)-1):
+            breadcrumb[i] = '/'.join(breadcrumb[-1:i-1:-1])
+        return breadcrumb[-1:0:-1]
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField()
+    parent = models.ForeignKey('self',blank=True, null=True, related_name='children')
+
+    class Meta:
+        unique_together = ('slug', 'parent',)
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        full_path = [self.name]
+        k = self.parent
+
+        while k is not None:
+            full_path.append(k.name)
+            k = k.parent
+
+        return ' -> '.join(full_path[::-1])
 
 
 

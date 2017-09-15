@@ -19,7 +19,12 @@
       <div class="container margin-tops">
         <div class="row">
           <div class="col-md-8 col-sm-8">
+<<<<<<< HEAD
             <img src="{{post.post_pic.url}}" style="width:100%" class="img-responsive img-post-detail">
+=======
+
+            <img src="{{post.post_pic.url}}" class="img-responsive img-post-detail">
+>>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
             <h3 class="post-title-detail">{{post.title}}</h3>
             {% if post.published_date %}
             <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D M Y"}} By</span> 
@@ -61,6 +66,7 @@
                           <h4>{{item.title}}</h4></a>
                         </div>
                       {% endif %}
+<<<<<<< HEAD
                     {% endfor %} -->
                 {% for post in post_list|slice:"4:7" %}
                 <div class="col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
@@ -68,6 +74,17 @@
                   <h4>{{post.title}}</h4></a>
                 </div>
                 {% endfor %}
+=======
+                    {% endfor %}
+ -->
+                     {% for post in post_list|slice:"4:7" %}
+                      <div class="col-sm-4 pad-right">
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                          <img src="{{post.post_pic.url}}" class="img-responsive">
+                          <h4>{{post.title}}</h4></a>
+                        </div>
+                      {% endfor %}
+>>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
                 </div>
                </section>
 
@@ -100,7 +117,7 @@
                           <div class="panel-heading">
                               <h4 class="panel-title">
                                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-file">
-                                  </span>Comment</a>
+                                  </span>Please Share Your Comment</a>
                               </h4>
                           </div>
                           <div id="collapseOne" class="panel-collapse collapse ">
@@ -140,6 +157,7 @@
       <!--copied some -->
         
     </section>
+<<<<<<< HEAD
 
         <!-- <div class="row">
           <div class="col-md-4"><h4>Recommended</h4></div>
@@ -159,6 +177,9 @@
           </div>
         </div>
         <hr> -->
+=======
+        <hr>
+>>>>>>> 082532a75c687eb092d312ca0a9aa9ed38ce4492
 
         <section class="similarStories">
         

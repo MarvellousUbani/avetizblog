@@ -64,7 +64,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'blog',
-    'haystack'
+    'haystack',
+    'imagefit',
 ]
 
 MIDDLEWARE = [
@@ -151,7 +152,7 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+IMAGEFIT_ROOT = ""
 
 
 DEBUG = True

@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
-from blog.models import Post, Comment
+from blog.models import Post, Comment, Category
 from django.utils import timezone
-from blog.forms import PostForm, CommentForm
+from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -12,15 +12,34 @@ from django.views.generic import (TemplateView,ListView,
 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
+from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
+from haystack.query import SearchQuerySet
 
 class AboutView(TemplateView):
     template_name = 'about.html'
 
-class CategoryView(TemplateView):
-    template_name='categories.html'
-
 class GrassToGraceView(TemplateView):
     template_name ='grass-to-grace.html'
+
+# Category View
+def show_category(request,hierarchy= None):
+    category_slug = hierarchy.split('/')
+    category_queryset = list(Category.objects.all())
+    all_slugs = [ x.slug for x in category_queryset ]
+    parent = None
+    for slug in category_slug:
+        if slug in all_slugs:
+            parent = get_object_or_404(Category,slug=slug,parent=parent)
+        else:
+            instance = get_object_or_404(Post, slug=slug)
+            breadcrumbs_link = instance.get_cat_list()
+            category_name = [' '.join(i.split('/')[-1].split('-')) for i in breadcrumbs_link]
+            breadcrumbs = zip(breadcrumbs_link, category_name)
+            return render(request, "post_detail.html", {'instance':instance,'breadcrumbs':breadcrumbs})
+
+    return render(request,"category.html",{'post_set':parent.post_set.all(),'sub_categories':parent.children.all()})
+
 
 class PostListView(ListView):
     model = Post
@@ -32,10 +51,6 @@ class PostListView(ListView):
         context['post_list'] = Post.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-created_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True)
-        context['business_posts'] = Post.objects.filter(category="Business")
-        context['entertainment_posts'] = Post.objects.filter(category="Entertainment")
-        context['arw_posts'] = Post.objects.filter(category="Around the Web")
-        context['news_posts'] = Post.objects.filter(category="News")
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
@@ -105,6 +120,35 @@ class DraftListView(LoginRequiredMixin,ListView):
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
+
+
+def autocomplete(request):
+  sqs = SearchQuerySet().autocomplete(
+  content_auto=request.GET.get(
+  'query',
+  ''))[
+  :5]
+  s = []
+  for result in sqs:
+    d = {"value": result.title, "data": result.object.slug}
+    s.append(d)
+    output = {'suggestions': s}
+  return JsonResponse(output)
+
+
+class FacetedSearchView(BaseFacetedSearchView):
+
+  form_class = FacetedPostSearchForm
+  facet_fields = ['text', 'title']
+  template_name = 'search_result.html'
+  paginate_by = 3
+  context_object_name = 'object_list'
+
+  def get_context_data(self, **kwargs):
+        context = super(FacetedSearchView, self).get_context_data(**kwargs)
+        context['post_list'] = Post.objects.all()
+
+        return context
 
 
 #######################################
