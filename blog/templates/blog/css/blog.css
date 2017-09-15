@@ -492,6 +492,8 @@ nav a:hover{
 	border-bottom: 4px solid steelblue !important;
 }
 
+
+
 /*Font awesome*/
 
 /* Style all font awesome icons */
@@ -594,6 +596,10 @@ footer .socialCluster .fa{
 .weeklywriters .col-xs-3 img{
 	height: auto !important;
 	width: 100% !important;
+}
+
+.weeklywriters .col-xs-3 img:hover{
+	transform:scale(1.1,1.1);
 }
 
 .writersRow{
