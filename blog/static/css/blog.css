@@ -307,7 +307,7 @@ nav a:hover{
 }
 
 .index-post{
-  margin-top:20px;
+  margin-top:25px;
 }
 
 .right{
@@ -326,6 +326,10 @@ nav a:hover{
   font-style: italic;
   padding-top: 0px;
   
+}
+
+p{
+  line-height: 1.3;
 }
 
 
@@ -461,6 +465,10 @@ nav a:hover{
   padding-top: 30px;
   height: 200px;
   width: 100%;
+}
+
+.fPostTitle{
+  margin-bottom: 2px;
 }
 
 .fPostTitle a{
