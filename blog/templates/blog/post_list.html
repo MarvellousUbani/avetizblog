@@ -96,7 +96,7 @@
 					</div>
 					<div class="col-md-6 col-sm-6">
 						{% for post in post_list|slice:"5:7" %}
-						<div class="index-post">
+						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
