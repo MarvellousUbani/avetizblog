@@ -41,7 +41,7 @@ class Post(models.Model):
         return self.comments.filter(approved_comment=True)
 
     def get_absolute_url(self):
-        return reverse("post_detail",kwargs={'pk':self.pk})
+        return reverse("blog:post_detail",kwargs={'pk':self.pk})
 
     def get_cat_list(self):
         k = self.category
