@@ -77,7 +77,7 @@
 								
 							</div>
 
-							{% for post in post_list|slice:":5"%}
+							{% for post in post_list|slice:":4"%}
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
@@ -128,7 +128,7 @@
 							<div class="zone-title text-center">
 									<h1 class="zone-title-text">TRENDING</h1>
 							</div>
-							{% for post in trending_posts|slice:":5" %}
+							{% for post in trending_posts|slice:":4" %}
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">

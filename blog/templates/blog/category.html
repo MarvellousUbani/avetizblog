@@ -56,7 +56,7 @@
             <img class="img-responsive" src="{{i.post_pic.url|resize:'175x175,C'}}">
           </div>
           <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="{% url 'post_detail' pk=i.pk %}">{{i.title|title}}</a></p>
+            <p class="whatsNewATitle"><a href="{% url 'blog:post_detail' pk=i.pk %}">{{i.title|title}}</a></p>
             <span><i class="fa fa-share-square" aria-hidden="true"></i> 
             <small><strong>146</strong> SHARES / {{i.published_date|timesince}}</small></span>
           </div>
