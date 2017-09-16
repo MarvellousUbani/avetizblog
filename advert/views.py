@@ -244,6 +244,15 @@ class TransactionCreateView(LoginRequiredMixin,  CreateView):
 		transaction.wallet=self.request.user.wallet
 		transaction.status='Pending'
 		transaction.trans_type='Credit'
+		if self.request.session['role']=='Content Writer':
+			transaction.trans_type='Debit'
+
+		if transaction.trans_type == 'Debit':
+			amount=transaction.wallet.amount
+
+			if self.request.POST['amount'] > amount:
+				return HttpResponseRedirect(reverse('advert:transaction_list'))
+
 		ref=id_generator()
 		transaction.ref=ref
 		transaction.save()

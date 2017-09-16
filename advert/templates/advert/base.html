@@ -70,7 +70,7 @@
             {% if request.session.role == 'Content Writer' %}
             <li><a href="{% url 'advert:post_list'%}"><i class="fa fa-file"></i><span>Manage Post</span></a></li>
             {% endif %}
-             {% if request.session.role == 'Advert Sales Executives' %}
+             {% if request.session.role == 'Advertiser' %}
             <li><a href="{% url 'advert:advert_list' %}"><i class="fa fa-rss"></i><span>Manage Advert</span></a></li>
             {% endif %}
             <li><a href="{% url 'advert:transaction_list' %}"><i class="fa fa-bank"></i><span>Manage Wallet</span></a></li>
