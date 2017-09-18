@@ -20,8 +20,17 @@ from haystack.query import SearchQuerySet
 class AboutView(TemplateView):
     template_name = 'about.html'
 
-class GrassToGraceView(TemplateView):
+class GrassToGraceView(ListView):
     template_name ='grass-to-grace.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GrassToGraceView, self).get_context_data(**kwargs)
+        story_cat = Category.objects.get(name='my story')
+        context['story_posts'] = Post.objects.filter(category = story_cat)
+        return context
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 # Category View
 def show_category(request,hierarchy= None):
@@ -53,6 +62,15 @@ class PostListView(ListView):
         context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-created_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        business_cat = Category.objects.get(name='business')
+        entertainment_cat = Category.objects.get(name='entertainment')
+        tech_cat = Category.objects.get(name='technology')
+        pol_cat = Category.objects.get(name='politics')
+        context['business_posts'] = Post.objects.filter(category = business_cat)
+        context['entertainment_posts'] = Post.objects.filter(category= entertainment_cat)
+        context['tech_posts'] = Post.objects.filter(category=tech_cat)
+        context['pol_posts'] = Post.objects.filter(category=pol_cat)
+
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
 

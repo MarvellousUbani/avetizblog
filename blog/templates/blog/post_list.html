@@ -233,7 +233,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pHeadline">
 		<div class="col-sm-2">
-			<h4 id="business" class="bheadlineTitle"><a href="">BUSINESS</a></h4>
+			<h4 id="business" class="bheadlineTitle"><a href="/category/business">BUSINESS</a></h4>
 		</div>
 		<div class="col-sm-10 headlineBorder">
 		</div>
@@ -241,7 +241,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pRow">
 		<div class="col-lg-4 col-md-4 col-sm-6">
-			{% for post in post_list|slice:"0:1"%}
+			{% for post in business_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
@@ -269,7 +269,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pHeadline">
 		<div class="col-sm-3">
-			<h4 id="entertainment" class="bheadlineTitle"><a href="">ENTERTAINMENT</a></h4>
+			<h4 id="entertainment" class="bheadlineTitle"><a href="/category/entertainment">ENTERTAINMENT</a></h4>
 		</div>
 		<div class="col-sm-9 headlineBorder">
 		</div>
@@ -277,7 +277,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pRow">
 		<div class="col-lg-4 col-md-4 col-sm-6">
-			{% for post in post_list|slice:"0:1"%}
+			{% for post in entertainment_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
@@ -306,7 +306,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pHeadline">
 		<div class="col-sm-3">
-			<h4 id="entertainment" class="bheadlineTitle"><a href="">NEWS</a></h4>
+			<h4 id="entertainment" class="bheadlineTitle"><a href="/category/technology">TECHNOLOGY</a></h4>
 		</div>
 		<div class="col-sm-9 headlineBorder">
 		</div>
@@ -314,14 +314,14 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pRow">
 		<div class="col-lg-4 col-md-4 col-sm-6">
-			{% for post in post_list|slice:"0:1"%}
+			{% for post in tech_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
-			{% for post in news_posts|slice:"1:2" %}
+			{% for post in tech_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
@@ -329,7 +329,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
-		{% for post in news_posts|slice:"3:7" %}
+		{% for post in tech_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 
 		{% endfor %}
@@ -343,7 +343,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pHeadline">
 		<div class="col-sm-3">
-			<h4 id="entertainment" class="bheadlineTitle"><a href="">AROUND THE WEB</a></h4>
+			<h4 id="entertainment" class="bheadlineTitle"><a href="/category/politics">POLITICS</a></h4>
 		</div>
 		<div class="col-sm-9 headlineBorder">
 		</div>
@@ -351,14 +351,14 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	<div class="row pRow">
 		<div class="col-lg-4 col-md-4 col-sm-6">
-			{% for post in post_list|slice:"0:1"%}
+			{% for post in pol_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
-			{% for post in arw_posts|slice:"1:2" %}
+			{% for post in pol_posts|slice:"1:2" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
@@ -366,7 +366,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
-		{% for post in arw_posts|slice:"3:7" %}
+		{% for post in pol_posts|slice:"3:7" %}
 			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
 
 		{% endfor %}
