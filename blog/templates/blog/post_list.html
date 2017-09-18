@@ -1,4 +1,7 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
+{% endblock %}
 {% block content %}
 <!-- Main Area -->
 
@@ -146,11 +149,11 @@
 
 						</div>
 					</div>
-					<!--div class="col-md-12 col-xs-12">
-						<div class="col-md-3 col-md-push-3 col-sm-6 text-center">
+					<div class="col-md-12 col-xs-12">
+						<!--div class="col-md-3 col-md-push-3 col-sm-6 text-center">
 							<h1 class="third-text">TOP STORIES</h1>
-						</div>
-					</div-->
+						</div-->
+					</div>
 
 					<div class="col-md-9 col-sm-6">
 					 <div class="row">
@@ -530,4 +533,7 @@
 	</section>
 
 
+{% endblock %}
+{% block topimg %}
+<a href="{% url 'blog:grass_to_grace' %}"><img class="img-responsive" src="https://image.ibb.co/nF1SFQ/970x90nws.png"></a>
 {% endblock %}
