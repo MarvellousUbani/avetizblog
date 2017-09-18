@@ -54,27 +54,49 @@
             <br>
 
              <section class="similarStories">
+              {% if post in story_posts  %}
                 <div class="row">
-                    <h3 style="">More Inspiring Stories</h3>
-
+                  <h3 style="">More Success Stories</h3>
                   </div>
+
+                <div class="row">
+                  {% for post in story_posts|slice:"0:3" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
+
+                  {% for post in story_posts|slice:"3:4" %}
+                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                </div>
+                {% endfor %}
+                </div>
+              {% else %}
+
                   <div class="row">
+                  <h3 style="">Similar Stories</h3>
+                  </div>
 
-                {% for post in story_posts|slice:"0:3" %}
-                <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                  <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                  <h4>{{post.title}}</h4></a>
+                  <div class="row">
+                  {% for post in featured_posts|slice:"0:3" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
+
+                  {% for post in featured_posts|slice:"3:4" %}
+                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
                 </div>
                 {% endfor %}
-
-                {% for post in post_list|slice:"3:4" %}
-                <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                  <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                  <h4>{{post.title}}</h4></a>
                 </div>
-                {% endfor %}
-
-                </div>
+                {% endif %}
+              
                </section>
 
     <section class="commentSection">
@@ -172,35 +194,48 @@
 
         <section class="similarStories">
         
-              <div class="col-sm-12">
-            <div class="row">
-              <h3 style="">Trending Stories</h3>
+             {% if post in story_posts  %}
+                <div class="row">
+                  <h3 style="">Trending</h3>
+                  </div>
 
-            </div>
-            <div class="row">
-            {% for post in featured_posts|slice:":3" %}
-              <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                <h4>{{post.title}}</h4></a>
-              </div>
-              {% endfor %}
+                <div class="row">
+                  {% for post in featured_posts|slice:"3:6" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
 
-              {% for post in featured_posts|slice:"3:4" %}
-              <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                <h4>{{post.title}}</h4></a>
-              </div>
-              {% endfor %}
-           </div>
+                  {% for post in featured_posts|slice:"6:7" %}
+                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                </div>
+                {% endfor %}
+                </div>
+              {% else %}
 
-           <div class="row">
-            <div class="col-sm-12">
-              <img style="margin:20px auto" src="https://www.techcityng.com/wp-content/uploads/2016/06/Konga-Ad-728x90.jpg" class="img-responsive">
-            </div>
-            
-          </div>
+                  <div class="row">
+                  <h3 style="">Recommended Stories</h3>
+                  </div>
 
-          </div>
+                  <div class="row">
+                  {% for post in featured_posts|slice:"0:3" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
+
+                  {% for post in featured_posts|slice:"3:4" %}
+                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                </div>
+                {% endfor %}
+                </div>
+                {% endif %}
          </section> 
 
 

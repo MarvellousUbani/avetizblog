@@ -102,6 +102,7 @@ class PostDetailView(DetailView):
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
+        context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)

@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load imagefit %}
 {% block title %}
 AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 {% endblock %}
@@ -205,7 +206,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	      </div>
 	      <div class="col-sm-4">
-	        <img src="{{post.post_pic.url}}" class="img-responsive">
+	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive">
 	      </div>
 	    </div>
 
@@ -544,6 +545,12 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 			        	</div>
 			        	{% endfor %}
 
+			        	{% for post in latest_posts|slice:"5:6" %}
+		        		<div class="col-xl-12 hidden-lg panelCol">
+					    	<img src="{{post.post_pic.url}}" class="img-responsive">
+			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        	</div>
+			        	{% endfor %}
 			        </div>
 				  </div>
 		 		 </div>

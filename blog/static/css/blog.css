@@ -794,6 +794,9 @@ footer .input-group{
   font-style: italic;
 }
 
+.commentSection{
+  margin-top: 50px;
+}
 
 /* Media Queries */
 
