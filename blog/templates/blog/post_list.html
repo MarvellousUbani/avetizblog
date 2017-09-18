@@ -376,6 +376,43 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 	</section>
 
+	 <section class="pRowSection">
+
+	<div class="row pHeadline hidden-lg">
+		<div class="col-sm-3">
+			<h4 id="entertainment" class="bheadlineTitle"><a href="/category/politics">FASHION</a></h4>
+		</div>
+		<div class="col-sm-9 headlineBorder">
+		</div>
+	</div>
+
+	<div class="row pRow hidden-lg">
+		<div class="col-xl-4 hidden-lg">
+			{% for post in fashion_posts|slice:"0:1"%}
+			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			{% endfor %}
+		</div>
+		<div class="col-xl-4 hidden-lg bPCol">
+
+			{% for post in fashion_posts|slice:"1:2" %}
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+
+			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			{% endfor %}
+		</div>
+		<div class="col-xl-4 hidden-lg lastPCol">
+
+		{% for post in fashion_posts|slice:"3:7" %}
+			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+
+		{% endfor %}
+		</div>
+
+	</div>
+
+	</section>
+
 
 	  </div>
 

@@ -67,6 +67,8 @@ class PostListView(ListView):
         entertainment_cat = Category.objects.get(name='entertainment')
         tech_cat = Category.objects.get(name='technology')
         pol_cat = Category.objects.get(name='politics')
+        fash_cat = Category.objects.get(name='fashion')
+        context['fashion_posts'] = Post.objects.filter(category = fash_cat)
         context['business_posts'] = Post.objects.filter(category = business_cat)
         context['entertainment_posts'] = Post.objects.filter(category= entertainment_cat)
         context['tech_posts'] = Post.objects.filter(category=tech_cat)
@@ -97,6 +99,8 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['Comments'] = Comment.objects.all()
         context['post_list'] = Post.objects.all()
+        story_cat = Category.objects.get(name='my story')
+        context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm

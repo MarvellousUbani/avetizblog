@@ -55,22 +55,20 @@
 
              <section class="similarStories">
                 <div class="row">
-                    <h3 style="">Similar Stories</h3>
+                    <h3 style="">More Inspiring Stories</h3>
 
                   </div>
                   <div class="row">
-                  <!-- {% for item in post_list%}
-                      {% if item.category == post.category and item != post %}
-                        <div class="col-sm-4 pad-right">
-                        <a href="{% url 'blog:post_detail' pk=post.pk %}">
-                          <img src="{{item.post_pic.url}}" class="img-responsive">
-                          <h4>{{item.title}}</h4></a>
-                        </div>
-                      {% endif %}
 
-                    {% endfor %} -->
-                {% for post in post_list|slice:"4:7" %}
-                <div class="col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                {% for post in story_posts|slice:"0:3" %}
+                <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                  <h4>{{post.title}}</h4></a>
+                </div>
+                {% endfor %}
+
+                {% for post in post_list|slice:"3:4" %}
+                <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                   <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                   <h4>{{post.title}}</h4></a>
                 </div>
@@ -93,17 +91,17 @@
         {% endfor %}
 
         <div class="row margin-tops">
-        {% if approved_comments.count == 0 %}
+        {% if post.approve_comments.count == 0 %}
         <h2>There are No Comments</h2>
 
-        {% elif approved_comments.count == 1 %}
-        <h2>There is {{approved_comments.count}} Comment</h2>
-        {% elif approved_comments.count > 1 %}
-        <h2>There are {{approved_comments.count}} Comments</h2>
+        {% elif post.approve_comments.count == 1 %}
+        <h2>There is {{post.approve_comments.count}} Comment</h2>
+        {% elif post.approve_comments.count > 1 %}
+        <h2>There are {{post.approve_comments.count}} Comments</h2>
         {% endif %}
 
         <br>
-          {% for comment in approved_comments %}
+          {% for comment in post.approve_comments %}
             <div class="col-md-12 commmnet-wrapper">
               {% if user.is_authenticated or comment.approved_comment %}
                    {% if not comment.approved_comment %}
@@ -176,12 +174,19 @@
         
               <div class="col-sm-12">
             <div class="row">
-              <h3 style="">Recommended Stories</h3>
+              <h3 style="">Trending Stories</h3>
 
             </div>
             <div class="row">
             {% for post in featured_posts|slice:":3" %}
-              <div class="col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+              <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                <h4>{{post.title}}</h4></a>
+              </div>
+              {% endfor %}
+
+              {% for post in featured_posts|slice:"3:4" %}
+              <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                 <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                 <h4>{{post.title}}</h4></a>
               </div>
