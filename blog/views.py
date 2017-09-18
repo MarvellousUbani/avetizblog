@@ -5,7 +5,7 @@ from blog.models import Post, Comment, Category
 from django.utils import timezone
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
-from random import randint
+from random import choice
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
                                   UpdateView,DeleteView,
@@ -82,9 +82,10 @@ class PostDetailView(DetailView):
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
-        count=Advert.objects.all().count()
-        adindex=randint(1,count)
-        context['ad']=Advert.objects.get(pk=adindex)
+        adverts=Advert.objects.all()
+        advert_index=[ advert.pk for advert in adverts]
+        fetch_index=choice(advert_index)
+        context['ad']=Advert.objects.get(pk=fetch_index)
         
         return context
 
