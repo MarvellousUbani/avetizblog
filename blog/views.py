@@ -82,7 +82,7 @@ class PostDetailView(DetailView):
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
-        adverts=Advert.objects.all()
+        adverts=Advert.objects.filter()
         advert_index=[ advert.pk for advert in adverts]
         fetch_index=choice(advert_index)
         context['ad']=Advert.objects.get(pk=fetch_index)
