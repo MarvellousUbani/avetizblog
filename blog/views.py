@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment, Category
+from django.contrib import messages
 from django.utils import timezone
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
@@ -107,6 +108,19 @@ class PostDetailView(DetailView):
         
         return context
 
+class CommentFormView(FormView):
+    form_class = CommentForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        comment = form.save(commit=False)
+        # pdb.set_trace()
+        comment.post = post
+        comment.save()
+        return super(CommentFormView, self).form_valid(form)
+
 
 class CreatePostView(LoginRequiredMixin, CreateView):
     login_url = 'account/login/'
@@ -196,6 +210,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Thank you for submitting your comment. It will be approved shortly after review.')
             return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
