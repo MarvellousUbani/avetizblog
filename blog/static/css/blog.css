@@ -798,6 +798,10 @@ footer .input-group{
   margin-top: 50px;
 }
 
+.similarStories{
+  margin-bottom: 50px;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {

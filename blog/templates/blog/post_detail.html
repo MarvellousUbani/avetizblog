@@ -68,7 +68,7 @@
                   {% endfor %}
 
                   {% for post in story_posts|slice:"3:4" %}
-                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 hidden-lg hidden-md hidden-sm hidden-xs pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                 </div>
@@ -89,7 +89,7 @@
                   {% endfor %}
 
                   {% for post in featured_posts|slice:"3:4" %}
-                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 hidden-lg hidden-md hidden-sm hidden-xs pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                 </div>
@@ -208,7 +208,7 @@
                   {% endfor %}
 
                   {% for post in featured_posts|slice:"6:7" %}
-                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 hidden-lg hidden-md hidden-sm hidden-xs pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                 </div>
@@ -229,7 +229,7 @@
                   {% endfor %}
 
                   {% for post in featured_posts|slice:"3:4" %}
-                  <div class="col-xl-3 hidden-lg pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 hidden-lg hidden-md hidden-sm hidden-xs pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                 </div>
