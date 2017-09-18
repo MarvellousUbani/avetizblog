@@ -10,3 +10,4 @@ admin.site.register(Transaction)
 admin.site.register(Advert)
 admin.site.register(advertPlan)
 admin.site.register(Bank)
+

@@ -6,21 +6,26 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class advertPlan(models.Model):
-	name=models.CharField(max_length=50)
-	frequency=models.CharField(max_length=50, choices=(('Weekly','Weekly'),('Daily','Daily'),('Monthly','Monthly')))
-	cost=models.IntegerField()
-	page=models.CharField(max_length=50,choices=(('home','home'),('detail','detail')))
-
+	name=models.CharField(max_length=50, null=True)
+	cost=models.IntegerField(null=True)
+	
 	def __str__(self):
 		return self.name
 
 
+class Duration(models.Model):
+	plan=models.ForeignKey(advertPlan)
+	name=models.CharField(max_length=50, choices=(('1 Week', '1 Week'), ('1 Month', '1 Month'),('Quaterly', 'Quaterly'), ('Anually', 'Anually')))
+	price=models.IntegerField()
+
+	def __str__(self):
+		return self.name
 
 class Advert(models.Model):
 	company=models.CharField(max_length=70)
 	advert_banner=models.ImageField(upload_to='media')
 	advert_desc=models.TextField()
-	duration=models.IntegerField()
+	duration=models.ForeignKey(Duration, null =True)
 	status=models.BooleanField(default=False)
 	publisher=models.ForeignKey(User, null=True)
 	payt_status=models.BooleanField(default=False)

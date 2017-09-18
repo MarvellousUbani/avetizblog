@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
    <head>
-    <title>AvetiZ Blog</title>
+    <title>AvetiZ Blog | Real Estate | Business</title>
       <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/search-result.css' %}">
+        <link rel="shortcut icon" href="http://join.sagecapitals.com/img/logo.png" type="image/x-icon">
         {% endblock %}
   </head>
   <body>
@@ -38,12 +39,12 @@
             <div class="row backgroundcolor">
         <div class="col-md-2 col-xs-3 col-sm-2 imglogo ">
           <ul class="list-inline">
-            <li><a class="" href="#"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
+            <li><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
           </ul>
         </div>
         <div class="col-md-8">
           <div class=" text-center graceSection">
-            <a href="#"><img class="img-responsive" src="https://image.ibb.co/nF1SFQ/970x90nws.png"></a>
+            <a href="{% url 'blog:grass_to_grace' %}"><img class="img-responsive" src="https://image.ibb.co/nF1SFQ/970x90nws.png"></a>
           </div>
         </div>
       </div>

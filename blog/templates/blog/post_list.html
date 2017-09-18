@@ -65,11 +65,11 @@
 					<div class="col-md-3 col-sm-6 shift-top right" style="margin-top: 0px;">
 						<div class="zone zonequeen">
 							<div class="zone-title text-center">
-										<h1 class="zone-title-text">TOP STORIES</h1>
+										<h1 class="zone-title-text">Latest News</h1>
 							</div>
 							<div class="main-top-story">
 								{% for post in featured_posts|slice:"3:4"%}
-								<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
+								<a  href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
 
 								<hr>
@@ -77,11 +77,11 @@
 								
 							</div>
 
-							{% for post in post_list|slice:":5"%}
+							{% for post in post_list|slice:":4"%}
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" style="height:95px" src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" style="height:110px; width:100%;" src="{{post.post_pic.url}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{post.title}}</h4>
@@ -96,7 +96,7 @@
 					</div>
 					<div class="col-md-6 col-sm-6">
 						{% for post in post_list|slice:"5:7" %}
-						<div class="index-post">
+						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
@@ -132,7 +132,7 @@
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" style="height:95px"  src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" style="height:110px; width:100%;"  src="{{post.post_pic.url}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{ post.title }}</h4>
@@ -146,11 +146,11 @@
 
 						</div>
 					</div>
-					<div class="col-md-12 col-xs-12">
+					<!--div class="col-md-12 col-xs-12">
 						<div class="col-md-3 col-md-push-3 col-sm-6 text-center">
 							<h1 class="third-text">TOP STORIES</h1>
 						</div>
-					</div>
+					</div-->
 
 					<div class="col-md-9 col-sm-6">
 					 <div class="row">
@@ -209,11 +209,11 @@
 	    <div class="row">
 	    	<div class="col-sm-8">
 	    	 <ul class="socialCluster list-inline">
-	          <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
-	          <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
-	          <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+	          <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&src=sdkpreparse" class="fa fa-facebook"></a></li>
+	          <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&via=avetiz" class="fa fa-twitter"></a></li>
+	          <li class="list-inline-item"><a href="https://plus.google.com/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" onclick="javascript:window.open(this.href,
 								  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
-	          <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+	          <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" class="fa fa-linkedin"></a></li>
 	          
 	        </ul>
 	        </div>
