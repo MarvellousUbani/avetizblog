@@ -25,7 +25,7 @@ class Advert(models.Model):
 	company=models.CharField(max_length=70)
 	advert_banner=models.ImageField(upload_to='media')
 	advert_desc=models.TextField()
-	duration=models.ForeignKey(Duration, null =True)
+	duration=models.CharField(max_length=50,null=True, choices=(('1 Week', '1 Week'), ('1 Month', '1 Month'),('Quaterly', 'Quaterly'), ('Anually', 'Anually')))
 	status=models.BooleanField(default=False)
 	publisher=models.ForeignKey(User, null=True)
 	payt_status=models.BooleanField(default=False)

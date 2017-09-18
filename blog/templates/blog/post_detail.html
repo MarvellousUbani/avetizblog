@@ -1,4 +1,11 @@
 {% extends 'blog/base.html' %}
+<<<<<<< HEAD
+=======
+
+{% block title %}
+{{post.title}}-AvetiZ Blog
+{% endblock %}
+>>>>>>> d6a51725a971638f9ace5edb5040dfb4bb6e3781
 {% block content %}
 {% load bootstrap3 %}
 {% load imagefit %}
@@ -32,11 +39,11 @@
 
             <hr>
             <div class="row">
-              <div class="detail-share col-xs-2 text-center" >
+              <!--div class="detail-share col-xs-2 text-center" >
                 <span class="share-count"><strong>29</strong></span>
                 <br>
                 <span class="share-text"><strong>SHARE</strong></span>
-              </div>
+              </div-->
               <div class="icons col-xs-10">
                 <i class="" style="color:#3b5998"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&src=sdkpreparse" class="fa fa-facebook-official fa-3x"></a></i>
                 <i class="" style="color:#1dcaff"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&via=avetiz" class="fa fa-twitter-square fa-3x"></a></i>
@@ -206,6 +213,7 @@
       </div>
       {% include 'blog/includes/googleanalytics.html' %}
     </section>
-
-
+{% endblock %}
+{% block topimg %}
+<a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
 {% endblock %}
