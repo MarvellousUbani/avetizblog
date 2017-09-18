@@ -206,3 +206,15 @@ var makePayt = function () {
   $("#modal-product").on("submit", ".js-advert-submit-form", saveForm);
  
 });
+
+// Weekly writers section
+
+$(".writerImg").on("click", function(){
+  $(this).toggleClass("weeklywritersX");
+  $(this).children(".writerName").toggleClass("writerNameBg");
+});
+
+$(".writerimg").click(function(){
+  $(this).toggleClass("weeklywritersY");
+  $(this).children(".writerName").toggleClass("writerNameBg");
+});

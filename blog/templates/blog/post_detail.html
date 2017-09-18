@@ -1,10 +1,14 @@
 {% extends 'blog/base.html' %}
+<<<<<<< HEAD
+=======
 
 {% block title %}
 {{post.title}}-AvetiZ Blog
 {% endblock %}
+>>>>>>> d6a51725a971638f9ace5edb5040dfb4bb6e3781
 {% block content %}
 {% load bootstrap3 %}
+{% load imagefit %}
 
 <section id="ad">
       <div class="container ad">
@@ -69,7 +73,7 @@
                     {% endfor %} -->
                 {% for post in post_list|slice:"4:7" %}
                 <div class="col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                  <img src="{{post.post_pic.url}}" class="img-responsive">
+                  <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                   <h4>{{post.title}}</h4></a>
                 </div>
                 {% endfor %}
@@ -160,7 +164,7 @@
             <div class="row">
             {% for post in featured_posts|slice:":3" %}
               <div class="col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                <img src="{{post.post_pic.url}}" class="img-responsive">
+                <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                 <h4>{{post.title}}</h4></a>
               </div>
               {% endfor %}
