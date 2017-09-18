@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
    <head>
-    <title>AvetiZ Blog | Real Estate | Business</title>
+    <title>{% block title %}{% endblock %} </title>
       <meta charset = "utf-8">
         <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +44,9 @@
         </div>
         <div class="col-md-8">
           <div class=" text-center graceSection">
-            <a href="{% url 'blog:grass_to_grace' %}"><img class="img-responsive" src="https://image.ibb.co/nF1SFQ/970x90nws.png"></a>
+            {%  block topimg %}
+            
+            {% endblock%}
           </div>
         </div>
       </div>

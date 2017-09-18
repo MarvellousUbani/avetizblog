@@ -3,8 +3,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment, Category
 from django.utils import timezone
+from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
-
+from random import randint
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
                                   UpdateView,DeleteView,
@@ -81,6 +82,9 @@ class PostDetailView(DetailView):
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
+        count=Advert.objects.all().count()
+        adindex=randint(1,count)
+        context['ad']=Advert.objects.get(pk=adindex)
         
         return context
 
@@ -173,7 +177,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, 'blog/comment_form.html', {'form': form})
