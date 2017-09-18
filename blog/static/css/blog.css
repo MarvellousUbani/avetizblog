@@ -646,16 +646,14 @@ footer .socialCluster .fa{
 }
 
 
-.weeklywriters .col-xs-3 .writerImg:hover{
+.weeklywritersX{
   background: #464646 !important;
   position:absolute;
-  transform:scale(6.6,6.6);
+  transform:scale(3.3,3.3);
   z-index: 1;
-  top:30px;
-  left: 30px;
   border:1px inset orange;
-  color: #f9f9f9;
-  font-size: 0.5rem;
+  color: #f9f9f9 !important;
+  font-size: 1rem !important;
 }
 
 .weeklywriters .writerimg{
@@ -664,7 +662,7 @@ footer .socialCluster .fa{
     color: rgba(0,0,0,0.0);
 }
 
-.weeklywriters .fourthCol .writerimg:hover{
+.weeklywritersY{
  background: #464646 !important;
   position:relative;
   transform:scale(3.3,3.3);
@@ -672,16 +670,22 @@ footer .socialCluster .fa{
   top:30px;
   left: -100px;
   border:1px inset orange;
-  color: #f9f9f9;
-  font-size: 1rem;
+  color: #f9f9f9 !important;
+  font-size: 1rem !important;
 }
 
 .weeklywriters .writerName{
   display: block;
   position: absolute;
-  top:20%;
-  left: 15%;
+  top:80%;
+  font-size: 0.7rem;
   z-index: 2; 
+  width: 100%;
+  text-align: center;
+}
+
+.writerNameBg{
+  background: rgba(0,0,0,0.6);
 }
 
 .writersRow{
@@ -710,6 +714,10 @@ footer .socialCluster .fa{
 
 footer{
   font-family: 'Faustina';
+}
+
+footer a{
+  color: #fff !important;
 }
 
 
@@ -871,6 +879,7 @@ footer .input-group{
   position:relative;
   top: 50px;
   }
+
 }
 
 @media only screen and (max-width: 1000px) {
