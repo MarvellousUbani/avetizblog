@@ -17,7 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
 from haystack.query import SearchQuerySet
-from newsletter_signup.forms import NewsletterSignupForm
+#from newsletter_signup.forms import NewsletterSignupForm
 from django.db.models import Q
 
 class AboutView(TemplateView):
