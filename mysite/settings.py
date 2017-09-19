@@ -80,11 +80,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'newsletter_signup.middleware.GetRefererMiddleware',
+    #'newsletter_signup.middleware.GetRefererMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
-FROM_EMAIL='myschoolrents@gmail.com'
+#FROM_EMAIL='myschoolrents@gmail.com'
 
 TEMPLATES = [
     {

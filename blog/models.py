@@ -97,6 +97,11 @@ class Comment(models.Model):
         return self.text
 
 
+class SubscribeModel(models.Model):
+    email=models.EmailField()
+
+
+
 
 
 
