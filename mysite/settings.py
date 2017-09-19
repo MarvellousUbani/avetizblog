@@ -66,7 +66,11 @@ INSTALLED_APPS = [
     'blog',
     'haystack',
     'imagefit',
+   # 'newsletter_signup',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,9 +80,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'newsletter_signup.middleware.GetRefererMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+#FROM_EMAIL='myschoolrents@gmail.com'
 
 TEMPLATES = [
     {

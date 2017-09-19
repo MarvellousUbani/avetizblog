@@ -38,8 +38,8 @@
                   
             <div class="row backgroundcolor">
         <div class="col-md-2 col-xs-3 col-sm-2 imglogo ">
-          <ul class="list-inline">
-            <li><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
+          <ul class="list-inline small-scree-no">
+            <li ><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
           </ul>
         </div>
         <div class="col-md-8">
@@ -71,7 +71,7 @@
                   <div id="navbar-close" class="hidden">
                     <span class="glyphicon glyphicon-remove"></span>
                   </div>
-                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections</a>
+                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections</a> <a class="pull-right dont-show-logo" href="{% url 'blog:post_list' %}"><img  class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
            
                     <ul class="dropdown-menu mega-dropdown-menu row">
                       <li class="row">
@@ -86,6 +86,7 @@
                             <i class="fa fa-search"></i>
                           </button>
                         </div>
+
                       </div>
                     </form>
                     </li>
@@ -136,10 +137,10 @@
                             <li class="text-right col-xs-12 col-sm-6 col-lg-4 iconsList">
                               
                           <ul class=" list-inline">
-                              <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>
+                              <li><a data-toggle="tooltip" title="Facebook" class="pink" target="blank" href="https://www.facebook.com/AvetiZ/" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Twitter" target="blank" href="https://twitter.com/Avetiznow" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a data-toggle="tooltip" target="blank" href="https://www.linkedin.com/company/11099661" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <!--li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->
                                 <li><a data-toggle="tooltip" title="Login" class="pink" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i>Login</a></li>         
                         </ul>
                       
@@ -148,17 +149,17 @@
                        </ul>
 
                   </li>
-                  <li class="search-icon"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a></li>
+                  <!--li class="search-icon"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a></li-->
   
               </div>
             
               <div class="social-icon">
                 <ul class=" list-inline">
-                    <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
-                      <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>    
-                      <li><a data-toggle="tooltip" title="Login" class="pink" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i></a></li>    
+                    <li><a target="blank" data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/AvetiZ/" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a target="blank" data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="https://twitter.com/Avetiznow"><i class="fa fa-twitter"></i></a></li>
+                      <li><a target="blank" data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="https://www.linkedin.com/company/11099661"><i class="fa fa-linkedin"></i></a></li>
+                      <!--li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->    
+                      <li><a data-toggle="tooltip" title="Login"  style="color:#fff!" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i><!--img src=" /media/login.jpg "/-->Login</a></li>    
               </ul>
             </div>
             </div>
@@ -232,10 +233,14 @@
 
        <div class="col-md-4 col-sm-9 col-xs-12 nospacing">
          <div class="input-group">
-               <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
+              <form method="post" action="#">
+                {% csrf_token %}
+               <input type="email" name="email" id="id_email" placeholder="Enter Email Address" class="form-control" id="email">      
+                
               <span class="input-group-btn ">
-               <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
+               <button class="btn btn-md subscribeBtn" type="submit">Subscribe</button>
                 </span>
+              </form>
             </div>
        </div>
      </div>
@@ -245,11 +250,11 @@
       <div class="col-md-7 copyRightCol">
         <div class="row">
          <ul class="socialCluster list-inline">
-              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
-              <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+              <li class="list-inline-item"><a target="blank" href="https://www.facebook.com/AvetiZ/" class="fa fa-facebook"></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/Avetiznow" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/112036683390434800545" onclick="javascript:window.open(this.href,
                     '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
-              <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/11099661" class="fa fa-linkedin"></a></li>
               <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
               
             </ul>

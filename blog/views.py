@@ -18,6 +18,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
 from haystack.query import SearchQuerySet
+#from newsletter_signup.forms import NewsletterSignupForm
+from django.db.models import Q
 
 class AboutView(TemplateView):
     template_name = 'about.html'
@@ -54,6 +56,9 @@ def show_category(request,hierarchy= None):
     category_slug = hierarchy.split('/')
     category_queryset = list(Category.objects.all())
     all_slugs = [ x.slug for x in category_queryset ]
+    adverts=Advert.objects.filter(plan__name__icontains='Prem')
+    advert_index=[ advert.pk for advert in adverts]
+    fetch_index=choice(advert_index)
     parent = None
     for slug in category_slug:
         if slug in all_slugs:
@@ -65,7 +70,7 @@ def show_category(request,hierarchy= None):
             breadcrumbs = zip(breadcrumbs_link, category_name)
             return render(request, "post_detail.html", {'instance':instance,'breadcrumbs':breadcrumbs})
 
-    return render(request,"category.html",{'post_set':parent.post_set.all(),'sub_categories':parent.children.all()})
+    return render(request,"category.html",{'post_set':parent.post_set.all(),'sub_categories':parent.children.all(), 'ad':Advert.objects.get(pk=fetch_index)})
 
 
 class PostListView(ListView):
@@ -90,12 +95,11 @@ class PostListView(ListView):
         context['entertainment_posts'] = Post.objects.filter(category= entertainment_cat)
         context['tech_posts'] = Post.objects.filter(category=tech_cat)
         context['pol_posts'] = Post.objects.filter(category=pol_cat)
-
+        #context['subscribe']=NewsletterSignupForm(self.request)
+        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
-
         page = self.request.GET.get('page')
-
         try:
             list_posts = paginator.page(page)
         except PageNotAnInteger:
@@ -123,7 +127,7 @@ class PostDetailView(DetailView):
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
-        adverts=Advert.objects.all()
+        adverts=Advert.objects.filter(plan__name__icontains='Prem')
         advert_index=[ advert.pk for advert in adverts]
         fetch_index=choice(advert_index)
         context['ad']=Advert.objects.get(pk=fetch_index)

@@ -231,7 +231,7 @@ nav a:hover{
   line-height: 19px;
   margin-bottom: 0px;
   } 
-
+/** imagine **/
 .author{
   margin-left:20px;
 }
@@ -252,6 +252,7 @@ nav a:hover{
 .second-sec-post h3{
   margin-top:7px;
   margin-bottom: 7px;
+
 }
 @media only screen and (max-width: 768px){
  .second-sec-post h3{
@@ -967,6 +968,27 @@ footer .input-group{
 
 
  }
+ .dont-show-logo{
+    margin-top: 6px;
+ }
+
+ .dont-show-logo img{
+    height:45px;
+ }
+
+@media only screen and (min-width: 992px){
+.dont-show-logo{
+  display:none;
+}
+
+}
+@media only screen and (max-width: 992px){
+.small-scree-no{
+  display:none;
+ }
+}
+
+}
 
  @media only screen and (max-width: 768px) {
     .top-bar{
@@ -1018,7 +1040,8 @@ footer .input-group{
   }
 
   .fPostColumn img{
-      height: auto;
+      height: 300px;
   }
     
 }
+/*gjhj*/

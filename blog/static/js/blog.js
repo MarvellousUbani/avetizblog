@@ -18,7 +18,7 @@ $(document).on('click',function(){
    $('#navbar-hamburger').removeClass("active");
 });
 
-    $(document).ready(function(){
+    $(window).on('load',function(){
       console.log('im here')
       navheight=$('#headernav').height();
       $('.menu').css('top',navheight);
@@ -26,7 +26,7 @@ $(document).on('click',function(){
       if (width < 992 && width >= 768){
       
       $('img.js-third').parent().css('display', 'block')
-      sideheight=$('.post-box').height()/3;
+      sideheight=$('.post-box').height()/4;
       $('.js-third').height(sideheight);
       }
       if (width < 768){
