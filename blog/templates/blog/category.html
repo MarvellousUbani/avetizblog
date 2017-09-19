@@ -47,7 +47,7 @@
 
     <!-- Whats New Section -->
       <div class="col-sm-6 col-md-4 col-lg-3 whatsNewCol">
-        <h3 class="cTitle">What's New</h3>
+        <h3 class="cTitle"> {{post.category.name}} What's New</h3>
 
         <!-- Whats New Articles -->
 
@@ -69,7 +69,7 @@
         <div class="row adRow">
           <div class="col-xs-12">
           <!-- Categories Show -->
-                    
+        
           {% if sub_categories %}
               <h3>Sub Categories</h3>
               {% for i in sub_categories %}
@@ -122,7 +122,6 @@
 
       <!-- Whats Rising Section -->
       <div class="col-sm-6 col-md-4 col-lg-4 whatsRisingCol">
-        <h3 class="cTitle">What's Rising</h3>
         {% for post in post_list|slice:":8"%}
         <div class="card">
                   <div class="card-image">
@@ -252,7 +251,6 @@
 
       <!-- Whats Hot Section -->
       <div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
-        <h3 class="cTitle">What's Hot</h3>
 
         <div class="card">
                   <div class="card-image">
