@@ -18,7 +18,7 @@ $(document).on('click',function(){
    $('#navbar-hamburger').removeClass("active");
 });
 
-    $(document).ready(function(){
+    $(window).on('load',function(){
       console.log('im here')
       navheight=$('#headernav').height();
       $('.menu').css('top',navheight);
