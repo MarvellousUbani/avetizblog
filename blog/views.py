@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment, Category
+from django.contrib import messages
 from django.utils import timezone
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
@@ -66,6 +67,8 @@ class PostListView(ListView):
         entertainment_cat = Category.objects.get(name='entertainment')
         tech_cat = Category.objects.get(name='technology')
         pol_cat = Category.objects.get(name='politics')
+        fash_cat = Category.objects.get(name='fashion')
+        context['fashion_posts'] = Post.objects.filter(category = fash_cat)
         context['business_posts'] = Post.objects.filter(category = business_cat)
         context['entertainment_posts'] = Post.objects.filter(category= entertainment_cat)
         context['tech_posts'] = Post.objects.filter(category=tech_cat)
@@ -96,7 +99,10 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['Comments'] = Comment.objects.all()
         context['post_list'] = Post.objects.all()
+        story_cat = Category.objects.get(name='my story')
+        context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
+        context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
@@ -106,6 +112,19 @@ class PostDetailView(DetailView):
         context['ad']=Advert.objects.get(pk=fetch_index)
         
         return context
+
+class CommentFormView(FormView):
+    form_class = CommentForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        comment = form.save(commit=False)
+        # pdb.set_trace()
+        comment.post = post
+        comment.save()
+        return super(CommentFormView, self).form_valid(form)
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):
@@ -196,6 +215,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Thank you for submitting your comment. It will be approved shortly after review.')
             return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()

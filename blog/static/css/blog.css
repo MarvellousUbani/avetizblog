@@ -793,6 +793,15 @@ footer .input-group{
   font-family: 'Alegreya' !important;
   font-style: italic;
 }
+
+.commentSection{
+  margin-top: 50px;
+}
+
+.similarStories{
+  margin-bottom: 50px;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {

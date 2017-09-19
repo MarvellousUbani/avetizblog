@@ -15,3 +15,7 @@
 .bigSearchColumn .resultTxt{
 	color: #464646;
 }
+
+.top20 small{
+	text-transform: capitalize;
+}
