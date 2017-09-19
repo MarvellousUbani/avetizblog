@@ -139,12 +139,14 @@
     padding-right: 0px;
     padding-left: 0px;
 }
+
 @media only screen and (max-width: 1200px) {
     .social-icon{
         display:none;
     }
    .graceSection{
-        display:none;
+        display:block;
+        margin-left: auto;
     }
  
     .top-bar{

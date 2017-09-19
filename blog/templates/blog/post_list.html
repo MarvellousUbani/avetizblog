@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block title %}
-AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
+AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 {% endblock %}
 {% block content %}
 <!-- Main Area -->
@@ -9,6 +9,14 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 
 		<section id="body-header">
 			<div class="container">
+				{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-success alert-dismissable">
+				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  <strong>Success!{{message}}</strong>
+				</div>
+				{%endfor%}
+				{% endif %}
 				<div class="row">
 					<div class="col-md-8 col-sm-6 post-box">
 						<div class="main-post-wrapper">
@@ -29,6 +37,15 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 					<div class="col-md-4 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
+							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
+									<div class="col-md-7 col-sm-7  last col-xs-8 second-sec-post js-third" >
+										<h3>{{post_story.title}}</h3>
+										<p>{{post_story.text|truncatechars:60|safe}} </p>
+									</div>
+									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
+									<img class="sec-img js-third" src="{{ post_story.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
+									</div>
+						    </a>
 							  {% for post in featured_posts|slice:"1:4" %}
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
@@ -39,23 +56,7 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 									<img class="sec-img js-third" src="{{ post.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
-								{% endfor %}
-							
-						</div>
-						
-						<div class="sec-post-wrapper2 ">
-							  {% for post in featured_posts|slice:"4:5" %}
-							  <a href="{% url 'blog:post_detail' pk=post.pk %}">
-								<div class="col-md-7 col-sm-7 col-xs-8 second-sec-post last js-third" >
-									<h3>{{post.title}}</h3>
-									<p>{{post.text|truncatechars:60|safe}} </p>
-								</div>
-								<div class="col-md-5 col-sm-5 secondcol col-xs-4 last-sec js-third">
-								<img class="sec-img js-third last-img" src="{{ post.post_pic.url}}" height="100%" class="img-responsive"/>
-								</div>
-								</a>
-							 {% endfor %}
-							
+								{% endfor %}	
 						</div>
 					</div>
 				</div>

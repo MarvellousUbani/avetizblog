@@ -20,5 +20,5 @@ urlpatterns = [
         auth.views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth.views.password_reset_complete, name='password_reset_complete'),
     #url(r'^admin/password_reset/$', 'django.contrib.auth.views.password_reset', name='password_reset'),
-    
+   # url(r'^newsletter/', include('newsletter_signup.urls')),
 ]
