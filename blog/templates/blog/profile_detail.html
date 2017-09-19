@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load imagefit %}
+<html>
+   <head>
+    <title>{% block title %}{% endblock %} </title>
+      <meta charset = "utf-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block styles %}
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Faustina|Slabo+27px" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail2.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/categories.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+        <link rel="shortcut icon" href="http://join.sagecapitals.com/img/logo.png" type="image/x-icon">
+        {% endblock %}
+
+        <style type="text/css">
+
+        </style>
+  </head>
+  <body>
+
+  <div id="headernav">
+    <div class="container-fluid navcontain">
+        <div class="row">
+          <div class="heightclass  col-xs-11">
+          <nav class="navbar navbar-inverse">
+            <div class=" nav-wrapper">
+              <div class="navbar-header">
+               
+                <li class="dropdown mega-dropdown">
+
+                <button id="navbar-hamburger" type="button" class="navbar-toggle" data-toggle="dropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                  </button>
+                  <div id="navbar-close" class="hidden">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </div>
+                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections</a>
+           
+                    <ul class="dropdown-menu mega-dropdown-menu row">
+                      <li class="row">
+                        <li class="col-sm-12"> 
+
+                        <form class="searchbox" action="/find/" method="get">
+                        <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." name="q" id="q" autocomplete="off">
+                        <div id="selction-ajax"></div>
+                        <div class="input-group-btn">
+                          <button class="btn btn-default faBtn" type="submit">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    </li>
+                      </li>
+
+                      <li class="row">
+                       <li class="col-xl-2 col-sm-3 col-md-3">
+                         <ul>
+                         <li class="dropdown-header sRealEstate"><a href="/category/real-estate">Real Estate</a></li>  
+                           <li class="dropdown-header sTrend"><a href="/category/news">News</a></li> 
+                           <li class="dropdown-header sPolitics"><a href="/category/trend">Trend</a></li> 
+                           <li class="dropdown-header sArw"><a href="/category/business">Business</a></li> 
+                            </ul>
+                          </li>
+
+                          <li class="col-xl-3 col-sm-3">
+                            <ul>
+                              <li class="dropdown-header sBusiness"><a href="/grass-to-grace">My Story</a></li>
+                              <li class="dropdown-header sTechnology"><a href="/category/technology">Technology</a></li> 
+                              <li class="dropdown-header sEntertainment"><a href="/category/entertainment">Entertainment</a></li>
+                              <li class="dropdown-header sPolitics"><a href="/category/education">Education</a></li>
+                            </ul>
+                          </li>
+
+                          <li class="col-sm-3">
+                            <ul>
+                              <li class="dropdown-header sMyStory"><a href="/category/politics">Politics</a></li>
+                              <li class="dropdown-header sFashion"><a href="/category/entertainment/fashion">Fashion</a></li> 
+                              <li class="dropdown-header sSport"><a href="/category/weird-houses">Pricey Pads</a></li>
+                              
+                            </ul>
+                          </li>
+
+                          <li class="col-sm-3">
+                            <ul>
+                              <li class="dropdown-header sWeird"><a href="/category/sport">Sport</a></li>
+                              <li class="dropdown-header sEducation"><a href="/category/around-the-web">Around the Web</a></li> 
+                              <li class="dropdown-header sAdvertise"><a href="/">Advertise with us</a></li>
+
+                            </ul>
+                          </li>
+                         </li>
+
+                         <li class="row">
+                            <li class="col-sm-6 col-lg-8">
+                              
+                            </li>
+                            <li class="text-right col-xs-12 col-sm-6 col-lg-4 iconsList">
+                              
+                          <ul class=" list-inline">
+                              <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>
+                                <li><a data-toggle="tooltip" title="Login" class="pink" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i>Login</a></li>         
+                        </ul>
+                      
+                            </li>
+                         </li>
+                       </ul>
+
+                  </li>
+                  <li class="search-icon"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a></li>
+  
+              </div>
+            
+              <div class="social-icon">
+                <ul class=" list-inline">
+                    <li><a data-toggle="tooltip" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                      <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li>    
+                      <li><a data-toggle="tooltip" title="Login" class="pink" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i></a></li>    
+              </ul>
+            </div>
+            </div>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container profileContainer">
+  <div class="row">
+
+      {% if profile.avatar %}
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 profileCol">
+      <img src="{{profile.cover_pic.url|resize:'423x612,C'}}" class="img-responsive coverPic">
+      <div class="profileDetail">
+          <div class="profilePicSec">
+            <img src="{{profile.avatar.url|resize:'75x75,C'}}" class="img-responsive profilePic img-circle">
+          </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <h3 class="writerName">{{profile.user.get_full_name}}</h3>
+              <h5><i class="fa fa-pencil" aria-hidden="true"></i> Content Writer</h5>
+              <h5><i class="fa fa-map-marker" aria-hidden="true"></i> {{profile.location}}, {{profile.country}}</h5>
+              <ul class="list-inline writerSocialMedia">
+                <li class="list-inline-item"><a href=""><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+                <li class="list-inline-item"><a href=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                <li class="list-inline-item"><a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-xs-3">
+              
+            </div>
+          </div>
+      </div>
+    </div>
+
+    {% endif %}
+
+    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+      <div class="writerBio">
+        <h2 class="bioTitle">BIO</h2>
+        <hr>
+        <p class="bioDetail">{{profile.short_description}}</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="greyBar"><div class="pinkBar"></div></div>
+          <h2 class="morePostsTitle">Posts From {{profile.user.get_full_name}}</h2>
+          </div>
+      </div>
+
+      <div class="row profilePostsRow">
+      {% for post in post_list %}
+        {% if post.author == profile.user %}
+       <div class="col-sm-6 col-md-4 col-lg-4 profilePostsCol">
+        <div class="card">
+                  <div class="card-image">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'638x368,C'}}">
+                  </div>
+                  
+                  <div class="card-content">
+                  <small>{{post.category|capfirst}}</small>
+                      <h4><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|capfirst}}</a>
+                      </h4>
+                      <div>{{post.text|safe|truncatechars:100}}</div>
+                  </div>
+                  
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+           
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="blogFooter">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-2 col-md-1">
+      <img id= "footerLogoImg" src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive">
+       </div>
+       <div class="col-sm-9 col-md-7">
+
+        <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/real-estate">Real Estate</a></div>
+          <div class="col-sm-3 bNavli"><a href="/grass-to-grace">My Story</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/politics">Politics</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/around-the-web">Around the Web</a></div>
+          
+      </div>
+
+       <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/news">News</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/technology">Technology</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/entertainment/fashion">Fashion</a></div>
+          <div class="col-sm-3 bNavli"><a href="/">Advertise with us</a></div>
+          
+      </div>
+
+      <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/trend">Trend</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/entertainment">Entertainment</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/weird-houses">Pricey Pads</a></div>
+          <div class="col-sm-3 bNavli"><a href="http://www.careers.avetiz.com" target="_blank">Work with AvetiZ</a></div>
+          
+      </div>
+
+      <div class="row bottomBlogfooterRow">
+          <div class="col-sm-3 bNavli"><a href="/category/business">Business</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/education">Education</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/sport">Sports</a></div>
+          <div class="col-sm-3 bNavli"><a href="">Contact Us</a></div>
+      </div>
+
+
+       </div>
+
+       <div class="col-md-4 col-sm-9 col-xs-12 nospacing">
+         <div class="input-group">
+               <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
+              <span class="input-group-btn ">
+               <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
+                </span>
+            </div>
+       </div>
+     </div>
+
+     <div class="row">
+     <div class="col-xs-1"></div>
+      <div class="col-md-7 copyRightCol">
+        <div class="row">
+         <ul class="socialCluster list-inline">
+              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+              <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
+              
+            </ul>
+            </div>
+      </div>
+     </div>
+    </div>
+</footer>
+
+
+{# SCRIPTS#}
+
+  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.autocomplete.js' %}"></script>
+<script src="{% static 'js/our_search_code.js' %}"></script>
+
+</body>
+</html>

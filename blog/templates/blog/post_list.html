@@ -450,31 +450,19 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	    </div>
 
 	    <div class="weeklywriters">
+	     
 	      <p class="sidebarTitle">Our Monthly Writers</p>
 	      <div class="row writersRow">
+	      	{% for writer in profile_list|slice:":4"%}
 	        <div class="col-xs-3">
+	        	<a href="{% url 'blog:profile' pk=writer.pk %}">
 		        <div class="writerImg">
-		        	<img class="img-responsive" src="https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/writers/matthew-panzarino.jpg?resize=66%2C66">
-		        	<span class="writerName">John Grey</span>
+		        	<img class="img-responsive" src="{{writer.avatar.url|resize:'75x75,C'}}">
 		        </div>
+		      </a>
 	        </div>
-
-	        <div class="col-xs-3">
-	        <div class="writerImg">
-	        <img class="img-responsive" src="https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/writers/john-biggs.jpg?resize=66%2C65"><span class="writerName">Misty Grey</span>
-	        </div>
-	        </div>
-
-	        <div class="col-xs-3">
-	        <div class="writerImg">
-	        <img class="img-responsive" src="https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/writers/matt-burns.jpg?resize=66%2C65"><span class="writerName">Lisa Ramon</span></div>
-	        </div>
-
-	        <div class="col-xs-3 fourthCol">
-	        <div class="writerimg">
-	        <img class="img-responsive" src="http://www.latestseotutorial.com/wp-content/uploads/2016/12/anushka-sharma-photo.jpg"><span class="writerName">Rita Muyo</span>
-	        </div>
-	        </div>
+	        {% endfor %}
+	        
 	      </div>
 
 	      <div class="row writersRow">
