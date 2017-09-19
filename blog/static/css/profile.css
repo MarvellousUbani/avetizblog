@@ -75,3 +75,11 @@
   margin-top: 15px;
 }
 
+
+.profilePostsRow {
+    overflow: hidden; 
+}
+
+.profilePostsRow .profilePostsCol{
+    height: 400px;
+}
