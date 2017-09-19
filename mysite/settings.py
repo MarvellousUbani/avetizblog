@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'blog',
     'haystack',
     'imagefit',
-    'newsletter_signup',
+   # 'newsletter_signup',
     'django.contrib.sites',
 ]
 
