@@ -449,6 +449,9 @@ AvetiZ Blog|Real Estate|Buisness -AvetiZ Blog
 	    </div>
 
 	    <div class="weeklywriters">
+	        {% for item in profile_list %}
+		    	<li><a href="{% url 'blog:profile' pk=item.pk %}">{{item}}</a></li>
+		    {% endfor %}  
 	      <p class="sidebarTitle">Our Monthly Writers</p>
 	      <div class="row writersRow">
 	        <div class="col-xs-3">

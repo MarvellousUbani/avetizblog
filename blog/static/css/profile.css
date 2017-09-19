@@ -1,0 +1,77 @@
+
+.profileContainer{
+  margin:20px 15px;
+  font-family: helvetica;
+}
+
+.profileCol .coverPic{
+  width:100%;
+  -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,1);
+  box-shadow: -1px 3px 5px 0px rgba(0,0,0,1);                   
+}
+
+.profileDetail{
+  background: #fff;
+  height: 20.25rem;
+  position: relative;
+  top:-22.25rem;
+  width: 95%;
+  margin:0 auto;
+  padding:3rem 1.25rem;
+  -webkit-box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+  box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+}
+
+.profileDetail .fa-map-marker{
+  padding-right: 4px;
+}
+
+.profileCol .profilePic{
+  position: absolute;
+  top:-3.25rem;
+  left: 1.25rem;
+}
+
+.writerSocialMedia{
+  margin-top: 30px;
+}
+
+.writerName,.bioTitle,.morePostsTitle{
+  font-family: 'Lobster', helvetica;
+}
+
+.writerBio{
+  background: #f9f9f9;
+  height: auto;
+  padding:2rem;
+  -webkit-box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+  box-shadow: -1px 3px 5px -2px rgba(0,0,0,1);
+
+}
+
+.bioDetail{
+  font-size: 1.5rem;
+}
+
+.greyBar{
+  margin-top: 50px;
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 10px;
+}
+
+.pinkBar{
+  background-color: #E5127D;
+  position: absolute;
+  width: 40%;
+  height: 10px;
+}
+
+.card-content small{
+  display: block;
+  margin-top: 15px;
+}
+

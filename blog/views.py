@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment, Category
+from account.models import Profile
 from django.contrib import messages
 from django.utils import timezone
 from advert.models import Advert
@@ -20,6 +21,21 @@ from haystack.query import SearchQuerySet
 
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+
+class ProfileView(DetailView):
+    template_name = 'profile_detail.html'
+    model = Profile
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        context['profile_list'] = Profile.objects.all()
+        context['post_list'] = Post.objects.all()
+        paginate_by = 4
+        
+        
+        return context
+
 
 class GrassToGraceView(ListView):
     template_name ='grass-to-grace.html'
@@ -60,6 +76,7 @@ class PostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.all()
+        context['profile_list'] = Profile.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-created_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
