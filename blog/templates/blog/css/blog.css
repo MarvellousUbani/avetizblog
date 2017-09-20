@@ -603,6 +603,9 @@ footer .socialCluster .fa{
 	width: 100% !important;
 }
 
+.weeklywriters .col-xs-3 img:hover{
+	transform:scale(1.1,1.1);
+}
 
 .writersRow{
 	margin:10px 0;
@@ -862,14 +865,8 @@ footer .input-group{
 	}
     
 }
-
-<<<<<<< HEAD
-@media only screen and (max-width: 768px){
-	#footerLogoImg{
-    	height: 60px;
-    	margin: 20px auto;
-    }
+@media only screen and (min-width:1800px){
+.hidden-xl-up{
+	display:none;
 }
-=======
-/*Footer Ends*/
->>>>>>> 79333dbad5f728ac580cc7e6243b12cd9557d980
+}

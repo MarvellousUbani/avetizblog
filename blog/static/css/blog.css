@@ -1060,4 +1060,8 @@ footer .input-group{
 
 
 }
-
+@media only screen and (min-width:1500px){
+.hidden-xl-up{
+  display:none;
+}
+}

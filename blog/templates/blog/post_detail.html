@@ -257,7 +257,7 @@
             <div class=" text-center">
               <h2 class="sidebar-h">Latest Posts</h2>
               <div class="sidebar-class">
-                {% for post in recent_posts|slice:":6" %}
+                {% for post in recent_posts|slice:":3" %}
                 <a href="{% url 'blog:post_detail' pk=post.pk %}">
                  <div class="sidebar-img-detail margin-tops">
                     <img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -265,6 +265,17 @@
                  </div>
                 </a>
                 {% endfor %}
+
+                {% for post in recent_posts|slice:"3:6" %}
+                <a href="{% url 'blog:post_detail' pk=post.pk %}" class="hidden-xl-up">
+                 <div class="sidebar-img-detail margin-tops">
+                    <img class="img-responsive" src="{{post.post_pic.url}}"/>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+                 </div>
+                </a>
+                {% endfor %}
+
+                
 
                 <div class="sidebar-img-detail margin-tops">
                   <img class="img-responsive"  src="https://tpc.googlesyndication.com/simgad/3498238943114035450"/>
