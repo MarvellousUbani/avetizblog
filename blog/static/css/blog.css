@@ -379,6 +379,7 @@ nav a:hover{
   width: 100%;
   color:#fff;
   font-family:'Lato', sans-serif;
+  margin-top: 30px;
 }
 
 .blogFooter .bNavli{
@@ -976,13 +977,13 @@ footer .input-group{
     height:45px;
  }
 
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 1200px){
 .dont-show-logo{
   display:none;
 }
 
 }
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1200px){
 .small-scree-no{
   display:none;
  }
@@ -1045,9 +1046,16 @@ footer .input-group{
     
 }
 /*gjhj*/
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 767px){
   #footerLogoImg{
       height: 60px;
       margin: 20px auto;
     }
+
+ .ritasection{
+  margin-top: 50px;
+ }
+
+
 }
+

@@ -84,21 +84,23 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
-        context['post_list'] = Post.objects.all()
+        context['post_list'] = Post.objects.exclude(category__name__icontains='my st')
         context['profile_list'] = Profile.objects.all()
-        context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-created_date')
-        context['trending_posts'] = Post.objects.filter(trending_post=True)
+        context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-created_date')
+        context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        '''
         business_cat = Category.objects.get(name='business')
         entertainment_cat = Category.objects.get(name='entertainment')
         tech_cat = Category.objects.get(name='technology')
         pol_cat = Category.objects.get(name='politics')
         fash_cat = Category.objects.get(name='fashion')
-        context['fashion_posts'] = Post.objects.filter(category = fash_cat)
-        context['business_posts'] = Post.objects.filter(category = business_cat)
-        context['entertainment_posts'] = Post.objects.filter(category= entertainment_cat)
-        context['tech_posts'] = Post.objects.filter(category=tech_cat)
-        context['pol_posts'] = Post.objects.filter(category=pol_cat)
+        '''
+        context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion')
+        context['business_posts'] = Post.objects.filter(category__name__icontains = 'business')
+        context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment')
+        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology')
+        context['pol_posts'] = Post.objects.filter(category__name__icontains='politics')
         #context['subscribe']=NewsletterSignupForm(self.request)
         context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
         listed_post = Post.objects.all()
@@ -122,11 +124,14 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
+        post=self.get_object()
+        name=post.category.name
         context['Comments'] = Comment.objects.all()
         context['post_list'] = Post.objects.all()
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
+        context['similar_posts']=Post.objects.filter(category__name__icontains=name)[:6]
         context['trending_posts'] = Post.objects.filter(trending_post=True)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['form'] = CommentForm
