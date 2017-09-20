@@ -193,7 +193,7 @@
       <div class="col-sm-2 col-md-1">
       <img id="footerLogoImg"  src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive ">
        </div>
-       <div class="col-sm-9 col-md-7">
+       <div class="col-sm-9 col-md-9 col-lg-7">
 
         <div class="row topBlogfooterRow">
 
@@ -232,17 +232,17 @@
 
        </div>
 
-       <div class="col-md-4 col-sm-9 col-xs-12 nospacing">
-         <div class="input-group">
+       <div class="col-lg-4 col-md-8 col-sm-9 col-xs-12 nospacing">
+         
               <form method="post" action="#">
                 {% csrf_token %}
+                <div class="input-group">
                <input type="email" name="email" id="id_email" placeholder="Enter Email Address" class="form-control" id="email">      
-                
               <span class="input-group-btn ">
                <button class="btn btn-md subscribeBtn" type="submit">Subscribe</button>
-                </span>
+                </span></div>
               </form>
-            </div>
+            
        </div>
      </div>
 

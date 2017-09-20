@@ -914,7 +914,7 @@ footer .input-group{
   }
 
   .blogFooter .bNavli{
-  font-size:1.4rem;
+  font-size:1.3rem;
   }
 }
 
@@ -1031,10 +1031,6 @@ footer .input-group{
     text-align: center;
   }
 
-  .blogFooter small {
-      display: block;
-      margin-top: 20px;
-  }
 
   .olderPosts{
     width: 100%;
@@ -1055,6 +1051,12 @@ footer .input-group{
  .ritasection{
   margin-top: 50px;
  }
+
+
+  .blogFooter small {
+    display: block !important;
+    margin-top: 20px !important;
+  }
 
 
 }
