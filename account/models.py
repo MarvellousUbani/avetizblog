@@ -15,6 +15,10 @@ class Profile(models.Model):
 	avatar=models.ImageField(null=True, upload_to='media', blank=True)
 	location = models.CharField(max_length=50, null=True, blank=True)
 	country = models.CharField(max_length=50, null=True, blank=True)
+	facebook_link = models.URLField(max_length=50, null=True, blank=True)
+	twitter_link = models.URLField(max_length=50, null=True, blank=True)
+	instagram_link = models.URLField(max_length=50, null=True, blank=True)
+	linkedin_link = models.URLField(max_length=50, null=True, blank=True)
 	role=models.CharField(null=True, max_length=50, default='Content Writer' , choices=(('Advertiser', 'Advertiser'), 
 																			('Content Writer', 'Content Writer'), 
 																			('Social Media Executives', 'Social Media Executives'))

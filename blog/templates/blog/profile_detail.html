@@ -160,6 +160,7 @@
 
       {% if profile.avatar %}
     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 profileCol">
+    <h2 class="morePostsTitle">Meet {{profile.user.get_full_name}}</h2>
       <img src="{{profile.cover_pic.url|resize:'423x612,C'}}" class="img-responsive coverPic">
       <div class="profileDetail">
           <div class="profilePicSec">
@@ -167,14 +168,27 @@
           </div>
           <div class="row">
             <div class="col-sm-10">
-              <h3 class="writerName">{{profile.user.get_full_name}}</h3>
-              <h5><i class="fa fa-pencil" aria-hidden="true"></i> Content Writer</h5>
+              <h3 class="writerName">{{profile.user.get_full_name}}</h3>   
+
               <h5><i class="fa fa-map-marker" aria-hidden="true"></i> {{profile.location}}, {{profile.country}}</h5>
               <ul class="list-inline writerSocialMedia">
-                <li class="list-inline-item"><a href=""><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a href=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a href=""><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+
+                {% if profile.facebook_link %}
+                <li class="list-inline-item"><a href="{{profile.facebook_link}}" target="_blank">
+                <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.instagram_link %}
+                <li class="list-inline-item"><a href="{{profile.instagram_link}}" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.twitter_link %}
+                <li class="list-inline-item"><a href="{{profile.twitter_link}}" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.linkedin_link %}
+                <li class="list-inline-item"><a href="{{profile.linkedin_link}}" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
 
               </ul>
             </div>
@@ -211,7 +225,7 @@
                   </div>
                   
                   <div class="card-content">
-                  <small>{{post.category|capfirst}}</small>
+                  <small>{{post.category|capfirst}} </small>
                       <h4><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|capfirst}}</a>
                       </h4>
                       <div>{{post.text|safe|truncatechars:100}}</div>
