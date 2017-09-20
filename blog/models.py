@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
 
 
 
@@ -18,6 +19,7 @@ class Post(models.Model):
     trending_post = models.BooleanField(default=False)
     status = models.CharField(max_length=100, default="Draft", choices=(('Draft','Draft'),('Published','Published'),('Submitted','Submitted')))
     category = models.ForeignKey('Category', null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True)
 
     def publish(self):
         if self.post_pic and self.text:
@@ -35,6 +37,11 @@ class Post(models.Model):
             return True
         else:
             return False
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        return super(Post, self).save(*args, **kwargs)
        
 
 
@@ -96,6 +103,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+class SubscribeEmail(models.Model):
+    email=models.EmailField()
+
 
 
 
