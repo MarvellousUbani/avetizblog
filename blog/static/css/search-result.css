@@ -16,6 +16,10 @@
 	color: #464646;
 }
 
-.top20 small{
-	text-transform: capitalize;
+.showcase small{
+	text-transform: capitalize !important;
+}
+
+.showcase{
+	height: 400px;
 }
