@@ -58,3 +58,6 @@ class FacetedPostSearchForm(FacetedSearchForm):
                 query += u'"%s"' % sqs.query.clean(item)
             sqs = sqs.narrow(u'brand_exact:%s' % query)
         return sqs
+
+class SubscribeForm(forms.Form):
+    email=forms.EmailField(label='', widget=forms.TextInput(attrs={'class':'form-control ' }))

@@ -23,7 +23,8 @@
     </section>
     <section class="login-content">
       <div class="logo">
-        <h1>AvetiZ</h1>
+        <!--h1>AvetiZ</h1-->
+        <a href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
       </div>
       <div class="login-box">
         <form class="login-form" method="post" action="{% url 'account:login' %}">

@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
-from blog.models import Post, Comment, Category
+from blog.models import Post, Comment, Category, SubscribeEmail
 from account.models import Profile
 from django.contrib import messages
 from django.utils import timezone
 from advert.models import Advert
-from blog.forms import PostForm, CommentForm, FacetedPostSearchForm
+from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm
 from random import choice
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -20,6 +20,8 @@ from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
 from haystack.query import SearchQuerySet
 #from newsletter_signup.forms import NewsletterSignupForm
 from django.db.models import Q
+
+
 
 class AboutView(TemplateView):
     template_name = 'about.html'
@@ -89,19 +91,11 @@ class PostListView(ListView):
         context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-created_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-        '''
-        business_cat = Category.objects.get(name='business')
-        entertainment_cat = Category.objects.get(name='entertainment')
-        tech_cat = Category.objects.get(name='technology')
-        pol_cat = Category.objects.get(name='politics')
-        fash_cat = Category.objects.get(name='fashion')
-        '''
         context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion')
         context['business_posts'] = Post.objects.filter(category__name__icontains = 'business')
         context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment')
         context['tech_posts'] = Post.objects.filter(category__name__icontains='technology')
         context['pol_posts'] = Post.objects.filter(category__name__icontains='politics')
-        #context['subscribe']=NewsletterSignupForm(self.request)
         context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
@@ -193,6 +187,14 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
 
+class SubscribeUser(FormView):
+    form_class=SubscribeForm
+
+    #def form_valid(self,form):
+
+
+
+
 
 def autocomplete(request):
     sqs = SearchQuerySet().autocomplete(
@@ -269,3 +271,5 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
+
+
