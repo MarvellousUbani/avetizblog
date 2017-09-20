@@ -29,7 +29,7 @@
             <h3 class="post-title-detail">{{post.title}}</h3>
             {% if post.published_date %}
             <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D M Y"}} By</span> 
-            <span class="post-author">{{post.author.get_full_name|capfirst}} {{approved_comments.count}} COMMENTS</span></span>
+            <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S)</span></span>
 
             {% endif %}
 

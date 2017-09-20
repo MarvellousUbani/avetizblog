@@ -219,6 +219,10 @@ class FacetedSearchView(BaseFacetedSearchView):
   def get_context_data(self, **kwargs):
         context = super(FacetedSearchView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.all()
+        adverts=Advert.objects.filter(plan__name__icontains='Prem')
+        advert_index=[ advert.pk for advert in adverts]
+        fetch_index=choice(advert_index)
+        context['ad']=Advert.objects.get(pk=fetch_index)
 
         return context
 

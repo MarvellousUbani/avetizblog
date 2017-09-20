@@ -268,10 +268,19 @@
   <div class="container">
 
     <div class="row">
+
+      <div class="col-sm-12 col-md-12">
+      
+     </div>
+
+    </div>
+
+
+    <div class="row">
       <div class="col-sm-2 col-md-1">
-      <img id= "footerLogoImg" src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive">
+      <img id="footerLogoImg"  src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive ">
        </div>
-       <div class="col-sm-9 col-md-7">
+       <div class="col-sm-9 col-md-9 col-lg-7">
 
         <div class="row topBlogfooterRow">
 
@@ -310,13 +319,17 @@
 
        </div>
 
-       <div class="col-md-4 col-sm-9 col-xs-12 nospacing">
-         <div class="input-group">
-               <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
+       <div class="col-lg-4 col-md-8 col-sm-9 col-xs-12 nospacing">
+         
+              <form method="post" action="#">
+                {% csrf_token %}
+                <div class="input-group">
+               <input type="email" name="email" id="id_email" placeholder="Enter Email Address" class="form-control" id="email">      
               <span class="input-group-btn ">
-               <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
-                </span>
-            </div>
+               <button class="btn btn-md subscribeBtn" type="submit">Subscribe</button>
+                </span></div>
+              </form>
+            
        </div>
      </div>
 
@@ -325,11 +338,11 @@
       <div class="col-md-7 copyRightCol">
         <div class="row">
          <ul class="socialCluster list-inline">
-              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
-              <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
+              <li class="list-inline-item"><a target="blank" href="https://www.facebook.com/AvetiZ/" class="fa fa-facebook"></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/Avetiznow" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/112036683390434800545" onclick="javascript:window.open(this.href,
                     '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
-              <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/11099661" class="fa fa-linkedin"></a></li>
               <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
               
             </ul>
@@ -338,6 +351,7 @@
      </div>
     </div>
 </footer>
+
 
 
 {# SCRIPTS#}
