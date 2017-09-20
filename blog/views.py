@@ -33,6 +33,7 @@ class ProfileView(DetailView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         context['profile_list'] = Profile.objects.all()
         context['post_list'] = Post.objects.all()
+        context['post_count'] = Post.objects.count()
         paginate_by = 4
         
         
