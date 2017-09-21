@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^category/(?P<hierarchy>.+)/$', views.show_category, name='category'),
-    url(r'^create_subscriber/$', views.SubscribeUser, name='subscribe')
+    url(r'^create_subscriber/$', views.SubscribeUser, name='subscribe'),
+    url(r'^contact/$', views.ContactView.as_view(), name='contact_us')
 ]
 
