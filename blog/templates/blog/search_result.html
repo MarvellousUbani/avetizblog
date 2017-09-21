@@ -225,6 +225,21 @@
                 {% endif %}
             {% else %}
             <p> Sorry, no result found for the search term  <strong>{{query}} </strong></p>
+
+            <h2>Trending</h2>
+
+            {% for post in post_list|slice:":9"%}
+            <div class="showcase col-sm-6 col-md-4">
+               <a href="{{ post.get_absolute_url }}">
+               <img src="{{post.post_pic.url }}" class="img-responsive">
+                  <h3>{{post.title}}</h3>
+                  <small>{{post.category}}</small>
+                  <div class="resultTxt">{{post.text|truncatechars:100|safe|capfirst}}</div>
+               </a>
+                
+                </div>
+                {% endfor %}
+
         {% endif %}
         </div>
     <div class="col-md-1"></div>
@@ -319,6 +334,8 @@
      </div>
     </div>
 </footer>
+
+
 
 
 {# SCRIPTS#}

@@ -197,17 +197,17 @@ class SubscribeUser(FormView):
 
 
 def autocomplete(request):
-  sqs = SearchQuerySet().autocomplete(
-  content_auto=request.GET.get(
-  'query',
-  ''))[
-  :5]
-  s = []
-  for result in sqs:
-    d = {"value": result.title, "data": result.object.slug}
-    s.append(d)
+    sqs = SearchQuerySet().autocomplete(
+        content_auto=request.GET.get(
+            'query',
+            ''))[
+        :5]
+    s = []
+    for result in sqs:
+        d = {"value": result.title, "data": result.object.slug}
+        s.append(d)
     output = {'suggestions': s}
-  return JsonResponse(output)
+    return JsonResponse(output)
 
 
 class FacetedSearchView(BaseFacetedSearchView):
@@ -215,7 +215,7 @@ class FacetedSearchView(BaseFacetedSearchView):
   form_class = FacetedPostSearchForm
   facet_fields = ['text', 'title']
   template_name = 'search_result.html'
-  paginate_by = 3
+  paginate_by = 9
   context_object_name = 'object_list'
 
   def get_context_data(self, **kwargs):
