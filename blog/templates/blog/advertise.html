@@ -8,9 +8,8 @@
         <!--custom css for only medial template-->
         <link href="{% static 'css/contact.css' %}" type="text/css" rel="stylesheet">
         {% endblock %}
-{% block title %}
-Contact - AvetiZ Blog
-{% endblock %}
+
+       
     
    
 {% block content %}    
@@ -27,11 +26,7 @@ Contact - AvetiZ Blog
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    {% if request.GET.advertise %}
                     <div class="text-center"><h2>Advertise With Us</h2></div>
-                    {% else %}
-                    <div class="text-center"><h2>Keep In Touch</h2></div>
-                    {% endif %}
                     <div class="contact-form-col">
                         <p>Please stay in touch with AvetiZ by completing the details below. </p>
                         <form name="sentMessage" id="contactForm" method="post" novalidate>
