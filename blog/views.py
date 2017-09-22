@@ -301,4 +301,15 @@ class PrivacyView(TemplateView):
         context['ad']=Advert.objects.get(pk=fetch_index)
         return context
 
+class TermsView(TemplateView):
+    template_name='blog/terms.html'
+
+    def get_context_data(self, **kwargs):
+        context=super(TermsView, self).get_context_data(**kwargs)
+        adverts=Advert.objects.filter(plan__name__icontains='Prem')
+        advert_index=[ advert.pk for advert in adverts]
+        fetch_index=choice(advert_index)
+        context['ad']=Advert.objects.get(pk=fetch_index)
+        return context
+
 

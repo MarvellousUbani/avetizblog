@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^category/(?P<hierarchy>.+)/$', views.show_category, name='category'),
     url(r'^create_subscriber/$', views.SubscribeUser, name='subscribe'),
     url(r'^contact/$', views.ContactView.as_view(), name='contact_us'),
-     url(r'^privacy/$', views.PrivacyView.as_view(), name='privacy_policy'),#test
+    url(r'^privacy/$', views.PrivacyView.as_view(), name='privacy_policy'),
+    url(r'^terms_of_use/$', views.TermsView.as_view(), name='terms'),#test
 ]
 
