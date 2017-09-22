@@ -107,6 +107,12 @@ class Comment(models.Model):
 class SubscribeEmail(models.Model):
     email=models.EmailField()
 
+class ContactMessage(models.Model):
+    name=models.CharField(max_length=200)
+    email=models.EmailField()
+    phone=models.CharField(max_length=200)
+    message=models.TextField()
+
 
 
 

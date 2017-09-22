@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 from blog.models import Post, Comment, Category, SubscribeEmail
 from account.models import Profile
 from django.contrib import messages
 from django.utils import timezone
 from advert.models import Advert
-from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm
+from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm, ContactForm
 from random import choice
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -191,6 +192,19 @@ class SubscribeUser(FormView):
     form_class=SubscribeForm
 
     #def form_valid(self,form):
+
+class ContactView(CreateView):
+    template_name='blog/contact.html'
+    form_class=ContactForm
+    context_object_name = 'contact_form'
+
+    def form_valid(self,form):
+        messages.success(self.request, 'Thank you for contacting us.We will get back to you shortly.')
+        return super(ContactView,self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('blog:contact_us')
+
 
 
 

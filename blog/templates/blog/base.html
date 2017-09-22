@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
-
         <link href="https://fonts.googleapis.com/css?family=Faustina|Slabo+27px" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/detail2.css' %}">
@@ -30,8 +29,10 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/search-result.css' %}">
         <link rel="shortcut icon" href="http://join.sagecapitals.com/img/logo.png" type="image/x-icon">
         {% endblock %}
+        {% block links %}
+        {% endblock %}
   </head>
-  <body>
+  <body onload="checkForChanges()">
 
      <div id="headernav">
      <div class="container-fluid top-bar ">
@@ -71,7 +72,7 @@
                   <div id="navbar-close" class="hidden">
                     <span class="glyphicon glyphicon-remove"></span>
                   </div>
-                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections  <i class="fa fa-search" style="font-size:15px;"></i>
+                    <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections  <i  id="js-toggle-search" class="fa fa-search" style="font-size:15px; margin-left: 20px;"></i>
                   </a> <a class="pull-right dont-show-logo" href="{% url 'blog:post_list' %}"><img  class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
            
                     <ul class="dropdown-menu mega-dropdown-menu row">
@@ -201,6 +202,7 @@
           <div class="col-sm-3 bNavli"><a href="/grass-to-grace">My Story</a></div>
           <div class="col-sm-3 bNavli"><a href="/category/politics">Politics</a></div>
           <div class="col-sm-3 bNavli"><a href="/category/around-the-web">Around the Web</a></div>
+
           
       </div>
 
@@ -222,11 +224,16 @@
           
       </div>
 
-      <div class="row bottomBlogfooterRow">
+      <div class="row topBlogfooterRow">
           <div class="col-sm-3 bNavli"><a href="/category/business">Business</a></div>
           <div class="col-sm-3 bNavli"><a href="/category/education">Education</a></div>
           <div class="col-sm-3 bNavli"><a href="/category/sport">Sports</a></div>
-          <div class="col-sm-3 bNavli"><a href="">Contact Us</a></div>
+          <div class="col-sm-3 bNavli"><a href="{% url 'blog:contact_us'%}">Contact Us</a></div>
+      </div>
+       <div class="row bottomBlogfooterRow">
+          <div class="col-sm-3 bNavli"><a href="/category/business">Privacy Policy</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/education">Terms and Condition</a></div>
+          
       </div>
 
 
@@ -252,8 +259,8 @@
         <div class="row">
          <ul class="socialCluster list-inline">
               <li class="list-inline-item"><a target="blank" href="https://www.facebook.com/AvetiZ/" class="fa fa-facebook"></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/Avetiznow" class="fa fa-twitter"></a></li>
-              <li class="list-inline-item"><a href="https://plus.google.com/112036683390434800545" onclick="javascript:window.open(this.href,
+              <li class="list-inline-item"><a target="blank" href="https://twitter.com/Avetiznow" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a target="blank" href="https://plus.google.com/112036683390434800545" onclick="javascript:window.open(this.href,
                     '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
               <li class="list-inline-item"><a href="https://www.linkedin.com/company/11099661" class="fa fa-linkedin"></a></li>
               <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
@@ -274,6 +281,8 @@
 <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.autocomplete.js' %}"></script>
 <script src="{% static 'js/our_search_code.js' %}"></script>
-
+<script>
+ 
+</script>
 </body>
 </html>
