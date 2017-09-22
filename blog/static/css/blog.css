@@ -804,6 +804,9 @@ footer .input-group{
   margin-bottom: 50px;
 }
 
+.copyRightCol{
+  margin-top: 50px;
+}
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {
@@ -1050,7 +1053,7 @@ footer .input-group{
   border-right-color: #595959;
   padding-top: 2px;
   padding-bottom: 2px;
-  
+  margin-bottom: 40px;
 }
 
 .belowFooter>li>a{
