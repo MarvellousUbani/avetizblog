@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^category/(?P<hierarchy>.+)/$', views.show_category, name='category'),
     url(r'^create_subscriber/$', views.SubscribeUser, name='subscribe'),
-    url(r'^contact/$', views.ContactView.as_view(), name='contact_us'),#test
+    url(r'^contact/$', views.ContactView.as_view(), name='contact_us'),
+     url(r'^privacy/$', views.PrivacyView.as_view(), name='privacy_policy'),#test
 ]
 

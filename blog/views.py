@@ -290,4 +290,15 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_detail', pk=post_pk)
 
+class PrivacyView(TemplateView):
+    template_name='blog/privacy.html'
+
+    def get_context_data(self, **kwargs):
+        context=super(PrivacyView, self).get_context_data(**kwargs)
+        adverts=Advert.objects.filter(plan__name__icontains='Prem')
+        advert_index=[ advert.pk for advert in adverts]
+        fetch_index=choice(advert_index)
+        context['ad']=Advert.objects.get(pk=fetch_index)
+        return context
+
 
