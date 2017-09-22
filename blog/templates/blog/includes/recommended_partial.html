@@ -1,0 +1,22 @@
+{% load imagefit %}
+<div class="row">
+                  <h3 style="">Recommended Stories</h3>
+                  </div>
+
+                  <div class="row">
+                  {% for post in featured_posts|slice:"0:3" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
+                </div>
+                 <div class="row">
+                  {% for post in featured_posts|slice:"3:6" %}
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+                    <h4>{{post.title}}</h4></a>
+                  </div>
+                  {% endfor %}
+                </div>
+                

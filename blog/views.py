@@ -196,7 +196,13 @@ class SubscribeUser(FormView):
 class ContactView(CreateView):
     template_name='blog/contact.html'
     form_class=ContactForm
-    context_object_name = 'contact_form'
+    
+
+    def get_context_data(self,**kwargs):
+        context=super(ContactView,self).get_context_data(**kwargs)
+        context['featured_posts'] = Post.objects.filter(featured_post=True)
+        return context
+
 
     def form_valid(self,form):
         messages.success(self.request, 'Thank you for contacting us.We will get back to you shortly.')

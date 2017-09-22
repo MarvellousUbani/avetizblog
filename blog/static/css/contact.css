@@ -125,7 +125,7 @@ h2 {
 
 h3 {
   font-size: 1.8em;
-  font-weight: 700;
+  font-weight: 100;
   letter-spacing: normal;
   line-height: 24px;
   margin-bottom: 33px;
@@ -160,7 +160,7 @@ h3.heading:after {
 
 h4 {
   font-size: 1.4em;
-  font-weight: 700;
+  font-weight: 100;
   letter-spacing: normal;
   line-height: 27px;
   margin: 0 0 14px 0;
@@ -1754,4 +1754,17 @@ breadcrumb
   background-color: #d4f999;
   color: #82c814;
   border-color: #82c814;
+}
+
+.recommended_partial .row{
+    margin-left:0px;
+    margin-left: 0px;
+  }
+
+.recommended_partial a>h4{
+  color:#337ab7;
+}
+
+.recommended_partial {
+  font-family: 'Roboto Condensed', sans-serif;
 }

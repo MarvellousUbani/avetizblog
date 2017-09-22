@@ -827,6 +827,10 @@ footer .input-group{
     	padding-bottom: 0px;
 	}
 
+	.recommended_partial{
+		margin-left:15px;
+		margin-left: 15px;
+	}
 
     .blogFooter .bNavli{
 		padding-bottom:20px;
@@ -864,9 +868,4 @@ footer .input-group{
 	    height: auto;
 	}
     
-}
-@media only screen and (min-width:1800px){
-.hidden-xl-up{
-	display:none;
-}
 }
