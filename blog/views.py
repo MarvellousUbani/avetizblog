@@ -53,6 +53,10 @@ class GrassToGraceView(ListView):
         context = super(GrassToGraceView, self).get_context_data(**kwargs)
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
+        adverts=Advert.objects.filter(plan__name__icontains='Prem')
+        advert_index=[ advert.pk for advert in adverts]
+        fetch_index=choice(advert_index)
+        context['ad']=Advert.objects.get(pk=fetch_index)
         return context
 
     def get_queryset(self):

@@ -1,39 +1,12 @@
-{% load static %}
-<!Doctype html>
-<html>
-	<head>
-		<title>Grass To Grace | AvetiZ</title>
-			<meta charset = "utf-8">
-    		<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
-  			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
-  			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  			<link rel="stylesheet" type="text/css" href="{% static 'css/gtg.css' %}">
-  			<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css'%}">
-  			<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-  			<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	</head>
-	<body>
 
-	<!-- Navigation Bar -->
-
-	<nav class="navbar navbar-default navbar-static-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="{% url 'blog:post_list' %}"><img src="http://test.sagecapitals.com/img/avetiz.jpg" class="img-responsive"></a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	      
-	    </ul>
-	  </div>
-	</nav>
-
+{% extends 'blog/base.html' %}
+{%load static %}
+{% block links %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/gtg.css' %}"> 
+{% endblock %}
 
 	<!-- Video Jumbotron -->
+{% block content %}
 		<div class="jumbotron">
 		   
 		    <video id="bg-video" autoplay="true" loop="loop" preload="metadata" muted="muted">
@@ -200,92 +173,8 @@
 	  	<p class="text-center"><button class="btn btn-lg btn-default shareStoryBtn" data-toggle="modal" data-target="#shareStoryModal">Share Your Story <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button></p>
 	  </section>
 
-<footer class="blogFooter">
-  <div class="container">
+{% endblock %}
 
-    <div class="row">
-
-      <div class="col-sm-12 col-md-12">
-      
-     </div>
-
-    </div>
-
-
-    <div class="row">
-      <div class="col-sm-2 col-md-1">
-      <img id= "footerLogoImg" src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive">
-       </div>
-       <div class="col-sm-9 col-md-7">
-
-        <div class="row topBlogfooterRow">
-
-          <div class="col-sm-3 bNavli"><a href="/category/real-estate">Real Estate</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/technology">Technology</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/politics">Politics</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/sports">Sports</a></div>
-          
-      </div>
-
-       <div class="row topBlogfooterRow">
-
-          <div class="col-sm-3 bNavli"><a href="/category/news">News</a></div>
-          <div class="col-sm-3 bNavli"><a href="/grass-to-grace">My Story</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/education">Education</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/weird-houses">Weird Houses</a></div>
-          
-      </div>
-
-      <div class="row topBlogfooterRow">
-
-          <div class="col-sm-3 bNavli"><a href="/category/trend">Trend</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/entertainment">Entertainment</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/entertainment/fashion">Fashion</a></div>
-          <div class="col-sm-3 bNavli"><a href="/category/around-the-web">Around the Web</a></div>
-          
-      </div>
-
-      <div class="row bottomBlogfooterRow">
-          <div class="col-sm-3 bNavli"><a href="/category/business">Business</a></div>
-          <div class="col-sm-3 bNavli"><a href="">Advertise with Us</a></div>
-          <div class="col-sm-3 bNavli"><a href="">Contact Us</a></div>
-      </div>
-
-
-       </div>
-
-       <div class="col-md-3 col-sm-9 col-xs-12">
-         <div class="input-group">
-               <input type="email" name="email" placeholder="Enter Email Address" class="form-control" id="email">      
-              <span class="input-group-btn ">
-               <button class="btn btn-md subscribeBtn" type="button">Subscribe</button>
-                </span>
-            </div>
-       </div>
-     </div>
-
-     <div class="row">
-     <div class="col-xs-1"></div>
-      <div class="col-md-7 copyRightCol">
-        <div class="row">
-         <ul class="socialCluster list-inline">
-              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://test.sagecapitals.com/detail.html&src=sdkpreparse" class="fa fa-facebook"></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://test.sagecapitals.com/detail.html&via=avetiz" class="fa fa-twitter"></a></li>
-              <li class="list-inline-item"><a href="https://plus.google.com/share?url=test.sagecapitals.com/detail.html" onclick="javascript:window.open(this.href,
-                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
-              <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://test.sagecapitals.com/detail.html" class="fa fa-linkedin"></a></li>
-              <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
-              
-            </ul>
-            </div>
-      </div>
-     </div>
-    </div>
-</footer>
-
-	<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="{% static 'js/blog.js' %}"></script>
-	</body>
-</html>
-
+{% block topimg %}
+<a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+{% endblock %}
