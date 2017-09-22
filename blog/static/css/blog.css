@@ -1041,6 +1041,27 @@ footer .input-group{
   }
     
 }
+.belowFooter>li{
+  background-color: transparent;
+  border-style: none;
+  font-size: 1.2rem;
+  border-right-style:solid;
+  border-right-width: 1px;
+  border-right-color: #595959;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  
+}
+.belowFooter{
+  margin-top: 30px;
+}
+.belowFooter>li>a{
+  color:#595959 !important;
+}
+
+.list-group-item:last-child{
+  border-right-style:none;
+}
 /*gjhj*/
 @media only screen and (max-width: 767px){
   #footerLogoImg{
