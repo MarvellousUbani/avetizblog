@@ -162,7 +162,7 @@ h4 {
   font-size: 1.4em;
   font-weight: 100;
   letter-spacing: normal;
-  line-height: 27px;
+  line-height: 20px;
   margin: 0 0 14px 0;
 }
 
@@ -1763,6 +1763,7 @@ breadcrumb
 
 .recommended_partial a>h4{
   color:#337ab7;
+  font-size: 15px;
 }
 
 .recommended_partial {
