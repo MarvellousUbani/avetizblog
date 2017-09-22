@@ -1052,9 +1052,7 @@ footer .input-group{
   padding-bottom: 2px;
   
 }
-.belowFooter{
-  margin-top: 30px;
-}
+
 .belowFooter>li>a{
   color:#595959 !important;
 }
@@ -1062,10 +1060,8 @@ footer .input-group{
 .list-group-item:last-child{
   border-right-style:none;
 }
-.recommended_partial .row{
-    margin-left:15px;
-    margin-left: 15px;
-  }
+
+
 /*gjhj*/
 @media only screen and (max-width: 767px){
   #footerLogoImg{

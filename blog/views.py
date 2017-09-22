@@ -191,7 +191,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 class SubscribeUser(FormView):
     form_class=SubscribeForm
 
-    #def form_valid(self,form):
+    #def form_valid
 
 class ContactView(CreateView):
     template_name='blog/contact.html'
