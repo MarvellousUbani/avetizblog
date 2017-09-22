@@ -17,6 +17,7 @@ $(".navbar-toggle, .navbar-brand").on("click", function () {
 
 $(document).on('click',function(){
    $('#navbar-hamburger').removeClass("active");
+   $(".social-icon").removeClass("hidden");
 });
 
     $(window).on('load',function(){
