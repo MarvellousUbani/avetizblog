@@ -17,6 +17,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 import random, string
+from django.core.mail import send_mail
 import pdb
 
 # Create your views here

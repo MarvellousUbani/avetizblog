@@ -9,18 +9,24 @@ from django.utils import timezone
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm, ContactForm
 from random import choice
+from django.utils.encoding import force_bytes, force_text
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
                                   UpdateView,DeleteView,
                                   FormView)
-
+from .tokens import account_activation_token
 from django.urls import reverse_lazy
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
 from haystack.query import SearchQuerySet
-#from newsletter_signup.forms import NewsletterSignupForm
+from django.core.mail import EmailMessage
+from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
+from django.template.loader import render_to_string
+from django.utils.crypto import get_random_string
+import pdb
 
 
 
@@ -192,9 +198,6 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
 
-class SubscribeUser(FormView):
-    form_class=SubscribeForm
-
     #def form_valid
 
 class ContactView(CreateView):
@@ -303,7 +306,6 @@ class PrivacyView(TemplateView):
 
 class TermsView(TemplateView):
     template_name='blog/terms.html'
-
     def get_context_data(self, **kwargs):
         context=super(TermsView, self).get_context_data(**kwargs)
         adverts=Advert.objects.filter(plan__name__icontains='Prem')
@@ -311,5 +313,54 @@ class TermsView(TemplateView):
         fetch_index=choice(advert_index)
         context['ad']=Advert.objects.get(pk=fetch_index)
         return context
+
+class SubscribeView(CreateView):
+    form_class=SubscribeForm
+    success_url = "/"
+    template_name='/blog/post_list.html'
+    model=SubscribeEmail
+
+    def form_valid(self,form):
+        email=self.request.POST['email']
+        email_test=SubscribeEmail.objects.filter(email__icontains=email)
+        if email_test.exists():
+            #comment
+            return HttpResponseRedirect(reverse('blog:post_list'))
+        current_site = get_current_site(self.request)
+        unique_id = get_random_string(length=32)
+        pdb.set_trace()
+       
+        message = render_to_string('blog/includes/subscribe_email.html', {
+                'domain':current_site.domain,
+                'token':unique_id,
+                'email':email,
+            })
+         #register using the message framework
+         #send email
+        mail_subject = 'Activate your AvetiZ Blog Subscription.'
+        email = EmailMessage(mail_subject, message, to=[email])
+        email.send()
+        subscribeemail=form.save(commit=False)
+        subscribeemail.token=unique_id
+        subscribeemail.save()
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+def activate(request):
+    email_get=request.GET.get['email']
+    token=reuqest.GET.get['token']
+    email=SubscribeEmail.objects.get(email__icontains=email_get)
+    if email.token == token :
+        email.active=True
+        email.save()
+        return HttpResponseRedirect(reverse('blog:post_list'))
+    else:
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+
+
+
+
+       
+
 
 

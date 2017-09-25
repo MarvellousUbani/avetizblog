@@ -106,6 +106,11 @@ class Comment(models.Model):
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
+    active=models.BooleanField(default=False)
+    token=models.CharField(max_length=50, null=True)
+    
+    def __str__(self):
+        return self.email
 
 class ContactMessage(models.Model):
     name=models.CharField(max_length=200)
