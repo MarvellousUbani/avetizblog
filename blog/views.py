@@ -263,7 +263,6 @@ def post_publish(request, pk):
     else:
         return render(request,'blog/post_detail.html', {'post':post, 'publish_error':True} )
 
-@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
