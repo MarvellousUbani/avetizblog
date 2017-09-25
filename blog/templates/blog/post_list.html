@@ -12,9 +12,9 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 			<div class="container">
 				{% if messages %}
 				{% for message in messages %}
-				<div class="alert alert-success alert-dismissable">
+				<div class="alert alert-{{message.tags}} alert-dismissable">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  <strong>Success!{{message}}</strong>
+				  <strong>{{message}}</strong>
 				</div>
 				{%endfor%}
 				{% endif %}

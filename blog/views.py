@@ -324,6 +324,7 @@ class SubscribeView(CreateView):
         email_test=SubscribeEmail.objects.filter(email__icontains=email)
         if email_test.exists():
             #comment
+            messages.warning(self.request, 'This email has already registered')
             return HttpResponseRedirect(reverse('blog:post_list'))
         current_site = get_current_site(self.request)
         unique_id = get_random_string(length=32)
@@ -336,8 +337,9 @@ class SubscribeView(CreateView):
             })
          #register using the message framework
          #send email
+        messages.success(self.request, 'We have sent a verification link to your  email address . Thank You ')
         mail_subject = 'Activate your AvetiZ Blog Subscription.'
-        email = EmailMessage(mail_subject, message, to=[email])
+        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email])
         email.send()
         subscribeemail=form.save(commit=False)
         subscribeemail.token=unique_id
@@ -345,10 +347,11 @@ class SubscribeView(CreateView):
         return HttpResponseRedirect(reverse('blog:post_list'))
 
 def activate(request):
-    email_get=request.GET.get['email']
-    token=reuqest.GET.get['token']
+    email_get=request.GET.get('email')
+    token=request.GET.get('token')
     email=SubscribeEmail.objects.get(email__icontains=email_get)
     if email.token == token :
+        messages.success(request, 'Subscription Successful')
         email.active=True
         email.save()
         return HttpResponseRedirect(reverse('blog:post_list'))
