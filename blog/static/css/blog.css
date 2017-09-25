@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body{
   font-family: 'Roboto Condensed', sans-serif;
 }
@@ -305,8 +307,9 @@ nav a:hover{
   font-size: 18px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    font-family: 'Roboto';
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.5em;
+    text-align: justify;
 }
 
 .index-post{
