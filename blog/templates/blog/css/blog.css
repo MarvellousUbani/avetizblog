@@ -287,7 +287,11 @@ nav a:hover{
 }
 
 .post-text p{
-	font-size:18px;
+	font-size: 17px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    font-family: 'Roboto';
+    line-height: 1.5em;
 }
 
 .index-post{
