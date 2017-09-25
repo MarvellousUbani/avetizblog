@@ -70,6 +70,7 @@ INSTALLED_APPS = [
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
+SITE_URL = 'http://avetizblog.com'
 
 SITE_ID = 1
 
