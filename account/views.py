@@ -34,6 +34,7 @@ def login(request):
 					auth_login(request, user)
 					profile=Profile.objects.get(user=user)
 					request.session['role'] = profile.role
+					request.session['img_url']=profile.avatar.url
 					if request.GET.get('next'):
 						return redirect(request.GET.get('next'))
 					else:
@@ -90,6 +91,7 @@ class SignUp(CreateView):
 			password=make_password(password)
 			firstname=self.request.POST['first_name']
 			role=self.request.POST['role']
+
 			try:
 				user=User(first_name=firstname, email=email,username=username, is_staff=False,password=password, is_active=True)
 				user.save()
