@@ -11,7 +11,7 @@ $('#menubutton').click(function(){
 
 $(".navbar-toggle, .navbar-brand").on("click", function () {
      $('#js-toggle-search').toggleClass("hidden");
-    // $("#navbar-hamburger").toggleClass("active");
+    $("#navbar-hamburger").toggleClass("active");
      $(".social-icon").toggleClass("hidden");
   });
 
