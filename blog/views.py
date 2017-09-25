@@ -327,7 +327,7 @@ class SubscribeView(CreateView):
             return HttpResponseRedirect(reverse('blog:post_list'))
         current_site = get_current_site(self.request)
         unique_id = get_random_string(length=32)
-        pdb.set_trace()
+        
        
         message = render_to_string('blog/includes/subscribe_email.html', {
                 'domain':current_site.domain,

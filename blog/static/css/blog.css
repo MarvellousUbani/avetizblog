@@ -206,14 +206,12 @@ nav a:hover{
 .main-post-text-wrapper{
   
   /*min-height: 100px;*/
- /* background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_174,o_80,w_254,x_1910,y_75/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170815-laswin-melania-tease_ysv3sw)  ;*/
-  background-image: url(/media/topback.jpg)  ;
+  background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_174,o_80,w_254,x_1910,y_75/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170815-laswin-melania-tease_ysv3sw)  ;
   background-repeat:no-repeat;
   background-position: center; 
   background-size: cover;
   color:#fff;
   padding-bottom:15px;
-
 }
 .main-post-text-wrapper h2{
   margin-top:0px;
@@ -243,7 +241,7 @@ nav a:hover{
 }
 
 .second-sec-post{
-  background-image:url(/media/blueshade.jpg);
+  background-image:url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_228,o_80,w_361,x_1248,y_880/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170818-Stern-Game-Of-Thrones-hero_bcmcab);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
