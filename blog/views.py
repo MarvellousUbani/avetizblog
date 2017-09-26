@@ -97,7 +97,7 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
-        context['post_list'] = Post.objects.exclude(category__name__icontains='my st').order_by('-created_date')
+        context['post_list'] = Post.objects.exclude(Q(category__name__icontains='my st'), featured_post=False).order_by('-created_date')
         context['profile_list'] = Profile.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-published_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
