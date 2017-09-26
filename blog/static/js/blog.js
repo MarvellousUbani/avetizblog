@@ -208,3 +208,18 @@ var makePayt = function () {
   $("#modal-product").on("submit", ".js-advert-submit-form", saveForm);
  
 });
+
+function AjaxFormSubmit() {
+    $.ajax({
+        url : 'post/(?P<pk>\d+)/comment/',
+        type : "POST",
+        data : { the_post : $('#commentForm').val() }
+    }).done(function(returned_data){
+
+        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+
+        // For instance, you could hide/display your add/remove button here
+
+    });
+}
+

@@ -23,7 +23,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
 
-							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
+							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
 
 							<div class="main-post-text-wrapper">
 								<h2>{{post.title}}</h2>
