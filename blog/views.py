@@ -97,17 +97,17 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
-        context['post_list'] = Post.objects.exclude(category__name__icontains='my st')
+        context['post_list'] = Post.objects.exclude(category__name__icontains='my st').order_by('-created_date')
         context['profile_list'] = Profile.objects.all()
-        context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-created_date')
+        context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-published_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
         context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-        context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion')
-        context['business_posts'] = Post.objects.filter(category__name__icontains = 'business')
-        context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment')
-        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology')
-        context['pol_posts'] = Post.objects.filter(category__name__icontains='politics')
-        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
+        context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion').order_by('-published_date')
+        context['business_posts'] = Post.objects.filter(category__name__icontains = 'business').order_by('-published_date')
+        context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment').order_by('-published_date')
+        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology').order_by('-published_date')
+        context['pol_posts'] = Post.objects.filter(category__name__icontains='politics').order_by('-published_date')
+        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )#rtrt
         context['lnp']=Post.objects.filter(category__name__icontains='news').order_by('-published_date')[:4]
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
