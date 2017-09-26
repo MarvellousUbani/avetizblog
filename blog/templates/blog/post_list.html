@@ -41,7 +41,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
 									<div class="col-md-7 col-sm-7  last col-xs-8 second-sec-post js-third" >
 										<h3><strong>{{post_story.title|truncatechars:48}}</strong></h3>
-										<p style="font-size: 18px">{{post_story.text|truncatechars:100|safe}} </p>
+										<p style="font-size: 18px">{{post_story.text|truncatechars:67|safe}} </p>
 									</div>
 									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
@@ -51,7 +51,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
 										<h3><strong>{{post.title|truncatechars:48}}</strong></h3>
-										<p>{{post.text|truncatechars:100|safe}} </p>
+										<p>{{post.text|truncatechars:67|safe}} </p>
 									</div>
 									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
