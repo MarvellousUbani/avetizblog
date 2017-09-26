@@ -164,6 +164,7 @@ padding-left:2.7%;
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
   /*font-family: sans-serif;*/
+
   margin-top:0;
 }
 
@@ -318,7 +319,7 @@ nav a:hover{
 
 .post-text>ul>li {
     list-style: square !important; 
-   /* font-family: 'Open Sans', sans-serif;*/
+   /* font-family: 'Open Sans', sans-serif;ffjf*/
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     line-height: 1.5em;
