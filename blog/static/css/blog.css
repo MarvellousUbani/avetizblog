@@ -295,6 +295,10 @@ nav a:hover{
   }
   }
 
+.topStoryImg{
+  height:300px;
+}
+
 
 
 
@@ -1037,12 +1041,19 @@ footer .input-group{
  }
 }
 
+@media only screen and (max-width: 768px){
+   .topStoryImg{
+    height:auto;
+    width:100%;
+   }
 }
 
  @media only screen and (max-width: 768px) {
     .top-bar{
       display:none;
     }
+   
+
    
     .ad{
       padding-left: 10px;
@@ -1110,7 +1121,7 @@ footer .input-group{
 }
 
 
-/*gjhj*/
+/*gjvhvhj*/
 @media only screen and (max-width: 767px){
   #footerLogoImg{
       height: 60px;

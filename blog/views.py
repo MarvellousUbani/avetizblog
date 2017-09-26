@@ -108,6 +108,7 @@ class PostListView(ListView):
         context['tech_posts'] = Post.objects.filter(category__name__icontains='technology')
         context['pol_posts'] = Post.objects.filter(category__name__icontains='politics')
         context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
+        context['lnp']=Post.objects.filter(category__name__icontains='news').order_by('-published_date')[:4]
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
         page = self.request.GET.get('page')

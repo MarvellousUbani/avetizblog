@@ -82,7 +82,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 								
 							</div>
 
-							{% for post in post_list|slice:":4"%}
+							{% for post in lnp %}
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
@@ -100,7 +100,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in post_list|slice:"5:7" %}
+						{% for post in post_list|slice:"1:3" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -114,7 +114,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 						{% endfor %}
 						
-						{% for post in post_list|slice:"7:8" %}
+						{% for post in post_list|slice:"4:5" %}
 						<div class="index-post dont-show">
 							<img src="https://img.huffingtonpost.com/asset/599adb3b1e00003c00c5e8c6.jpeg?ops=936_526,prog,quality_75" class="img-responsive"/>
 							<div class="post-text">
@@ -159,7 +159,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in post_list|slice:"11:13"  %}
+						{% for post in post_list|slice:"6:8"  %}
 						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
@@ -195,7 +195,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	<div class="row">
 	  
 	  <div class="col-md-9 col-sm-12">
-	  {% for post in post_list|slice:"14:20" %}
+	  {% for post in post_list|slice:"7:13" %}
 	  <div class="row">
 	  <div class="col-sm-12 fPostColumn">
 	   <div class="row">
