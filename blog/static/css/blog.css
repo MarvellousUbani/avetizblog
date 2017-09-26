@@ -140,7 +140,8 @@ padding-left:2.7%;
 /* End of Drop Down Menu Section*/
 
 .bPPost{
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
+  font-family: 'Raleway', sans-serif;
   line-height: 1.3em;
   font-size: 1.2em;
 }
@@ -149,7 +150,8 @@ padding-left:2.7%;
   font-size: 1.2em;
     line-height: 1.2em;
     color: #2a2a2a;
-    font-family:sans-serif;
+    /*font-family:sans-serif;*/
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
 
@@ -160,7 +162,9 @@ padding-left:2.7%;
 
 .bheadlineTitle{
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
+  /*font-family: sans-serif;*/
+
   margin-top:0;
 }
 
@@ -256,10 +260,15 @@ nav a:hover{
   margin-bottom: 7px;
 
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 992px){
  .second-sec-post h3{
   font-size: 15px;
+
  }
+ .topbox_img{
+    height:auto !important;
+  
+  }
 }
 .secondcol{
   padding :0px;
@@ -270,7 +279,7 @@ nav a:hover{
   width:100%;
 }
 .topbox_img{
-  height:470px;
+  height:470px ;
   width:100%;
 }
 
@@ -280,6 +289,8 @@ nav a:hover{
   
   }
   }
+
+
 
 
 .last{
@@ -307,18 +318,27 @@ nav a:hover{
   font-size: 14px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Raleway', sans-serif;
     line-height: 1.5em;
     text-align: justify;
 }
 
 .post-text>ul>li {
     list-style: square !important; 
+   /* font-family: 'Open Sans', sans-serif;ffjf*/
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
 }
 
 
 .post-text>ol>li {
     list-style: square !important;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
 }
 
 .index-post{
