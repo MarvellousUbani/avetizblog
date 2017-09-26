@@ -341,6 +341,8 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 		profileform=ProfileForm(data=self.request.POST, instance=profile, files=request.FILES)
 		userform.save()
 		profileform.save()
+		profile=Profile.objects.get(user=self.request.user)
+		request.session['img_url']=profile.avatar.url
 		userform=UserForm(instance=self.request.user)
 		profile=Profile.objects.get(user=self.request.user)
 		profileform=ProfileForm(instance=profile)

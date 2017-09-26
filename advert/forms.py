@@ -69,7 +69,10 @@ class ProfileForm(forms.ModelForm):
         widgets={
         'phone':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'address':forms.TextInput(attrs={'class':'form-control borderprob'}),
-
+        'facebook_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'twitter_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'instagram_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'linkedin_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
         }
 
 
