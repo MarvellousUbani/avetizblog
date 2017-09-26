@@ -323,7 +323,6 @@ class SubscribeView(CreateView):
         email=self.request.POST['email']
         email_test=SubscribeEmail.objects.filter(email__icontains=email)
         if email_test.exists():
-            #comment
             messages.warning(self.request, 'This email has already registered')
             return HttpResponseRedirect(reverse('blog:post_list'))
         current_site = get_current_site(self.request)
@@ -335,8 +334,6 @@ class SubscribeView(CreateView):
                 'token':unique_id,
                 'email':email,
             })
-         #register using the message framework
-         #send email
         messages.success(self.request, 'We have sent a verification link to your  email address . Thank You ')
         mail_subject = 'Activate your AvetiZ Blog Subscription.'
         email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email])

@@ -11,7 +11,6 @@ urlpatterns = [
     url(r'^find/', FacetedSearchView.as_view(), name='haystack_search'),
     url(r'^grass-to-grace/$', views.GrassToGraceView.as_view(), name='grass_to_grace'),
     url(r'^post/(?P<pk>\d+)$', views.PostDetailView.as_view(), name='post_detail'),
-   # url(r'^(?P<slug>[-\w]+)/$', views.PostDetailView.as_view(), name='post_detail'),
     url(r'^post/new/$', views.CreatePostView.as_view(), name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.PostUpdateView.as_view(), name='post_edit'),
     url(r'^drafts/$', views.DraftListView.as_view(), name='post_draft_list'),

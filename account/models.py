@@ -19,7 +19,7 @@ class Profile(models.Model):
 	twitter_link = models.URLField(max_length=50, null=True, blank=True)
 	instagram_link = models.URLField(max_length=50, null=True, blank=True)
 	linkedin_link = models.URLField(max_length=50, null=True, blank=True)
-	role=models.CharField(null=True, max_length=50, default='Content Writer' , choices=(('Advertiser', 'Advertiser'), 
+	role=models.CharField(null=True, max_length=50, blank=True, default='Content Writer' , choices=(('Advertiser', 'Advertiser'), 
 																			('Content Writer', 'Content Writer'), 
 																			('Social Media Executives', 'Social Media Executives'))
 	                     )

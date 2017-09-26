@@ -4,9 +4,9 @@
         <div class="row user">
           <div class="col-md-12">
             <div class="profile">
-              <div class="info"><img class="user-img" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg">
+              <div class="info"><img class="user-img" src="{{request.session.img_url}}">
                 <h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
-                <p>Editor</p>
+                <p>{{request.session.role}}</p>
               </div>
               <div class="cover-image"></div>
             </div>
@@ -26,7 +26,7 @@
 
                 {% for post in posts %}
                   <div class="post">
-                    <div class="post-media"><a href="#"><img src="{{request.user.profile.avatar.url}}"></a>
+                    <div class="post-media"><a href="#"><img class="img-responsive" width="10%" src=""></a>
                       <div class="content">
                         <h5><a href="#">{{request.user.first_name}} {{request.user.last_name}}</a></h5>
                         <p class="text-muted"><small>{{post.created_on}}</small></p>
@@ -49,7 +49,7 @@
               <div class="tab-pane fade" id="user-settings">
                 <div class="card user-settings">
                   <h4 class="line-head">Settings</h4>
-                  <form method="post">
+                  <form method="post" enctype="multipart/form-data">
                   {%csrf_token %}
                     <div class="row mb-20">
                       <div class="col-md-4">
@@ -83,9 +83,30 @@
                       </div>
                       <div class="clearfix"></div>
                       <div class="col-md-8 mb-20">
+                        <label>Facebook Link</label>
+                        {{profileform.facebook_link}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>LinkedIn Link</label>
+                        {{profileform.linkedin_link}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Twitter Link</label>
+                        {{profileform.twitter_link}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Instagram Link</label>
+                        {{profileform.instagram_link}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
                         <label>Avatar</label>
                         {{profileform.avatar}}
                       </div>
+
                     </div>
                     <div class="row mb-10">
                       <div class="col-md-12">

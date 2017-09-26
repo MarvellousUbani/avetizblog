@@ -10,8 +10,10 @@
           <td class="status {{post.status}}">{{post.status}}</td>
           <td> <button data-toggle="tooltip"  title="Edit Post" data-url="{% url 'advert:update_post' post.id %}"  class="js-update-product buttonicon"><span><i  class="fa fa-pencil" ></i></span></button>
           <br>
+          {% if post.status == 'Draft' %}
           <button data-toggle="tooltip"  title="Delete Post" data-url="{% url 'advert:delete_post' post.id %}"  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
           <br>
+          {% endif %}
           <button data-url="{% url 'advert:submit_post' post.id%}"  data-toggle="tooltip"  title="Save post for Review" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button>
           </td>
         </tr>
