@@ -273,7 +273,7 @@ def add_comment_to_post(request, pk):
             comment.post = post
             comment.save()
             messages.success(request, 'Thank you for submitting your comment. It will be approved shortly after review.')
-            return redirect('blog:post_detail', pk=post.pk)
+            # return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, 'blog/comment_form.html', {'form': form})

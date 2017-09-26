@@ -23,11 +23,11 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
 
-							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
+							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
 
 							<div class="main-post-text-wrapper">
 								<h2><strong>{{post.title|truncatechars:70}}</strong></h2>
-								<div class="post">{{post.text|truncatechars:200|safe|capfirst}}</div>
+								<div class="post">{{post.text|truncatechars:100|safe|capfirst}}</div>
 								<span class="author" style="color:#8CC34A;">AvetiZ</span>
 								
 							</div>
@@ -72,7 +72,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">Latest News</h1>
 							</div>
-							<div class="main-top-story">
+							<div class="main-top-story index-post">
 								{% for post in featured_posts|slice:"3:4"%}
 								<a  href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>

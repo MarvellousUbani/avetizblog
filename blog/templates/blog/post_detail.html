@@ -24,7 +24,7 @@
       <div class="container margin-tops">
         <div class="row">
           <div class="col-md-8 col-sm-8">
-            <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%; height:500px" class="img-responsive img-post-detail">
+            <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
 
             <h3 class="post-title-detail">{{post.title}}</h3>
             {% if post.published_date %}
@@ -130,7 +130,7 @@
 
         <br>
           {% for comment in post.approve_comments %}
-            <div class="col-md-12 commmnet-wrapper" id="commentSec">
+            <div class="col-md-12 commmnet-wrapper">
               {% if user.is_authenticated or comment.approved_comment %}
                    {% if not comment.approved_comment %}
                   <a class="btn btn-default" href="{% url 'blog:comment_remove' pk=comment.pk %}">
@@ -159,7 +159,7 @@
                           </div>
                           <div id="collapseOne" class="panel-collapse collapse ">
                               <div class="panel-body">
-                                <form method="post" action="{% url 'blog:add_comment_to_post' pk=post.pk %}">
+                                <form method="post" action="{% url 'blog:add_comment_to_post' pk=post.pk %}" id="commentForm">
                                    {% csrf_token %}
                                   <div class="row">
                                       <div class="col-md-12">
