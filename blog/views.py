@@ -116,7 +116,7 @@ class PostListView(ListView):
             list_posts = paginator.page(page)
         except PageNotAnInteger:
             list_posts = paginator.page(1)
-        except EmptyPage:
+        except EmptyPage:  #fgfhfhfhfh
             list_posts = paginator.page(paginator.num_pages)
 
         context['listed_posts'] = list_posts
