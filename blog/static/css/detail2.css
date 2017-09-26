@@ -10,6 +10,11 @@
  	overflow:hidden;
  }
 
+ .post-title-detail{
+ 	color: #191970;
+    font-weight: bold
+ }
+
  .nospacing{
  	padding: 0 !important;
  	margin: 0 !important;
