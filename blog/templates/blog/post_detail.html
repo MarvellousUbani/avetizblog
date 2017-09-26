@@ -24,7 +24,7 @@
       <div class="container margin-tops">
         <div class="row">
           <div class="col-md-8 col-sm-8">
-            <img src="{{post.post_pic.url}}" style="width:100%" class="img-responsive img-post-detail">
+            <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
 
             <h3 class="post-title-detail">{{post.title}}</h3>
             {% if post.published_date %}
@@ -130,7 +130,7 @@
 
         <br>
           {% for comment in post.approve_comments %}
-            <div class="col-md-12 commmnet-wrapper">
+            <div class="col-md-12 commmnet-wrapper" id="commentSec">
               {% if user.is_authenticated or comment.approved_comment %}
                    {% if not comment.approved_comment %}
                   <a class="btn btn-default" href="{% url 'blog:comment_remove' pk=comment.pk %}">
