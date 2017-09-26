@@ -120,7 +120,7 @@
                   <div class="card-content">
                       <h3 class="whatsHotATitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|title}}</a>
                       </h3>
-                      <p>It's spring and you're fucked.</p>
+                      <div>{{post.text|truncatechars:100|safe|capfirst}}</div>
                   </div>
                   
                   <div class="card-action">

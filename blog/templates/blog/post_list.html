@@ -54,7 +54,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 										<p>{{post.text|truncatechars:60|safe}} </p>
 									</div>
 									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
-									<img class="sec-img js-third" src="{{ post.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
+									<img class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
 								{% endfor %}	
