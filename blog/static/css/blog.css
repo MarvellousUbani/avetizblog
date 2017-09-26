@@ -312,6 +312,15 @@ nav a:hover{
     text-align: justify;
 }
 
+.post-text>ul>li {
+    list-style: square !important; 
+}
+
+
+.post-text>ol>li {
+    list-style: square !important;
+}
+
 .index-post{
   margin-top:35px;
 }
