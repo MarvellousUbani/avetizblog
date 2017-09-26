@@ -3,6 +3,10 @@
 body{
   font-family: 'Raleway', sans-serif;
 }
+
+h2,h3,h4,h5{
+  font-family: 'Lato', sans-serif;
+}
 /*
 menuinst==1.4.7
 */
@@ -258,6 +262,7 @@ nav a:hover{
 .second-sec-post h3{
   margin-top:7px;
   margin-bottom: 7px;
+  width: 95%;
 
 }
 @media only screen and (max-width: 992px){
@@ -424,6 +429,7 @@ nav a:hover{
   margin-top: 0px;
   margin-left: 8px;
   color:  #191970;
+  font-weight: bold;
 }
 
 .zone-content p{
@@ -679,6 +685,11 @@ footer .socialCluster .fa{
     transition: all .6s;
     cursor: pointer;
     color: rgba(0,0,0,0.0);
+}
+
+.index-post h4{
+    color: #191970;
+    font-weight: bold
 }
 
 
