@@ -67,7 +67,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<section id="body2">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4 col-sm-6 shift-top right" style="margin-top: 0px;">
+					<div class="col-md-3 col-sm-6 shift-top right" style="margin-top: 0px;">
 						<div class="zone zonequeen">
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">Latest News</h1>
@@ -99,7 +99,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							{% endfor %}
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-6">
+					<div class="col-md-6 col-sm-6">
 						{% for post in lnp|slice:"5:7" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
@@ -125,7 +125,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						{% endfor %}
 					</div>
 
-					<div class="col-md-4 dis-sidebar  sidebar right">
+					<div class="col-md-3 dis-sidebar  sidebar right">
 						<div class="ad">
 							<img class="img-responsive" src="http://bannerfarm.ace.advertising.com/CDN/105934/1379552_non_sec.gif" border="0" width="100%" height="250" alt="Click to learn more...">
 						</div>
