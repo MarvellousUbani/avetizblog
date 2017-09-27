@@ -10,7 +10,7 @@ from django.template.defaultfilters import slugify
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=400)
     text = models.TextField(blank=True)
     post_pic = models.ImageField(upload_to='media', blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
