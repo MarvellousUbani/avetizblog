@@ -10,12 +10,12 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'text','post_pic')
+        fields = ('title', 'text','post_pic','category')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control borderprob' }),
             'text': forms.Textarea(attrs={'class': ' form-control'}),
-
+            'category': forms.Select(attrs={'class':'form-control'}),
         }
 
 class TransactionForm(forms.ModelForm):
