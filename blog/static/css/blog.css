@@ -862,6 +862,12 @@ footer .input-group{
   margin-top: 50px;
 }
 
+.commentBtn{
+  width: 100px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .similarStories{
   margin-bottom: 50px;
 }

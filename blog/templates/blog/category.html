@@ -111,7 +111,7 @@
       <!-- Whats Hot Section -->
 
       <div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
-        {% for post in post_set %}
+        {% for post in post_set|slice:"6:12"  %}
         <div class="card">
                   <div class="card-image">
                       <img class="img-responsive" src="{{post.post_pic.url|resize:'638x368,C'}}">
