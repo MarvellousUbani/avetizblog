@@ -357,7 +357,9 @@ nav a:hover{
 }
 
 .index-post{
-  margin-top:35px;
+  margin-top:27px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 .index-post>img{
   max-height: 400px;
