@@ -243,7 +243,7 @@
                  <div class="sidebar-img-detail margin-tops">
 
                     <img class="img-responsive"  src="{{post.post_pic.url}}"/>
-                    <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title|truncatechars:40}}</h4>
 
                  </div>
                 </a>
@@ -253,7 +253,7 @@
                 <a href="{% url 'blog:post_detail' pk=post.pk %}" class="hidden-xl-up">
                  <div class="sidebar-img-detail margin-tops">
                     <img class="img-responsive" src="{{post.post_pic.url}}"/>
-                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title}}</h4>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title|truncatechars:40}}</h4>
                  </div>
                 </a>
                 {% endfor %}
