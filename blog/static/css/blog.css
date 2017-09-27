@@ -1178,10 +1178,18 @@ footer .input-group{
 
 }
 
-@media only screen and (max-width){
+@media only screen and (max-width:768){
   .container{
     width:87%;
   }
+}
+
+@media (min-width: 992px){
+
+.container {
+    width: 70%;
+}
+
 }
 
 
