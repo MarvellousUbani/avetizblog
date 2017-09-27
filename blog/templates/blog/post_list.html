@@ -159,7 +159,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in lnp|slice:"8:11"  %}
+						{% for post in lnp|slice:"8:10"  %}
 						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
