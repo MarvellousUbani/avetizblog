@@ -88,7 +88,7 @@
       <!-- Whats Rising Section -->
       <div class="col-sm-6 col-md-4 col-lg-4 whatsRisingCol">
 
-        {% for post in post_set %}
+        {% for post in post_set|slice:"4:10" %}
         <div class="card">
                   <div class="card-image">
                       <img class="img-responsive" src="{{post.post_pic.url|resize:'356x205,C'}}">
