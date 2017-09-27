@@ -1143,8 +1143,14 @@ footer .input-group{
     margin-top: 20px !important;
   }
 
-
 }
+
+@media only screen and (max-width: 767px){
+  .sidebar-img-detail>img{
+  height:auto;
+}
+
+  }
 
 .index-post img{
   width:100%;
