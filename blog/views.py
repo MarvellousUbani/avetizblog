@@ -87,7 +87,7 @@ def show_category(request,hierarchy= None):
             breadcrumbs = zip(breadcrumbs_link, category_name)
             return render(request, "post_detail.html", {'instance':instance,'breadcrumbs':breadcrumbs})
 
-    return render(request,"category.html",{'post_set':parent.post_set.all(),'sub_categories':parent.children.all(), 'ad':Advert.objects.get(pk=fetch_index)})
+    return render(request,"category.html",{'post_set':parent.post_set.all().order_by('-published_date'),'sub_categories':parent.children.all(), 'ad':Advert.objects.get(pk=fetch_index)})
 
 
 class PostListView(ListView):
