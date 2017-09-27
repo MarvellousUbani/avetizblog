@@ -80,7 +80,7 @@ class AjaxableResponseMixin(object):
 		dic['form_is_valid']=True
 		dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
 		return HttpResponseRedirect(reverse('advert:post_list'))
-		#return JsonResponse(dic)
+		
 
     def render_to_json_response(self, data):
 		return JsonResponse(data)
