@@ -241,13 +241,10 @@
                 {% for post in recent_posts|slice:":3" %}
                 <a href="{% url 'blog:post_detail' pk=post.pk %}">
                  <div class="sidebar-img-detail margin-tops">
-<<<<<<< HEAD
+
                     <img class="img-responsive" style="height:300px" src="{{post.post_pic.url}}"/>
                     <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
-=======
-                    <img class="img-responsive" src="{{post.post_pic.url}}"/>
-                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title}}</h4>
->>>>>>> 0576b86683720e4586c0f9d5125381ba87facb42
+
                  </div>
                 </a>
                 {% endfor %}
