@@ -1157,12 +1157,7 @@ footer .input-group{
 
 }
 
-@media only screen and (max-width: 768px){
-  .sidebar-img-detail>img{
-  height:auto;
-}
-/*ghty*/
-  }
+
 
 .index-post img{
   width:100%;
@@ -1172,6 +1167,13 @@ footer .input-group{
 .sidebar-img-detail>img{
   height:250px;
 }
+
+@media only screen and (max-width: 768px){
+  .sidebar-img-detail>img{
+  height:auto;
+}
+/*ghty*/
+  }
 
 @media only screen and (min-width:1500px){
 .hidden-xl-up{
