@@ -72,7 +72,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">Latest News</h1>
 							</div>
-							<div class="main-top-story index-post">
+							<div class="main-top-story ">
 								{% for post in lnp|slice:":1"%}
 								<a  href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
