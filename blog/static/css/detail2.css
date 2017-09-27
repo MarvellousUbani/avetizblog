@@ -77,6 +77,8 @@
 }
 .sidebar-h{
 	margin-top:0px;
+	position: relative;
+    top: -10px;
 }
 .detail-share{
 	display:inline;
