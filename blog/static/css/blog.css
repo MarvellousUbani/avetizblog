@@ -289,7 +289,7 @@ nav a:hover{
   width:100%;
 }
 .topbox_img{
-  height:470px ;
+  
   width:100%;
 }
 
@@ -301,7 +301,7 @@ nav a:hover{
   }
 
 .topStoryImg{
-  height:200px;
+  height:300px;
   width:100%;
 }
 
@@ -357,7 +357,13 @@ nav a:hover{
 }
 
 .index-post{
-  margin-top:35px;
+  margin-top:27px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.index-post>img{
+  max-height: 400px;
+  width:100%;
 }
 .firstindex{
   margin-top: 0px;
@@ -1107,7 +1113,7 @@ footer .input-group{
   }
 
   .fPostColumn img{
-      height: 300px;
+      height: auto;
   }
     
 }
@@ -1155,12 +1161,12 @@ footer .input-group{
   .sidebar-img-detail>img{
   height:auto;
 }
-
+/*ghty*/
   }
 
 .index-post img{
   width:100%;
-  max-height:500px;
+  max-height:400px;
 }
 
 .sidebar-img-detail>img{
@@ -1172,3 +1178,38 @@ footer .input-group{
   display:none;
 }
 }
+@media (min-width: 768px){
+
+.container {
+    width: 750px;
+}
+
+}
+
+@media only screen and (max-width:768){
+  .container{
+    width:87%;
+  }
+}
+
+@media (min-width: 992px){
+
+.container {
+    width: 70%;
+}
+
+}
+
+@media (min-width: 1500px){
+
+.container {
+    width: 65%;
+}
+
+}
+
+
+
+
+
+/* hggh*/

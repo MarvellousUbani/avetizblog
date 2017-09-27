@@ -72,7 +72,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">Latest News</h1>
 							</div>
-							<div class="main-top-story index-post">
+							<div class="main-top-story ">
 								{% for post in lnp|slice:":1"%}
 								<a  href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
@@ -86,11 +86,11 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'250x250,C'}}"/>
+									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{post.title|truncatechars:40}}</h4>
-									<p>{{post.text|truncatechars:60|safe}} </p>
+									<h4>{{post.title|truncatechars:28}}</h4>
+									<p>{{post.text|truncatechars:40|safe}} </p>
 								</div>
 								<br>
 							</div>
@@ -115,7 +115,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						{% endfor %}
 						
 						{% for post in lnp|slice:"7:8" %}
-						<div class="index-post dont-show">
+						<div class="index-post "><!--dont-show-->
 							<img src="https://img.huffingtonpost.com/asset/599adb3b1e00003c00c5e8c6.jpeg?ops=936_526,prog,quality_75" class="img-responsive"/>
 							<div class="post-text">
 								<h4>{{post.title|truncatechars:40}}</h4>
@@ -125,7 +125,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						{% endfor %}
 					</div>
 
-					<div class="col-md-3 dis-sidebar  sidebar right">
+					<div class="col-md-3 dis-sidebar sidebar right">
 						<div class="ad">
 							<img class="img-responsive" src="http://bannerfarm.ace.advertising.com/CDN/105934/1379552_non_sec.gif" border="0" width="100%" height="250" alt="Click to learn more...">
 						</div>
@@ -137,11 +137,11 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'250x250,C'}}"/>
+									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{ post.title|truncatechars:40}}</h4>
-									<p>{{post.text|truncatechars:60|safe}} </p>
+									<h4>{{ post.title|truncatechars:28}}</h4>
+									<p>{{post.text|truncatechars:40|safe}} </p>
 								</div>
 								<br>
 							</div>
@@ -157,7 +157,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div-->
 					</div>
 
-					<div  class="col-md-9 ritasection col-xs-12  col-sm-6">
+					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
 						{% for post in lnp|slice:"8:10"  %}
 						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
