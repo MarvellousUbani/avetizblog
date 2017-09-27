@@ -100,7 +100,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in lnp|slice:"5:7" %}
+						{% for post in lnp|slice:"5:8" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -114,8 +114,8 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 						{% endfor %}
 						
-						{% for post in lnp|slice:"7:8" %}
-						<div class="index-post "><!--dont-show-->
+						{% for post in lnp|slice:"8:9" %}
+						<div class="index-post dont-show"><!--dont-show-->
 							<img src="https://img.huffingtonpost.com/asset/599adb3b1e00003c00c5e8c6.jpeg?ops=936_526,prog,quality_75" class="img-responsive"/>
 							<div class="post-text">
 								<h4>{{post.title|truncatechars:40}}</h4>
@@ -159,7 +159,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in lnp|slice:"8:10"  %}
+						{% for post in lnp|slice:"9:11"  %}
 						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
