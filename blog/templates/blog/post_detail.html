@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-{{post.title}}-AvetiZ Blog
+{{post.title|title}}-AvetiZ Blog
 {% endblock %}
 
 {% block content %}
@@ -26,7 +26,7 @@
           <div class="col-md-8 col-sm-8">
             <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
 
-            <h3 class="post-title-detail">{{post.title}}</h3>
+            <h3 class="post-title-detail">{{post.title|title}}</h3>
             {% if post.published_date %}
             <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D d M Y"}} By {{post.published_date|time:"H:i a"}}</span> 
             <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S)</span></span>
@@ -63,7 +63,7 @@
                   {% for post in story_posts|slice:"0:3" %}
                   <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
 
@@ -73,7 +73,7 @@
                   {% for post in story_posts|slice:"3:6" %}
                   <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
 
@@ -89,7 +89,7 @@
                   {% for post in similar_posts|slice:"0:3" %}
                   <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
                 </div>
@@ -97,7 +97,7 @@
                   {% for post in similar_posts|slice:"3:6" %}
                   <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
                 </div>
@@ -209,7 +209,7 @@
                   {% for post in featured_posts|slice:"3:6" %}
                   <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
 
@@ -219,7 +219,7 @@
                   {% for post in featured_posts|slice:"6:9" %}
                   <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                    <h4>{{post.title|title}}</h4></a>
                   </div>
                   {% endfor %}
 
@@ -241,8 +241,13 @@
                 {% for post in recent_posts|slice:":3" %}
                 <a href="{% url 'blog:post_detail' pk=post.pk %}">
                  <div class="sidebar-img-detail margin-tops">
+<<<<<<< HEAD
                     <img class="img-responsive" style="height:300px" src="{{post.post_pic.url}}"/>
                     <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+=======
+                    <img class="img-responsive" src="{{post.post_pic.url}}"/>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title}}</h4>
+>>>>>>> 0576b86683720e4586c0f9d5125381ba87facb42
                  </div>
                 </a>
                 {% endfor %}
@@ -251,7 +256,7 @@
                 <a href="{% url 'blog:post_detail' pk=post.pk %}" class="hidden-xl-up">
                  <div class="sidebar-img-detail margin-tops">
                     <img class="img-responsive" src="{{post.post_pic.url}}"/>
-                    <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+                    <h4 style="text-align:left" class="sidebar-text">{{post.title|title}}</h4>
                  </div>
                 </a>
                 {% endfor %}
