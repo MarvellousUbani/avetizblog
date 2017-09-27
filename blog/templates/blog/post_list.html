@@ -115,7 +115,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						{% endfor %}
 						
 						{% for post in lnp|slice:"7:8" %}
-						<div class="index-post dont-show">
+						<div class="index-post "><!--dont-show-->
 							<img src="https://img.huffingtonpost.com/asset/599adb3b1e00003c00c5e8c6.jpeg?ops=936_526,prog,quality_75" class="img-responsive"/>
 							<div class="post-text">
 								<h4>{{post.title|truncatechars:40}}</h4>
@@ -125,7 +125,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						{% endfor %}
 					</div>
 
-					<div class="col-md-3  sidebar right"><!--dis-sidebar-->
+					<div class="col-md-3 dis-sidebar sidebar right">
 						<div class="ad">
 							<img class="img-responsive" src="http://bannerfarm.ace.advertising.com/CDN/105934/1379552_non_sec.gif" border="0" width="100%" height="250" alt="Click to learn more...">
 						</div>
