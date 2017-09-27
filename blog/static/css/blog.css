@@ -301,7 +301,7 @@ nav a:hover{
   }
 
 .topStoryImg{
-  height:auto;
+  height:300px;
   width:100%;
 }
 
@@ -358,6 +358,10 @@ nav a:hover{
 
 .index-post{
   margin-top:35px;
+}
+.index-post>img{
+  max-height: 400px;
+  width:100%;
 }
 .firstindex{
   margin-top: 0px;
@@ -1166,11 +1170,22 @@ footer .input-group{
   display:none;
 }
 }
+@media (min-width: 768px){
 
-@media only screen and (max-width: 768px){
+.container {
+    width: 750px;
+}
+
+}
+
+@media only screen and (max-width){
   .container{
-    width:750px ;
+    width:87%;
   }
 }
+
+
+
+
 
 /* hggh*/
