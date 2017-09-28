@@ -137,9 +137,9 @@ class PostDetailView(DetailView):
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
-        context['similar_posts']=Post.objects.filter(category__name__icontains=name)[:6]
-        context['trending_posts'] = Post.objects.filter(trending_post=True)
-        context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        context['similar_posts']=Post.objects.filter(category__name__icontains=name).exclude(id=post.id)[:6]
+        context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(id=post.id)
+        context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).exclude(id=post.id).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
         adverts=Advert.objects.filter(plan__name__icontains='Prem')
