@@ -70,7 +70,9 @@ INSTALLED_APPS = [
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
-SITE_URL = 'http://avetizblog.com'
+SITE_URL = 'https://www.avetizblog.com'
+SECURE_SSL_REDIRECT = True
+# SSLIFY_DISABLE = True
 
 SITE_ID = 1
 
@@ -84,6 +86,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'newsletter_signup.middleware.GetRefererMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    'sslify.middleware.SSLifyMiddleware',
+)
 
 ROOT_URLCONF = 'mysite.urls'
 #FROM_EMAIL='myschoolrents@gmail.com'
