@@ -170,6 +170,7 @@
 
 .img-post-detail{
 	width: 100%;
+	max-height: 450px;
 }
 
 @media only screen and (max-width: 1100px) {
