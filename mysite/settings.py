@@ -43,6 +43,11 @@ ALLOWED_HOSTS = [
     'www.avetizblog.com',
 ]
 
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 HAYSTACK_CONNECTIONS = {
   'default': {
@@ -70,9 +75,13 @@ INSTALLED_APPS = [
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
+<<<<<<< HEAD
 SITE_URL = 'https://www.avetizblog.com'
 #SECURE_SSL_REDIRECT = False
 #SSLIFY_DISABLE = True
+=======
+SITE_URL = 'http://avetizblog.com'
+>>>>>>> 7fdafe6bcdfbd4818745b0be33961a90d8161edb
 
 SITE_ID = 1
 
@@ -86,11 +95,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'newsletter_signup.middleware.GetRefererMiddleware',
 ]
+<<<<<<< HEAD
 '''
 MIDDLEWARE_CLASSES = (
     'sslify.middleware.SSLifyMiddleware',
 )
 '''
+=======
+>>>>>>> 7fdafe6bcdfbd4818745b0be33961a90d8161edb
 
 ROOT_URLCONF = 'mysite.urls'
 #FROM_EMAIL='myschoolrents@gmail.com'
