@@ -18,7 +18,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # During development only
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'myschoolrents@gmail.com'
+DEFAULT_FROM_EMAIL = 'contact@avetiz.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'myschoolrents@gmail.com'
@@ -43,10 +43,10 @@ ALLOWED_HOSTS = [
     'www.avetizblog.com',
 ]
 
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 
 HAYSTACK_CONNECTIONS = {
@@ -75,13 +75,7 @@ INSTALLED_APPS = [
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
-<<<<<<< HEAD
-SITE_URL = 'https://www.avetizblog.com'
-#SECURE_SSL_REDIRECT = False
-#SSLIFY_DISABLE = True
-=======
 SITE_URL = 'http://avetizblog.com'
->>>>>>> 7fdafe6bcdfbd4818745b0be33961a90d8161edb
 
 SITE_ID = 1
 
@@ -95,14 +89,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'newsletter_signup.middleware.GetRefererMiddleware',
 ]
-<<<<<<< HEAD
-'''
-MIDDLEWARE_CLASSES = (
-    'sslify.middleware.SSLifyMiddleware',
-)
-'''
-=======
->>>>>>> 7fdafe6bcdfbd4818745b0be33961a90d8161edb
 
 ROOT_URLCONF = 'mysite.urls'
 #FROM_EMAIL='myschoolrents@gmail.com'
