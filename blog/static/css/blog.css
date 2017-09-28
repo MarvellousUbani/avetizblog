@@ -1236,13 +1236,13 @@ footer .input-group{
   }
 
   .navcontainChild{
-    width: 1220px;
+    width: 70%;
     margin: 0 auto;
   }
 
   .imglogo {
     position: relative;
-    left: 185px !important;
+    
   }
 
 }
