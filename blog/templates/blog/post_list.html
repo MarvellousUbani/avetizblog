@@ -19,7 +19,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{%endfor%}
 				{% endif %}
 				<div class="row">
-					<div class="col-md-8 col-sm-6 post-box">
+					<div class="col-md-7 col-sm-6 post-box">
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
 
@@ -35,7 +35,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							{% endfor %}
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-6 post-box">
+					<div class="col-md-5 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
 							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
