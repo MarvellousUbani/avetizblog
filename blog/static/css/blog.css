@@ -1067,6 +1067,14 @@ footer .input-group{
     height:auto;
     width:100%;
    }
+    .container{
+    width:95%;
+  }
+  .index-post {
+    
+    margin-left: 0px;
+    margin-right: 0px;
+}
 }
 
  @media only screen and (max-width: 768px) {
@@ -1192,11 +1200,7 @@ footer .input-group{
 
 }
 
-@media only screen and (max-width:768){
-  .container{
-    width:87%;
-  }
-}
+
 
 @media (min-width: 992px){
 
@@ -1214,6 +1218,11 @@ footer .input-group{
 
 }
 
+@media only screen and (max-width:768){
+  .container{
+    width:95%;
+  }
+}
 
 
 
