@@ -1192,6 +1192,7 @@ footer .input-group{
   display:none;
 }
 }
+
 @media (min-width: 768px){
 
 .container {
@@ -1199,24 +1200,27 @@ footer .input-group{
 }
 
 }
-
-
-
 @media (min-width: 992px){
 
 .container {
-    width: 70%;
+    width: 970px;
 }
 
 }
 
-@media (min-width: 1500px){
+@media only screen and (max-width: 1000px){
+.container {
+    max-width: 90% !important;
+}
+}
+
+@media (min-width: 1200px){
 
 .container {
-    width: 65%;
+    width: 1170px;
+}
 }
 
-}
 
 @media only screen and (max-width:768){
   .container{
@@ -1224,6 +1228,13 @@ footer .input-group{
   }
 }
 
+
+@media (min-width: 1900px){
+
+.container {
+    width: 1600px;
+}
+}
 
 
 
