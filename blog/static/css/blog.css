@@ -1236,7 +1236,7 @@ footer .input-group{
   }
 
   .navcontainChild{
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -1248,6 +1248,15 @@ footer .input-group{
   .container{
     width:95%;
   }
+}
+
+@media only screen and (min-width:1500px){
+
+  .navcontainChild{
+    width: 70%;
+    margin: 0 auto;
+  }
+
 }
 
 
