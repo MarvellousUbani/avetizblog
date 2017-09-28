@@ -1240,10 +1240,6 @@ footer .input-group{
     margin: 0 auto;
   }
 
-  .imglogo {
-    position: relative;
-    
-  }
 
 }
 
@@ -1267,7 +1263,7 @@ footer .input-group{
   }
 
   .imglogo {
-    left: 185px;
+    left: 185px !important;
   }
 
 }
