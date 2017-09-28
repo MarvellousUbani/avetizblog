@@ -337,7 +337,7 @@ class SubscribeView(CreateView):
             })
         messages.success(self.request, 'We have sent a verification link to your  email address . Thank You ')
         mail_subject = 'Activate your AvetiZ Blog Subscription.'
-        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email])
+        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email], reply_to=['contact@avetiz.com'],)
         email.send()
         subscribeemail=form.save(commit=False)
         subscribeemail.token=unique_id

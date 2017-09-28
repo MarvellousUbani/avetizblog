@@ -18,11 +18,11 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # During development only
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'contact@avetiz.com'
+DEFAULT_FROM_EMAIL = 'Avetiz Support contact@avetiz.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'myschoolrents@gmail.com'
-EMAIL_HOST_PASSWORD = 'test123321'
+EMAIL_HOST_USER = 'avetizcorp@gmail.com'
+EMAIL_HOST_PASSWORD = 'newmodel17#'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1', 
     'avetizblog.com',
     '45.55.42.128',
-    '192.168.1.147',
+    '192.168.8.108',
     'www.avetizblog.com',
 ]
 

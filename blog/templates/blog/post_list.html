@@ -19,7 +19,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{%endfor%}
 				{% endif %}
 				<div class="row">
-					<div class="col-md-7 col-sm-6 post-box">
+					<div class="col-md-6 col-sm-6 post-box">
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
 
@@ -27,7 +27,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 							<div class="main-post-text-wrapper">
 								<h2><strong>{{post.title|truncatechars:100}}</strong></h2>
-								<div class="post">{{post.text|truncatechars:200|safe|capfirst}}</div>
+								<div class="post">{{post.text|truncatechars:300|safe|capfirst}}</div>
 								<span class="author" style="color:#8CC34A;">AvetiZ</span>
 								
 							</div>
@@ -35,25 +35,25 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							{% endfor %}
 						</div>
 					</div>
-					<div class="col-md-5 col-sm-6 post-box">
+					<div class="col-md-6 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
 							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
-									<div class="col-md-7 col-sm-7  last col-xs-8 second-sec-post js-third" >
-										<h3><strong>{{post_story.title|title|truncatechars:48}}</strong></h3>
-										<p style="font-size: 18px">{{post_story.text|truncatechars:67|safe}} </p>
+									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" >
+										<h3><strong>{{post_story.title|title|truncatechars:42}}</strong></h3>
+										<p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p>
 									</div>
-									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
+									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 						    </a>
 							  {% for post in featured_posts|slice:"1:4" %}
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
-									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
-										<h3><strong>{{post.title|truncatechars:48}}</strong></h3>
-										<p>{{post.text|truncatechars:67|safe}} </p>
+									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
+										<h3><strong>{{post.title|truncatechars:42}}</strong></h3>
+										<p>{{post.text|truncatechars:90|safe}} </p>
 									</div>
-									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
+									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
