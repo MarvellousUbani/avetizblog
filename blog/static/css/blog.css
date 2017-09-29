@@ -893,7 +893,15 @@ footer .input-group{
 h3{
   font-size:20px;
   font-weight: 400;
-  
+
+}
+.main-post-text-wrapper h2{
+  font-size: 22px;
+ 
+
+}
+.main-post-text-wrapper strong{
+   font-weight: 600;
 }
 
 @media only screen and (min-width: 1900px) {
