@@ -26,12 +26,15 @@
           <div class="col-md-8 col-sm-8">
           <div class="row">
             <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
+
+            <div class="postTitleInfo">
+              <h3 class="post-title-detail">{{post.title}}</h3>
+              {% if post.published_date %}
+              <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D d M Y"}} By {{post.published_date|time:"H:i a"}}</span> 
+              <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S)</span></span>
             </div>
 
-            <h3 class="post-title-detail">{{post.title}}</h3>
-            {% if post.published_date %}
-            <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D d M Y"}} By {{post.published_date|time:"H:i a"}}</span> 
-            <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S)</span></span>
+            </div>
 
             {% endif %}
 

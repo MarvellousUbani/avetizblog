@@ -111,6 +111,12 @@
 	width:150px;
 }
 
+.postTitleInfo{
+	position: absolute;
+    top: 11%;
+    left: 2%;
+}
+
  @media only screen and (min-width: 1200px) {
 .sidebar-text{
 	margin-right:5px;
