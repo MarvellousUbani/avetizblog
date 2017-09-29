@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-family: 'Arial','sans-serif';
+  color:#000;
 }
 
 h2,h3,h4,h5{
-  font-family: 'Lato', sans-serif;
+ /* font-family: 'Lato', sans-serif;*/
+  font-family: 'Arial','sans-serif';
 }
 /*
 menuinst==1.4.7
@@ -146,7 +149,7 @@ padding-left:2.7%;
 
 .bPPost{
   /*font-family: sans-serif;*/
-  font-family: 'Raleway', sans-serif;
+ /* font-family: 'Raleway', sans-serif;*/
   line-height: 1.3em;
   font-size: 1.2em;
 }
@@ -335,10 +338,12 @@ nav a:hover{
 
 .post-text p{
   font-size: 16px;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
     /*font-family: 'Open Sans', sans-serif;*/
-    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family:  'Arial','sans-serif';
+    color:#000;
     line-height: 1.5em;
     text-align: justify;
 }
@@ -542,8 +547,10 @@ nav a:hover{
 }
 
 .fPostTitle a{
-  font-family: Helvetica;
+  /*font-family: Helvetica;*/
+  font-family: 'Arial','sans-serif';
   font-weight: bold;
+  font-size: 20px;
 }
 
 .fPostTitle a:hover{
@@ -552,7 +559,7 @@ nav a:hover{
 }
 
 .fPostDetail{
-  font-size: 1.15em;
+  font-size: 12px;
 }
 
 .fPostAuthor{
