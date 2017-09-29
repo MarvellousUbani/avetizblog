@@ -40,8 +40,8 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						<div class="sec-post-wrapper2 ">
 							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
 									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" >
-										<h3><strong>{{post_story.title|title|truncatechars:42}}</strong></h3>
-										<p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p>
+										<h3><strong>{{post_story.title|title}}</strong></h3>
+										<!--p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p-->
 									</div>
 									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
@@ -50,8 +50,8 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							  {% for post in featured_posts|slice:"1:4" %}
 							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
 									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
-										<h3><strong>{{post.title|truncatechars:42}}</strong></h3>
-										<p>{{post.text|truncatechars:90|safe}} </p>
+										<h3><strong>{{post.title}}</strong></h3>
+										<!--p>{{post.text|truncatechars:90|safe}} </p-->
 									</div>
 									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
 									<img class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
@@ -89,8 +89,8 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{post.title|truncatechars:28}}</h4>
-									<p>{{post.text|truncatechars:40|safe}} </p>
+									<h4>{{post.title}}</h4>
+									<!--p>{{post.text|truncatechars:40|safe}} </p-->
 								</div>
 								<br>
 							</div>
@@ -105,7 +105,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
-								<h4>{{post.title|truncatechars:40}}</h4>
+								<h4>{{post.title}}</h4>
 								</a>
 								<!--font size="3">{{post.text|truncatechars:120|safe }}}} </font-->
 								 <span style ="color:#F83371;">By {{post.author.get_full_name}}</span>
@@ -118,7 +118,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						<div class="index-post dont-show"><!--dont-show-->
 							<img src="{{post.post_pic.url}}"/>
 							<div class="post-text">
-								<h4>{{post.title|truncatechars:40}}</h4>
+								<h4>{{post.title}}</h4>
 								<span> <font color="#F83371">By {{post.author.get_full_name}}</font></span>
 							</div>
 						</div>
@@ -140,8 +140,8 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{ post.title|truncatechars:28}}</h4>
-									<p>{{post.text|truncatechars:40|safe}} </p>
+									<h4>{{ post.title}}</h4>
+									<!--p>{{post.text|truncatechars:40|safe}} </p-->
 								</div>
 								<br>
 							</div>
@@ -163,7 +163,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
-								<h3>{{post.title|truncatechars:40}}</h3>
+								<h4>{{post.title|truncatechars:40}}</h4>
 								
 							</div>
 							</a>
@@ -200,7 +200,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	  <div class="col-sm-12 fPostColumn">
 	   <div class="row">
 	    <div class="col-sm-8">
-	      <h3 class="fPostTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|truncatechars:40}}</a></h3>
+	      <h3 class="fPostTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|truncatechars:50}}</a></h3>
 	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a></span></div>
 
