@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-family: 'Arial','sans-serif';
+  color:#000;
 }
 
 h2,h3,h4,h5{
@@ -335,10 +337,12 @@ nav a:hover{
 
 .post-text p{
   font-size: 16px;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
     /*font-family: 'Open Sans', sans-serif;*/
-    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family:  'Arial','sans-serif';
+    color:#000;
     line-height: 1.5em;
     text-align: justify;
 }
