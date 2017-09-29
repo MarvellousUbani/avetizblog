@@ -886,6 +886,12 @@ footer .input-group{
 .copyRightCol{
   margin-top: 35px;
 }
+
+.main-top-story h4{
+    color: #191970;
+    font-weight: bold;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {
