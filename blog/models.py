@@ -48,9 +48,6 @@ class Post(models.Model):
     def approve_comments(self):
         return self.comments.filter(approved_comment=True)
 
-    # def get_absolute_url(self):
-    #     return reverse("blog:post_detail",kwargs={'pk':self.pk})
-
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', kwargs={'slug': self.slug})
