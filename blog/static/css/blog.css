@@ -148,18 +148,15 @@ padding-left:2.7%;
 /* End of Drop Down Menu Section*/
 
 .bPPost{
-  /*font-family: sans-serif;*/
- /* font-family: 'Raleway', sans-serif;*/
   line-height: 1.3em;
-  font-size: 1.2em;
+  font-size: 14px;
 }
 
-.bPTitle{
-  font-size: 1.2em;
+.bpTitle{
+    font-size: 15px;
     line-height: 1.2em;
     color: #2a2a2a;
-    /*font-family:sans-serif;*/
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
@@ -340,8 +337,6 @@ nav a:hover{
   font-size: 16px;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
-    /*font-family: 'Open Sans', sans-serif;*/
-    /*font-family: 'Raleway', sans-serif;*/
     font-family:  'Arial','sans-serif';
     color:#000;
     line-height: 1.5em;
@@ -350,8 +345,7 @@ nav a:hover{
 
 .post-text>ul>li {
     list-style: square !important; 
-   /* font-family: 'Open Sans', sans-serif;ffjf*/
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     line-height: 1.5em;
 }
@@ -359,8 +353,7 @@ nav a:hover{
 
 .post-text>ol>li {
     list-style: square !important;
-    /*font-family: 'Open Sans', sans-serif;*/
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     line-height: 1.5em;
 }
@@ -892,6 +885,7 @@ footer .input-group{
     font-weight: bold;
 }
 
+
 /* Media Queries */
 
 @media only screen and (min-width: 1900px) {
@@ -906,13 +900,14 @@ footer .input-group{
   .fPostDetail{
     font-size: 1.2em;
    }
-
   
 }
 
 @media only screen and (min-width: 1650px) {
-  
-
+    .imglogo{
+    position: relative;
+    left: 199px !important;
+  }
 
   .lastforBigSc{
       display: block;
@@ -939,7 +934,7 @@ footer .input-group{
   }
 
   .bPPost {
-      font-size: 1.2em;
+      font-size: 1.4rem;
   }
     .fPostDetail{
     font-size:1.2em;
