@@ -112,9 +112,11 @@
 }
 
 .postTitleInfo{
-	position: absolute;
-    top: 11%;
-    left: 2%;
+    background: rgba(8, 8, 8, 0.68);
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    padding: 20px;
 }
 
  @media only screen and (min-width: 1200px) {
