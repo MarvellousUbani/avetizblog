@@ -203,7 +203,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	   <div class="row">
 	    <div class="col-sm-8">
 
-	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:50}}</a></h3>
+	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:80}}</a></h3>
 
 	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{{post.get_absolute_url}}">Read More</a></span></div>
@@ -322,13 +322,13 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in tech_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
 			{% for post in tech_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
 			{% endfor %}
@@ -336,7 +336,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
 		{% for post in tech_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
