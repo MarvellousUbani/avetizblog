@@ -555,7 +555,7 @@ nav a:hover{
 }
 
 .fPostDetail{
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .fPostAuthor{
@@ -953,7 +953,7 @@ h3{
       font-size: 1.4rem;
   }
     .fPostDetail{
-    font-size:14px;
+    font-size:14px !important;
     }
 
 }
