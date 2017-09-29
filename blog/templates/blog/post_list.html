@@ -202,11 +202,9 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	  <div class="col-sm-12 fPostColumn">
 	   <div class="row">
 	    <div class="col-sm-8">
-<<<<<<< HEAD
-	      <h3 class="fPostTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|truncatechars:50}}</a></h3>
-=======
-	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></h3>
->>>>>>> d69cd423a89b987f182ef81726028270d5f2c206
+
+	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:50}}</a></h3>
+
 	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{{post.get_absolute_url}}">Read More</a></span></div>
 
@@ -494,7 +492,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 		    <div class="col-lg-12 col-md-12 col-sm-6">
 		      <div class="adSpaceA">
-		      	<img class="img-responsive" src="/media/bluead/">
+		      	<img class="img-responsive" src="/media/bluead.png/">
 		      </div>
 		      </div>
 		  </div>
