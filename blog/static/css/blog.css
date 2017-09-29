@@ -4,6 +4,7 @@ body{
   /*font-family: 'Raleway', sans-serif;*/
   font-family: 'Arial','sans-serif';
   color:#000;
+ 
 }
 
 h2,h3,h4,h5{
@@ -39,7 +40,7 @@ li{
 
 
 .graceSection{
-  background-color:#1e1e1e;
+  background-color:#fff;
   min-height: 50px;
   color:#fff;
   padding:30px 10px 30px 10px ;
@@ -237,8 +238,10 @@ nav a:hover{
   margin-left:20px;
   text-align:left;
   padding-top: 20px;
-  font-family: 'Oswald', sans-serif;
+  /**font-family: 'Oswald', sans-serif;**/
+  font-family: 'Arial', sans-serif;
   }
+
 
 .main-post-text-wrapper p{
   margin-left:20px;
@@ -453,7 +456,7 @@ nav a:hover{
   margin-bottom: 3px;
   margin-top: 0px;
   margin-left: 8px;
-  color:  #191970;
+  color:  #fff;
   font-weight: bold;
 }
 
@@ -936,7 +939,7 @@ footer .input-group{
       font-size: 1.2em;
   }
     .fPostDetail{
-    font-size:1.2em;
+    font-size:12px;
     }
 
 }

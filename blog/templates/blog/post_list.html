@@ -38,25 +38,30 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 					<div class="col-md-6 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
-
+							<div>
 							<a href="{{post.get_absolute_url}}">
-									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" >
+									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
+									border-right-style: none;" >
 										<h3><strong>{{post_story.title|title}}</strong></h3>
 										<!--p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p-->
 									</div>
 									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
-									<img class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
+									<img style="border:solid 1px #D4AF37;
+									border-left-style: none;" class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 						    </a>
+							</div>
 							  {% for post in featured_posts|slice:"1:4" %}
 
 							  	  <a href="{{post.get_absolute_url}}">
-									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
+									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
+									border-right-style: none;">
 										<h3><strong>{{post.title}}</strong></h3>
 										<!--p>{{post.text|truncatechars:90|safe}} </p-->
 									</div>
-									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
-									<img class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
+									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third" >
+									<img style="border:solid 1px #D4AF37;
+									border-left-style: none;"  class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
 								{% endfor %}	
