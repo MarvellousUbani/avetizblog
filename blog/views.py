@@ -101,7 +101,7 @@ class PostListView(ListView):
         context['profile_list'] = Profile.objects.all()
         context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-published_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
-        context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:7]
         context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion').order_by('-published_date')
         context['business_posts'] = Post.objects.filter(category__name__icontains = 'business').order_by('-published_date')
         context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment').order_by('-published_date')

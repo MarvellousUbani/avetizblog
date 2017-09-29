@@ -550,6 +550,7 @@ nav a:hover{
   /*font-family: Helvetica;*/
   font-family: 'Arial','sans-serif';
   font-weight: bold;
+  font-size: 20px;
 }
 
 .fPostTitle a:hover{
@@ -558,7 +559,7 @@ nav a:hover{
 }
 
 .fPostDetail{
-  font-size: 1.15em;
+  font-size: 12px;
 }
 
 .fPostAuthor{

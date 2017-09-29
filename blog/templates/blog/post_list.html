@@ -508,24 +508,24 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				  	{% for post in latest_posts|slice:"0:3" %}
 					  	<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 
 		        	</div>
 
 		        	<div class="row">
-		        		{% for post in latest_posts|slice:"3:5" %}
+		        		{% for post in latest_posts|slice:"3:6" %}
 		        		<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 
-			        	{% for post in latest_posts|slice:"5:6" %}
+			        	{% for post in latest_posts|slice:"6:7" %}
 		        		<div class="col-xl-12 hidden-lg col-md-12 col-sm-4 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:40}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 			        </div>
