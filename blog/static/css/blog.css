@@ -890,6 +890,11 @@ footer .input-group{
   margin-top: 35px;
 }
 /* Media Queries */
+h3{
+  font-size:20px;
+  font-weight: 400;
+  
+}
 
 @media only screen and (min-width: 1900px) {
   .topfooterlist{
