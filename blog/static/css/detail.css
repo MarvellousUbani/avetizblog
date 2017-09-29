@@ -111,9 +111,17 @@
 	width:150px;
 }
 
+.postTitleInfo{
+    background: rgba(8, 8, 8, 0.68);
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    padding: 20px;
+}
+
  @media only screen and (min-width: 1200px) {
 .sidebar-text{
 	margin-right:5px;
 	    max-width: 400px;
-}
+	}
 }

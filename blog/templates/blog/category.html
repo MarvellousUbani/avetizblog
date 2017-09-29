@@ -35,7 +35,7 @@
             <img class="img-responsive" src="{{i.post_pic.url|resize:'175x175,C'}}">
           </div>
           <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="{% url 'blog:post_detail' pk=i.pk %}">{{i.title|title}}</a></p>
+            <p class="whatsNewATitle"><a href="{{i.get_absolute_url}}">{{i.title|title}}</a></p>
             <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
             <small>{{i.published_date|timesince}}</small></span>
           </div>
@@ -95,7 +95,7 @@
                   </div>
                   
                   <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|title}}</a></h3>
+                      <h3 class="whatsRisingATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
                   </div>
                   
                   <div class="card-action">
@@ -118,7 +118,7 @@
                   </div>
                   
                   <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|title}}</a>
+                      <h3 class="whatsHotATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a>
                       </h3>
                       <div>{{post.text|truncatechars:100|safe|capfirst}}</div>
                   </div>
