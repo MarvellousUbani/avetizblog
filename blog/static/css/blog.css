@@ -259,7 +259,8 @@ nav a:hover{
 }
 
 .second-sec-post{
-  background-image:url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_228,o_80,w_361,x_1248,y_880/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170818-Stern-Game-Of-Thrones-hero_bcmcab);
+  /*background-image:url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_228,o_80,w_361,x_1248,y_880/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170818-Stern-Game-Of-Thrones-hero_bcmcab);*/
+  background-image: url(/media/blue.jpg/);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -312,7 +313,8 @@ nav a:hover{
 
 
 .last{
-  background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_74,o_80,w_42,x_1013,y_966/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170820-woodruff-arpaio-pardon-tease_qg8yvc);
+  /*background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_74,o_80,w_42,x_1013,y_966/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170820-woodruff-arpaio-pardon-tease_qg8yvc);*/
+  background-image: url(/media/gold.jpg);    
   background-repeat:no-repeat;
   background-position: center;
   background-size: cover;
@@ -449,9 +451,8 @@ nav a:hover{
   margin-bottom: 3px;
   margin-top: 0px;
   margin-left: 8px;
+  color:  #fff;
   font-weight: bold;
-  font-size: 15px;
-  color: #191970;
 }
 
 .zone-content p{
