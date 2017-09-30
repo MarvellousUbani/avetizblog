@@ -212,7 +212,7 @@ var makePayt = function () {
 
 $('#commentForm').on('submit', function(event){
     event.preventDefault();
-    console.log("form submitted!")  // sanity check
+    alert("comment submited")  // sanity check
     create_comment();
 });
 
