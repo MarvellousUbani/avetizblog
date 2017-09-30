@@ -97,11 +97,16 @@ class SignUp(CreateView):
 				user.save()
 				profile=Profile(user=user,role=role).save()
 				wallet=Wallet(Owner=user).save()
+				messages.success(self.request, 'Successful Registration Please Login')
 				return HttpResponseRedirect(reverse('account:login', current_app='account'))
 			except:
-				return render(self.request, 'registration/register.html', {'form':form, 'username':'Username already exist'})
+				return render(self.request, 'registration/register.html', {'user_form':UserCreateForm(request.POST), 'username':'Username already exist'})
 		else:
-			return render(self.request,'registration/register.html', {'form':form, 'capcha':'capcha error'})
+			return render(self.request,'registration/register.html', {'user_form':UserCreateForm(request.POST), 'capcha':'capcha error'})
+
+
+	def form_invalid(self,form):
+		return render(self.request, 'registration/register.html', {'user_form': form})
 		
 
 

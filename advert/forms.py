@@ -64,7 +64,7 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model=Profile
-        exclude=('user','short_description')
+        exclude=('user',)
 
         widgets={
         'phone':forms.TextInput(attrs={'class':'form-control borderprob'}),
@@ -73,6 +73,7 @@ class ProfileForm(forms.ModelForm):
         'twitter_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'instagram_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'linkedin_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'short_description':forms.Textarea(attrs={'class':'form-control borderprob'}),
         }
 
 
