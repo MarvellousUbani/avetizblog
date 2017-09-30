@@ -14146,6 +14146,7 @@ be a descendant of the grid when it is being dragged.
   width: 100%;
   max-width: 45px;
   height: auto;
+  min-height: 50px;
 }
 
 .sidebar .user-panel > .info {

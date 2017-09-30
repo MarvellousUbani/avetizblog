@@ -45,6 +45,7 @@
                     </ul>
                   </div>
                  {% endfor %}
+               </div>
               </div>
               <div class="tab-pane fade" id="user-settings">
                 <div class="card user-settings">
@@ -81,6 +82,10 @@
                         <label>Address</label>
                         {{profileform.address}}
                       </div>
+                      <div class="col-md-8 mb-20">
+                        <label>Description</label>
+                        {{profileform.short_description}}
+                      </div>
                       <div class="clearfix"></div>
                       <div class="col-md-8 mb-20">
                         <label>Facebook Link</label>
@@ -105,6 +110,11 @@
                       <div class="col-md-8 mb-20">
                         <label>Avatar</label>
                         {{profileform.avatar}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Cover Pic</label>
+                        {{profileform.cover_pic}}
                       </div>
 
                     </div>

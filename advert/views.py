@@ -331,7 +331,7 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 		userform=UserForm(instance=self.request.user)
 		profile=Profile.objects.get(user=self.request.user)
 		profileform=ProfileForm(instance=profile)
-		latestpost=Post.objects.filter(author=self.request.user)[:4]
+		latestpost=Post.objects.filter(author=self.request.user)[:3]
 		context={'user':request.user, 'userform':userform, 'profileform':profileform,'posts':latestpost, 'xyzw':True}
 		return render(self.request, 'advert/profile.html',context)
 
