@@ -19,6 +19,7 @@ class Post(models.Model):
     trending_post = models.BooleanField(default=False)
     status = models.CharField(max_length=100, default="Draft", choices=(('Draft','Draft'),('Published','Published'),('Submitted','Submitted')))
     category = models.ForeignKey('Category', null=True, blank=True)
+    pageview=models.IntegerField(default=0)
     slug = models.SlugField(null=True, blank=True, max_length=200)
 
     def publish(self):

@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^privacy/$', views.PrivacyView.as_view(), name='privacy_policy'),
     url(r'^terms_of_use/$', views.TermsView.as_view(), name='terms'),#test
    url(r'^activate/$', views.activate, name='activate'),
+    url(r'^addview/$', views.increaseView, name='addview'),
 ]
 
