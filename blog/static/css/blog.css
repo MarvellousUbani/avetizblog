@@ -158,7 +158,6 @@ padding-left:2.7%;
     line-height: 1.2em;
     color: #2a2a2a;
     font-family: 'Arial', sans-serif;
-    font-weight: bold;
 }
 
 .bPCol{
@@ -547,7 +546,6 @@ nav a:hover{
 .fPostTitle a{
   /*font-family: Helvetica;*/
   font-family: 'Arial','sans-serif';
-  font-weight: bold;
   font-size: 20px;
 }
 
@@ -591,7 +589,6 @@ nav a:hover{
 
 .olderPostsName{
   font-size: 15px;
-  font-weight: bold;
   padding-bottom: 5px;
   padding-top: 10px;
   display:block;
@@ -679,9 +676,8 @@ footer .socialCluster .fa{
 }
 
 .sidebarTitle{
-  font-size: 27px;
-  font-weight: bold;
-  color: #686C68;
+  font-size: 25px;
+  color: #011019;
 }
 
 .eventName{
@@ -923,9 +919,9 @@ h3{
 
 @media only screen and (min-width: 1650px) {
     .imglogo{
-    position: relative;
-    left: 199px !important;
-  }
+      position: relative;
+      left: 199px !important;
+    }
 
   .lastforBigSc{
       display: block;
@@ -943,6 +939,7 @@ h3{
         .lastlist-group-item{
           display: none;
         }
+
     }
 
 @media only screen and (min-width: 1300px) {

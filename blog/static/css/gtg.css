@@ -20,7 +20,10 @@
 	font-family: 'Raleway', sans-serif;
   	font-size: 3rem;
   	color:#fff;
-  	background: #464646;
+  	background-image: url(/media/blue.jpg/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   	width: 30%;
   	margin:10px auto;
   	padding:10px;
@@ -81,7 +84,10 @@ main {
 }
 
 .gtgCalltoAction{
-	background-color: #8D5E02;
+	background-image: url(/media/blue.jpg/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 	padding: 20px 0;
 }
 

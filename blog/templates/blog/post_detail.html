@@ -184,7 +184,7 @@
                           <div id="collapseOne" class="panel-collapse collapse ">
                               <div class="panel-body">
 
-                                <form id="commentForm" method="post" action="{% url 'blog:add_comment_to_post' pk=post.pk %}">
+                                <form id="commentForm" method="post" action="{{post.id}}/comment/">
                                    {% csrf_token %}
                                   <div class="row">
                                       <div class="col-md-12">
@@ -302,6 +302,31 @@
       </div>
       {% include 'blog/includes/googleanalytics.html' %}
     </section>
+
+    <script type="text/javascript">
+      function create_comment(){
+        console.log('create comment working');
+        $.ajax({
+            url: '{{post.id}}/comment/',
+            type: 'POST',
+            data: {the_comment : $('#comment-text').val()},
+
+            //handle a succesful response
+            success: function(json){
+              $('#comment-text').val('');
+              console.log(json);
+              console.log("success");
+            },
+
+            //handle errors
+            error: function(xhr, errmsg, err){
+              console.log('error');
+               console.log(xhr.status + ": " + xhr.responseText);
+            }
+
+        });
+      };
+    </script>
 {% endblock %}
 {% block topimg %}
 <a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
