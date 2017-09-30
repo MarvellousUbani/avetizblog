@@ -111,18 +111,26 @@
 	width:150px;
 }
 
+.postTitleOverlay{
+	position: relative;
+	max-width: 100%;
+}
+
 .postTitleInfo{
     background: rgba(8, 8, 8, 0.68);
     position: absolute;
-<<<<<<< HEAD
-    top: 9%;
-=======
-    top: 5%;
->>>>>>> fb2a69edadf99c3058cce9f1cbe6b1c859a701d9
-    left: 40%;
-    padding: 20px;
-    width: 60%;
+    top: 0;
+    left: 0;
+    transform: translateY(400%);
+    padding: 15px 15px;
+    width: 100%;
+    height: 20%;
+    text-align: right;
 }
+
+.postTitleInfo h3{
+		margin:0;
+	}
 
 #post-body h4{
 	font-size: 15px !important;
@@ -137,4 +145,17 @@
 	margin-right:5px;
 	    max-width: 400px;
 	}
+}
+
+@media only screen and (max-width: 600px){
+	.postTitleInfo{
+		height: 30%;
+		transform: translateY(220%);
+	    overflow:hidden;
+	}
+
+	.postTitleInfo h3{
+		font-size: 15px;
+	}
+
 }
