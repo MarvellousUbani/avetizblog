@@ -295,12 +295,26 @@
               </div>
             </div>
           </div>
-        
+        <
         </div>
       </div>
       {% include 'blog/includes/googleanalytics.html' %}
     </section>
+
+
+
 {% endblock %}
 {% block topimg %}
 <a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+  var url= 'https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A160289007&start-date=30daysAgo&end-date=yesterday&metrics=ga%3Apageviews&dimensions=ga%3ApagePath&sort=ga%3Apageviews&filters=ga%3Apagepath%3D%3D%2Fpost%2F59'
+  $.get(url,function() {
+  alert( "success" );
+})
+</script>
 {% endblock %}
