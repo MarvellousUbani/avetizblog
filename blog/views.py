@@ -26,7 +26,10 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
 from django.template.loader import render_to_string
 from django.utils.crypto import get_random_string
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 import pdb
+import json
 
 
 
@@ -268,6 +271,7 @@ def post_publish(request, pk):
     else:
         return render(request,'blog/post_detail.html', {'post':post, 'publish_error':True} )
 
+@csrf_exempt
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -276,11 +280,20 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Thank you for submitting your comment. It will be approved shortly after review.')
-            return redirect(post.get_absolute_url() + "#commentForm")
-    else:
-        form = CommentForm()
-    return redirect(post.get_absolute_url())
+            response_data['result'] = 'Create post successful!'
+            response_data['text'] = comment.text
+            response_data['author'] = comment.author
+
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+        else:
+            return HttpResponse(
+                json.dumps({"nothing to see": "this isn't happening"}),
+                content_type="application/json"
+            )
+    
 
 
 @login_required
