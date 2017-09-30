@@ -149,8 +149,8 @@
 
 @media only screen and (max-width: 600px){
 	.postTitleInfo{
-		height: 30%;
-		transform: translateY(220%);
+		height: 40%;
+		transform: translateY(150%);
 	    overflow:hidden;
 	}
 
