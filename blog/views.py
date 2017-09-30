@@ -149,6 +149,10 @@ class PostDetailView(DetailView):
         
         return context
 
+
+
+
+
 class CommentFormView(FormView):
     form_class = CommentForm
     success_url = "/"
@@ -356,6 +360,14 @@ def activate(request):
     else:
         return HttpResponseRedirect(reverse('blog:post_list'))
 
+
+def increaseView(request):
+    pk=request.GET.get('pk')
+    post=get_object_or_404(Post, pk=pk)
+    post.pageview+=1
+    post.save()
+    return JsonResponse( {'status':True} )
+    
 
 
 
