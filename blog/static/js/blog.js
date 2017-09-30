@@ -209,17 +209,10 @@ var makePayt = function () {
  
 });
 
-function AjaxFormSubmit() {
-    $.ajax({
-        url : 'post/(?P<pk>\d+)/comment/',
-        type : "POST",
-        data : { the_post : $('#commentForm').val() }
-    }).done(function(returned_data){
 
-        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
-
-        // For instance, you could hide/display your add/remove button here
-
-    });
-}
+$('#commentForm').on('submit', function(event){
+    event.preventDefault();
+    console.log("form submitted!")  // sanity check
+    create_comment();
+});
 
