@@ -114,10 +114,18 @@
 .postTitleInfo{
     background: rgba(8, 8, 8, 0.68);
     position: absolute;
+<<<<<<< HEAD
     top: 9%;
+=======
+    top: 5%;
+>>>>>>> fb2a69edadf99c3058cce9f1cbe6b1c859a701d9
     left: 40%;
     padding: 20px;
     width: 60%;
+}
+
+#post-body h4{
+	font-size: 15px !important;
 }
 
 #post-body h4{
