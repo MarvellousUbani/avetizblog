@@ -450,8 +450,10 @@ nav a:hover{
   margin-bottom: 3px;
   margin-top: 0px;
   margin-left: 8px;
-  color:  #fff;
+  color:  #191970;
   font-weight: bold;
+  font-size: 15px;
+
 }
 
 .zone-content p{
