@@ -361,6 +361,12 @@ class SubscribeView(CreateView):
         subscribeemail.save()
         return HttpResponseRedirect(reverse('blog:post_list'))
 
+    def form_invalid(self,form):
+        messages.warning(self.request, 'Invalid Email Address ')
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+
+
 def activate(request):
     email_get=request.GET.get('email')
     token=request.GET.get('token')

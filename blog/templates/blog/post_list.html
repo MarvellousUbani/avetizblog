@@ -212,8 +212,9 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
            
 	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive visible-xs-block">
 	      
-	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
+	      <p class="fPostAuthor hidden-xs"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{{post.get_absolute_url}}">Read More</a></span></div>
+	      <p class="fPostAuthor visible-xs-block" ><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 
 
 	      </div>
