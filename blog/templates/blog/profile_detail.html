@@ -80,7 +80,7 @@
                   
                   <div class="card-content">
                   <small>{{post.category|capfirst}} </small>
-                      <h4><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title|capfirst}}</a>
+                      <h4><a href="{{post.get_absolute_url}}">{{post.title|capfirst}}</a>
                       </h4>
                       <div>{{post.text|safe|truncatechars:100}}</div>
                   </div>

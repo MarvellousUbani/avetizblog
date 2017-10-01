@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/detail2.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
         <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
@@ -27,7 +28,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/search-result.css' %}">
-        <link rel="shortcut icon" href="http://join.sagecapitals.com/img/logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="/media/avetiz-logo.jpg" type="image/x-icon">
+          <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         {% endblock %}
         {% block links %}
         {% endblock %}
@@ -40,7 +42,7 @@
             <div class="row backgroundcolor">
         <div class="col-md-2 col-xs-3 col-sm-2 imglogo ">
           <ul class="list-inline small-scree-no">
-            <li ><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
+            <li ><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="/media/avetiz-logo.jpg"></a></li>
           </ul>
         </div>
         <div class="col-md-8">
@@ -56,6 +58,7 @@
 
 
     <div class="container-fluid navcontain">
+      <div class="navcontainChild">
         <div class="row">
           <div class="heightclass  col-xs-11">
           <nav class="navbar navbar-inverse">
@@ -116,7 +119,7 @@
                           <li class="col-sm-3">
                             <ul>
                               <li class="dropdown-header sPolitics"><a href="/category/politics">Politics</a></li>
-                              <li class="dropdown-header sFashion"><a href="/category/entertainment/fashion">Fashion</a></li> 
+                              <li class="dropdown-header sFashion"><a href="/category/fashion">Fashion</a></li> 
                               <li class="dropdown-header sWeird"><a href="/category/weird-houses">Pricey Pads</a></li>
                               
                             </ul>
@@ -169,6 +172,7 @@
           
         </div>
       </div>
+      </div>
     </div>
 
       </div>
@@ -192,7 +196,7 @@
 
     <div class="row">
       <div class="col-sm-2 col-md-1">
-      <a href="{%url 'blog:post_list' %}"><img id="footerLogoImg"  src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive "></a>
+      <a href="{%url 'blog:post_list' %}"><img id="footerLogoImg"  src="/media/avetiz-logo.jpg" class="img-responsive "></a>
        </div>
        <div class="col-sm-9 col-md-9 col-lg-7">
 
@@ -210,7 +214,7 @@
 
           <div class="col-sm-3 bNavli sNews"><a href="/category/news">News</a></div>
           <div class="col-sm-3 bNavli sTechnology"><a href="/category/technology">Technology</a></div>
-          <div class="col-sm-3 bNavli sFashion"><a href="/category/entertainment/fashion">Fashion</a></div>
+          <div class="col-sm-3 bNavli sFashion"><a href="/category/fashion">Fashion</a></div>
           <div class="col-sm-3 bNavli sAdvertise"><a href="{% url 'blog:contact_us' %}?advertise=dhdh">Advertise with us</a></div>
           
       </div>
@@ -220,7 +224,7 @@
           <div class="col-sm-3 bNavli sTrend"><a href="/category/trend">Trend</a></div>
           <div class="col-sm-3 bNavli sEntertainment"><a href="/category/entertainment">Entertainment</a></div>
           <div class="col-sm-3 bNavli sWeird"><a href="/category/weird-houses">Pricey Pads</a></div>
-          <div class="col-sm-3 bNavli"><a href="http://www.careers.avetiz.com" target="_blank">Work with AvetiZ</a></div>
+          <!--div class="col-sm-3 bNavli"><a href="http://www.careers.avetiz.com" target="_blank">Work with AvetiZ</a></div-->
           
       </div>
 
@@ -236,7 +240,7 @@
 
        <div class="col-lg-4 col-md-8 col-sm-9 col-xs-12 nospacing">
          
-              <form method="post" action="#">
+              <form method="post" action="{% url 'blog:subscribe' %}">
                 {% csrf_token %}
                 <div class="input-group">
                <input type="email" name="email" id="id_email" placeholder="Enter Email Address" class="form-control" id="email">      
@@ -288,8 +292,7 @@
 <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.autocomplete.js' %}"></script>
 <script src="{% static 'js/our_search_code.js' %}"></script>
-<script>
- 
-</script>
+{% block script %}
+{% endblock %}
 </body>
 </html>

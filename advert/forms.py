@@ -10,12 +10,12 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'text','post_pic')
+        fields = ('title', 'text','post_pic','category')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control borderprob' }),
             'text': forms.Textarea(attrs={'class': ' form-control'}),
-
+            'category': forms.Select(attrs={'class':'form-control'}),
         }
 
 class TransactionForm(forms.ModelForm):
@@ -64,12 +64,16 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model=Profile
-        exclude=('user','short_description')
+        exclude=('user',)
 
         widgets={
         'phone':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'address':forms.TextInput(attrs={'class':'form-control borderprob'}),
-
+        'facebook_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'twitter_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'instagram_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'linkedin_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'short_description':forms.Textarea(attrs={'class':'form-control borderprob'}),
         }
 
 

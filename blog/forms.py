@@ -1,6 +1,6 @@
 from django import forms
 from haystack.forms import FacetedSearchForm
-from .models import Post, Comment,  ContactMessage
+from .models import Post, Comment,  ContactMessage, SubscribeEmail
 
 
 class PostForm(forms.ModelForm):
@@ -24,7 +24,7 @@ class CommentForm(forms.ModelForm):
 
         widgets = {
             'author': forms.TextInput(attrs={'class': 'textinputclass form-control'}),
-            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'id': 'comment-text','class': 'form-control'}),
 
         }
 
@@ -59,8 +59,7 @@ class FacetedPostSearchForm(FacetedSearchForm):
             sqs = sqs.narrow(u'brand_exact:%s' % query)
         return sqs
 
-class SubscribeForm(forms.Form):
-    email=forms.EmailField(label='', widget=forms.TextInput(attrs={'class':'form-control ' }))
+
 
 class ContactForm(forms.ModelForm):
 
@@ -75,6 +74,12 @@ class ContactForm(forms.ModelForm):
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Message', 'required':True}),
 
         }
+
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model=SubscribeEmail
+        fields=('email',)
+    
 
 
 #ffjfjfj

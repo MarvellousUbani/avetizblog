@@ -9,18 +9,27 @@ from django.utils import timezone
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm, ContactForm
 from random import choice
+from django.utils.encoding import force_bytes, force_text
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
                                   UpdateView,DeleteView,
                                   FormView)
-
+from .tokens import account_activation_token
 from django.urls import reverse_lazy
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
 from haystack.query import SearchQuerySet
-#from newsletter_signup.forms import NewsletterSignupForm
+from django.core.mail import EmailMessage
+from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
+from django.template.loader import render_to_string
+from django.utils.crypto import get_random_string
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+import pdb
+import json
 
 
 
@@ -81,7 +90,7 @@ def show_category(request,hierarchy= None):
             breadcrumbs = zip(breadcrumbs_link, category_name)
             return render(request, "post_detail.html", {'instance':instance,'breadcrumbs':breadcrumbs})
 
-    return render(request,"category.html",{'post_set':parent.post_set.all(),'sub_categories':parent.children.all(), 'ad':Advert.objects.get(pk=fetch_index)})
+    return render(request,"category.html",{'post_set':parent.post_set.all().order_by('-published_date'),'sub_categories':parent.children.all(), 'ad':Advert.objects.get(pk=fetch_index)})
 
 
 class PostListView(ListView):
@@ -91,17 +100,18 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
-        context['post_list'] = Post.objects.exclude(category__name__icontains='my st')
+        context['post_list'] = Post.objects.exclude(Q(category__name__icontains='my st'), featured_post=False).order_by('-created_date')
         context['profile_list'] = Profile.objects.all()
-        context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-created_date')
+        context['featured_posts'] = Post.objects.filter(featured_post=True).exclude(category__name__icontains='my sto').order_by('-published_date')
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(category__name__icontains='my sto')
-        context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-        context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion')
-        context['business_posts'] = Post.objects.filter(category__name__icontains = 'business')
-        context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment')
-        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology')
-        context['pol_posts'] = Post.objects.filter(category__name__icontains='politics')
-        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )
+        context['latest_posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:7]
+        context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion').order_by('-published_date')
+        context['business_posts'] = Post.objects.filter(category__name__icontains = 'business').order_by('-published_date')
+        context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment').order_by('-published_date')
+        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology').order_by('-published_date')
+        context['pol_posts'] = Post.objects.filter(category__name__icontains='politics').order_by('-published_date')
+        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )#rtrtrtrt
+        context['lnp']=Post.objects.filter(category__name__icontains='news').order_by('-published_date')[:15]
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
         page = self.request.GET.get('page')
@@ -109,7 +119,7 @@ class PostListView(ListView):
             list_posts = paginator.page(page)
         except PageNotAnInteger:
             list_posts = paginator.page(1)
-        except EmptyPage:
+        except EmptyPage:  #fgfhfhfhfhgjjgjg
             list_posts = paginator.page(paginator.num_pages)
 
         context['listed_posts'] = list_posts
@@ -130,9 +140,9 @@ class PostDetailView(DetailView):
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
         context['featured_posts'] = Post.objects.filter(featured_post=True)
-        context['similar_posts']=Post.objects.filter(category__name__icontains=name)[:6]
-        context['trending_posts'] = Post.objects.filter(trending_post=True)
-        context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        context['similar_posts']=Post.objects.filter(category__name__icontains=name).exclude(id=post.id)[:6]
+        context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(id=post.id)
+        context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).exclude(id=post.id).order_by('-published_date')
         context['form'] = CommentForm
         context['approved_comments'] = Comment.objects.filter(approved_comment=True)
         adverts=Advert.objects.filter(plan__name__icontains='Prem')
@@ -141,6 +151,10 @@ class PostDetailView(DetailView):
         context['ad']=Advert.objects.get(pk=fetch_index)
         
         return context
+
+
+
+
 
 class CommentFormView(FormView):
     form_class = CommentForm
@@ -191,9 +205,6 @@ class DraftListView(LoginRequiredMixin,ListView):
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
-
-class SubscribeUser(FormView):
-    form_class=SubscribeForm
 
     #def form_valid
 
@@ -260,7 +271,7 @@ def post_publish(request, pk):
     else:
         return render(request,'blog/post_detail.html', {'post':post, 'publish_error':True} )
 
-@login_required
+@csrf_exempt
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -269,11 +280,20 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Thank you for submitting your comment. It will be approved shortly after review.')
-            return redirect('blog:post_detail', pk=post.pk)
-    else:
-        form = CommentForm()
-    return render(request, 'blog/comment_form.html', {'form': form})
+            response_data['result'] = 'Create post successful!'
+            response_data['text'] = comment.text
+            response_data['author'] = comment.author
+
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
+        else:
+            return HttpResponse(
+                json.dumps({"nothing to see": "this isn't happening"}),
+                content_type="application/json"
+            )
+    
 
 
 @login_required
@@ -303,7 +323,6 @@ class PrivacyView(TemplateView):
 
 class TermsView(TemplateView):
     template_name='blog/terms.html'
-
     def get_context_data(self, **kwargs):
         context=super(TermsView, self).get_context_data(**kwargs)
         adverts=Advert.objects.filter(plan__name__icontains='Prem')
@@ -311,5 +330,68 @@ class TermsView(TemplateView):
         fetch_index=choice(advert_index)
         context['ad']=Advert.objects.get(pk=fetch_index)
         return context
+
+class SubscribeView(CreateView):
+    form_class=SubscribeForm
+    success_url = "/"
+    template_name='/blog/post_list.html'
+    model=SubscribeEmail
+
+    def form_valid(self,form):
+        email=self.request.POST['email']
+        email_test=SubscribeEmail.objects.filter(email__icontains=email)
+        if email_test.exists():
+            messages.warning(self.request, 'This email has already registered')
+            return HttpResponseRedirect(reverse('blog:post_list'))
+        current_site = get_current_site(self.request)
+        unique_id = get_random_string(length=32)
+        
+       
+        message = render_to_string('blog/includes/subscribe_email.html', {
+                'domain':current_site.domain,
+                'token':unique_id,
+                'email':email,
+            })
+        messages.success(self.request, 'We have sent a verification link to your  email address . Thank You ')
+        mail_subject = 'Activate your AvetiZ Blog Subscription.'
+        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email], reply_to=['contact@avetiz.com'],)
+        email.send()
+        subscribeemail=form.save(commit=False)
+        subscribeemail.token=unique_id
+        subscribeemail.save()
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+    def form_invalid(self,form):
+        messages.warning(self.request, 'Invalid Email Address ')
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+
+
+def activate(request):
+    email_get=request.GET.get('email')
+    token=request.GET.get('token')
+    email=SubscribeEmail.objects.get(email__icontains=email_get)
+    if email.token == token :
+        messages.success(request, 'Subscription Successful')
+        email.active=True
+        email.save()
+        return HttpResponseRedirect(reverse('blog:post_list'))
+    else:
+        return HttpResponseRedirect(reverse('blog:post_list'))
+
+
+def increaseView(request):
+    pk=request.GET.get('pk')
+    post=get_object_or_404(Post, pk=pk)
+    post.pageview+=1
+    post.save()
+    return JsonResponse( {'status':True} )
+    
+
+
+
+
+       
+
 
 

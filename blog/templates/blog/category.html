@@ -35,9 +35,9 @@
             <img class="img-responsive" src="{{i.post_pic.url|resize:'175x175,C'}}">
           </div>
           <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="{% url 'blog:post_detail' pk=i.pk %}">{{i.title|title}}</a></p>
-            <span><i class="fa fa-share-square" aria-hidden="true"></i> 
-            <small><strong>146</strong> SHARES / {{i.published_date|timesince}}</small></span>
+            <p class="whatsNewATitle"><a href="{{i.get_absolute_url}}">{{i.title|title}}</a></p>
+            <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+            <small>{{i.published_date|timesince}}</small></span>
           </div>
         </div>
         {% endfor %}
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        {% for post in recent_posts|slice:"4:13" %}
+        {% for post in post_set|slice:"4:13" %}
         <div class="row whatsNewArticle">
           <div class="col-xs-4">
             <img class="img-responsive" src="{{post.post_pic.url|resize:'175x175,C'}}">
@@ -81,252 +81,55 @@
             </div>
         </div>
 
-        {% for post in recent_posts|slice:"13:24" %}
-        <div class="row whatsNewArticle">
-          <div class="col-xs-4">
-            <img class="img-responsive" src="{{post.post_pic.url|resize:'175x175,C'}}">
-          </div>
-          <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="">{{post.title}}</a></p>
-            <span><i class="fa fa-share-square" aria-hidden="true"></i> 
-            <small><strong>146</strong> SHARES / 46 minutes ago</small></span>
-          </div>
-        </div>
-        {% endfor %}
-    
 
       </div>
 
 
       <!-- Whats Rising Section -->
       <div class="col-sm-6 col-md-4 col-lg-4 whatsRisingCol">
-        {% for post in post_list|slice:":8"%}
+
+        {% for post in post_set|slice:"4:10" %}
         <div class="card">
                   <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/8M4w_4XVEBGA3eWdAKvGQcpKr90=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55720%2Fd5bcb919-e9a2-47eb-b1eb-96c19685f04d.jpg">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'356x205,C'}}">
                   </div>
                   
                   <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">{{post.title}}</a>
-                      </h3>
+                      <h3 class="whatsRisingATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
                   </div>
                   
                   <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>300</strong> SHARES</span>
+                    <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+                        <small>{{post.published_date|timesince}}</small></span>
                   </div>
               </div>
               {% endfor %}
-
-        <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/BDykHJKfZrponQEarAJxKlsAgSI=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55652%2F5e7af9b7-bc91-44ce-bc32-8f9e87471e0f.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">TED X: Imagine a world of every sort of possibily. You choose</a></h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>120</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/lUSKUYQxU7ougBtfCwgWt0yOrkg=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55627%2Fa52aebb2-f8a4-4cb8-980f-45131a0ce81d.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">People are sharing vivid memories where they were when Queen Diana died!</a>
-                      </h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>320</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/ja1V8aIFJjW1F2OmsuesAwF7POc=/950x534/filters:quality(90)/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F508583%2F16d494c8-e8ca-4c23-8e4e-3e55df6a0543.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">How you can start off a career in coding!</a>
-                      </h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>810</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/-q3H_9_YG60X9iTP80J_x96ssnA=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55661%2F11024c34-bd37-48b3-a2ed-a6b2088630a7.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">Journalist brilliantly trolls email scammer with Jason Bourne's passport</a>
-                      </h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>300</strong> SHARES</span>
-                  </div>
-              </div>
-
-        <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/TBAY87_uefzw4awTabFJoLlEPqg=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55691%2Fe7f79244-cadf-4abc-b046-881437015ffc.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">TED X: Imagine a world of every sort of possibily. You choose</a></h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>120</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/pwbqGAO70IP1hmAXBP7xTGzFLoE=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55730%2Fd867a100-e958-4547-99df-36162794b723.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">People are sharing vivid memories where they were when Queen Diana died!</a>
-                      </h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>320</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/c9vugzvOxXNR9t_2q9LkTN0iQDk=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55712%2Fba91ece5-1684-48e1-a5ee-07d8615f8bb7.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsRisingATitle"><a href="">How you can start off a career in coding!</a>
-                      </h3>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>810</strong> SHARES</span>
-                  </div>
-              </div>
-
-
-              
-
-              
+       
 
       </div>
 
       <!-- Whats Hot Section -->
-      <div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
 
+      <div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
+        {% for post in post_set|slice:"6:12"  %}
         <div class="card">
                   <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/GiYqy2_puW0m3kNm-bvJjLuVHpM=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55750%2F7c971c20-fbb2-49dc-8bb2-f62b7f9b4e36.jpg">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'638x368,C'}}">
                   </div>
                   
                   <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Take cover Australia. It's time to prepare for ungodly magpie swooping season.</a>
+                      <h3 class="whatsHotATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a>
                       </h3>
-                      <p>It's spring and you're fucked.</p>
+                      <div>{{post.text|truncatechars:100|safe|capfirst}}</div>
                   </div>
                   
                   <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>562</strong> SHARES</span>
+                    <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+                        <small>{{post.published_date|timesince}}</small></span>
                   </div>
               </div>
+            {% endfor %}
 
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/c03Kmhjt9r1JoTzqArGFNAtPxAA=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55756%2F117bb99c-c730-4140-8167-ccce334f4008.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Cyclist dabs for Google maps camera, instantly becomes internet hero.</a>
-                      </h3>
-                      <p>What a ledge.</p>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/0rCTZ2WFP3w0rjs6lbyYLQ22gLU=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55745%2F52080d8d-014b-46b6-9497-2704904e23e4.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Eric Trump doubts CNN will cover his dad's donation after CNN repeatedly covered it.</a>
-                      </h3>
-                      <p>CNN's got receipt.</p>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/hn6g24kkznd3Xj6nVpVixCm9Mr8=/638x368/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55687%2F0de0ae42-e53f-4b80-bd3e-cc2aee14f1c1.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Take cover Australia. It's time to prepare for ungodly magpie swooping season.</a>
-                      </h3>
-                      <p>It's spring and you're fucked.</p>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>562</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/_nb65VtqBgyKfIJBL1PRniFUFE4=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55719%2Fcc907a04-c07e-4382-9735-62ee9e10f3fa.jpg">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Cyclist dabs for Google maps camera, instantly becomes internet hero.</a>
-                      </h3>
-                      <p>What a ledge.</p>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-image">
-                      <img class="img-responsive" src="https://i.amz.mshcdn.com/73Jb6NB2pjYSYHV-vsSeZGFRXaw=/356x205/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fstory%2Fthumbnail%2F55771%2Fe6160f18-62fa-47d3-83dc-ab09187fe8c5.png">
-                  </div>
-                  
-                  <div class="card-content">
-                      <h3 class="whatsHotATitle"><a href="">Eric Trump doubts CNN will cover his dad's donation after CNN repeatedly covered it.</a>
-                      </h3>
-                      <p>CNN's got receipt.</p>
-                  </div>
-                  
-                  <div class="card-action">
-                    <span><i class="fa fa-share" aria-hidden="true"></i> <strong>134</strong> SHARES</span>
-                  </div>
-              </div>
-             
-        
       </div>
     </div>
   </main>

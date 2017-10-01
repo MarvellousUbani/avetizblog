@@ -12,49 +12,56 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 			<div class="container">
 				{% if messages %}
 				{% for message in messages %}
-				<div class="alert alert-success alert-dismissable">
+				<div class="alert alert-{{message.tags}} alert-dismissable">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  <strong>Success!{{message}}</strong>
+				  <strong>{{message}}</strong>
 				</div>
 				{%endfor%}
 				{% endif %}
 				<div class="row">
-					<div class="col-md-8 col-sm-6 post-box">
+					<div class="col-md-6 col-sm-6 post-box">
 						<div class="main-post-wrapper">
 							{% for post in featured_posts|slice:"0:1" %}
 
-							<a href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive topbox_img" src="{{post.post_pic.url}}"/>
+							<a href="{{post.get_absolute_url}}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
 
 							<div class="main-post-text-wrapper">
-								<h2>{{post.title}}</h2>
-								<div class="post">{{post.text|truncatechars:200|safe|capfirst}}</div>
-								<span class="author">AvetiZ</span>
+								<h2><strong>{{post.title|truncatechars:100}}</strong></h2>
+								<div class="post">{{post.text|truncatechars:300|safe|capfirst}}</div>
+								<!--span class="author" style="color:#8CC34A;">AvetiZ</span-->
 								
 							</div>
 							</a>
 							{% endfor %}
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-6 post-box">
+					<div class="col-md-6 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
-							<a href="{% url 'blog:post_detail' pk=post_story.pk %}">
-									<div class="col-md-7 col-sm-7  last col-xs-8 second-sec-post js-third" >
-										<h3>{{post_story.title}}</h3>
-										<p>{{post_story.text|truncatechars:60|safe}} </p>
+							<div>
+							<a href="{{post.get_absolute_url}}">
+									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
+									border-right-style: none;" >
+										<h3>{{post_story.title|title}}</h3>
+										<!--p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p-->
 									</div>
-									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
-									<img class="sec-img js-third" src="{{ post_story.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
+									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
+									<img style="border:solid 1px #D4AF37;
+									border-left-style: none;" class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 						    </a>
+							</div>
 							  {% for post in featured_posts|slice:"1:4" %}
-							  	  <a href="{% url 'blog:post_detail' pk=post.pk %}">
-									<div class="col-md-7 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" >
+
+							  	  <a href="{{post.get_absolute_url}}">
+									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
+									border-right-style: none;">
 										<h3>{{post.title}}</h3>
-										<p>{{post.text|truncatechars:60|safe}} </p>
+										<!--p>{{post.text|truncatechars:90|safe}} </p-->
 									</div>
-									<div class="col-md-5 col-sm-5 col-xs-4 secondcol js-third">
-									<img class="sec-img js-third" src="{{ post.post_pic.url}}" height="100%" class=" js-third img-responsive"/>
+									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third" >
+									<img style="border:solid 1px #D4AF37;
+									border-left-style: none;"  class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 								  </a>
 								{% endfor %}	
@@ -72,9 +79,9 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">Latest News</h1>
 							</div>
-							<div class="main-top-story">
-								{% for post in featured_posts|slice:"3:4"%}
-								<a  href="{% url 'blog:post_detail' pk=post.pk %}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
+							<div class="main-top-story ">
+								{% for post in lnp|slice:":1"%}
+								<a  href="{{post.get_absolute_url}}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
 								<h4>{{post.title}}</h4></a>
 
 								<hr>
@@ -82,15 +89,15 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 								
 							</div>
 
-							{% for post in post_list|slice:":4"%}
-							<a href="{% url 'blog:post_detail' pk=post.pk %}">
+							{% for post in lnp|slice:"1:5"  %}
+							<a href="{{post.get_absolute_url}}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" style="height:110px; width:100%;" src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
 									<h4>{{post.title}}</h4>
-									<p>{{post.text|truncatechars:60|safe}} </p>
+									<!--p>{{post.text|truncatechars:40|safe}} </p-->
 								</div>
 								<br>
 							</div>
@@ -100,12 +107,12 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in post_list|slice:"5:7" %}
+						{% for post in lnp|slice:"5:8" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
-						<a href="{% url 'blog:post_detail' pk=post.pk %}">
+						<a href="{{post.get_absolute_url}}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
 							<div class="post-text">
-								<p>{{post.title}}</p>
+								<h4>{{post.title}}</h4>
 								</a>
 								<!--font size="3">{{post.text|truncatechars:120|safe }}}} </font-->
 								 <span style ="color:#F83371;">By {{post.author.get_full_name}}</span>
@@ -114,18 +121,18 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 						{% endfor %}
 						
-						{% for post in post_list|slice:"7:8" %}
-						<div class="index-post dont-show">
-							<img src="https://img.huffingtonpost.com/asset/599adb3b1e00003c00c5e8c6.jpeg?ops=936_526,prog,quality_75" class="img-responsive"/>
+						{% for post in lnp|slice:"8:9" %}
+						<div class="index-post dont-show"><!--dont-show-->
+							<img src="{{post.post_pic.url}}"/>
 							<div class="post-text">
-								<p>{{post.title}}</p>
+								<h4>{{post.title}}</h4>
 								<span> <font color="#F83371">By {{post.author.get_full_name}}</font></span>
 							</div>
 						</div>
 						{% endfor %}
 					</div>
 
-					<div class="col-md-3 dis-sidebar  sidebar right">
+					<div class="col-md-3 dis-sidebar sidebar right">
 						<div class="ad">
 							<img class="img-responsive" src="http://bannerfarm.ace.advertising.com/CDN/105934/1379552_non_sec.gif" border="0" width="100%" height="250" alt="Click to learn more...">
 						</div>
@@ -134,14 +141,14 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 									<h1 class="zone-title-text">TRENDING</h1>
 							</div>
 							{% for post in trending_posts|slice:":4" %}
-							<a href="{% url 'blog:post_detail' pk=post.pk %}">
+							<a href="{{post.get_absolute_url}}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" style="height:110px; width:100%;"  src="{{post.post_pic.url}}"/>
+									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
 								</div>
 								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{ post.title }}</h4>
-									<p>{{post.text|truncatechars:60|safe}} </p>
+									<h4>{{ post.title}}</h4>
+									<!--p>{{post.text|truncatechars:40|safe}} </p-->
 								</div>
 								<br>
 							</div>
@@ -153,17 +160,17 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 					</div>
 					<div class="col-md-12 col-xs-12">
 						<!--div class="col-md-3 col-md-push-3 col-sm-6 text-center">
-							<h1 class="third-text">TOP STORIES</h1>
+							<h 1 class="third-text">TOP STORIES</h1>
 						</div-->
 					</div>
 
-					<div  class="col-md-9 ritasection col-xs-12  col-sm-6">
+					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in post_list|slice:"11:13"  %}
-						 	<a href="{% url 'blog:post_detail' pk=post.pk %}">
+						{% for post in lnp|slice:"9:11"  %}
+						 	<a href="{{post.get_absolute_url}}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
-								<h3>{{post.title}}</h3>
+								<h4 style="color: #191970">{{post.title}}</h4>
 								
 							</div>
 							</a>
@@ -173,13 +180,13 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 						<div class="row">
 							<div class="adSpaceC">
-								<img src="http://www.riyoadvertising.com/images/Bombay-Times-newspaper-office-address-with-phone-number.gif" class="img-responsive">
+								<img src="/media/longad.gif/" class="img-responsive">
 							</div>
 
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6">
-						<img class="img-responsive big-ad"   src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
+						<img class="img-responsive big-ad"   src="media/biglogo.jpg/" >
 					</div>
 
 				</div>
@@ -187,7 +194,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		</section>
 		</main>
 
-<!-- Post Series Section -->
+<!-- Post fh Series Section -->
 
 <section class="postSeries">
 
@@ -195,30 +202,35 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	<div class="row">
 	  
 	  <div class="col-md-9 col-sm-12">
-	  {% for post in post_list|slice:"14:20" %}
+	  {% for post in post_list|slice:"1:7" %}
 	  <div class="row">
 	  <div class="col-sm-12 fPostColumn">
 	   <div class="row">
 	    <div class="col-sm-8">
-	      <h3 class="fPostTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h3>
-	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
-	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a></span></div>
+
+	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:80}}</a></h3>
+           
+	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive visible-xs-block">
+	      
+	      <p class="fPostAuthor hidden-xs"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
+	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{{post.get_absolute_url}}">Read More</a></span></div>
+	      <p class="fPostAuthor visible-xs-block" ><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 
 
 	      </div>
 	      <div class="col-sm-4">
-	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive">
+	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive hidden-xs">
 	      </div>
 	    </div>
 
 	    <div class="row">
 	    	<div class="col-sm-8">
 	    	 <ul class="socialCluster list-inline">
-	          <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&src=sdkpreparse" class="fa fa-facebook"></a></li>
-	          <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&via=avetiz" class="fa fa-twitter"></a></li>
-	          <li class="list-inline-item"><a href="https://plus.google.com/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" onclick="javascript:window.open(this.href,
+	          <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{{post.get_absolute_url}}&src=sdkpreparse" class="fa fa-facebook"></a></li>
+	          <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{{post.get_absolute_url}}&via=avetiz" class="fa fa-twitter"></a></li>
+	          <li class="list-inline-item"><a href="https://plus.google.com/share?url=http://avetizblog.com{{post.get_absolute_url}}" onclick="javascript:window.open(this.href,
 								  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
-	          <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" class="fa fa-linkedin"></a></li>
+	          <li class="list-inline-item"><a href="https://www.linkedin.com/cws/share?url=http://avetizblog.com{{post.get_absolute_url}}" class="fa fa-linkedin"></a></li>
 	          
 	        </ul>
 	        </div>
@@ -228,7 +240,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 	</div>
 	{% endfor %}
-
+<!--uffu -->
 	
 
 	<section class="pRowSection businessRowSection">
@@ -245,21 +257,21 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in business_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
 			{% for post in business_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
-			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			<div class="bPPost">{{post.text|truncatechars:170|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
 		{% for post in business_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
@@ -281,21 +293,21 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in entertainment_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
 			{% for post in entertainment_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
-			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			<div class="bPPost">{{post.text|truncatechars:170|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
 		{% for post in entertainment_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
@@ -318,21 +330,21 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in tech_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
 			{% for post in tech_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
-			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			<div class="bPPost">{{post.text|truncatechars:170|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
 		{% for post in tech_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
@@ -355,21 +367,21 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-lg-4 col-md-4 col-sm-6">
 			{% for post in pol_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 bPCol">
 
 			{% for post in pol_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
-			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			<div class="bPPost">{{post.text|truncatechars:170|safe|capfirst}}</div>
 			{% endfor %}
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 lastPCol">
 
 		{% for post in pol_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
@@ -392,21 +404,22 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		<div class="col-xl-4 hidden-lg hidden-md hidden-sm">
 			{% for post in fashion_posts|slice:"0:1"%}
 			<img alt="" src="{{post.post_pic.url}}" class="img-responsive">
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 			{% endfor %}
 		</div>
 		<div class="col-xl-4 hidden-lg bPCol">
 
 			{% for post in fashion_posts|slice:"1:2" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
-			<div class="bPPost">{{post.text|truncatechars:130|safe|capfirst}}</div>
+			<div class="bPPost">{{post.text|truncatechars:170|safe|capfirst}}</div>
 			{% endfor %}
+			<!--fhfhf-->
 		</div>
 		<div class="col-xl-4 hidden-lg lastPCol">
 
 		{% for post in fashion_posts|slice:"3:7" %}
-			<h4 class="bpTitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h4>
+			<h4 class="bpTitle"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
 
 		{% endfor %}
 		</div>
@@ -423,7 +436,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	 <div class="row">
 	   <div class="col-lg-12 col-md-12 col-sm-6">
 		   <div class="adSpaceA">
-		      <img class="img-responsive" src="https://secure.bannerfarm.ace.advertising.com//CDN/105934/1005295_sec.jpg">
+		      <img class="img-responsive" src="/media/istad.gif/">
 		   </div>
 		  </div>
 
@@ -451,7 +464,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 	    <div class="weeklywriters">
 	     
-	      <p class="sidebarTitle">Our Monthly Writers</p>
+	      <p class="sidebarTitle">Meet Our Writers</p>
 	      <div class="row writersRow">
 	      	{% for writer in profile_list|slice:":4"%}
 	        <div class="col-xs-3">
@@ -482,13 +495,13 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	     <div class="row">
 	       <div class="col-lg-12 col-md-12 col-sm-6">
 		    <div class="adSpaceA">
-		      	<img class="img-responsive" src="http://onshop2.ru/wp-content/uploads/2014/04/youtube_logo_detail.png">
+		      	<img class="img-responsive" src="/media/youtube_logo_detail.png/">
 		      </div>
 		      </div>
 
 		    <div class="col-lg-12 col-md-12 col-sm-6">
 		      <div class="adSpaceA">
-		      	<img class="img-responsive" src="http://adswa.com.au/ads-wordpress/wp-content/uploads/2015/01/portfolio_feat_img-ads-370px.png">
+		      	<img class="img-responsive" src="/media/bluead.png/">
 		      </div>
 		      </div>
 		  </div>
@@ -503,24 +516,24 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				  	{% for post in latest_posts|slice:"0:3" %}
 					  	<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 
 		        	</div>
 
 		        	<div class="row">
-		        		{% for post in latest_posts|slice:"3:5" %}
+		        		{% for post in latest_posts|slice:"3:6" %}
 		        		<div class="col-md-12 col-sm-4 col-xs-12 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 
-			        	{% for post in latest_posts|slice:"5:6" %}
+			        	{% for post in latest_posts|slice:"6:7" %}
 		        		<div class="col-xl-12 hidden-lg col-md-12 col-sm-4 panelCol">
 					    	<img src="{{post.post_pic.url}}" class="img-responsive">
-			        		<span class="olderPostsName"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></span>
+			        		<span class="olderPostsName"><a href="{{post.get_absolute_url}}">{{post.title}}</a></span>
 			        	</div>
 			        	{% endfor %}
 			        </div>
@@ -537,10 +550,9 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	 <div class="row adSpaceB">
 	   <div class="col-sm-6">
 	        
-	        	<img class="img-responsive" src="http://www.businessjournalng.com/wp-content/uploads/2016/02/Jumia.png">
+	        	<img class="img-responsive" src="/media/Jumia.png/">
 	   </div>
 	   <div class="col-sm-6">
-	        
 	        	<img class="img-responsive" src="https://www.bellanaija.com/wp-content/uploads/2012/07/MOCK-1-homepageBanners-baby-600x226.jpg">
 	   </div>
 	 </div>

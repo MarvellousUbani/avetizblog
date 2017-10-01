@@ -5,6 +5,24 @@
             remove_script_host: false,
             document_base_url: "https://mysite.co.za/",
             height: "360",
+            image_advtab: true,
+            paste_data_images: true,
+            image_advtab: true,
+            file_picker_callback: function(callback, value, meta) {
+              if (meta.filetype == 'image') {
+                $('#upload').trigger('click');
+                $('#upload').on('change', function() {
+                  var file = this.files[0];
+                  var reader = new FileReader();
+                  reader.onload = function(e) {
+                    callback(e.target.result, {
+                      alt: ''
+                    });
+                  };
+                  reader.readAsDataURL(file);
+                });
+              }
+            },
             branding:false,
             fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
             font_formats: "Andale Mono=andale mono,times;" +
@@ -24,7 +42,7 @@
                     "Verdana=verdana,geneva;" +
                     "Webdings=webdings;" +
                     "Wingdings=wingdings,zapf dingbats",
-            plugins: "image,advlist, table, autolink, charmap, code, colorpicker, contextmenu,link, lists, paste, preview, searchreplace,  spellchecker, textcolor, wordcount,emoticons",
+            plugins: "image,advlist, table, autolink, charmap, code, colorpicker, contextmenu,link, lists, paste, preview, searchreplace,  spellchecker, textcolor, wordcount,emoticons, advlist autolink lists link image charmap print preview hr anchor pagebreak",
             toolbar: "fontselect | fontsizeselect | forecolor | backcolor | bold | italic | underline | alignleft | aligncenter | alignright | alignjustify | bullist | numlist | outdent | indent | link | image | print | media | code",
             tools: "inserttable",
             contextmenu: "link image inserttable | cell row column deletetable"
@@ -43,3 +61,4 @@
 	<button class="btn modalsubmit btn-primary" type="submit">Create</button>
 
 </form>
+<input name="image" type="file" id="upload" style="display:none" onchange="">

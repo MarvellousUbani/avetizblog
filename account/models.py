@@ -12,14 +12,14 @@ class Profile(models.Model):
 	short_description=models.TextField(blank=True, null=True)
 	phone=models.CharField(max_length=50, null=True, blank=True)
 	cover_pic = models.ImageField(null=True, upload_to='media', blank=True)
-	avatar=models.ImageField(null=True, upload_to='media', blank=True, default='media/login-icon.png')
+	avatar=models.ImageField(null=True, upload_to='media',  default='media/login-icon.png')
 	location = models.CharField(max_length=50, null=True, blank=True)
 	country = models.CharField(max_length=50, null=True, blank=True)
 	facebook_link = models.URLField(max_length=50, null=True, blank=True)
 	twitter_link = models.URLField(max_length=50, null=True, blank=True)
 	instagram_link = models.URLField(max_length=50, null=True, blank=True)
 	linkedin_link = models.URLField(max_length=50, null=True, blank=True)
-	role=models.CharField(null=True, max_length=50, default='Content Writer' , choices=(('Advertiser', 'Advertiser'), 
+	role=models.CharField(null=True, max_length=50, blank=True, default='Content Writer' , choices=(('Advertiser', 'Advertiser'), 
 																			('Content Writer', 'Content Writer'), 
 																			('Social Media Executives', 'Social Media Executives'))
 	                     )

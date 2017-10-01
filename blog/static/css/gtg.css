@@ -5,7 +5,7 @@
 }
 
 #bg-video {
-  top: 0px;
+  top: 190px;
   left: 0px;
   position: absolute;
   z-index: -1;
@@ -20,7 +20,10 @@
 	font-family: 'Raleway', sans-serif;
   	font-size: 3rem;
   	color:#fff;
-  	background: #464646;
+  	background-image: url(/media/blue.jpg/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   	width: 30%;
   	margin:10px auto;
   	padding:10px;
@@ -81,18 +84,21 @@ main {
 }
 
 .gtgCalltoAction{
-	background-color: #c97a8f;
+	background-image: url(/media/blue.jpg/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 	padding: 20px 0;
 }
 
 .gtgCalltoAction .shareStoryBtn{
 	background: transparent;
-    color: #fff;
+    color: #D4AF37;
 }
 
 .gtgCalltoAction .shareStoryBtn:hover{
 	background:transparent;
-	color: #f9f9f9;
+	color: #D4AF37;
 }
 
 .gtgCalltoAction .shareStoryBtn:active:focus,.shareStoryBtn:active:hover{
@@ -106,12 +112,12 @@ main {
 	padding: 13px 30px;
 	font-weight: bold; 
 	background:transparent;
-	color: #ff88a8;
+	color: #D4AF37;
 }
 
 .shareStoryBtn:hover{
 	background: transparent;
-	color: #ff88a8;
+	color: #D4AF37;
 }
 
 .shareStoryBtn .fa{

@@ -11,7 +11,7 @@ $('#menubutton').click(function(){
 
 $(".navbar-toggle, .navbar-brand").on("click", function () {
      $('#js-toggle-search').toggleClass("hidden");
-    // $("#navbar-hamburger").toggleClass("active");
+    $("#navbar-hamburger").toggleClass("active");
      $(".social-icon").toggleClass("hidden");
   });
 
@@ -208,3 +208,11 @@ var makePayt = function () {
   $("#modal-product").on("submit", ".js-advert-submit-form", saveForm);
  
 });
+
+
+$('#commentForm').on('submit', function(event){
+    event.preventDefault();
+    console.log("form submitted!")  // sanity check
+    create_comment();
+});
+

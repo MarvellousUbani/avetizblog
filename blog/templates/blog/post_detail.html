@@ -8,7 +8,7 @@
 {% load bootstrap3 %}
 {% load imagefit %}
 
-<section id="ad">
+<!--section id="ad">
       <div class="container ad">
         <div class="col-md-8 margin-tops col-md-push-2">
           <a href="#"><img src="https://tpc.googlesyndication.com/simgad/15838796070819256304" class="img-responsive"/></a>
@@ -18,18 +18,25 @@
         </div>
 
       </div>
-    </section>
+    </section-->
 
     <section id="post-body">
       <div class="container margin-tops">
         <div class="row">
           <div class="col-md-8 col-sm-8">
-            <img src="{{post.post_pic.url}}" style="width:100%" class="img-responsive img-post-detail">
+          <div class="row">
+            <div class="postTitleOverlay">
+            <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
 
-            <h3 class="post-title-detail">{{post.title}}</h3>
-            {% if post.published_date %}
-            <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D M Y"}} By</span> 
-            <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S)</span></span>
+            <div class="postTitleInfo">
+              <h3 class="post-title-detail">{{post.title}}</h3>
+              {% if post.published_date %}
+              <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D d M Y"}} By {{post.published_date|time:"H:i a"}}</span> 
+              <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} COMMENT(S) {{post.pageview}} VIEW (S)</span></span>
+            </div>
+
+            </div>
+            </div>
 
             {% endif %}
 
@@ -43,27 +50,41 @@
                 <span class="share-text"><strong>SHARE</strong></span>
               </div-->
               <div class="icons col-xs-10">
-                <i class="" style="color:#3b5998"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&src=sdkpreparse" class="fa fa-facebook-official fa-3x"></a></i>
-                <i class="" style="color:#1dcaff"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}&via=avetiz" class="fa fa-twitter-square fa-3x"></a></i>
-                <i class="" style="color:#007bb6"><a href="https://www.linkedin.com/cws/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" class="fa fa-linkedin-square fa-3x"></a></i>
-                <i class="" ><a style="color:#d34836" href="https://plus.google.com/share?url=http://avetizblog.com{% url 'blog:post_detail' pk=post.pk %}" onclick="javascript:window.open(this.href,
+                <i class="" style="color:#3b5998"><a href="https://www.facebook.com/sharer/sharer.php?u=http://avetizblog.com{{post.get_absolute_url}}&src=sdkpreparse" class="fa fa-facebook-official fa-3x"></a></i>
+                <i class="" style="color:#1dcaff"><a href="https://twitter.com/intent/tweet?hashtags=avetizblog&ref_src=twsrc%5Etfw&text=AvetiZ%20Blog&tw_p=tweetbutton&url=http://avetizblog.com{{post.get_absolute_url}}&via=avetiz" class="fa fa-twitter-square fa-3x"></a></i>
+                <i class="" style="color:#007bb6"><a href="https://www.linkedin.com/cws/share?url=http://avetizblog.com{{post.get_absolute_url}}" class="fa fa-linkedin-square fa-3x"></a></i>
+                <i class="" ><a style="color:#d34836" href="https://plus.google.com/share?url=http://avetizblog.com{{post.get_absolute_url}}" onclick="javascript:window.open(this.href,
                   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google-plus-square fa-3x"></a></i>
               </div>
             </div>
             <hr>
             <br>
 
+            <section id="ad">
+                  <div class="row">
+                    <div class="col-md-12  ">
+                      <a href="#"><img style="height:200px;" src="https://tpc.googlesyndication.com/simgad/15838796070819256304" class="img-responsive"/></a>
+                    </div>
+                    <div class="col-md-12">
+                      <hr>
+                    </div>
+
+                 </div> 
+              </section>
+
              <section class="similarStories">
-              {% if post in story_posts  %}
+              {% if post in story_posts %}
                 <div class="row">
                   <h3 style="">More Success Stories</h3>
                   </div>
 
                 <div class="row">
                   {% for post in story_posts|slice:"0:3" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+
+                    <h4>{{post.title|title|truncatechars:40}}</h4></a>
+
                   </div>
                   {% endfor %}
 
@@ -71,9 +92,11 @@
                 </div>
                  <div class="row">
                   {% for post in story_posts|slice:"3:6" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+
+                    <h4>{{post.title|title|truncatechars:40}}</h4></a>
+
                   </div>
                   {% endfor %}
 
@@ -86,19 +109,26 @@
                   </div>
 
                   <div class="row">
-                  {% for post in similar_posts|slice:"0:3" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                  {% for i in similar_posts|slice:"0:3" %}
+                  
+                  <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{{i.get_absolute_url}}">
+                    <img src="{{i.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+
+                    <h4>{{i.title}}</h4></a>
+
                   </div>
                   {% endfor %}
                 </div>
                 <div class="row">
-                  {% for post in similar_posts|slice:"3:6" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
-                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                  {% for i in similar_posts|slice:"3:6" %}
+                  
+                  <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{{i.get_absolute_url}}">
+                    <img src="{{i.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
+
+                    <h4>{{i.title}}</h4></a>
+
                   </div>
+                  
                   {% endfor %}
                 </div>
                 {% endif %}
@@ -132,12 +162,6 @@
           {% for comment in post.approve_comments %}
             <div class="col-md-12 commmnet-wrapper">
               {% if user.is_authenticated or comment.approved_comment %}
-                   {% if not comment.approved_comment %}
-                  <a class="btn btn-default" href="{% url 'blog:comment_remove' pk=comment.pk %}">
-                  <span class="glyphicon glyphicon-remove"></span></a>
-                  <a class="btn btn-default" href="{% url 'blog:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-                   {% endif %}
-
               <h4 class="commenter-name">{{comment.author}}</h4>
               <p class="comment">{{comment.text|safe|linebreaks}}</p>
             </div>
@@ -159,7 +183,8 @@
                           </div>
                           <div id="collapseOne" class="panel-collapse collapse ">
                               <div class="panel-body">
-                                <form method="post" action="{% url 'blog:add_comment_to_post' pk=post.pk %}">
+
+                                <form id="commentForm" method="post" action="{{post.id}}/comment/">
                                    {% csrf_token %}
                                   <div class="row">
                                       <div class="col-md-12">
@@ -191,7 +216,7 @@
 
               
       </div>
-      <!--copied some -->
+      <!--copied  some -->
         
     </section>
 
@@ -207,24 +232,22 @@
 
                 <div class="row">
                   {% for post in featured_posts|slice:"3:6" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                   </div>
-                  {% endfor %}
-
-                  
+                  {% endfor %}     
                 </div>
+
                 <div class="row">
                   {% for post in featured_posts|slice:"6:9" %}
-                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{% url 'blog:post_detail' pk=post.pk %}">
+                  <div class="col-xl-3 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
                     <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
                     <h4>{{post.title}}</h4></a>
                   </div>
-                  {% endfor %}
-
-                  
+                  {% endfor %}   
                 </div>
+
               {% else %}
                   {% include 'blog/includes/recommended_partial.html' %}
               {% endif %}
@@ -239,19 +262,23 @@
               <h2 class="sidebar-h">Latest Posts</h2>
               <div class="sidebar-class">
                 {% for post in recent_posts|slice:":3" %}
-                <a href="{% url 'blog:post_detail' pk=post.pk %}">
+                <a href="{{ post.get_absolute_url }}">
                  <div class="sidebar-img-detail margin-tops">
-                    <img class="img-responsive" src="{{post.post_pic.url}}"/>
+
+                    <img class="img-responsive"  src="{{post.post_pic.url}}"/>
                     <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+
                  </div>
                 </a>
                 {% endfor %}
 
                 {% for post in recent_posts|slice:"3:6" %}
-                <a href="{% url 'blog:post_detail' pk=post.pk %}" class="hidden-xl-up">
+                <a href="{{post.get_absolute_url}}" class="hidden-xl-up">
                  <div class="sidebar-img-detail margin-tops">
                     <img class="img-responsive" src="{{post.post_pic.url}}"/>
-                    <h4 style="text-align:left" class="sidebar-text">{{post.title}}</h4>
+
+                    <h4 style="text-align:left" style="width:auto;height:auto" class="sidebar-text">{{post.title}}</h4>
+
                  </div>
                 </a>
                 {% endfor %}
@@ -263,19 +290,66 @@
                 </div>
 
                 <div class="sidebar-img-detail margin-tops">
-                  <img class="img-responsive" style="width:auto" src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
+                  <img class="img-responsive" style="width:auto;height:auto" src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
                 </div>
                 
 
               </div>
             </div>
           </div>
-        
+        <
         </div>
       </div>
       {% include 'blog/includes/googleanalytics.html' %}
     </section>
+
+    <script type="text/javascript">
+      function create_comment(){
+        console.log('create comment working');
+        $.ajax({
+            url: '{{post.id}}/comment/',
+            type: 'POST',
+            data: {the_comment : $('#comment-text').val()},
+
+            //handle a succesful response
+            success: function(json){
+              $('#comment-text').val('');
+              console.log(json);
+              console.log("success");
+            },
+
+            //handle errors
+            error: function(xhr, errmsg, err){
+              console.log('error');
+               console.log(xhr.status + ": " + xhr.responseText);
+            }
+
+        });
+      };
+    </script>
 {% endblock %}
 {% block topimg %}
 <a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+  /**
+  var url= 'https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A160289007&start-date=30daysAgo&end-date=yesterday&metrics=ga%3Apageviews&dimensions=ga%3ApagePath&sort=ga%3Apageviews&filters=ga%3Apagepath%3D%3D%2Fpost%2F59'
+  $.get(url,function() {
+  alert( "success" );
+})
+**/
+if (localStorage.pagecount{{post.pk}}){
+
+}
+else{
+var url="{% url 'blog:addview'%}?pk={{post.pk}}"
+$.get(url,function() {
+})
+localStorage.pagecount{{post.pk}}=true;
+}
+</script>
 {% endblock %}

@@ -10,8 +10,7 @@ urlpatterns = [
     url(r'^profile/(?P<pk>\d+)$', views.ProfileView.as_view(), name='profile'),
     url(r'^find/', FacetedSearchView.as_view(), name='haystack_search'),
     url(r'^grass-to-grace/$', views.GrassToGraceView.as_view(), name='grass_to_grace'),
-    url(r'^post/(?P<pk>\d+)$', views.PostDetailView.as_view(), name='post_detail'),
-   # url(r'^(?P<slug>[-\w]+)/$', views.PostDetailView.as_view(), name='post_detail'),
+    url(r'^post/(?P<slug>[-\w]+)$', views.PostDetailView.as_view(), name='post_detail'),
     url(r'^post/new/$', views.CreatePostView.as_view(), name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.PostUpdateView.as_view(), name='post_edit'),
     url(r'^drafts/$', views.DraftListView.as_view(), name='post_draft_list'),
@@ -21,9 +20,11 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^category/(?P<hierarchy>.+)/$', views.show_category, name='category'),
-    url(r'^create_subscriber/$', views.SubscribeUser, name='subscribe'),
+    url(r'^create_subscriber/$', views.SubscribeView.as_view(), name='subscribe'),
     url(r'^contact/$', views.ContactView.as_view(), name='contact_us'),
     url(r'^privacy/$', views.PrivacyView.as_view(), name='privacy_policy'),
     url(r'^terms_of_use/$', views.TermsView.as_view(), name='terms'),#test
+   url(r'^activate/$', views.activate, name='activate'),
+    url(r'^addview/$', views.increaseView, name='addview'),
 ]
 

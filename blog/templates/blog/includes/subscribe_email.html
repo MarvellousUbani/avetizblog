@@ -1,0 +1,6 @@
+{% autoescape off %}
+Hi ,
+Please click on the link to confirm your Subscription on AvetiZBlog,
+
+https://avetizblog.com{% url 'blog:activate' %}?token={{token}}&email={{email}}
+{% endautoescape %}

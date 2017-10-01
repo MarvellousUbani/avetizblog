@@ -10,7 +10,7 @@ from django.template.defaultfilters import slugify
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=400)
     text = models.TextField(blank=True)
     post_pic = models.ImageField(upload_to='media', blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
@@ -19,7 +19,8 @@ class Post(models.Model):
     trending_post = models.BooleanField(default=False)
     status = models.CharField(max_length=100, default="Draft", choices=(('Draft','Draft'),('Published','Published'),('Submitted','Submitted')))
     category = models.ForeignKey('Category', null=True, blank=True)
-    slug = models.SlugField(null=True, blank=True)
+    pageview=models.IntegerField(default=0)
+    slug = models.SlugField(null=True, blank=True, max_length=200)
 
     def publish(self):
         if self.post_pic and self.text:
@@ -48,8 +49,10 @@ class Post(models.Model):
     def approve_comments(self):
         return self.comments.filter(approved_comment=True)
 
+
     def get_absolute_url(self):
-        return reverse("blog:post_detail",kwargs={'pk':self.pk})
+        return reverse('blog:post_detail', kwargs={'slug': self.slug})
+
 
     def get_cat_list(self):
         k = self.category
@@ -106,6 +109,11 @@ class Comment(models.Model):
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
+    active=models.BooleanField(default=False)
+    token=models.CharField(max_length=50, null=True)
+    
+    def __str__(self):
+        return self.email
 
 class ContactMessage(models.Model):
     name=models.CharField(max_length=200)
