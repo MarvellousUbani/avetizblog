@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.defaultfilters import slugify
+from django.utils.encoding import smart_unicode
 
 
 
@@ -107,8 +108,8 @@ class Comment(models.Model):
     def get_absolute_url(self):
         return reverse("post_list")
 
-    def __str__(self):
-        return self.text
+    def __unicode__(self): 
+        return smart_unicode(self.text)
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
