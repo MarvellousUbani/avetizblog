@@ -1175,6 +1175,10 @@ h3{
   border-right-style:none;
 }
 
+.lower{
+  text-transform: lowercase;
+}
+
 
 /*gjvhvhj*/
 @media only screen and (max-width: 767px){
