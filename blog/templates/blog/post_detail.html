@@ -148,7 +148,15 @@
           </div>
         {% endfor %}
 
+        
+
         <div class="row margin-tops">
+
+        <div class="alert alert-success alert-dismissible hidden" role="alert" id="commentSuccessAlert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> Your comment will be reviewed and posted shortly.
+        </div>
+
         {% if post.approve_comments.count == 0 %}
         <h2>There are No Comments</h2>
 
@@ -314,9 +322,9 @@
             success: function(json){
               $('#comment-text').val('');
               $('#id_author').val('');
+              $('#commentSuccessAlert').removeClass('hidden');
               // console.log(json);
               // console.log("success");
-              alert('Your comment will be approved shortly.');
             },
 
             //handle errors
