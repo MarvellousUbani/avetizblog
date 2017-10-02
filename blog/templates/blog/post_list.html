@@ -28,7 +28,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="main-post-text-wrapper">
 								<h2><strong>{{post.title|truncatechars:100}}</strong></h2>
 								<div class="post">{{post.text|truncatechars:300|safe|capfirst}}</div>
-								<span class="author" style="color:#8CC34A;">AvetiZ</span>
+								<!--span class="author" style="color:#8CC34A;">AvetiZ</span-->
 								
 							</div>
 							</a>
@@ -228,14 +228,17 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 	    <div class="col-sm-8">
 
 	      <h3 class="fPostTitle"><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:80}}</a></h3>
-
-	      <p class="fPostAuthor"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
+           
+	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive visible-xs-block">
+	      
+	      <p class="fPostAuthor hidden-xs"><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 	      <div class="fPostDetail">{{post.text|truncatechars:355|safe}} <span class="fpReadMore"><a href="{{post.get_absolute_url}}">Read More</a></span></div>
+	      <p class="fPostAuthor visible-xs-block" ><em>by <span>{{post.author.get_full_name|capfirst}}</span></em> <time>{{post.published_date}}</time></p>
 
 
 	      </div>
 	      <div class="col-sm-4">
-	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive">
+	        <img src="{{post.post_pic.url|resize:'950x534,C'}}" class="img-responsive hidden-xs">
 	      </div>
 	    </div>
 
