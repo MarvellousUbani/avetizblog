@@ -74,6 +74,9 @@ class ProfileForm(forms.ModelForm):
         'instagram_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'linkedin_link':forms.TextInput(attrs={'class':'form-control borderprob'}),
         'short_description':forms.Textarea(attrs={'class':'form-control borderprob'}),
+        'bank_name':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'account_name':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'account_number':forms.TextInput(attrs={'class':'form-control borderprob'}),
         }
 
 

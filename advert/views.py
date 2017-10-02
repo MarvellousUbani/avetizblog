@@ -50,8 +50,9 @@ class postList(LoginRequiredMixin, ListView):
 	template_name='advert/post_list.html'
 	login_url='account/login'
 	context_object_name='posts'
+	paginate_by=5
 	def get_queryset(self):
-		return Post.objects.filter(author=self.request.user).order_by('-published_date')
+		return Post.objects.filter(author=self.request.user).order_by('-published_date').order_by('-created_date')
 
 class AdvertListView(LoginRequiredMixin,ListView):
 	model=Advert

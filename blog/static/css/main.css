@@ -13969,6 +13969,7 @@ be a descendant of the grid when it is being dragged.
   background: transparent;
 }
 
+
 .main-header .logo {
   display: block;
   width: 230px;
@@ -15517,5 +15518,5 @@ be a descendant of the grid when it is being dragged.
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
+
 }
