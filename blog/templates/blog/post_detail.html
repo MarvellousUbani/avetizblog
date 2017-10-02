@@ -154,7 +154,7 @@
 
         <div class="alert alert-success alert-dismissible hidden" role="alert" id="commentSuccessAlert">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Your comment will be reviewed and posted shortly.
+          <strong>Thank You!</strong> Your comment will be reviewed and posted shortly.
         </div>
 
         {% if post.approve_comments.count == 0 %}
@@ -186,7 +186,7 @@
                           <div class="panel-heading">
                               <h4 class="panel-title">
                                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-file">
-                                  </span>Please Share Your Comment</a>
+                                  </span>Please add your comment</a>
                               </h4>
                           </div>
                           <div id="collapseOne" class="panel-collapse collapse ">
@@ -323,10 +323,12 @@
               $('#comment-text').val('');
               $('#id_author').val('');
               $('#commentSuccessAlert').removeClass('hidden');
-              // console.log(json);
-              // console.log("success");
+              $('.panel-title').find('a').addClass('collapsed');
+              $('#collapseOne').removeClass('in');
+              $('html,body').animate({
+                scrollTop: $("#commentSuccessAlert").offset().top},
+                'slow');
             },
-
             //handle errors
             error: function(xhr, errmsg, err){
               // console.log('error');

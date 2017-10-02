@@ -678,9 +678,17 @@ footer .socialCluster .fa{
   height: 200px;
 }
 
+.adSpaceF img{
+  width: 100% !important;
+  height: auto;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
 .sidebarTitle{
   font-size: 25px;
   color: #011019;
+  font-style: italic;
 }
 
 .eventName{
