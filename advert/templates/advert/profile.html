@@ -34,7 +34,7 @@
                     </div>
                     {% autoescape off %}
                     <div class="post-content">
-                      {{post.text}}
+                      {{post.text|truncatechars:'200'|safe}}
 
                     </div>
                      {% endautoescape %}
