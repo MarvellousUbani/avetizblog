@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 from django.db import models
 
-# Create your models here.
+# Create your models here.jf
 
 class Profile(models.Model):
 	user=models.ForeignKey(User , null=True)
