@@ -221,7 +221,8 @@ nav a:hover{
 .main-post-text-wrapper{
   
   /*min-height: 100px;*/
-  background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_174,o_80,w_254,x_1910,y_75/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170815-laswin-melania-tease_ysv3sw)  ;
+  /*background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_174,o_80,w_254,x_1910,y_75/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170815-laswin-melania-tease_ysv3sw)  ;*/
+  background-color: #c00;
   background-repeat:no-repeat;
   background-position: center; 
   background-size: cover;
@@ -450,8 +451,10 @@ nav a:hover{
   margin-bottom: 3px;
   margin-top: 0px;
   margin-left: 8px;
-  color:  #fff;
+  color:  #191970;
   font-weight: bold;
+  font-size: 15px;
+
 }
 
 .zone-content p{
@@ -525,7 +528,7 @@ nav a:hover{
 
 .fPostColumn{
   padding: 0px 15px;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 3px solid #E8E8E8;
   font-style: normal;
 }
 
