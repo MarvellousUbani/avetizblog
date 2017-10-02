@@ -28,6 +28,14 @@
       <div class="logo">
          <a href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
       </div>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{message}}</strong>
+        </div>
+        {%endfor%}
+      {% endif %}
       <div class="login-box signup-box">
         <form class="login-form" method="post" >
         	{% csrf_token %}

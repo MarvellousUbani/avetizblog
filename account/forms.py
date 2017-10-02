@@ -4,6 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
 
+
+class PasswordResetForm(forms.Form):
+    username=forms.CharField()
+
+class PasswordForm(forms.Form):
+    password=forms.CharField()
+
 class LoginForm(forms.Form):
 	username=forms.CharField(label='Username',
 	help_text='Please enter you username', 
@@ -35,4 +42,6 @@ class ProfileForm(forms.ModelForm):
         'role':forms.Select(attrs={'class':'form-control'}),
         }
 
-    
+
+
+

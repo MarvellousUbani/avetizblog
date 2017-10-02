@@ -24,6 +24,8 @@ class Profile(models.Model):
 																			('Social Media Executives', 'Social Media Executives'))
 	                     )
 
+	password_token=models.CharField(null=True, max_length=200, blank=True)
+
 	def __str__(self):
 		return self.user.first_name
 
