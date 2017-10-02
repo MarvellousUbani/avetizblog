@@ -186,6 +186,15 @@
   	height: 150px;
   }
 
+  .postTitleInfo h3 {
+    font-size: 16px;
+}
+
+  	.post-meta {
+    font-size: 11px;
+    text-transform: capitalize;
+ }
+
 }
 
 @media only screen and (max-width: 850px) {
@@ -201,6 +210,11 @@
   	width: 100%;
   	height: auto;
   }
+
+  .post-meta {
+    font-size: 9px;
+    text-transform: capitalize;
+}
 
 }
 
