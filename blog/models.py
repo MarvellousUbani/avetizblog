@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -104,8 +107,8 @@ class Comment(models.Model):
     def get_absolute_url(self):
         return reverse("post_list")
 
-    def __unicode__(self):
-        return u'{f}'.format(f=self.text) 
+    def __str__(self):
+        return self.text
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
