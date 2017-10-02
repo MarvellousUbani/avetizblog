@@ -76,6 +76,9 @@ class ProfileForm(forms.ModelForm):
         'short_description':forms.Textarea(attrs={'class':'form-control borderprob'}),
         }
 
+class PasswordResetForm(forms.Form):
+    email=forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control borderprob', 'placeholder':'Enter Your Email Address '}))
+
 
 
 

@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import advertForm, UserForm, ProfileForm
 from .models import Advert, Transaction, Wallet
 from blog.models import Post, Comment
-from .forms import  PostForm, TransactionForm
+from .forms import  PostForm, TransactionForm, PasswordResetForm
 from account.models import Profile
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponseRedirect
@@ -18,6 +18,7 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 import random, string
 from django.core.mail import send_mail
+from django.utils.crypto import get_random_string
 import pdb
 
 # Create your views here
@@ -358,6 +359,39 @@ class ApprovePaytView(LoginRequiredMixin, View):
 		transaction=Transaction.objects.get(ref=ref)
 		transaction.approve()
 		return HttpResponseRedirect(reverse('advert:post_list'))
+
+
+class PasswordResetView(View):
+	
+	def post(self, request, *args, **kwargs):
+		unique_id = get_random_string(length=32)
+		form=PasswordResetForm(self.request.POST)
+		if form.is_valid():
+			email=form.cleaned_data['email']
+			try:
+				user=User.objects.get(email__icontains=email)
+			except ObjetDoesNotExist:
+				pass
+			try:
+				profile=User.objects.get(user=user)
+			except ObjetDoesNotExist:
+				pass
+			profile.password_token=unique_id
+			profile.save()
+			message = render_to_string('blog/includes/subscribe_email.html', {
+                'domain':current_site.domain,
+                'token':unique_id,
+                'email':email,
+            })
+	        messages.success(self.request, 'We have sent a verification link to your  email address . Thank You ')
+	        mail_subject = 'Activate your AvetiZ Blog Subscription.'
+	        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[email], reply_to=['contact@avetiz.com'],)
+	        email.send()
+	        subscribeemail=form.save(commit=False)
+	        subscribeemail.token=unique_id
+	        subscribeemail.save()
+	        return HttpResponseRedirect(reverse('blog:post_list'))
+
 
 
 def monthCount(user, n, count=0):

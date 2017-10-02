@@ -391,6 +391,8 @@ def increaseView(request):
     post.pageview+=1
     post.save()
     return JsonResponse( {'status':True} )
+
+
     
 
 

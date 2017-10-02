@@ -89,7 +89,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 								
 							</div>
 
-							{% for post in lnp|slice:"1:5"  %}
+							{% for post in lnp|slice:"1:6"  %}
 							<a href="{{post.get_absolute_url}}">
 							<div class="row sidebarrow">
 								<div class="col-xl-6 col-xs-5 sidebarrowCol">
@@ -104,10 +104,27 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							</a>
 							<hr>
 							{% endfor %}
+							{% for post in lnp|slice:"6:7"  %}
+							<div class="visible-sm-block">
+								<a href="{{post.get_absolute_url}}">
+								<div class="row sidebarrow">
+									<div class="col-xl-6 col-xs-5 sidebarrowCol">
+										<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
+									</div>
+									<div class="col-xl-6 col-xs-7 no-pad zone-content ">
+										<h4>{{post.title}}</h4>
+										<!--p>{{post.text|truncatechars:40|safe}} </p-->
+									</div>
+									<br>
+								</div>
+								</a>
+								<hr>
+						   </div>
+						   {%endfor%}
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in lnp|slice:"5:8" %}
+						{% for post in lnp|slice:"7:8" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{{post.get_absolute_url}}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -121,11 +138,13 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 						{% endfor %}
 						
-						{% for post in lnp|slice:"8:9" %}
+						{% for post in lnp|slice:"8:11" %}
 						<div class="index-post dont-show"><!--dont-show-->
+							<a href="{{post.get_absolute_url}}">
 							<img src="{{post.post_pic.url}}"/>
 							<div class="post-text">
 								<h4>{{post.title}}</h4>
+							</a>
 								<span> <font color="#F83371">By {{post.author.get_full_name}}</font></span>
 							</div>
 						</div>
@@ -166,7 +185,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in lnp|slice:"9:11"  %}
+						{% for post in lnp|slice:"11:13"  %}
 						 	<a href="{{post.get_absolute_url}}">
 							<div class="col-md-6 pad-right">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
