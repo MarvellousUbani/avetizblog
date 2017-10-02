@@ -124,7 +124,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in lnp|slice:"7:8" %}
+						{% for post in lnp|slice:"7:10" %}
 						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
 						<a href="{{post.get_absolute_url}}">
 							<img class="img-responsive" src="{{post.post_pic.url}}"/>
@@ -138,7 +138,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						</div>
 						{% endfor %}
 						
-						{% for post in lnp|slice:"8:11" %}
+						{% for post in lnp|slice:"10:11" %}
 						<div class="index-post dont-show"><!--dont-show-->
 							<a href="{{post.get_absolute_url}}">
 							<img src="{{post.post_pic.url}}"/>
