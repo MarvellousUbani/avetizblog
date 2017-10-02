@@ -3,6 +3,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
+#fg
+
+class PasswordResetForm(forms.Form):
+    username=forms.CharField()
+
+class PasswordForm(forms.Form):
+    password=forms.CharField()
 
 class LoginForm(forms.Form):
 	username=forms.CharField(label='Username',
@@ -35,4 +42,6 @@ class ProfileForm(forms.ModelForm):
         'role':forms.Select(attrs={'class':'form-control'}),
         }
 
-    
+
+
+

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 from django.db import models
 
-# Create your models here.
+# Create your models here.jf
 
 class Profile(models.Model):
 	user=models.ForeignKey(User , null=True)
@@ -23,6 +23,8 @@ class Profile(models.Model):
 																			('Content Writer', 'Content Writer'), 
 																			('Social Media Executives', 'Social Media Executives'))
 	                     )
+
+	password_token=models.CharField(null=True, max_length=200, blank=True)
 
 	def __str__(self):
 		return self.user.first_name
