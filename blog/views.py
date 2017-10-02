@@ -271,28 +271,32 @@ def post_publish(request, pk):
     else:
         return render(request,'blog/post_detail.html', {'post':post, 'publish_error':True} )
 
+
 @csrf_exempt
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            response_data['result'] = 'Create post successful!'
-            response_data['text'] = comment.text
-            response_data['author'] = comment.author
+        comment_text = request.POST.get('the_comment')
+        comment_author = request.POST.get('the_author')
+        response_data = {}
 
-            return HttpResponse(
-                json.dumps(response_data),
-                content_type="application/json"
-            )
-        else:
-            return HttpResponse(
-                json.dumps({"nothing to see": "this isn't happening"}),
-                content_type="application/json"
-            )
+        comment = Comment(text=comment_text, author=comment_author)
+        comment.post = post
+        comment.save()
+        
+        response_data['result'] = 'Create comment successful!'
+        response_data['text'] = comment.text
+        response_data['author'] = comment.author
+
+        return HttpResponse(
+            json.dumps(response_data),
+            content_type="application/json"
+        )
+    else:
+        return HttpResponse(
+            json.dumps({"nothing to see": "this isn't happening"}),
+            content_type="application/json"
+        )
     
 
 

@@ -305,23 +305,24 @@
 
     <script type="text/javascript">
       function create_comment(){
-        console.log('create comment working');
         $.ajax({
             url: '{{post.id}}/comment/',
             type: 'POST',
-            data: {the_comment : $('#comment-text').val()},
+            data: {the_comment : $('#comment-text').val(), the_author : $('#id_author').val()},
 
             //handle a succesful response
             success: function(json){
               $('#comment-text').val('');
-              console.log(json);
-              console.log("success");
+              $('#id_author').val('');
+              // console.log(json);
+              // console.log("success");
+              alert('Your comment will be approved shortly.');
             },
 
             //handle errors
             error: function(xhr, errmsg, err){
-              console.log('error');
-               console.log(xhr.status + ": " + xhr.responseText);
+              // console.log('error');
+              //  console.log(xhr.status + ": " + xhr.responseText);
             }
 
         });
