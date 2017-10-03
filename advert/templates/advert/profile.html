@@ -34,7 +34,7 @@
                     </div>
                     {% autoescape off %}
                     <div class="post-content">
-                      {{post.text}}
+                      {{post.text|truncatechars:'200'|safe}}
 
                     </div>
                      {% endautoescape %}
@@ -82,9 +82,25 @@
                         <label>Address</label>
                         {{profileform.address}}
                       </div>
+                      <div class="clearfix"></div>
                       <div class="col-md-8 mb-20">
                         <label>Description</label>
                         {{profileform.short_description}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Account Number</label>
+                        {{profileform.account_number}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Bank Name</label>
+                        {{profileform.bank_name}}
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-md-8 mb-20">
+                        <label>Account Name</label>
+                        {{profileform.account_name}}
                       </div>
                       <div class="clearfix"></div>
                       <div class="col-md-8 mb-20">

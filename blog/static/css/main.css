@@ -322,7 +322,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #e5e5e5;
+ /* background-color: #e5e5e5;*/
 }
 
 input,
@@ -13969,6 +13969,7 @@ be a descendant of the grid when it is being dragged.
   background: transparent;
 }
 
+
 .main-header .logo {
   display: block;
   width: 230px;
@@ -15510,4 +15511,12 @@ be a descendant of the grid when it is being dragged.
 
 .user .user-settings label {
   color: #666;
+}
+
+.mybackground{
+  background-image: url(/media/loginback.jpg) ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
 }

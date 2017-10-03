@@ -25,6 +25,9 @@ class Profile(models.Model):
 	                     )
 
 	password_token=models.CharField(null=True, max_length=200, blank=True)
+	account_number=models.CharField(null=True, max_length=200)
+	bank_name=models.CharField(null=True, max_length=200)
+	account_name=models.CharField(null=True, max_length=200)
 
 	def __str__(self):
 		return self.user.first_name
