@@ -109,7 +109,7 @@ class Comment(models.Model):
         return reverse("post_list")
 
     def __str__(self):
-        return self.post
+        return self.post.title
 
 
 
