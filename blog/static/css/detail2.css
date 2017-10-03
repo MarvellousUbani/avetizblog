@@ -36,7 +36,7 @@
  	font-size: 15px;
  	line-height: 1.5em;
  }
- 
+
  .post-text>img{
   max-width: 100%;
   height:auto;
@@ -60,7 +60,7 @@
 	display:inline;
 }
 
-.post-text>img{
+.post-text>p>img{
   max-width: 100%;
   height:auto;
 }
