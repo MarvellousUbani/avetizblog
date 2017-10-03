@@ -108,8 +108,10 @@ class Comment(models.Model):
     def get_absolute_url(self):
         return reverse("post_list")
 
-    def __unicode__(self): 
-        return smart_unicode(self.created_date)
+    def __str__(self):
+        return self.post
+
+
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
