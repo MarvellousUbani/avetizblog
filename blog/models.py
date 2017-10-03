@@ -109,7 +109,7 @@ class Comment(models.Model):
         return reverse("post_list")
 
     def __unicode__(self): 
-        return smart_unicode(self.text)
+        return smart_unicode(self.created_date)
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()

@@ -66,9 +66,9 @@
             <img class="img-responsive" src="{{post.post_pic.url|resize:'175x175,C'}}">
           </div>
           <div class="col-xs-8 noleftpad">
-            <p class="whatsNewATitle"><a href="">{{post.title}}</a></p>
-            <span><i class="fa fa-share-square" aria-hidden="true"></i> 
-            <small><strong>146</strong> SHARES / 46 minutes ago</small></span>
+            <p class="whatsNewATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></p>
+            <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+            <small>{{post.published_date|timesince}}</small></span>
           </div>
         </div>
         {% endfor %}
