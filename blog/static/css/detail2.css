@@ -54,6 +54,11 @@
 	display:inline;
 }
 
+.post-text>img{
+  max-width: 100%;
+  height:auto;
+}
+
 
 .sub-button{
 	height:45px;
