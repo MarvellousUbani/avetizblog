@@ -98,7 +98,7 @@ class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')
     author = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(auto_now_add=True)
     approved_comment = models.BooleanField(default=False)
 
     def approve(self):
@@ -108,8 +108,10 @@ class Comment(models.Model):
     def get_absolute_url(self):
         return reverse("post_list")
 
-    def __unicode__(self): 
-        return smart_unicode(self.text)
+    def __str__(self):
+        return self.post.title
+
+
 
 class SubscribeEmail(models.Model):
     email=models.EmailField()
