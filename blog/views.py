@@ -40,6 +40,7 @@ class AboutView(TemplateView):
 class ProfileView(DetailView):
     template_name = 'profile_detail.html'
     model = Profile
+    slug_field = "user"
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
