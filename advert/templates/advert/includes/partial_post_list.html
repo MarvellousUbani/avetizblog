@@ -1,6 +1,6 @@
         {% for post in posts %}
         <tr>
-          <td><h1><strong>{{post.title}}</strong></h1></td>
+          <td><a href="{{post.get_absolute_url}}"><h1><strong>{{post.title}}</strong></h1></a></td>
           <td class="mobile_no">{{post.created_date|date:"SHORT_DATE_FORMAT"}}</td>
           {% if post.published_date %}
           <td class="mobile_no">{{post.published_date|date:"SHORT_DATE_FORMAT"}}</td>
@@ -13,8 +13,16 @@
           {% if post.status == 'Draft' %}
           <button data-toggle="tooltip"  title="Delete Post" data-url="{% url 'advert:delete_post' post.id %}"  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
           <br>
-          {% endif %}
           <button data-url="{% url 'advert:submit_post' post.id%}"  data-toggle="tooltip"  title="Save post for Review" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button>
+          {% else %}
+            {% if request.user.is_staff and post.status != 'Published' %}
+               <button data-url="{% url 'advert:publish_post' post.id%}"  data-toggle="tooltip"  title="Publish" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button>
+            {% endif %}
+              {% if request.user.is_staff and post.status == 'Published' %}
+                <button data-url="{% url 'advert:feature_post' post.id%}"  data-toggle="tooltip"  title="Feature" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button>
+              {% endif %}
+          {% endif %}
+
           </td>
         </tr>
         {% endfor %}

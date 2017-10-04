@@ -73,6 +73,11 @@
              {% if request.session.role == 'Advertiser' %}
             <li><a href="{% url 'advert:advert_list' %}"><i class="fa fa-rss"></i><span>Manage Advert</span></a></li>
             {% endif %}
+            {% if request.user.is_staff %}
+             <li><a href="{% url 'advert:author_list' %}"><i class="fa fa-users"></i><span>Authors</span></a></li>
+             <li><a href="{% url 'advert:all_post_list' %}"><i class="fa fa-file"></i><span>All Post</span></a></li>
+
+            {% endif %}
             <li><a href="{% url 'advert:transaction_list' %}"><i class="fa fa-bank"></i><span>Manage Wallet</span></a></li>
             <li><a href="{% url 'advert:profile' %}"><i class="fa fa-user"></i><span>Manage Profile</span></a></li>
            

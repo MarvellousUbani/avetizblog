@@ -1,0 +1,10 @@
+        {% for author in authors %}
+        <tr>
+          <td><a href="{% url 'advert:author_post_list' pk=author.pk%} "><h1><strong>{{author.first_name}}</strong></h1></a></td>
+          <td><h1><strong>{{author.last_name}}</strong></h1></td>
+          <td><h1><strong>{{author.username}}</strong></h1></td>
+          <td><h1><strong>{{author.email}}</strong></h1></td>
+        </tr>
+        {% endfor %}
+        
+      
