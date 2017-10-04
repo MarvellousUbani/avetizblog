@@ -30,7 +30,7 @@ class Post(models.Model):
         if self.post_pic and self.text:
             self.published_date = timezone.now()
             self.status = 'Published'
-            self.save
+            self.save()
             return True
         else:
             return False

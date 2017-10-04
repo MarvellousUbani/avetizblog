@@ -17,8 +17,9 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 import random, string
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
-
+from django.contrib.auth.decorators import login_required
 from django.utils.crypto import get_random_string
 import pdb
 
@@ -214,7 +215,96 @@ class PostSubmitView(LoginRequiredMixin, UpdateView):
 
 		return HttpResponseRedirect(reverse('advert:post_list'))
 
+class PostPublishView(LoginRequiredMixin, UpdateView):
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_post_list.html'
+	model=Post
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'post': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_post_publish.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
 
+	def post(self,request, *args, **kwargs):
+		dic=dict()
+		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
+		context={'posts':data}
+		post=self.get_object()
+		result=post.publish()
+		if result:
+			return HttpResponseRedirect(reverse('advert:all_post_list'))
+
+
+class PostFeatureView(LoginRequiredMixin, UpdateView):
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_post_list.html'
+	model=Post
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'post': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_post_feature.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		dic=dict()
+		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
+		context={'posts':data}
+		post=self.get_object()
+		post.featured_post=True
+		post.save()	
+		return HttpResponseRedirect(reverse('advert:all_post_list'))
+
+
+
+class AuthorListView(LoginRequiredMixin, ListView):
+	model=User
+	login_url='account/login'
+	context_object_name='authors'
+	template_name='advert/author.html'
+	paginate_by=5
+
+
+class AuthorPostView(LoginRequiredMixin, ListView):
+	model=Post
+	login_url='account/login'
+	context_object_name='posts'
+	template_name='advert/post_list.html'
+	paginate_by=5
+	def get_queryset(self, *args, **kwargs):
+		pk=self.kwargs['pk']
+		return Post.objects.filter(author__pk=pk)
+
+class AllPostView(LoginRequiredMixin, ListView):
+	model=Post
+	login_url='account/login'
+	context_object_name='posts'
+	template_name='advert/post_list.html'
+	paginate_by=5
+
+	def get_queryset(self, *args, **kwargs):
+		return Post.objects.exclude(status__icontains='draft').order_by('-created_date', 'status')
+
+@login_required
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    status=post.publish()
+    if status:
+        return redirect('post_detail', pk=pk)
+    else:
+        return render(request,'blog/post_detail.html', {'post':post, 'publish_error':True} )
+
+
+
+
+	
 class TransactionListView(LoginRequiredMixin,ListView):
 	model=Transaction
 	login_url='account/login'
@@ -352,6 +442,13 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 		latestpost=Post.objects.filter(author=self.request.user)[:4]
 		context={'user':request.user, 'userform':userform, 'profileform':profileform, 'posts':latestpost, 'xyzw':True}
 		return render(self.request, 'advert/profile.html',context)
+
+
+
+
+
+
+
 
 class ApprovePaytView(LoginRequiredMixin, View):
 
