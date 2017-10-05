@@ -9,6 +9,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 from django.utils.encoding import smart_unicode
+from django_image_tools.models import Image
 
 
 
@@ -17,6 +18,7 @@ class Post(models.Model):
     title = models.CharField(max_length=400)
     text = models.TextField(blank=True)
     post_pic = models.ImageField(upload_to='media', blank=True, null=True)
+    #post_pic = models.ForeignKey(Image, null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     featured_post = models.BooleanField(default=False)
@@ -25,7 +27,7 @@ class Post(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True)
     pageview=models.IntegerField(default=0)
     slug = models.SlugField(null=True, blank=True, max_length=200)
-    blur_thumb=models.ImageField(upload_to='media', blank=True, null=True)
+    
 
     def publish(self):
         if self.post_pic and self.text:

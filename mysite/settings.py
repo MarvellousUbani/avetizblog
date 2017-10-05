@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'blog',
     'haystack',
     'imagefit',
+    'django_image_tools',
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
@@ -165,7 +166,53 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+UPLOAD_TO = os.path.join(BASE_DIR, 'media/upload')
 IMAGEFIT_ROOT = ""
+DATA_UPLOAD_MAX_MEMORY_SIZE=50000000
 
 
 DEBUG = True
+
+
+DJANGO_IMAGE_TOOLS_SIZES = {
+    'thumbnail': {
+        'width': 30,
+        'height': 30,
+        'auto': None
+    },
+    'very_long': {
+        'width': 200,
+        'height': 30,
+        'auto': None
+    },
+    'very_tall': {
+        'width': 30,
+        'height': 200,
+        'auto': None
+    },
+    'huge': {
+        'width': 2000,
+        'height': 2000,
+        'auto': None
+    },
+    'auto_width': {
+        'width': 0,
+        'height': 20,
+        'auto': 'WIDTH'
+    },
+    'auto_height': {
+        'width': 20,
+        'height': 0,
+        'auto': 'HEIGHT'
+    },
+}
+
+DJANGO_IMAGE_TOOLS_FILTERS = {
+    'grey_scaled': {
+        'filter_type': 'GREYSCALE'
+    },
+    'blurred': {
+        'filter_type': 'GAUSSIAN_BLUR',
+        'value': 5
+    }
+}

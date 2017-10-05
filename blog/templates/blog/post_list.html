@@ -20,7 +20,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{% endif %}
 				<div class="row">
 					<div class="col-md-6 col-sm-6 post-box">
-						<div class="main-post-wrapper">
+						<div class="main-post-wrapper" style="background-image: url({{post.post_pic.get_thumbnail}});">
 							{% for post in featured_posts|slice:"0:1" %}
 
 							<a href="{{post.get_absolute_url}}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
