@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'blog',
     'haystack',
     'imagefit',
+    #'django_image_tools',
    # 'newsletter_signup',
     'django.contrib.sites',
 ]
@@ -165,7 +166,11 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+UPLOAD_TO = os.path.join(BASE_DIR, 'media/upload')
 IMAGEFIT_ROOT = ""
+DATA_UPLOAD_MAX_MEMORY_SIZE=50000000
 
 
 DEBUG = True
+
+

@@ -20,7 +20,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{% endif %}
 				<div class="row">
 					<div class="col-md-6 col-sm-6 post-box">
-						<div class="main-post-wrapper">
+						<div class="main-post-wrapper" style="background-image: url({{post.post_pic.get_thumbnail}});">
 							{% for post in featured_posts|slice:"0:1" %}
 
 							<a href="{{post.get_absolute_url}}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
@@ -38,20 +38,20 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 					<div class="col-md-6 col-sm-6 post-box">
 						
 						<div class="sec-post-wrapper2 ">
-							<div>
+							<!--div>
 							<a href="{{post.get_absolute_url}}">
 									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
 									border-right-style: none;" >
 										<h3>{{post_story.title|title}}</h3>
-										<!--p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p-->
+										<p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p>
 									</div>
 									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
 									<img style="border:solid 1px #D4AF37;
 									border-left-style: none;" class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
 									</div>
 						    </a>
-							</div>
-							  {% for post in featured_posts|slice:"1:4" %}
+							</div-->
+							  {% for post in featured_posts|slice:"1:5" %}
 
 							  	  <a href="{{post.get_absolute_url}}">
 									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
