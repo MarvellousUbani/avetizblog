@@ -187,7 +187,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 					 <div class="row">
 						{% for post in lnp|slice:"11:13"  %}
 						 	<a href="{{post.get_absolute_url}}">
-							<div class="col-md-6 pad-right">
+							<div class="col-md-6 pad-right twopost">
 								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
 								<h4 style="color: #191970">{{post.title}}</h4>
 								

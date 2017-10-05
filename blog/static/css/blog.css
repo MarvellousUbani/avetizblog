@@ -369,6 +369,20 @@ nav a:hover{
   margin-left: 25px;
   margin-right: 25px;
 }
+
+@media only screen and (max-width: 768px){
+
+  .index-post{
+    border-bottom:solid 1px #000;
+    padding-bottom:20px;
+  }
+
+  .twopost{
+    border-top:solid 1px #000;
+    padding-top: 20px;
+  }
+}
+
 .index-post>img{
   max-height: 250px;
   width:100%;
