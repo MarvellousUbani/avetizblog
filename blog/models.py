@@ -25,6 +25,7 @@ class Post(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True)
     pageview=models.IntegerField(default=0)
     slug = models.SlugField(null=True, blank=True, max_length=200)
+    blur_thumb=models.ImageField(upload_to='media', blank=True, null=True)
 
     def publish(self):
         if self.post_pic and self.text:
