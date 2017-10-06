@@ -70,9 +70,7 @@ class AjaxableResponseMixin(object):
     partial_success_file=None
 
     def form_invalid(self, form):
-        response = super(AjaxableResponseMixin, self).form_invalid(form)
-        if self.request.is_ajax():
-            return JsonResponse(form.errors, status=400)
+        return HttpResponseRedirect(reverse('advert:post_list'))
         
     def form_valid(self,form):
 		post=form.save(commit=False)
@@ -103,6 +101,7 @@ class createPost(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 		dic = dict()
 		dic['html_form'] = render_to_string(self.partial_file, data, request=self.request)
 		return self.render_to_json_response(dic)
+	
 
 class createAdvert(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 	model=Post
