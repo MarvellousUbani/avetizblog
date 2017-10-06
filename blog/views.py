@@ -140,7 +140,7 @@ class PostDetailView(DetailView):
         context['post_list'] = Post.objects.all()
         story_cat = Category.objects.get(name='my story')
         context['story_posts'] = Post.objects.filter(category = story_cat)
-        context['featured_posts'] = Post.objects.filter(featured_post=True)
+        context['featured_posts'] = Post.objects.filter(featured_post=True).order_by('-published_date')
         context['similar_posts']=Post.objects.filter(category__name__icontains=name).exclude(id=post.id)[:6]
         context['trending_posts'] = Post.objects.filter(trending_post=True).exclude(id=post.id)
         context['recent_posts'] = Post.objects.filter(published_date__lte=timezone.now()).exclude(id=post.id).order_by('-published_date')
