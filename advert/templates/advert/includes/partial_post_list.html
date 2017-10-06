@@ -1,6 +1,6 @@
         {% for post in posts %}
         <tr>
-          <td><a href="{{post.get_absolute_url}}"><h1><strong>{{post.title}}</strong></h1></a></td>
+          <td><a target="_blank" href="{{post.get_absolute_url}}"><h1><strong>{{post.title}}</strong></h1></a></td>
           <td class="mobile_no">{{post.created_date|date:"SHORT_DATE_FORMAT"}}</td>
           {% if post.published_date %}
           <td class="mobile_no">{{post.published_date|date:"SHORT_DATE_FORMAT"}}</td>
