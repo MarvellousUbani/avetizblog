@@ -307,7 +307,7 @@
               </div>
             
             </div>
-            <div class="margin-tops"></div>
+            
             <div class="js-lnp hidden-xs">
             
             </div>
@@ -373,8 +373,8 @@ localStorage.pagecount{{post.pk}}=true;
 <script>
    $(window).on('load',function(){
       rheight=$('.right-sec').height();
-      lheight=$('.left-sec').height();
-      space=Math.floor((lheight-rheight)/129)
+      lheight=$('.left-sec').height()-40;
+      space=Math.round((lheight-rheight)/129)
       
       url="{% url 'blog:newsfeed' %}?no="+space
       $.get(url, function(){} ).done(function(data){
