@@ -140,11 +140,11 @@ class PasswordResetView(View):
                 'token':unique_id,
                 'username':user.username,
             })
-	        messages.success(self.request, 'We have sent a password reset link to your  email address . Thank You ')
-	        mail_subject = 'Change Password.'
-	        email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[user.email], reply_to=['contact@avetiz.com'],)
-	        email.send()
-	        return HttpResponseRedirect(reverse('account:login'))
+			messages.success(self.request, 'We have sent a password reset link to your  email address . Thank You ')
+			mail_subject = 'Change Password.'
+			email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=[user.email], reply_to=['contact@avetiz.com'],)
+			email.send()
+			return HttpResponseRedirect(reverse('account:login'))
 
 class PasswordChangeView(View):
 	def get(self,request, *args,**kwargs):

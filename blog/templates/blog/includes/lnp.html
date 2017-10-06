@@ -1,0 +1,21 @@
+{% load imagefit %}
+<div class="zone-title text-center">
+                    <h1 class="zone-title-text">News Feed</h1>
+              </div>
+            {% for post in lnp  %}
+             <div class='checking'>
+              <a href="{{post.get_absolute_url}}">
+              <div class="row margin-tops">
+                <div class="col-xl-6 col-xs-5 sidebarrowCol">
+                  <img class="img-responsive"  src="{{post.post_pic.url|resize:'200x200,C'}}"/>
+                </div>
+                <div class="col-xl-6 col-xs-7 no-pad zone-content ">
+                  <h4>{{post.title}}</h4>
+                  <!--p>{{post.text|truncatechars:40|safe}} </p-->
+                </div>
+                <br>
+              </div>
+              </a>
+              <hr>
+            </div>
+              {% endfor %}

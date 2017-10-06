@@ -89,21 +89,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 								
 							</div>
 
-							{% for post in lnp|slice:"1:6"  %}
-							<a href="{{post.get_absolute_url}}">
-							<div class="row sidebarrow">
-								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
-								</div>
-								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{post.title}}</h4>
-									<!--p>{{post.text|truncatechars:40|safe}} </p-->
-								</div>
-								<br>
-							</div>
-							</a>
-							<hr>
-							{% endfor %}
+							{% include 'includes/newsfeed.html' %}
 							{% for post in lnp|slice:"6:7"  %}
 							<div class="visible-sm-block">
 								<a href="{{post.get_absolute_url}}">

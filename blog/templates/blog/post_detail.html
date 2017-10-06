@@ -23,7 +23,7 @@
     <section id="post-body">
       <div class="container margin-tops">
         <div class="row">
-          <div class="col-md-8 col-sm-8">
+          <div class="col-md-8 left-sec col-sm-8">
           <div class="row">
             <div class="postTitleOverlay">
             <img src="{{post.post_pic.url|resize:'950x534,C'}}" style="width:100%" class="img-responsive img-post-detail">
@@ -266,7 +266,7 @@
 
           </div>
 
-          <div class="col-md-4 col-sm-4 sideWidgetCol">
+          <div class="col-md-4 col-sm-4 right-sec sideWidgetCol">
             <div class=" text-center">
               <h2 class="sidebar-h">Latest Posts</h2>
               <div class="sidebar-class">
@@ -302,8 +302,14 @@
                   <img class="img-responsive" style="width:auto;height:auto" src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
                 </div>
                 
-
+              
+               
               </div>
+            
+            </div>
+            <div class="margin-tops"></div>
+            <div class="js-lnp hidden-xs">
+            
             </div>
           </div>
         
@@ -363,5 +369,21 @@ $.get(url,function() {
 })
 localStorage.pagecount{{post.pk}}=true;
 }
+</script>
+<script>
+   $(window).on('load',function(){
+      rheight=$('.right-sec').height();
+      lheight=$('.left-sec').height();
+      space=Math.floor((lheight-rheight)/129)
+      
+      url="{% url 'blog:newsfeed' %}?no="+space
+      $.get(url, function(){} ).done(function(data){
+        if (data.status){
+          $('.js-lnp').html(data.news);
+        }
+      })
+      
+
+   })
 </script>
 {% endblock %}

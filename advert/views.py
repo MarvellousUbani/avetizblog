@@ -66,13 +66,13 @@ class AdvertListView(LoginRequiredMixin,ListView):
 
 
 class AjaxableResponseMixin(object):
-    partial_file=None
-    partial_success_file=None
+	partial_file=None
+	partial_success_file=None
 
-    def form_invalid(self, form):
-        return HttpResponseRedirect(reverse('advert:post_list'))
+	def form_invalid(self, form):
+		return HttpResponseRedirect(reverse('advert:post_list'))
         
-    def form_valid(self,form):
+	def form_valid(self,form):
 		post=form.save(commit=False)
 		post.author=self.request.user
 		post.save()
@@ -84,7 +84,7 @@ class AjaxableResponseMixin(object):
 		return HttpResponseRedirect(reverse('advert:post_list'))
 		
 
-    def render_to_json_response(self, data):
+	def render_to_json_response(self, data):
 		return JsonResponse(data)
 
 

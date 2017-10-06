@@ -7,6 +7,7 @@ from blog.models import Post, Comment, Category, SubscribeEmail
 from account.models import Profile
 from django.contrib import messages
 from django.utils import timezone
+from django.views import View
 from advert.models import Advert
 from blog.forms import PostForm, CommentForm, FacetedPostSearchForm, SubscribeForm, ContactForm
 from random import choice
@@ -150,8 +151,28 @@ class PostDetailView(DetailView):
         advert_index=[ advert.pk for advert in adverts]
         fetch_index=choice(advert_index)
         context['ad']=Advert.objects.get(pk=fetch_index)
+        context['lnp']=Post.objects.filter(category__name__icontains='news').filter(status__icontains='publis').exclude(featured_post=True).order_by('-published_date')[:3]
         
         return context
+
+
+
+class newsfeed(View):
+    def get(self, request, *args, **kwargs ):
+        news=dict()
+        news['status']=True
+        template='blog/includes/lnp.html'
+        a= self.request.GET.get('no')
+        a=int(a)
+
+        if a and a > 1:
+            newsfeed=Post.objects.filter(category__name__icontains='news').filter(status__icontains='publis').exclude(featured_post=True).order_by('-published_date')[:a]
+            newsfeed=render_to_string(template, {'lnp':newsfeed} )
+            news['news']=newsfeed
+            return JsonResponse(news)
+        else:
+            news['status']=False
+            return JsonResponse(news)     
 
 
 

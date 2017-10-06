@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.defaultfilters import slugify
-from django.utils.encoding import smart_unicode
+#from django.utils.encoding import smart_unicode
 
 
 
