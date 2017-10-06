@@ -33,12 +33,13 @@
               {% if post.published_date %}
               <span class="post-meta"><span class="post-date">{{ post.published_date|date:"D d M Y"}} By <span class="post-time">{{post.published_date|time:"H:i A"}}</span></span> 
               <span class="post-author">{{post.author.get_full_name|capfirst}} {{post.approve_comments.count}} Comment(<span class="lower">s</span>) {{post.pageview}} View(<span class="lower">s</span>)</span></span>
+              {% endif %}
             </div>
 
             </div>
             </div>
 
-            {% endif %}
+            
 
             <div class="margin-tops post-text">{{post.text|safe}}</div>
 
