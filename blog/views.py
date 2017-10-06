@@ -109,7 +109,7 @@ class PostListView(ListView):
         context['fashion_posts'] = Post.objects.filter(category__name__icontains = 'fashion').filter(status__icontains='publis').order_by('-published_date')
         context['business_posts'] = Post.objects.filter(category__name__icontains = 'business').filter(status__icontains='publis').order_by('-published_date')
         context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment').filter(status__icontains='publis').order_by('-published_date')
-        context['tech_posts'] = Post.objects.filter(category__name__icontains='technology').filter(status__icontains='publis').order_by('-published_date')
+        context['tech_posts'] = Post.objects.filter(category__name__icontains='techn').filter(status__icontains='publis').order_by('-published_date')
         context['pol_posts'] = Post.objects.filter(category__name__icontains='politics').filter(status__icontains='publis').order_by('-published_date')
         context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )#rtrtrtrt
         context['lnp']=Post.objects.filter(category__name__icontains='news').filter(status__icontains='publis').exclude(featured_post=True).order_by('-published_date')[:15]
