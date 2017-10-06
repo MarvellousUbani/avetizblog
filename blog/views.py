@@ -32,7 +32,7 @@ import pdb
 import json
 
 
-#dd
+
 class AboutView(TemplateView):
     template_name = 'about.html'
 
