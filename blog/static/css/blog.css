@@ -1440,7 +1440,7 @@ h3{
 
 @media only screen and (max-width: 1000px){
 .container {
-    max-width: 90% !important;
+    max-width: 99% !important;
   }
 
   .navcontainChild{
@@ -1466,7 +1466,7 @@ h3{
 
 @media only screen and (max-width:768px){
   .container{
-    width:95%;
+    width:99%;
   }
 }
 

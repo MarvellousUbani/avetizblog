@@ -375,7 +375,7 @@ localStorage.pagecount{{post.pk}}=true;
       rheight=$('.right-sec').height();
       lheight=$('.left-sec').height()-40;
       space=Math.round((lheight-rheight)/129)
-      console.log('')
+      console.log(status)
       url="{% url 'blog:newsfeed' %}?no="+space
       $.get(url, function(){} ).done(function(data){
         if (data.status){
