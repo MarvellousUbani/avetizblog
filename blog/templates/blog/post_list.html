@@ -38,7 +38,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 									<a href="{{post.get_absolute_url}}">{{post.title}}</a>
 								</h1>
 								<div class="textpost">
-									{% autoescape on %}
+									{% autoescape off %}
 									<span >{{post.text|truncatechars:100}}</span>
 									{% endautoescape %}
 								</div>
