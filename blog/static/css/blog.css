@@ -992,6 +992,8 @@ h3{
     font-family:  'Fira Sans', sans-serif; 
 }
 
+
+
 @media only screen and (min-width: 768px) {
   .main-post-wrapper h1 a{
     font-size: 20px;
@@ -1015,6 +1017,13 @@ h3{
   font-size: 15px;
 }
 }
+
+@media only screen and (min-width: 992px) {
+   
+  .main-post-wrapper .content {
+    padding-top: 350px;
+}
+  }
 
 @media only screen and (max-width: 767px) {
    .main-post-wrapper .content {
