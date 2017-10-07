@@ -1027,7 +1027,7 @@ h3{
 
 @media only screen and (max-width: 767px) {
    .main-post-wrapper .content {
-    padding-top: 200px;
+    padding-top: 100px;
 }
 .main-post-wrapper h1 a{
     font-size: 18px;
