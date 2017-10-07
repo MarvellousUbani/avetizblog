@@ -1029,6 +1029,10 @@ h3{
    .main-post-wrapper .content {
     padding-top: 100px;
 }
+.main-post-wrapper{
+  margin-left: 14px;
+  margin-right: 14px;
+}
 .main-post-wrapper h1 a{
     font-size: 18px;
     line-height:7px;
