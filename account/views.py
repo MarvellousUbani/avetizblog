@@ -20,7 +20,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.auth.hashers import make_password
 import urllib
-#import urllib2
+import urllib2
 import json
 import pdb
 # Create your views here.

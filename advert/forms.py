@@ -1,10 +1,11 @@
 from django import forms
 
-from .models import Advert, Transaction
+from .models import Advert, Transaction, Report
 from blog.models import Post
 from django.contrib.auth.models import User
 from account.models import Profile
 from django.contrib.auth import get_user_model
+from django.contrib.admin.widgets import AdminDateWidget
 
 class PostForm(forms.ModelForm):
 
@@ -44,6 +45,18 @@ class advertForm(forms.ModelForm):
         'link':forms.TextInput(attrs={'class':'form-control borderprob'}),
 
         }
+
+class reportForm(forms.ModelForm):
+    class Meta:
+        model=Report
+        fields=('rfrom','rto','description')
+        widgets={
+        'rfrom':forms.DateInput(attrs={'class':'form-control'}),
+        'rto':forms.TextInput(attrs={'class':'form-control borderprob'}),
+        'description':forms.Textarea(attrs={'class':'form-control borderprob'}),
+        }
+
+
 
 
 

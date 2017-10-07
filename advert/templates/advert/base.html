@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x04lrjv0qgowh7z38l1q7sqkvvgft65c39410l4gd3hvfcsy'></script>
       <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
     <title>{% block title %}{%endblock %}</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9
@@ -79,11 +81,10 @@
 
             {% endif %}
             <li><a href="{% url 'advert:transaction_list' %}"><i class="fa fa-bank"></i><span>Manage Wallet</span></a></li>
+            <li><a href="{% url 'advert:report' %}"><i class="fa fa-user"></i><span>Manage Report</span></a></li>
             <li><a href="{% url 'advert:profile' %}"><i class="fa fa-user"></i><span>Manage Profile</span></a></li>
            
-            
-            
-            
+  
           </ul>
         </section>
       </aside>
@@ -116,6 +117,9 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{%static 'js/blog.js' %}"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            
+      
     <script>
       
       function payWithPaystack(el){

@@ -68,6 +68,18 @@ class Transaction(models.Model):
 
 
 
+class Report(models.Model):
+	rfrom=models.DateField()
+	rto=models.DateField()
+	user=models.ForeignKey(User)
+	status=models.CharField(max_length=90, choices=(('Sent', 'Sent'), ('Not Sent','Not Sent')), default='Not Sent')
+	created_date=models.DateField(auto_now_add=True, null=True)
+	description=models.TextField(null=True)
+
+	def setUp(self, user):
+		self.user=user 
+		self.save()
+
 
 
 

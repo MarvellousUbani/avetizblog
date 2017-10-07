@@ -1,0 +1,15 @@
+  {% for report in reports %}
+        <tr>
+         <td class="">{{report.created_date|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="">{{report.rfrom|date:"SHORT_DATE_FORMAT"}}</td>
+           <td class="">{{report.rto|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="">{{report.status}}</td>
+          
+          <td> <button data-toggle="tooltip"  title="Edit Advert" data-url=""  class="js-update-product buttonicon"><span><i  class="fa fa-pencil" ></i></span></button>
+          <br>
+          <button data-toggle="tooltip"  title="Delete Advert" data-url=""  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
+          <br>
+          <!--button data-url=""  data-toggle="tooltip"  title="Save post for Review" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-check"></i></span></button-->
+          </td>
+        </tr>
+{% endfor %}
