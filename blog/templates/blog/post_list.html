@@ -38,8 +38,10 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 									<a href="{{post.get_absolute_url}}">{{post.title}}</a>
 								</h1>
 								<div class="textpost">
-								<span >{{post.text|truncatechars:100|safe}}</span>
-							</div>
+									{% autoescape on %}
+									<span >{{post.text|truncatechars:100|safe}}</span>
+									{% endautoescape %}
+								</div>
 							
 								<ul class="related">
 									{% for post in featured_posts|slice:"1:3" %}
