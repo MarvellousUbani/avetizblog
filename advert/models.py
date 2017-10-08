@@ -95,7 +95,7 @@ class Report(models.Model):
 		message = render_to_string('advert/includes/partial_report_view.html',context)
 		
 		mail_subject = 'Report from '+ request.user.username
-		email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=['tolu.akano@avetiz.com'], reply_to=['contact@avetiz.com'],)
+		email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=['leye@avetiz.com'], reply_to=['contact@avetiz.com'],)
 		email.content_subtype = "html" 
 		try:
 			messages.success(request, 'Your Report has been sent . Thank You ')

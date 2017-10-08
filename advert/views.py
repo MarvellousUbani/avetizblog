@@ -358,10 +358,10 @@ class PostFeatureView(LoginRequiredMixin, UpdateView):
 		return JsonResponse(data)
 
 	def post(self,request, *args, **kwargs):
-		dic=dict()
-		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
-		context={'posts':data}
 		post=self.get_object()
+		lastfeature=Post.objects.filter(featured_post=True).order_by('-created_date').reverse()[0]
+		lastfeature.featured_post=False
+		lastfeature.save()
 		post.featured_post=True
 		post.save()	
 		return HttpResponseRedirect(reverse('advert:all_post_list'))
