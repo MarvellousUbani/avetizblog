@@ -1276,7 +1276,11 @@ h3{
 
 @media only screen and (min-width: 992px){
   .homemod .image{
-    height:400px! important;
+    height:350px! important;
+  }
+
+  .homemod{
+    height:500px !important;
   }
 }
 
