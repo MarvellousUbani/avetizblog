@@ -1,0 +1,161 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+        {% block links %}
+        <link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--custom css for only medial template-->
+        <link href="{% static 'css/contact.css' %}" type="text/css" rel="stylesheet">
+        {% endblock %}
+
+       
+    
+   
+{% block content %}    
+        <div id="map-canvas" style="width: 100%; height: 400px;"></div>
+        <div class="divide70"></div>
+         {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+          </div>
+        {% endfor %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="text-center"><h2>Advertise With Us</h2></div>
+                    <div class="contact-form-col">
+                        <p>Please stay in touch with AvetiZ by completing the details below. </p>
+                        <form name="sentMessage" id="contactForm" method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 controls">                                        
+                                            <!--input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name."-->
+                                            {{form.name}}
+                                            <p style="color:red" class="help-block">{{form.name.errors}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 controls">                                          
+                                            <!--input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address."-->
+                                            {{form.email}}
+                                            <p style="color:red" class="help-block">{{form.email.errors}}</p>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12  controls">                                  
+                                    <!--input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number."-->
+                                    {{form.phone}}
+                                    <p style="color:red" class="help-block">{{form.phone.errors}}</p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">                                  
+                                    <!--textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea-->
+                                    {{form.message}}
+                                    <p style="color:red" class="help-block">{{form.message.errors}}</p>
+                                </div>
+                            </div>
+
+                            <div id="success"></div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <button type="submit" class="btn btn-theme-bg btn-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    
+                </div><!--form col end-->
+                <div class="col-md-4 col-sm-4">
+                    <div class="" style="margin-bottom: 30px;" >
+                        <img height="100px" src="http://test.sagecapitals.com/img/avetiz.jpg"/>
+                    </div>
+                    <div>
+                        <p style="font-size: 20px; line-height: 1.7em; color: #666;"><strong>6th Floor, NICON Plaza,<br>
+                        Plot 242 Muhammadu Buhari Way,<br>
+                        Central Business District, Abuja,<br>
+                        Nigeria.<br><br>
+                        <i class="fa fa-phone" style="margin-right: 7px;"></i> 09-2912518, 0908-62-AVETIZ<br>
+                        <i class="fa fa-envelope-o" style="margin-right: 7px;"></i> contact@avetizblog.com</strong></p>
+                    </div>
+                    <div class="sidebar-img-detail margin-tops">
+                        <img class="img-responsive"  src="https://tpc.googlesyndication.com/simgad/3498238943114035450"/>
+                    </div>
+                    <hr>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="recommended_partial similarStories">
+                             {% include 'blog/includes/recommended_partial.html' %}
+                         </div>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="sidebar-img-detail margin-tops">
+                          <img class="img-responsive" style="width:300px; height:490px"  src="https://tpc.googlesyndication.com/simgad/12095207540805284894" >
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+
+        <div class="divide40"></div>
+        
+        
+        <!--gmap js-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgAaQZdwfk6IBH9cSVM8c-5VJO7K52qQE&sensor=true"></script>
+        <script type="text/javascript">
+            var myLatlng;
+            var map;
+            var marker;
+
+            function initialize() {
+                myLatlng = new google.maps.LatLng(9.050499, 7.482072);
+
+                var mapOptions = {
+                    zoom: 14,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    scrollwheel: false,
+                    draggable: false
+                };
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                var contentString = '<p style="line-height: 20px; margin-bottom:4px;"><strong style="font-size:20px;">AvetiZ Blog</strong></p>6th Floor NICON Plaza, Plot 242 Muhammadu Buhari Way,Central Business District, Abuja, Nigeria.</p>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Marker'
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+{% endblock %}
+
+{% block topimg %}
+<a href="{% url 'blog:grass_to_grace' %}"><img class="img-responsive" src="/media/success.png/"></a>
+{% endblock %}

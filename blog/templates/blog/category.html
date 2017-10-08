@@ -1,0 +1,141 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% load imagefit %}
+
+
+{% block content %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/categories.css' %}">
+{% endblock %}
+  <!-- Header Section with Advert -->
+  <header class="cAdSection">
+    <img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/1557534103495319173">
+  </header>
+
+  <!-- Category Title Section -->
+  <section class="cHeadlineSection">
+    <div class="container-fluid">
+    <h2></h2>
+    </div>
+  </section>
+
+  <main class="mainCategory container-fluid">
+    <div class="row">
+
+
+    <!-- Whats New Section -->
+      <div class="col-sm-6 col-md-4 col-lg-3 whatsNewCol">
+        <h3 class="cTitle"> {{category_name}} What's New</h3>
+
+        <!-- Whats New Articles -->
+
+        {% for i in post_set %}
+        <div class="row whatsNewArticle">
+          <div class="col-xs-4">
+            <img class="img-responsive" src="{{i.post_pic.url|resize:'175x175,C'}}">
+          </div>
+          <div class="col-xs-8 noleftpad">
+            <p class="whatsNewATitle"><a href="{{i.get_absolute_url}}">{{i.title|title}}</a></p>
+            <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+            <small>{{i.published_date|timesince}}</small></span>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+        <div class="row adRow">
+          <div class="col-xs-12">
+          <!-- Categories Show -->
+        
+          {% if sub_categories %}
+              <h3>Sub Categories</h3>
+              {% for i in sub_categories %}
+                  <a href="{{ i.slug }}"> {{ i.name }} </a>
+              {% endfor %}
+          {% endif %}
+          
+          <img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/14899169878083854005">
+          
+            </div>
+        </div>
+
+        {% for post in post_set|slice:"4:13" %}
+        <div class="row whatsNewArticle">
+          <div class="col-xs-4">
+            <img class="img-responsive" src="{{post.post_pic.url|resize:'175x175,C'}}">
+          </div>
+          <div class="col-xs-8 noleftpad">
+            <p class="whatsNewATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></p>
+            <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+            <small>{{post.published_date|timesince}}</small></span>
+          </div>
+        </div>
+        {% endfor %}
+
+
+        <div class="row adRow">
+          <div class="col-xs-12">
+          <img class="img-responsive" src="https://tpc.googlesyndication.com/simgad/14899169878083854005">
+          
+            </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- Whats Rising Section -->
+      <div class="col-sm-6 col-md-4 col-lg-4 whatsRisingCol">
+
+        {% for post in post_set|slice:"4:10" %}
+        <div class="card">
+                  <div class="card-image">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'356x205,C'}}">
+                  </div>
+                  
+                  <div class="card-content">
+                      <h3 class="whatsRisingATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
+                  </div>
+                  
+                  <div class="card-action">
+                    <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+                        <small>{{post.published_date|timesince}}</small></span>
+                  </div>
+              </div>
+              {% endfor %}
+       
+
+      </div>
+
+      <!-- Whats Hot Section -->
+
+      <div class="hidden-sm col-md-4 col-lg-5 whatsHotCol">
+        {% for post in post_set|slice:"6:12"  %}
+        <div class="card">
+                  <div class="card-image">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'638x368,C'}}">
+                  </div>
+                  
+                  <div class="card-content">
+                      <h3 class="whatsHotATitle"><a href="{{post.get_absolute_url}}">{{post.title|title}}</a>
+                      </h3>
+                      <div>{{post.text|truncatechars:100|safe|capfirst}}</div>
+                  </div>
+                  
+                  <div class="card-action">
+                    <span><i class="fa fa-clock-o " aria-hidden="true"></i> 
+                        <small>{{post.published_date|timesince}}</small></span>
+                  </div>
+              </div>
+            {% endfor %}
+
+      </div>
+    </div>
+  </main>
+{% endblock %}
+{% block topimg %}
+<a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+{% endblock %}
+
+

@@ -1,0 +1,102 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+        {% block links %}
+          <link rel="stylesheet" type="text/css" href="{% static 'css/categories.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+        {% endblock %}  
+{% block content %}    
+{% load bootstrap3 %}
+{% load imagefit %}
+
+<div class="container profileContainer">
+  <div class="row">
+
+      {% if profile.avatar %}
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 profileCol">
+    <h2 class="morePostsTitle">Meet {{profile.user.get_full_name}}</h2>
+      <img src="{{profile.cover_pic.url|resize:'423x612,C'}}" class="img-responsive coverPic">
+      <div class="profileDetail">
+          <div class="profilePicSec">
+            <img src="{{profile.avatar.url|resize:'75x75,C'}}" class="img-responsive profilePic img-circle">
+          </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <h3 class="writerName">{{profile.user.get_full_name}}</h3>   
+
+              <h5><i class="fa fa-map-marker" aria-hidden="true"></i> {{profile.location}}, {{profile.country}}</h5>
+              <ul class="list-inline writerSocialMedia">
+
+                {% if profile.facebook_link %}
+                <li class="list-inline-item"><a href="{{profile.facebook_link}}" target="_blank">
+                <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.instagram_link %}
+                <li class="list-inline-item"><a href="{{profile.instagram_link}}" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.twitter_link %}
+                <li class="list-inline-item"><a href="{{profile.twitter_link}}" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+                {% if profile.linkedin_link %}
+                <li class="list-inline-item"><a href="{{profile.linkedin_link}}" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+                {% endif %}
+
+              </ul>
+            </div>
+            <div class="col-xs-3">
+              
+            </div>
+          </div>
+      </div>
+    </div>
+
+    {% endif %}
+
+    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+      <div class="writerBio">
+        <h2 class="bioTitle">BIO</h2>
+        <hr>
+        <p class="bioDetail">{{profile.short_description}}</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="greyBar"><div class="pinkBar"></div></div>
+          <h2 class="morePostsTitle">Posts From {{profile.user.get_full_name}}</h2>
+          </div>
+      </div>
+
+      <div class="row profilePostsRow">
+      {% for post in post_list %}
+        {% if post.author == profile.user %}
+       <div class="col-sm-6 col-md-4 col-lg-4 profilePostsCol">
+        <div class="card">
+                  <div class="card-image">
+                      <img class="img-responsive" src="{{post.post_pic.url|resize:'638x368,C'}}">
+                  </div>
+                  
+                  <div class="card-content">
+                  <small>{{post.category|capfirst}} </small>
+                      <h4><a href="{{post.get_absolute_url}}">{{post.title|capfirst}}</a>
+                      </h4>
+                      <div>{{post.text|safe|truncatechars:100}}</div>
+                  </div>
+                  
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+           
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
+{% block topimg %}
+<a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+{% endblock %}

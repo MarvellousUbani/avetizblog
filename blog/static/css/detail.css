@@ -1,0 +1,173 @@
+ .bottom-pad{
+ 	padding-bottom:0px;
+ }
+ .pad-right{
+ 	padding-left:0px;
+ }
+
+ .margin-tops{
+ 	margin-top: 20px;
+ 	overflow:hidden;
+ }
+
+ .post-meta{
+ 	font-size: 12px;
+ 	text-transform: capitalize;
+ }
+
+ .post-date{
+ 	 color:#999;
+ }
+
+ .post-time{
+ 	text-transform: lowercase;
+ }
+
+ 
+
+
+
+ .post-author{
+ 	color:#4f9acc;
+ }
+ .post-text{
+ 	font-size: 19px;
+ 	line-height: 1.625;
+ }
+.search{
+	background-color: #fff;
+    border: 1px solid #e3e3e3;
+    box-shadow: 1px 1px 3px #eee inset;
+    color: #999;
+    font-size: 14px;
+    padding: 16px;
+    width: 100%;
+    height:45px;
+    border-radius:0px;
+    width:83%;
+}
+
+.subscribe{
+	width:43%;
+	display:inline;
+}
+
+
+.sub-button{
+	height:45px;
+	width:40%;
+	display:inline;
+	background-color:#F83371;
+	border-color:#F83371;
+}
+.sub-button:hover{
+	background-color:#F83371;
+	border-color:#F83371;
+}
+.sidebar-class{
+	border-style:solid;
+	border-color:black;
+	border-left:none;
+	border-bottom:none;
+	border-top-width:2px;
+	border-right-width:2px;
+	border-color:#000;
+}
+.sidebar-h{
+	margin-top:0px;
+}
+.detail-share{
+	display:inline;
+}
+.sidebar-img-detail{
+	margin-right: 40px;
+}
+.recommended li{
+	
+	font-size: 15px;
+	line-height: 1.2;
+    margin-bottom: 20px;
+}
+.recommended li a{
+	color:#e5127d;
+}
+.recommended li a:hover{
+	text-decoration:none;
+}
+.share-count{
+	font-size:20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.commmnet-wrapper{
+	border-style:solid;
+	border-color:#ccc;
+	border-width: 1px;
+	border-left-width:3px;
+	min-height: 100px;
+	font-size: 16px;
+	margin-bottom: 0px;
+
+}
+.commenter-name{
+	color:#e5127d;
+}
+.commentbox{
+	padding:0px;
+}
+.commentBtn{
+	width:150px;
+}
+
+.postTitleOverlay{
+	position: relative;
+	max-width: 100%;
+}
+
+.postTitleInfo{
+    background: rgba(8, 8, 8, 0.68);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(400%);
+    padding: 15px 15px;
+    width: 100%;
+    height: 20%;
+    text-align: right;
+}
+
+.postTitleInfo h3{
+		margin:0;
+		line-height: 1.3em;
+	}
+
+#post-body h4{
+	font-size: 15px !important;
+}
+
+#post-body h4{
+	font-size: 15px !important;
+}
+
+ @media only screen and (min-width: 1200px) {
+.sidebar-text{
+	margin-right:5px;
+	    max-width: 400px;
+	}
+
+
+}
+
+@media only screen and (max-width: 600px){
+	.postTitleInfo{
+		height: 40%;
+		transform: translateY(150%);
+	    overflow:hidden;
+	    text-align: justify;
+	}
+
+	.postTitleInfo h3{
+		font-size: 15px;
+	}
+
+}

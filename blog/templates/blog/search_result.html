@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+  {% load staticfiles %}
+  <html>
+   <head>
+    <title>{% block title %}{% endblock %} </title>
+      <meta charset = "utf-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block styles %}
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-xlgrid.min.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Faustina|Slabo+27px" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/detail2.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/search-result.css' %}">
+        <link rel="shortcut icon" href="http://join.sagecapitals.com/img/logo.png" type="image/x-icon">
+        {% endblock %}
+  </head>
+  <body>
+   <div id="headernav">
+       <div class="container-fluid top-bar ">
+                    
+              <div class="row backgroundcolor">
+          <div class="col-md-2 col-xs-3 col-sm-2 imglogo ">
+            <ul class="list-inline small-scree-no">
+              <li ><a class="" href="{% url 'blog:post_list' %}"><img class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a></li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <div class=" text-center graceSection">
+              {%  block topimg %}
+                <a href="{{ad.link}}"><img class="img-responsive" src="{{ad.advert_banner.url}}"></a>
+              {% endblock%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container-fluid navcontain">
+          <div class="row">
+            <div class="heightclass  col-xs-11">
+            <nav class="navbar navbar-inverse">
+              <div class=" nav-wrapper">
+                <div class="navbar-header">
+                 
+                  <li class="dropdown mega-dropdown">
+
+                  <button id="navbar-hamburger" type="button" class="navbar-toggle" data-toggle="dropdown">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span> 
+                    </button>
+                    <div id="navbar-close" class="hidden">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+                      <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Sections</a> <a class="pull-right dont-show-logo" href="{% url 'blog:post_list' %}"><img  class="img-responsive logo" src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
+             
+                      <ul class="dropdown-menu mega-dropdown-menu row">
+                        <li class="row">
+                          <li class="col-sm-12"> 
+
+                          <form class="searchbox" action="/find/" method="get">
+                          <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search..." name="q" id="q" autocomplete="off">
+                          <div id="selction-ajax"></div>
+                          <div class="input-group-btn">
+                            <button class="btn btn-default faBtn" type="submit">
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </div>
+
+                        </div>
+                      </form>
+                      </li>
+                        </li>
+
+                        <li class="row">
+                         <li class="col-xl-2 col-sm-3 col-md-3">
+                           <ul>
+                           <li class="dropdown-header sRealEstate"><a href="/category/real-estate">Real Estate</a></li>  
+                             <li class="dropdown-header sTrend"><a href="/category/news">News</a></li> 
+                             <li class="dropdown-header sPolitics"><a href="/category/trend">Trend</a></li> 
+                             <li class="dropdown-header sArw"><a href="/category/business">Business</a></li> 
+                              </ul>
+                            </li>
+
+                            <li class="col-xl-3 col-sm-3">
+                              <ul>
+                                <li class="dropdown-header sBusiness"><a href="/grass-to-grace">My Story</a></li>
+                                <li class="dropdown-header sTechnology"><a href="/category/technology">Technology</a></li> 
+                                <li class="dropdown-header sEntertainment"><a href="/category/entertainment">Entertainment</a></li>
+                                <li class="dropdown-header sPolitics"><a href="/category/education">Education</a></li>
+                              </ul>
+                            </li>
+
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header sMyStory"><a href="/category/politics">Politics</a></li>
+                                <li class="dropdown-header sFashion"><a href="/category/entertainment/fashion">Fashion</a></li> 
+                                <li class="dropdown-header sSport"><a href="/category/weird-houses">Pricey Pads</a></li>
+                                
+                              </ul>
+                            </li>
+
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header sWeird"><a href="/category/sport">Sport</a></li>
+                                <li class="dropdown-header sEducation"><a href="/category/around-the-web">Around the Web</a></li> 
+                                <li class="dropdown-header sAdvertise"><a href="/">Advertise with us</a></li>
+
+                              </ul>
+                            </li>
+                           </li>
+
+                           <li class="row">
+                              <li class="col-sm-6 col-lg-8">
+                                
+                              </li>
+                              <li class="text-right col-xs-12 col-sm-6 col-lg-4 iconsList">
+                                
+                            <ul class=" list-inline">
+                                <li><a data-toggle="tooltip" title="Facebook" class="pink" target="blank" href="https://www.facebook.com/AvetiZ/" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                                  <li><a data-toggle="tooltip" title="Twitter" target="blank" href="https://twitter.com/Avetiznow" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                                  <li><a data-toggle="tooltip" target="blank" href="https://www.linkedin.com/company/11099661" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                  <!--li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->
+                                  <li><a data-toggle="tooltip" title="Login" class="pink" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i>Login</a></li>         
+                          </ul>
+                        
+                              </li>
+                           </li>
+                         </ul>
+
+                    </li>
+                    <!--li class="search-icon"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a></li-->
+    
+                </div>
+              
+              <div class="social-icon">
+                <ul class=" list-inline">
+                    <li><a target="blank" data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/AvetiZ/" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a target="blank" data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="https://twitter.com/Avetiznow"><i class="fa fa-twitter"></i></a></li>
+                      <li><a target="blank" data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="https://www.linkedin.com/company/11099661"><i class="fa fa-linkedin"></i></a></li>
+                      <!--li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->    
+                      <li><a data-toggle="tooltip" title="Login"  style="color:#fff!" data-placement="bottom" href="{% url 'account:login'%}"><i class="fa   fa-sign-in"></i><!--img src=" /media/login.jpg "/-->Login</a></li>    
+              </ul>
+            </div>
+            </div>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+
+      </div>
+
+    <div class="container">
+    <div class="row">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10 bigSearchColumn">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                         <h3 class="searchTxt text-center"> Search results for: <label> {{query}} </label></h3>
+                   </div>
+                   <div class="col-md-12 col-xs-12 text-center">
+                   
+                       Showing {{ page_obj.start_index }} - {{ page_obj.end_index }} of total 
+                        {{ page_obj.paginator.count }}
+                        results on page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                   </div>
+                </div>    
+                <div>
+            {% if  page_obj.object_list %}
+               <div class="row top20">
+                        {% for result in page_obj.object_list %}
+                <div class="showcase col-sm-6 col-md-4">
+               <a href="{{ result.object.get_absolute_url }}">
+               <img src="{{ result.object.post_pic.url }}" class="img-responsive">
+                  <h3>{{result.object.title}}</h3>
+                  <small>{{result.object.category}}</small>
+                  <div class="resultTxt">{{result.object.text|truncatechars:100|safe|capfirst}}</div>
+               </a>
+                
+                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if is_paginated %}
+                  <ul class="pagination pull-right">
+                    {% if page_obj.has_previous %}
+                      <li><a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">«</a></li>
+                    {% else %}
+                      <li class="disabled"><span>«</span></li>
+                    {% endif %}
+                    {% for i in paginator.page_range %}
+                      {% if page_obj.number == i %}
+                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                      {% else %}
+                        <li><a href="?q={{ query }}&page={{ i }}">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                      <li><a href="?q={{ query }}&page={{ page_obj.next_page_number }}">»</a></li>
+                    {% else %}
+                      <li class="disabled"><span>»</span></li>
+                    {% endif %}
+                  </ul>
+                {% endif %}
+            {% else %}
+            <p> Sorry, no result found for the search term  <strong>{{query}} </strong></p>
+
+            <h2>Trending</h2>
+
+            {% for post in post_list|slice:":9"%}
+            <div class="showcase col-sm-6 col-md-4">
+               <a href="{{ post.get_absolute_url }}">
+               <img src="{{post.post_pic.url }}" class="img-responsive">
+                  <h3>{{post.title}}</h3>
+                  <small>{{post.category}}</small>
+                  <div class="resultTxt">{{post.text|truncatechars:100|safe|capfirst}}</div>
+               </a>
+                
+                </div>
+                {% endfor %}
+
+        {% endif %}
+        </div>
+    <div class="col-md-1"></div>
+
+</div>
+</div>
+
+<footer class="blogFooter">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12">
+      
+     </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-2 col-md-1">
+      <img id="footerLogoImg"  src="http://test.sagecapitals.com/img/avetizbloglogo.jpg" class="img-responsive ">
+       </div>
+       <div class="col-sm-9 col-md-9 col-lg-7">
+
+        <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/real-estate">Real Estate</a></div>
+          <div class="col-sm-3 bNavli"><a href="/grass-to-grace">My Story</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/politics">Politics</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/around-the-web">Around the Web</a></div>
+          
+      </div>
+
+       <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/news">News</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/technology">Technology</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/entertainment/fashion">Fashion</a></div>
+          <div class="col-sm-3 bNavli"><a href="/">Advertise with us</a></div>
+          
+      </div>
+
+      <div class="row topBlogfooterRow">
+
+          <div class="col-sm-3 bNavli"><a href="/category/trend">Trend</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/entertainment">Entertainment</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/weird-houses">Pricey Pads</a></div>
+          <div class="col-sm-3 bNavli"><a href="http://www.careers.avetiz.com" target="_blank">Work with AvetiZ</a></div>
+          
+      </div>
+
+      <div class="row bottomBlogfooterRow">
+          <div class="col-sm-3 bNavli"><a href="/category/business">Business</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/education">Education</a></div>
+          <div class="col-sm-3 bNavli"><a href="/category/sport">Sports</a></div>
+          <div class="col-sm-3 bNavli"><a href="">Contact Us</a></div>
+      </div>
+
+
+       </div>
+
+       <div class="col-lg-4 col-md-8 col-sm-9 col-xs-12 nospacing">
+         
+              <form method="post" action="#">
+                {% csrf_token %}
+                <div class="input-group">
+               <input type="email" name="email" id="id_email" placeholder="Enter Email Address" class="form-control" id="email">      
+              <span class="input-group-btn ">
+               <button class="btn btn-md subscribeBtn" type="submit">Subscribe</button>
+                </span></div>
+              </form>
+            
+       </div>
+     </div>
+
+     <div class="row">
+     <div class="col-xs-1"></div>
+      <div class="col-md-7 copyRightCol">
+        <div class="row">
+         <ul class="socialCluster list-inline">
+              <li class="list-inline-item"><a target="blank" href="https://www.facebook.com/AvetiZ/" class="fa fa-facebook"></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/Avetiznow" class="fa fa-twitter"></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/112036683390434800545" onclick="javascript:window.open(this.href,
+                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="fa fa-google"></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/11099661" class="fa fa-linkedin"></a></li>
+              <li class="list-inline-item"><small>Copyright &copy; 2017. All Rights Reserved.</small></li>
+              
+            </ul>
+            </div>
+      </div>
+     </div>
+    </div>
+</footer>
+
+
+
+
+{# SCRIPTS#}
+
+  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.autocomplete.js' %}"></script>
+<script src="{% static 'js/our_search_code.js' %}"></script>
+
+</body>
+</html>
+

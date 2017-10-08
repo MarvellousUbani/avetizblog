@@ -1,0 +1,15 @@
+        {% for post in posts %}
+        <tr>
+          <td><strong>{{post.title}}</strong></td>
+          
+          {% if post.published_date %}
+          <td class="mobile_no">{{post.published_date|date:"SHORT_DATE_FORMAT"}}</td>
+          {% else %}
+          <td class="mobile_no">Not yet Published</td>
+          {% endif %}
+          <td class="status {{post.status}}">{{post.status}}</td>
+          
+        </tr>
+        {% endfor %}
+        
+      

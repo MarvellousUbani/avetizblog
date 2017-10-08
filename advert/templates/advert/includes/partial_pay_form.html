@@ -1,0 +1,13 @@
+<form method="post" class="js-transaction-create-form" action="{% url 'advert:create_transaction'%}">
+{%csrf_token %}
+	<div class="modal-header text-center">
+		<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">{% if request.session.role == 'Advertiser' %}Pay into my Wallet{% else %} Withdraw {% endif %}</h4>
+	</div>
+	<div class="modal-body">
+		{% include 'advert/includes/partial_post_form.html' %}
+	<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<script src="https://js.paystack.co/v1/inline.js"></script>
+	<button class="btn modalsubmit btn-primary" type="submit">Pay Now</button>
+</form>

@@ -1,0 +1,16 @@
+{% load imagefit %}
+{% for post in lnp|slice:"1:6"  %}
+							<a href="{{post.get_absolute_url}}">
+							<div class="row sidebarrow">
+								<div class="col-xl-6 col-xs-5 sidebarrowCol">
+									<img class="img-responsive" height="70px" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
+								</div>
+								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
+									<h4>{{post.title}}</h4>
+									<!--p>{{post.text|truncatechars:40|safe}} </p-->
+								</div>
+								<br>
+							</div>
+							</a>
+							<hr>
+							{% endfor %}

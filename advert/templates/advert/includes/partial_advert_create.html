@@ -1,0 +1,13 @@
+<form method="post" class="js-product-create-form" action="{% url 'advert:create_advert'%}" enctype="multipart/form-data">
+{%csrf_token %}
+	<div class="modal-header text-center">
+		<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">Create New Post</h4>
+	</div>
+	<div class="modal-body">
+		{% include 'advert/includes/partial_post_form.html' %}
+	<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<button class="btn modalsubmit btn-primary" type="submit">Create</button>
+
+</form>

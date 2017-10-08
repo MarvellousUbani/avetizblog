@@ -1,0 +1,25 @@
+.bigSearchColumn{
+	background-color: #f8f8f8;
+	font-family: 'Lato', sans-serif;
+}
+
+.bigSearchColumn .searchTxt{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.bigSearchColumn .top20{
+	margin: 20px 0;
+}
+
+.bigSearchColumn .resultTxt{
+	color: #464646;
+}
+
+.showcase small{
+	text-transform: capitalize !important;
+}
+
+.showcase{
+	height: 400px;
+}

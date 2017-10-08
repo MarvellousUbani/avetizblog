@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x04lrjv0qgowh7z38l1q7sqkvvgft65c39410l4gd3hvfcsy'></script>
+      <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+    <title>{% block title %}{%endblock %}</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+  </head>
+  <body class="sidebar-mini fixed">
+    <div class="wrapper">
+      <!-- Navbar-->
+      <header class="main-header hidden-print"><a class="logo" href="{% url 'blog:post_list' %}"><img style="height:50px;" class="img-responsive " src="http://test.sagecapitals.com/img/avetiz.jpg"></a>
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+          <!-- Navbar Right Menu-->
+          <div class="navbar-custom-menu">
+            <ul class="top-nav">
+              <!--Notification Menu-->
+              <!--li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
+                <ul class="dropdown-menu">
+                  <li class="not-head">You have 4 new notifications.</li>
+                  <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">Lisa sent you a mail</span><span class="text-muted block">2min ago</span></div></a></li>
+                  <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">Server Not Working</span><span class="text-muted block">2min ago</span></div></a></li>
+                  <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">Transaction xyz complete</span><span class="text-muted block">2min ago</span></div></a></li>
+                  <li class="not-footer"><a href="#">See all notifications.</a></li>
+                </ul>
+              </li-->
+              <!-- User Menu-->
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu">
+                  <!--li><a href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li-->
+                  <li><a href="{% url 'advert:profile'%}"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                  <li><a href="{% url 'account:logout' %}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print">
+        <section class="sidebar">
+          <div class="user-panel">
+            <div class="pull-left image"><img class="img-circle" src="{{request.session.img_url}}"  alt="User Image"></div>
+            <div class="pull-left info">
+              <p style="text-transform:capitalize;" >{{request.user.first_name}}</p>
+              <p class="designation">{{request.session.role}}</p>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li class="active"><a href="{% url 'advert:dashboard' %}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+            {% if request.session.role == 'Content Writer' %}
+            <li><a href="{% url 'advert:post_list'%}"><i class="fa fa-file"></i><span>Manage Post</span></a></li>
+            {% endif %}
+             {% if request.session.role == 'Advertiser' %}
+            <li><a href="{% url 'advert:advert_list' %}"><i class="fa fa-rss"></i><span>Manage Advert</span></a></li>
+            {% endif %}
+            {% if request.user.is_staff %}
+             <li><a href="{% url 'advert:author_list' %}"><i class="fa fa-users"></i><span>Authors</span></a></li>
+             <li><a href="{% url 'advert:all_post_list' %}"><i class="fa fa-file"></i><span>All Post</span></a></li>
+
+            {% endif %}
+            <li><a href="{% url 'advert:transaction_list' %}"><i class="fa fa-bank"></i><span>Manage Wallet</span></a></li>
+            <li><a href="{% url 'advert:report' %}"><i class="fa fa-user"></i><span>Manage Report</span></a></li>
+            <li><a href="{% url 'advert:profile' %}"><i class="fa fa-user"></i><span>Manage Profile</span></a></li>
+           
+  
+          </ul>
+        </section>
+      </aside>
+      {% if xyzw %}
+        {% block profile %}{% endblock %}
+      
+      {% else %}
+      <div class="content-wrapper">
+
+        <div class="page-title">
+          <div>
+            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+            <p>Start a beautiful journey here with us at AvetiZBlog</p>
+          </div>
+          <div>
+            <ul class="breadcrumb">
+              <li><i class="fa fa-home fa-lg"></i></li>
+              <li><a href="{% url 'advert:dashboard'%}">Dashboard</a></li>
+            </ul>
+          </div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{message}}</strong>
+        </div>
+        {%endfor%}
+        {% endif %}
+        {% block content %}{% endblock %}
+      </div>
+    {% endif %}
+    </div>
+    <!-- Javascripts-->
+   
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/pace.min.js'%}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{%static 'js/blog.js' %}"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            
+      
+    <script>
+      
+      function payWithPaystack(el){
+       email= $(el).attr('email');
+       id=$(el).attr('id');
+       amount=$(el).attr('amount');
+    var handler = PaystackPop.setup({
+      // This assumes you already created a constant named
+      // PAYSTACK_PUBLIC_KEY with your public key from the
+      // Paystack dashboard. You can as well just paste it
+      // instead of creating the constant
+      key: 'pk_test_d7ed8771f755bc62d8d023a93e531101a3ac4eb8',
+      email: email,
+      amount: amount*100,
+      ref:id,
+      metadata: {
+        cartid:id,
+        orderid:id,
+        custom_fields: [
+          {
+            display_name: "Paid on",
+            variable_name: "paid_on",
+            value: 'AvetiZBlog'
+          },
+          {
+            display_name: "Paid via",
+            variable_name: "paid_via",
+            value: 'Inline Popup'
+          }
+        ]
+      },
+      callback: function(response){
+        // post to server to verify transaction before giving value
+        var verifying = $.get( "{% url  'advert:approve_payt' %}", {reference:response.reference} );
+        verifying.done(function( data ) { /* give value saved in data */ });
+      },
+      onClose: function(){
+        alert('Click "Pay now" to retry payment.');
+      }
+    });
+    handler.openIframe();
+    return false;
+  }
+    </script>
+  </body>
+</html>

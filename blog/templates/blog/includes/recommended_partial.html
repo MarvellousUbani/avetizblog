@@ -1,0 +1,23 @@
+{% load imagefit %}
+<div class="row">
+                  <h3 style="">You Might Also Like</h3>
+                  </div>
+
+                  <div class="row">
+                  {% for post in featured_posts|slice:"0:6" %}
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 pad-right"><a href="{{post.get_absolute_url}}">
+                    <div class= "wrappertwo storywrapper" style="">
+                       <a href="{{post.get_absolute_url}}">
+                  <div class="imagewapper">
+                    <div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+                  </div>
+                  <div class="content">
+                    <h2>{{post.title}}</h2>
+                  </div>
+                </div> 
+              </a>
+              </div>
+                  {% endfor %}
+                </div>
+                
+                

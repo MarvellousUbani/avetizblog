@@ -1,0 +1,41 @@
+{% extends 'advert/base.html' %}
+{% block content %}
+
+<main id="maincontent">
+  <section class="manage">
+    <div class="container">
+      <div class="row">
+      	<div class="col-md-10 js-post-list ">
+      	<div class="panel-body">
+		  <div class="job_title">Manage Advert</div>
+		  <button class="createbtn btn btn-primary js-add-advert " data-url="{% url 'advert:create_advert' %}">Create Advert <i class="fa fa-plus" style="color:#017583;"></i></button>
+		    <table class="table" id="product-table">
+		      <thead >
+		      	<tr>
+			          <th class="mobile_no"><strong>Company</strong></th>
+			          <th class="mobile_no"><strong>Created On</strong></th>
+			          <th class=""><strong>Plan</strong></th>
+			          <th><strong>Tenure</strong></th>
+			          <th><strong>Status</strong></th>
+			          <th><strong>Cost</strong></th>
+			          <th><strong>Action</strong></th>
+
+			    </tr>
+		      </thead>
+		      <tbody>
+          			{% include 'advert/includes/partial_advert_list.html' %}
+			   </tbody>
+			</table>
+			</div>
+         </div>
+      </div>
+    </div>
+  </section>
+    <div class="modal " id="modal-product">
+
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+</main>
+{% endblock %}

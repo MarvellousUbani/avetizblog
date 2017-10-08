@@ -1,0 +1,156 @@
+{% load static %}
+<html>
+	<head>
+		  <title>Register</title>
+		  <meta charset="utf-8">
+		  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+		  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+		  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		  <link rel="stylesheet" type="text/css" href="{%static 'css/login.css' %}">
+		   <link rel="stylesheet" type="text/css" href="{%static 'css/blog.css' %}">
+		  <!--link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" /-->
+		  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
+		  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,700,900" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		  <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x04lrjv0qgowh7z38l1q7sqkvvgft65c39410l4gd3hvfcsy'></script>
+		  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	</head>
+	<body>
+	<script>
+		  tinymce.init({
+		    selector: '#id_text',
+		    branding: false,
+		  height: 500,
+		  menubar: false,
+		  plugins: [
+		    'advlist autolink lists link image charmap print preview anchor',
+		    'searchreplace visualblocks code fullscreen',
+		    'insertdatetime media table contextmenu paste code'
+		  ],
+		  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  content_css: [
+		    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+		    '//www.tinymce.com/css/codepen.min.css']
+		  });
+  </script>
+		<div class="container-fluid  nav-container">
+        <!--div class="row"-->
+            <div class="col-md-8  col-md-push-2">
+                <nav class="navbar navbar-inverse">
+                  <div class=" nav-wrapper">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                      </button>
+                      <a class="navbar-brand" href="#">AvetiZ</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                          <li ><a href="#">Home</a></li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                           <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret pink"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">Page 4</a></li>
+                          <li><a href="#">Page 5</a></li>
+                          <li><a href="#">Page 6</a></li>
+                          
+                          <li><a data-toggle="tooltip" href="https://www.facebook.com/AvetiZ/" title="Facebook" class="pink" data-placement="bottom" href="#"><i class="fa fa-facebook"></i></a></li>
+                          <!--li><a data-toggle="tooltip" title="Twitter" class="pink" data-placement="bottom" href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a data-toggle="tooltip" title="Linkedin" class="pink" data-placement="bottom" href="#"><i class="fa fa-linkedin"></i></a></li>
+                          <li><a data-toggle="tooltip" title="Rss" class="pink" data-placement="bottom" href="#"><i class="fa fa-feed"></i></a></li-->
+                          <!--li><a class="" href="#"><i class="fa fa-user"></i></a></li-->
+                          <li><a class="" href="#"><i class="fa fa-search"></i></a></li>
+                        </ul>   
+                    </div>
+                  </div>
+                </nav>
+            </div>
+        <!--/div-->
+        </div>
+        <div class="container-fluid top-breadcrumb">
+			<div class="row">
+				<div class="col-md-12 ">
+					<h2> AvetiZ Blog</h2>
+				</div>	
+			</div>
+		</div>
+		<div class="container-main">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-push-3">
+						<div class="row">
+							<div class="col-md-12 loginformbox">
+								<h1 class="formtitle">New Post</h1>
+								
+								<p>You can Create a New post here.</p>
+								<!--p>Already have an account? <a href="{% url 'account:login' %}">Log In</a></p-->
+								<hr>
+								<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+
+									<div class="form-group">
+										<span class="ice-text">Title</span>
+										{{form.title}}
+									</div>
+									<div class="form-group ">
+										<!--span class="">Last name</span-->
+										{{form.text}}
+									</div>
+									<div class="form-group ">
+										<!--span class="">Last name</span-->
+										{{form.post_pic}}
+									</div>
+									<div class="divider-10"></div>
+									<div class="row">
+											<!--div class=" col-xs-4  col-xs-push-2">
+													<p><font color="red">{{capcha}}</font></p>
+			                                        <div class="g-recaptcha " style="margin-top:2px" data-sitekey="6LfuKi4UAAAAAHnjBYbhNp6FJIRKl9lKUvIR7X70"></div>
+			                                </div-->
+			                        </div>
+			                        <div class="divider-10"></div>
+	                                <div class="col-xs-push-3 col-xs-4">
+	                                	<!--font color="red"><?php echo $msg ?></font--> 
+										<div class="form-group">
+												<button type="submit"  class="btn btn-primary submitbut">Save</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	
+</html>
+   
