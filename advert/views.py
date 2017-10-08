@@ -203,6 +203,68 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
+class ReportEyeView(LoginRequiredMixin,DetailView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		#posts=Post.objects.filter(created_date__range=[ self.object.rfrom, self.object.rto]).filter(author=self.request.user)
+		posts=Post.objects.filter(Q(created_date__gte= self.object.rfrom), created_date__lte=self.object.rto).filter(author=self.request.user)
+		
+		count=posts.count()
+		context = {'report': self.object, 'posts': posts, 'count':count, 'username':request.user.username}
+
+		data['html_form'] = render_to_string('advert/includes/partial_report_view.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+
+class ReportDeleteView(LoginRequiredMixin,DeleteView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'report': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_report_delete.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		self.object=self.get_object()
+		self.object.delete()
+		return HttpResponseRedirect(reverse('advert:report'))
+
+
+class ReportSendView(LoginRequiredMixin,DeleteView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'report': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_report_send.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		report=self.get_object()
+		report.send(self.request)
+		return HttpResponseRedirect(reverse('advert:report'))		
+
+	
+
+
 
 class PostSubmitView(LoginRequiredMixin, UpdateView):
 	login_url='account/login'
