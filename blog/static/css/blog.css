@@ -1266,6 +1266,20 @@ h3{
     height:45px;
  }
 
+.grid-mod{
+  height:auto!important;
+  min-height: auto !important;
+  text-align: left;
+  padding-right: 10px;
+}
+
+
+@media only screen and (min-width: 992px){
+  .homemod .image{
+    height:400px! important;
+  }
+}
+
  @media only screen and (max-width: 992px){
  .grid-mod-card-list .storydetail h2{
    margin-left:10px !important;
@@ -1274,9 +1288,12 @@ h3{
 
 .grid-mod-card-list .storydetail .image{
   width:80px !important;
-  margin-right: 4px;
+  margin-right: 4px !important;
 }
 
+.storywrapper .image{
+
+}
 
  }
 

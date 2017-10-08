@@ -4,19 +4,18 @@
                   </div>
 
                   <div class="row">
-                  {% for post in featured_posts|slice:"0:3" %}
-                  <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
-                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
+                  {% for post in featured_posts|slice:"0:6" %}
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 pad-right"><a href="{{post.get_absolute_url}}">
+                    <div class= "wrappertwo storywrapper" style="">
+                      <div class="imagewapper">
+                        <div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+                      </div>
+                      <div class="content">
+                        <h2>{{post.title}}</h2>
+                      </div>
+                    </div> 
                   </div>
                   {% endfor %}
                 </div>
-                 <div class="row">
-                  {% for post in featured_posts|slice:"3:6" %}
-                  <div class="col-xl-4 col-lg-4 col-sm-4 pad-right"><a href="{{post.get_absolute_url}}">
-                    <img src="{{post.post_pic.url|resize:'400x347,C'}}" class="img-responsive">
-                    <h4>{{post.title}}</h4></a>
-                  </div>
-                  {% endfor %}
-                </div>
+                
                 

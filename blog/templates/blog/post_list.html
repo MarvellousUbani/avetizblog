@@ -99,17 +99,34 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">News Feed</h1>
 							</div>
-							<div class="main-top-story ">
-								{% for post in lnp|slice:":1"%}
-								<a  href="{{post.get_absolute_url}}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
-								<h4>{{post.title}}</h4></a>
+							{% for post in lnp|slice:":1" %}
+							  <div class= "wrappertwo" style="">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
+							  {% endfor %}
 
-								<hr>
-								{% endfor %}
-								
-							</div>
+							
+							 <div class="grid-mod-card-list">
+                                  	 <ul>
+							  {% for post in lnp|slice:"1:6" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
 
-							{% include 'includes/newsfeed.html' %}
+								{% endfor %}	
+								</ul>
+                                  </div>
 							{% for post in lnp|slice:"6:7"  %}
 							<div class="visible-sm-block">
 								<a href="{{post.get_absolute_url}}">
@@ -131,18 +148,17 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 					</div>
 					<div class="col-md-6 col-sm-6">
 						{% for post in lnp|slice:"7:10" %}
-						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
-						<a href="{{post.get_absolute_url}}">
-							<img class="img-responsive" src="{{post.post_pic.url}}"/>
-							<div class="post-text">
-								<h4>{{post.title}}</h4>
-								</a>
-								<!--font size="3">{{post.text|truncatechars:120|safe }}}} </font-->
-								 <span style ="color:#F83371;">By {{post.author.get_full_name}}</span>
-							</div>
-							
-						</div>
-						{% endfor %}
+						<div class= "wrappertwo homemod" style="">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
+						
+						{% endfor %}	
+						
 						
 						{% for post in lnp|slice:"10:11" %}
 						<div class="index-post dont-show"><!--dont-show-->
@@ -165,21 +181,22 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 									<h1 class="zone-title-text">Trending</h1>
 							</div>
-							{% for post in trending_posts|slice:":4" %}
-							<a href="{{post.get_absolute_url}}">
-							<div class="row sidebarrow">
-								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
-								</div>
-								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{ post.title}}</h4>
-									<!--p>{{post.text|truncatechars:40|safe}} </p-->
-								</div>
-								<br>
-							</div>
-							</a>
-							<hr>
-							{% endfor %}
+							<div class="grid-mod-card-list">
+                                  	 <ul>
+							  {% for post in trending_posts|slice:"1:6" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
+
+								{% endfor %}	
+								</ul>
+                                  </div>
 
 						</div>
 					</div>
