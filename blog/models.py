@@ -18,7 +18,7 @@ class Post(models.Model):
     title = models.CharField(max_length=400)
     text = models.TextField(blank=True)
     post_pic = models.ImageField(upload_to='media', blank=True, null=True)
-    #post_pic = models.ForeignKey(Image, null=True)
+    
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     featured_post = models.BooleanField(default=False)

@@ -72,8 +72,6 @@ INSTALLED_APPS = [
     'blog',
     'haystack',
     'imagefit',
-    #'django_image_tools',
-   # 'newsletter_signup',
     'django.contrib.sites',
 ]
 SITE_URL = 'http://avetizblog.com'
