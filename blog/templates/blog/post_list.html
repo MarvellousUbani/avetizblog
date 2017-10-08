@@ -199,7 +199,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in lnp|slice:"9:12"  %}
+						{% for post in lnp|slice:"9:11"  %}
 						 	
 						 		<div class="col-md-4 ">
 						<div class= "wrappertwo " style="">
@@ -214,9 +214,25 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						 	
 						            
 						    {% endfor %}
+						    {% for post in lnp|slice:"11:12"  %}
+						 	
+						 		<div class="col-md-4 hidden-sm ">
+						<div class= "wrappertwo " style="">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
+							</div>
+						 	
+						            
+						    {% endfor %}
+
 						</div>
 
-						<div class="row">
+						<div class="row hidden-sm">
 							<div class="adSpaceC">
 								<img src="/media/longad.gif/" class="img-responsive">
 							</div>
