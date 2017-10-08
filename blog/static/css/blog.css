@@ -1558,6 +1558,9 @@ h3{
   margin: 0 0px 14px;
   width: calc(100% );
 }
+.beside-mod{
+  min-height: 100px;
+}
 
 .grid-mod-card-list ul{
   list-style: none;
@@ -1610,13 +1613,19 @@ h3{
 
 }
 
-.wrappertwo .image{
+.beside{
+   height: 500px;
+}
+
+.image{
     
     background-size: cover;
     background-position: center center;
     height: 180px;
 }
-
+.align-mod{
+  height: 400px;
+}
 .wrappertwo h2{
   font-size: 17px;
     line-height: 19px;
