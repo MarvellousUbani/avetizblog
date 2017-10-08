@@ -187,8 +187,12 @@ padding-left:2.7%;
   margin-top: 30px;
 }
 
-.pRow{
-  margin-bottom: 20px;
+.pRow {
+    margin-bottom: 20px;
+    background-color: #fff;
+    margin-left: 4px;
+    margin-right: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2)
 }
 
 .pRow img{
@@ -556,6 +560,8 @@ nav a:hover{
     background-color: #fff;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .fPostColumn time{
