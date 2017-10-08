@@ -550,10 +550,12 @@ nav a:hover{
   color: #fff;
 }
 
-.fPostColumn{
-  padding: 0px 15px;
-  border-bottom: 3px solid #E8E8E8;
-  font-style: normal;
+.fPostColumn {
+    padding: 0px 15px;
+    font-style: normal;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
 }
 
 .fPostColumn time{
