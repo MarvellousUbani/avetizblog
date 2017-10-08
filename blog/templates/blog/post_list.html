@@ -21,7 +21,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{%endfor%}
 				{% endif %}
 				<div class="row">
-					<div class="col-md-9 col-sm-6 post-box margin-tops">
+					<div class="col-md-6 col-sm-6 post-box margin-tops">
 
 						
 							{% for post in featured_posts|slice:"0:1" %}
@@ -60,6 +60,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 						
 						<div class="sec-post-wrapper2 margin-tops ">
 							 {% for post in featured_posts|slice:"3:4" %}
+							 <a>
 							  <div class= "wrappertwo" style="">
 							  	<div class="imagewapper">
 							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
@@ -68,6 +69,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							  		<h2>{{post.title}}</h2>
 							  	</div>
 							  </div> 
+							</a>
 							  {% endfor %}
 							  <div class="grid-mod-card-list">
                                   	 <ul>
@@ -87,6 +89,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
                                   </div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</section>

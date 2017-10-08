@@ -114,7 +114,7 @@ class PostListView(ListView):
         context['entertainment_posts'] = Post.objects.filter(category__name__icontains='entertainment').filter(status__icontains='publis').order_by('-published_date')
         context['tech_posts'] = Post.objects.filter(category__name__icontains='techn').filter(status__icontains='publis').order_by('-published_date')
         context['pol_posts'] = Post.objects.filter(category__name__icontains='politics').filter(status__icontains='publis').order_by('-published_date')
-        context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )#rtrtrtrt
+        #context['post_story']=Post.objects.get(Q(category__name__icontains='my sto'), featured_post=True )#rtrtrtrt
         context['lnp']=Post.objects.filter(category__name__icontains='news').filter(status__icontains='publis').exclude(featured_post=True).order_by('-published_date')[:15]
         listed_post = Post.objects.all()
         paginator = Paginator(listed_post, self.paginate_by)
