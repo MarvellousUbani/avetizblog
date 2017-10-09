@@ -1,12 +1,14 @@
 {% extends 'blog/base.html' %}
 {% load imagefit %}
+{%load static %}
 {% block title %}
 AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 {% endblock %}
-{% block content %}
-<!-- Main Area -->
 
-	<main>
+{% block content %}
+<!-- Main Area is -->
+
+	
 
 		<section id="body-header">
 			<div class="container">
@@ -19,58 +21,117 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 				{%endfor%}
 				{% endif %}
 				<div class="row">
-					<div class="col-md-6 col-sm-6 post-box">
-						<div class="main-post-wrapper" style="background-image: url({{post.post_pic.get_thumbnail}});">
-							{% for post in featured_posts|slice:"0:1" %}
+					<div class="col-md-8 col-lg-6 col-sm-6 post-box margin-tops">
 
-							<a href="{{post.get_absolute_url}}"><img class="img-responsive topbox_img" src="{{post.post_pic.url|resize:'775x475,C'}}"/>
-
-							<div class="main-post-text-wrapper">
-								<h2><strong>{{post.title|truncatechars:100}}</strong></h2>
-								<div class="post">{{post.text|truncatechars:300|safe|capfirst}}</div>
-								<!--span class="author" style="color:#8CC34A;">AvetiZ</span-->
-								
-							</div>
-							</a>
-							{% endfor %}
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 post-box">
 						
-						<div class="sec-post-wrapper2 ">
-							<!--div>
-							<a href="{{post.get_absolute_url}}">
-									<div class="col-md-8 col-sm-7  last col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
-									border-right-style: none;" >
-										<h3>{{post_story.title|title}}</h3>
-										<p style="font-size: 18px">{{post_story.text|truncatechars:80|safe}} </p>
-									</div>
-									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third">
-									<img style="border:solid 1px #D4AF37;
-									border-left-style: none;" class="sec-img js-third" src="{{ post_story.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
-									</div>
-						    </a>
-							</div-->
-							  {% for post in featured_posts|slice:"1:5" %}
+							{% for post in featured_posts|slice:"0:1" %}
+                            <div class="main-post-wrapper" style="background-image: url({{post.post_pic.url}});">
+							<div class="content">
+								<div class="capsules">
+									<ul>
+										<li class="description breaking">
+											<span class="label">latest</span>
+										</li>
+									</ul>
+								</div> 
+								<h1>
+									<a href="{{post.get_absolute_url}}">{{post.title}}</a>
+								</h1>
+								<div class="textpost">
+									{% autoescape on %}
+									<span >{{post.text|truncatechars:100|safe}}</span>
+									{% endautoescape %}
+								</div>
+							
+								<ul class="related">
+									{% for post in featured_posts|slice:"1:3" %}
+                                   <li>
+	                                   	<a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                                   </li>
+                                   {% endfor %}
+								</ul>
+							
+							</div>
+							
+						</div>
+						{% endfor %}
+					</div>
+					<div class="col-md-4 col-lg-3 col-sm-6 ">
+						
+						<div class="sec-post-wrapper2 margin-tops ">
+							 {% for post in featured_posts|slice:"3:4" %}
+							 
+							  <div class= "wrappertwo" style="">
+							  	<a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  	</a>
+							  </div> 
+							
+							  {% endfor %}
+							  <div class="grid-mod-card-list">
+                                  	 <ul>
+							  {% for post in featured_posts|slice:"4:7" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
 
-							  	  <a href="{{post.get_absolute_url}}">
-									<div class="col-md-8 col-sm-7 {% cycle '' 'last' %} col-xs-8 second-sec-post js-third" style="border:solid 1px #D4AF37;
-									border-right-style: none;">
-										<h3>{{post.title}}</h3>
-										<!--p>{{post.text|truncatechars:90|safe}} </p-->
-									</div>
-									<div class="col-md-4 col-sm-5 col-xs-4 secondcol js-third" >
-									<img style="border:solid 1px #D4AF37;
-									border-left-style: none;"  class="sec-img js-third" src="{{ post.post_pic.url|resize:'250x250,C'}}" height="100%" class=" js-third img-responsive"/>
-									</div>
-								  </a>
 								{% endfor %}	
+								</ul>
+                                  </div>
 						</div>
 					</div>
+					<div class="col-md-3 col-lg-3 visible-lg-block visible-xlg-block  col-sm-6 ">
+						
+						<div class="sec-post-wrapper2 margin-tops ">
+							 {% for post in featured_posts|slice:"7:8" %}
+							 
+							  <div class= "wrappertwo beside" style="">
+							  	<a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align align-mod" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  	</a>
+							  </div> 
+							
+							  {% endfor %}
+							  <div class="grid-mod-card-list beside-mod">
+                                  	 <ul>
+							  {% for post in featured_posts|slice:"8:9" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
+
+								{% endfor %}	
+								</ul>
+                                  </div>
+							  
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</section>
-
+        <main>
 		<section id="body2">
 			<div class="container">
 				<div class="row">
@@ -79,76 +140,75 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 										<h1 class="zone-title-text">News Feed</h1>
 							</div>
-							<div class="main-top-story ">
-								{% for post in lnp|slice:":1"%}
-								<a  href="{{post.get_absolute_url}}"><img class="img-responsive" src="{{ post.post_pic.url }}"/>
-								<h4>{{post.title}}</h4></a>
+							{% for post in lnp|slice:":1" %}
+							  <div class= "wrappertwo " style="">
+							  	<a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </a>
+							  </div> 
+							  {% endfor %}
 
-								<hr>
-								{% endfor %}
-								
-							</div>
+							
+							 <div class="grid-mod-card-list">
+                                  	 <ul>
+							  {% for post in lnp|slice:"1:6" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
 
-							{% for post in lnp|slice:"1:6"  %}
-							<a href="{{post.get_absolute_url}}">
-							<div class="row sidebarrow">
-								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
-								</div>
-								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{post.title}}</h4>
-									<!--p>{{post.text|truncatechars:40|safe}} </p-->
-								</div>
-								<br>
-							</div>
-							</a>
-							<hr>
-							{% endfor %}
-							{% for post in lnp|slice:"6:7"  %}
-							<div class="visible-sm-block">
-								<a href="{{post.get_absolute_url}}">
-								<div class="row sidebarrow">
-									<div class="col-xl-6 col-xs-5 sidebarrowCol">
-										<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
-									</div>
-									<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-										<h4>{{post.title}}</h4>
-										<!--p>{{post.text|truncatechars:40|safe}} </p-->
-									</div>
-									<br>
-								</div>
-								</a>
-								<hr>
-						   </div>
-						   {%endfor%}
+								{% endfor %}	
+								</ul>
+                                  </div>
+							
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						{% for post in lnp|slice:"7:10" %}
-						<div class="index-post {% if forloop.first %}firstindex {% endif %}">
-						<a href="{{post.get_absolute_url}}">
-							<img class="img-responsive" src="{{post.post_pic.url}}"/>
-							<div class="post-text">
-								<h4>{{post.title}}</h4>
-								</a>
-								<!--font size="3">{{post.text|truncatechars:120|safe }}}} </font-->
-								 <span style ="color:#F83371;">By {{post.author.get_full_name}}</span>
-							</div>
-							
-						</div>
-						{% endfor %}
-						
-						{% for post in lnp|slice:"10:11" %}
-						<div class="index-post dont-show"><!--dont-show-->
-							<a href="{{post.get_absolute_url}}">
-							<img src="{{post.post_pic.url}}"/>
-							<div class="post-text">
-								<h4>{{post.title}}</h4>
+						<div class="row">
+						{% for post in lnp|slice:"6:9" %}
+						<div class="col-md-6">
+						<div class= "wrappertwo " style="">
+							    <a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
 							</a>
-								<span> <font color="#F83371">By {{post.author.get_full_name}}</font></span>
 							</div>
-						</div>
+						
 						{% endfor %}
+							
+						{% for post in lnp|slice:"12:15" %}
+						<div class="col-md-6 hidden-sm">
+						<div class= "wrappertwo " style="">
+							  	< <a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
+							</a>
+							</div>
+						
+						{% endfor %}	
+						</div>
+						
+						
 					</div>
 
 					<div class="col-md-3 dis-sidebar sidebar right">
@@ -159,21 +219,22 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 							<div class="zone-title text-center">
 									<h1 class="zone-title-text">Trending</h1>
 							</div>
-							{% for post in trending_posts|slice:":4" %}
-							<a href="{{post.get_absolute_url}}">
-							<div class="row sidebarrow">
-								<div class="col-xl-6 col-xs-5 sidebarrowCol">
-									<img class="img-responsive" src="{{post.post_pic.url|resize:'200x200,C'}}"/>
-								</div>
-								<div class="col-xl-6 col-xs-7 no-pad zone-content ">
-									<h4>{{ post.title}}</h4>
-									<!--p>{{post.text|truncatechars:40|safe}} </p-->
-								</div>
-								<br>
-							</div>
-							</a>
-							<hr>
-							{% endfor %}
+							<div class="grid-mod-card-list">
+                                  	 <ul>
+							  {% for post in trending_posts|slice:"1:6" %}
+							    
+                                  
+                                  	 	<li class="story">
+                                  	 		<a href="{{post.get_absolute_url}}">
+                                  	 			<span class="image"  style="background-image: url({{post.post_pic.url}});"></span>
+                                  	 			<h2>{{post.title|truncatechars:70}}</h2>
+                                  	 		</a>
+                                  	 	</li>
+                                  	 
+
+								{% endfor %}	
+								</ul>
+                                  </div>
 
 						</div>
 					</div>
@@ -185,19 +246,44 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 
 					<div  class="col-md-9 margin-tops ritasection col-xs-12  col-sm-6">
 					 <div class="row">
-						{% for post in lnp|slice:"11:13"  %}
-						 	<a href="{{post.get_absolute_url}}">
-							<div class="col-md-6 pad-right twopost">
-								<img class="img-responsive topStoryImg" src="{{ post.post_pic.url }}" class="img-responsive">
-								<h4 style="color: #191970">{{post.title}}</h4>
-								
-							</div>
+						{% for post in lnp|slice:"9:11"  %}
+						 	
+						 		<div class="col-md-4 ">
+						<div class= "wrappertwo " style="">
+							  	 <a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
 							</a>
+							</div>
+						 	
 						            
 						    {% endfor %}
+						    {% for post in lnp|slice:"11:12"  %}
+						 	
+						 		<div class="col-md-4 hidden-sm ">
+						<div class= "wrappertwo " style="">
+							  	 <a href="{{post.get_absolute_url}}">
+							  	<div class="imagewapper">
+							  		<div class="image image-align" style="background-image: url({{post.post_pic.url}})"></div>
+							  	</div>
+							  	<div class="content">
+							  		<h2>{{post.title}}</h2>
+							  	</div>
+							  </div> 
+							</a>
+							</div>
+						 	
+						            
+						    {% endfor %}
+
 						</div>
 
-						<div class="row">
+						<div class="row hidden-sm">
 							<div class="adSpaceC">
 								<img src="/media/longad.gif/" class="img-responsive">
 							</div>
@@ -212,6 +298,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 			</div>
 		</section>
 		</main>
+
 
 <!-- Post fh Series Section -->
 
@@ -516,7 +603,7 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 		  
 			  <div class="col-md-12">
 			  	<div class="panel panel-default">
-				  <div class="panel-heading olderPostTitle">Latest Posts</div>
+				  <div class="panel-heading olderPostTitle">Older Posts</div>
 				  <div class="panel-body">
 				  	<div class="row">
 				  	{% for post in latest_posts|slice:"0:3" %}
@@ -570,4 +657,27 @@ AvetiZ Blog | Real Estate | Buisness -AvetiZ Blog
 {% endblock %}
 {% block topimg %}
 <a href="{% url 'blog:grass_to_grace' %}"><img class="img-responsive" src="/media/success.png/"></a>
+{% endblock %}
+{% block links %}
+ <link rel="stylesheet" type="text/css" href="{% static 'css/lightslider.min.css' %}">
+ <script type="text/javascript" src = "{% static 'js/lightslider.min.js' %}"></script>
+
+{% endblock %}
+{% block script %}
+<script>
+
+  $(document).ready(function() {
+    $("#lightSlider").lightSlider({
+    	 item: 2,
+	    loop: true,
+    }); 
+  });
+
+
+
+
+    
+
+
+</script>
 {% endblock %}

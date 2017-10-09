@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^terms_of_use/$', views.TermsView.as_view(), name='terms'),#test
    url(r'^activate/$', views.activate, name='activate'),
     url(r'^addview/$', views.increaseView, name='addview'),
+    url(r'^newsfeed/$', views.newsfeed.as_view(), name='newsfeed'),
 ]
 

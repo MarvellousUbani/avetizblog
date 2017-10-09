@@ -1,0 +1,32 @@
+
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title text-center">Report Created On {{report.created_date}} by <span style="text-transform: capitalize;">{{username}}</span> </h4>
+  </div>
+  <div class="modal-body">
+    <p>A total of <span style="color:red" >{{count}}</span> post was created during these time period <span style="color:red" >{{report.rfrom}} to {{report.rto}}</span>  </p>
+    <p>{{report.description}} </p>
+    <table class="table overflow-table" id="product-table">
+          <thead >
+            <tr>
+                <th><strong>Post Title</strong></th>
+                
+                <th class=""><strong >Published Date</strong></th>
+                <th><strong>Status</strong></th>
+                
+          </tr>
+          </thead>
+          <tbody>
+                {% include 'advert/includes/partial_post_report_list.html' %}
+         </tbody>
+      </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    
+  </div>
+
+

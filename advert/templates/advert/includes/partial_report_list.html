@@ -1,0 +1,17 @@
+  {% for report in reports %}
+        <tr>
+         <td class="">{{report.created_date|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="">{{report.rfrom|date:"SHORT_DATE_FORMAT"}}</td>
+           <td class="">{{report.rto|date:"SHORT_DATE_FORMAT"}}</td>
+          <td class="">{{report.status}}</td>
+          
+          <td> <button data-toggle="tooltip"  title="View Report" data-url="{% url 'advert:report_posts' report.pk %}"  class="js-update-product buttonicon"><span><i  class="fa fa-eye" ></i></span></button>
+          <br>
+          <button data-toggle="tooltip"  title="Delete Reports" data-url="{% url 'advert:delete_report' report.pk %} "  class="js-delete-product buttonicon"><span><i style="color:#f11300 ; " class="fa fa-trash"></i></span></button>
+          <br>
+          {% if report.status == 'Not Sent' %}
+          <button data-url="{% url 'advert:send_report' report.pk %}"  data-toggle="tooltip"  title="Send Report" class="js-submit-product buttonicon"><span><i style="color:green ; " class="fa fa-send"></i></span></button>
+          {% endif %}
+          </td>
+        </tr>
+{% endfor %}

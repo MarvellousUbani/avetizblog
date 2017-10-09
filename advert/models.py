@@ -3,6 +3,13 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.http import JsonResponse, HttpResponseRedirect
+from blog.models import Post
+from django.db.models import Q
+from django.urls import reverse
 
 # Create your models here.
 class advertPlan(models.Model):
@@ -67,6 +74,39 @@ class Transaction(models.Model):
 		self.wallet.save()
 
 
+
+class Report(models.Model):
+	rfrom=models.DateField()
+	rto=models.DateField()
+	user=models.ForeignKey(User)
+	status=models.CharField(max_length=90, choices=(('Sent', 'Sent'), ('Not Sent','Not Sent')), default='Not Sent')
+	created_date=models.DateField(auto_now_add=True, null=True)
+	description=models.TextField(null=True)
+
+	def setUp(self, user):
+		self.user=user 
+		self.save()
+
+	def send(self, request):
+		posts=Post.objects.filter(Q(created_date__gte= self.rfrom), created_date__lte=self.rto).filter(author=request.user)
+		
+		count=posts.count()
+		context = {'report': self, 'posts': posts, 'count':count, 'username':request.user.username}
+		message = render_to_string('advert/includes/partial_report_view.html',context)
+		
+		mail_subject = 'Report from '+ request.user.username
+		email = EmailMessage(mail_subject, message,'contact@avetiz.com', to=['leye@avetiz.com'], reply_to=['contact@avetiz.com'],)
+		email.content_subtype = "html" 
+		try:
+			messages.success(request, 'Your Report has been sent . Thank You ')
+			email.send()
+			self.status='Sent'
+		except:
+			messages.warning(request, 'Your Report was not sent. Please try again ')	
+		
+		self.save()
+		return HttpResponseRedirect(reverse('advert:report'))
+		
 
 
 

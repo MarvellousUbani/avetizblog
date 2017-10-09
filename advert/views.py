@@ -8,9 +8,9 @@ from django.views.generic import (TemplateView,ListView,
                                   UpdateView,DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import advertForm, UserForm, ProfileForm
-from .models import Advert, Transaction, Wallet
+from .models import Advert, Transaction, Wallet, Report
 from blog.models import Post, Comment
-from .forms import  PostForm, TransactionForm
+from .forms import  PostForm, TransactionForm, reportForm
 from account.models import Profile
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponseRedirect
@@ -51,7 +51,7 @@ class postList(LoginRequiredMixin, ListView):
 	template_name='advert/post_list.html'
 	login_url='account/login'
 	context_object_name='posts'
-	paginate_by=5
+	paginate_by=10
 	def get_queryset(self):
 		return Post.objects.filter(author=self.request.user).order_by('-published_date').order_by('-created_date')
 
@@ -66,15 +66,13 @@ class AdvertListView(LoginRequiredMixin,ListView):
 
 
 class AjaxableResponseMixin(object):
-    partial_file=None
-    partial_success_file=None
+	partial_file=None
+	partial_success_file=None
 
-    def form_invalid(self, form):
-        response = super(AjaxableResponseMixin, self).form_invalid(form)
-        if self.request.is_ajax():
-            return JsonResponse(form.errors, status=400)
+	def form_invalid(self, form):
+		return HttpResponseRedirect(reverse('advert:post_list'))
         
-    def form_valid(self,form):
+	def form_valid(self,form):
 		post=form.save(commit=False)
 		post.author=self.request.user
 		post.save()
@@ -86,7 +84,7 @@ class AjaxableResponseMixin(object):
 		return HttpResponseRedirect(reverse('advert:post_list'))
 		
 
-    def render_to_json_response(self, data):
+	def render_to_json_response(self, data):
 		return JsonResponse(data)
 
 
@@ -103,6 +101,7 @@ class createPost(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 		dic = dict()
 		dic['html_form'] = render_to_string(self.partial_file, data, request=self.request)
 		return self.render_to_json_response(dic)
+	
 
 class createAdvert(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 	model=Post
@@ -129,6 +128,25 @@ class createAdvert(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
 		#dic['html_list']=render_to_string(self.partial_success_file,context,request=self.request)
 		#return JsonResponse(dic)
 		return HttpResponseRedirect(reverse('advert:advert_list'))
+
+class createReport(LoginRequiredMixin,AjaxableResponseMixin, CreateView):
+	model=Report
+	form_class=reportForm
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	partial_file='advert/includes/partial_report_create.html'
+
+	def get(self,request, *args, **kwargs):
+		form=reportForm()
+		data={'form':form}
+		dic = dict()
+		dic['html_form'] = render_to_string(self.partial_file, data, request=self.request)
+		return self.render_to_json_response(dic)
+
+	def form_valid(self,form):
+		report=form.save(commit=False)
+		report.setUp(self.request.user)
+		return HttpResponseRedirect(reverse('advert:report'))		
 
 
 class postUpdate(LoginRequiredMixin, UpdateView):
@@ -185,6 +203,68 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 		return HttpResponseRedirect(reverse('advert:post_list'))
 
 
+class ReportEyeView(LoginRequiredMixin,DetailView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		#posts=Post.objects.filter(created_date__range=[ self.object.rfrom, self.object.rto]).filter(author=self.request.user)
+		posts=Post.objects.filter(Q(created_date__gte= self.object.rfrom), created_date__lte=self.object.rto).filter(author=self.request.user)
+		
+		count=posts.count()
+		context = {'report': self.object, 'posts': posts, 'count':count, 'username':request.user.username}
+
+		data['html_form'] = render_to_string('advert/includes/partial_report_view.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+
+class ReportDeleteView(LoginRequiredMixin,DeleteView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'report': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_report_delete.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		self.object=self.get_object()
+		self.object.delete()
+		return HttpResponseRedirect(reverse('advert:report'))
+
+
+class ReportSendView(LoginRequiredMixin,DeleteView):
+	model=Report
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_report_list.html'
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'report': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_report_send.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		report=self.get_object()
+		report.send(self.request)
+		return HttpResponseRedirect(reverse('advert:report'))		
+
+	
+
+
 
 class PostSubmitView(LoginRequiredMixin, UpdateView):
 	login_url='account/login'
@@ -214,6 +294,30 @@ class PostSubmitView(LoginRequiredMixin, UpdateView):
 			dic['error_message']='No field can be empty. Make sure your upload a thumbnail for you post.'
 
 		return HttpResponseRedirect(reverse('advert:post_list'))
+
+class SendReport(LoginRequiredMixin, ListView):
+	login_url='account/login'
+	partial_success_file='advert/includes/partial_post_list.html'
+	model=Post
+	def get(self,request, *args, **kwargs):
+		data=dict()
+		self.object=self.get_object()
+		context = {'post': self.object }
+		data['html_form'] = render_to_string('advert/includes/partial_post_publish.html',
+		context,
+		request=self.request,
+		)
+		return JsonResponse(data)
+
+	def post(self,request, *args, **kwargs):
+		dic=dict()
+		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
+		context={'posts':data}
+		post=self.get_object()
+		result=post.publish()
+		if result:
+			return HttpResponseRedirect(reverse('advert:all_post_list'))
+		
 
 class PostPublishView(LoginRequiredMixin, UpdateView):
 	login_url='account/login'
@@ -254,10 +358,10 @@ class PostFeatureView(LoginRequiredMixin, UpdateView):
 		return JsonResponse(data)
 
 	def post(self,request, *args, **kwargs):
-		dic=dict()
-		data=Post.objects.filter(author=self.request.user).order_by('-published_date')
-		context={'posts':data}
 		post=self.get_object()
+		lastfeature=Post.objects.filter(featured_post=True).order_by('-created_date').reverse()[0]
+		lastfeature.featured_post=False
+		lastfeature.save()
 		post.featured_post=True
 		post.save()	
 		return HttpResponseRedirect(reverse('advert:all_post_list'))
@@ -269,7 +373,7 @@ class AuthorListView(LoginRequiredMixin, ListView):
 	login_url='account/login'
 	context_object_name='authors'
 	template_name='advert/author.html'
-	paginate_by=5
+	paginate_by=10
 
 
 class AuthorPostView(LoginRequiredMixin, ListView):
@@ -277,7 +381,7 @@ class AuthorPostView(LoginRequiredMixin, ListView):
 	login_url='account/login'
 	context_object_name='posts'
 	template_name='advert/post_list.html'
-	paginate_by=5
+	paginate_by=10
 	def get_queryset(self, *args, **kwargs):
 		pk=self.kwargs['pk']
 		return Post.objects.filter(author__pk=pk)
@@ -287,10 +391,25 @@ class AllPostView(LoginRequiredMixin, ListView):
 	login_url='account/login'
 	context_object_name='posts'
 	template_name='advert/post_list.html'
-	paginate_by=5
+	paginate_by=10
 
 	def get_queryset(self, *args, **kwargs):
 		return Post.objects.exclude(status__icontains='draft').order_by('-created_date', 'status')
+
+class ReportView(LoginRequiredMixin, ListView):
+	model=Report
+	login_url='account/login'
+	context_object_name='reports'
+	template_name='advert/report_list.html'
+	paginate_by=10
+
+	def get_queryset(self, *args, **kwargs):
+		return Report.objects.filter(user=self.request.user).order_by('-created_date')
+
+
+
+
+
 
 @login_required
 def post_publish(request, pk):
@@ -442,6 +561,8 @@ class ProfileUpdateView(LoginRequiredMixin, View):
 		latestpost=Post.objects.filter(author=self.request.user)[:4]
 		context={'user':request.user, 'userform':userform, 'profileform':profileform, 'posts':latestpost, 'xyzw':True}
 		return render(self.request, 'advert/profile.html',context)
+
+
 
 
 

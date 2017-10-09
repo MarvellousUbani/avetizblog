@@ -23,6 +23,15 @@
  	text-transform: lowercase;
  }
 
+ .beside-mod{
+  min-height: 100px;
+}
+
+
+.beside{
+   height: 500px;
+}
+
  .post-author{
  	color:#4f9acc;
  }

@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  /*font-family: 'Raleway', sans-serif;*/
+  /*font-family: 'Raleways', sans-serif;*/
   font-family: 'Arial','sans-serif';
   color:#000;
+  background-color:#f9f9f9;
  
 }
 
@@ -34,7 +35,7 @@ li{
 
 
 .headlineBorder{
-  border-bottom: 7px solid steelblue;
+  border-bottom: 7px solid red;
   margin-top: 7px;
 }
 
@@ -161,7 +162,7 @@ padding-left:2.7%;
 }
 
 .bPCol{
-  background-color: #F6F6F6;
+  
   padding: 20px 15px 30px 15px;
 }
 
@@ -186,8 +187,12 @@ padding-left:2.7%;
   margin-top: 30px;
 }
 
-.pRow{
-  margin-bottom: 20px;
+.pRow {
+    margin-bottom: 20px;
+    background-color: #fff;
+    margin-left: 4px;
+    margin-right: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2)
 }
 
 .pRow img{
@@ -222,7 +227,7 @@ nav a:hover{
   
   /*min-height: 100px;*/
   /*background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_174,o_80,w_254,x_1910,y_75/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170815-laswin-melania-tease_ysv3sw)  ;*/
-  background-color: #c00;
+  background-color: #000;
   background-repeat:no-repeat;
   background-position: center; 
   background-size: cover;
@@ -256,11 +261,19 @@ nav a:hover{
 
 .post-box{
   padding:0px;
+  height:600px;
 }
+
+@media only screen and (max-width: 992px){
+  .post-box{
+  height:600px;
+}
+
+  }
 
 .second-sec-post{
   /*background-image:url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_228,o_80,w_361,x_1248,y_880/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170818-Stern-Game-Of-Thrones-hero_bcmcab);*/
-  background-image: url(/media/blue.jpg/);
+  
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -286,14 +299,14 @@ nav a:hover{
 }
 .secondcol{
   padding :0px;
-  max-height: 106px;
+  max-height: 83.3333px;
 }
 .sec-img{
   height: 106px;
   width:100%;
 }
 .topbox_img{
-  
+  height:100%;
   width:100%;
 }
 
@@ -314,7 +327,7 @@ nav a:hover{
 
 .last{
   /*background-image: url(http://img.thedailybeast.com/image/upload/dpr_1.0/b_rgb:02141f,c_crop,d_placeholder_euli9k,e_blur:2000,f_jpg,h_74,o_80,w_42,x_1013,y_966/e_saturation:50/c_limit,w_684/fl_lossy,q_auto/170820-woodruff-arpaio-pardon-tease_qg8yvc);*/
-  background-image: url(/media/gold.jpg);    
+   
   background-repeat:no-repeat;
   background-position: center;
   background-size: cover;
@@ -541,10 +554,14 @@ nav a:hover{
   color: #fff;
 }
 
-.fPostColumn{
-  padding: 0px 15px;
-  border-bottom: 3px solid #E8E8E8;
-  font-style: normal;
+.fPostColumn {
+    padding: 0px 15px;
+    font-style: normal;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .fPostColumn time{
@@ -562,7 +579,7 @@ nav a:hover{
 }
 
 .fPostTitle a{
-  /*font-family: Helvetica;*/
+  /*font-family: Helvetica; nawao*/
   font-family: 'Arial','sans-serif';
   font-size: 20px;
 }
@@ -921,9 +938,167 @@ h3{
 }
 .main-post-text-wrapper h2{
   font-size: 22px;
+
  
 
 }
+
+.main-post-wrapper{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+.capsules{
+    bottom: initial;
+    left: initial;
+    position: absolute;
+    z-index: 2;
+}
+
+.main-post-wrapper .content{
+  padding-top:350px;
+
+}
+
+
+.capsules li{
+  font-size: 12px;
+    line-height: 16px;
+    float: left;
+    margin-right: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.15);
+    height: 20px;
+    background: #fff;
+}
+
+.capsules .breaking {
+    background: #ec1a2e;
+}
+
+.capsules .label{
+  display: inline-block;
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+.main-post-wrapper h1{
+  margin-left: 40px;
+}
+.main-post-wrapper h1 a{
+
+    font-size: 48px;
+    line-height: 52px;
+    margin-bottom: 12px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    text-decoration: none;
+    font-family:  'Fira Sans', sans-serif; 
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .main-post-wrapper h1 a{
+    font-size: 20px;
+    line-height:10px;
+  }
+  .textpost span{
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .main-post-wrapper{
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .main-post-wrapper .content {
+    padding-top: 200px;
+}
+
+/*hg*/
+.related a{
+  font-size: 15px;
+}
+}
+
+@media only screen and (min-width: 992px) {
+   
+  .main-post-wrapper .content {
+    padding-top: 350px;
+}
+  }
+
+@media only screen and (max-width: 767px) {
+   .main-post-wrapper .content {
+    padding-top: 100px;
+}
+.main-post-wrapper{
+  margin-left: 14px;
+  margin-right: 14px;
+}
+.main-post-wrapper h1 a{
+    font-size: 18px;
+    line-height:7px;
+  }
+
+  .textpost span{
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  }
+.textpost{
+  margin-left: 40px;
+}
+
+.related {
+    
+    margin: 0 20px 10px;
+    padding-left: 0px;
+}
+
+.related a{
+  color: #fff;
+  position: relative;
+    z-index: 2;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.related li{
+  font-size: 20px;
+    line-height: 24px;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 5px;
+   
+
+}
+
+.related li::before {
+  content: "• ";
+  color: red; /* or whatever color you prefer */
+}
+
+.textpost span{
+  color:#fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+
+    
+
+    
+
+
+}
+
 .main-post-text-wrapper strong{
    font-weight: 600;
 }
@@ -1097,6 +1272,41 @@ h3{
 
  .dont-show-logo img{
     height:45px;
+ }
+
+.grid-mod{
+  height:auto!important;
+  min-height: auto !important;
+  text-align: left;
+  padding-right: 10px;
+}
+
+
+@media only screen and (min-width: 992px){
+  .homemod .image{
+    height:350px! important;
+  }
+
+  .homemod{
+    height:500px !important;
+  }
+}
+
+ @media only screen and (max-width: 992px){
+ .grid-mod-card-list .storydetail h2{
+   margin-left:10px !important;
+   font-size: 11px !important;
+}
+
+.grid-mod-card-list .storydetail .image{
+  width:80px !important;
+  margin-right: 4px !important;
+}
+
+.storywrapper .image{
+
+}
+
  }
 
 @media only screen and (min-width: 1200px){
@@ -1273,7 +1483,7 @@ h3{
 
 @media only screen and (max-width: 1000px){
 .container {
-    max-width: 90% !important;
+    max-width: 99% !important;
   }
 
   .navcontainChild{
@@ -1285,7 +1495,7 @@ h3{
 @media (min-width: 1200px){
 
 .container {
-    width: 1170px;
+    width: 97%;
   }
 
   .navcontainChild{
@@ -1299,7 +1509,7 @@ h3{
 
 @media only screen and (max-width:768px){
   .container{
-    width:95%;
+    width:99%;
   }
 }
 
@@ -1330,6 +1540,104 @@ h3{
 
 }
 
+/** light sliders **/
+.bheader{
+  background-color: #fff;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
 
-/* hggh*/
-/* hggyt */
+/* hgghe*/
+
+.marginleft{
+  margin-left: 4px;
+}
+
+.grid-mod-card-list{
+  min-height: 290px;
+  margin: 0 0px 14px;
+  width: calc(100% );
+}
+.beside-mod{
+  min-height: 100px;
+}
+
+.grid-mod-card-list ul{
+  list-style: none;
+  padding-left: 0px;
+}
+
+.grid-mod-card-list .story{
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    height: 83.33333px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.grid-mod-card-list .story .image {
+    float: left;
+    width: 120px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center}
+
+
+.grid-mod-card-list .story h2{
+
+    font-size: 14px;
+    line-height: 18px;
+    margin-left: 120px;
+    max-width: 260px;
+    padding: 5px 10px;
+    color:#281e1e;
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif; 
+}
+
+.wrappertwo{
+  height: 290px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  width: calc(100% );
+    margin: 0 0px 14px;
+    display: table;
+    background-color: #fff;
+
+}
+
+.wrappertwo .imagewrapper{
+    height: auto;
+    position: relative;
+    display: table-row;
+
+}
+
+.beside{
+   height: 500px;
+}
+
+.image{
+    
+    background-size: cover;
+    background-position: center center;
+    height: 180px;
+}
+.align-mod{
+  height: 400px;
+}
+.wrappertwo h2{
+  font-size: 17px;
+    line-height: 19px;
+    padding: 20px 20px 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-top: 0px;
+    font-family: 'Fira Sans', sans-serif; 
+}
+}
+
+.image-align {
+    background-position: top center !important;
+}
+

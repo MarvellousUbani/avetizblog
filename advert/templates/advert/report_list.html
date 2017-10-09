@@ -1,0 +1,62 @@
+{% extends 'advert/base.html' %}
+{% block content %}
+
+<main id="maincontent">
+  <section class="manage">
+    <div class="container">
+      <div class="row">
+      	<div class="col-md-10 js-post-list ">
+      	<div class="panel-body">
+      	  <div class="tablehead">	
+			  <div class="job_title">Manage Reports</div>
+			  <button class="createbtn btn btn-primary js-add-product  "  data-url="{% url 'advert:create_report' %}">Create Report <i class="fa fa-plus" ></i></button>
+		  </div>
+		    <table class="table overflow-table" id="product-table">
+		      <thead >
+		      	<tr>
+			          <th><strong>Created On</strong></th>
+			          <th class =""><strong>From</strong></th>
+			          <th class=""><strong >To</strong></th>
+			          <th><strong>Status</strong></th>
+			          <th><strong>Action</strong></th>
+			    </tr>
+		      </thead>
+		      <tbody>
+          			{% include 'advert/includes/partial_report_list.html' %}
+			   </tbody>
+			</table>
+			{% if is_paginated %}
+			  <ul class="pagination">
+			    {% if page_obj.has_previous %}
+			      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+			    {% else %}
+			      <li class="disabled"><span>&laquo;</span></li>
+			    {% endif %}
+			    {% for i in paginator.page_range %}
+			      {% if page_obj.number == i %}
+			        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+			      {% else %}
+			        <li><a href="?page={{ i }}">{{ i }}</a></li>
+			      {% endif %}
+			    {% endfor %}
+			    {% if page_obj.has_next %}
+			      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+			    {% else %}
+			      <li class="disabled"><span>&raquo;</span></li>
+			    {% endif %}
+			  </ul>
+			{% endif %}
+			</div>
+         </div>
+      </div>
+    </div>
+  </section>
+    <div class="modal " id="modal-product">
+
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+</main>
+
+{% endblock %}
